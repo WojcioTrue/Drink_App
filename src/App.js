@@ -1,10 +1,11 @@
 import Searchbar from "./SearchBar";
 
-
 function App() {
   return (
     <>
-      <Searchbar/>
+      <div class="main-container">
+        <Searchbar />
+      </div>
     </>
   );
 }
