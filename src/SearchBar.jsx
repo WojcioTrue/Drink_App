@@ -1,19 +1,19 @@
 const Searchbar = () => {
   return (
-    <div class="search-bar">
+    <div className="search-bar">
       <h2>
-        <i class="fa-solid fa-martini-glass-citrus search-bar__logo"> </i>
+        <i className="fa-solid fa-martini-glass-citrus search-bar__logo"> </i>
         FindMyDrink.
       </h2>
-      <span class="search-bar__input">
+      <span className="search-bar__input">
         <input
           type="text"
-          value=""
+          // value=""
           id="SearchDrink"
           name="SearchDrink"
           placeholder="Search"
         />
-        <i class="fa-solid fa-magnifying-glass icon"></i>
+        <i className="fa-solid fa-magnifying-glass icon"></i>
       </span>
     </div>
   );

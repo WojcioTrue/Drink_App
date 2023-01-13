@@ -1,10 +1,12 @@
 import Searchbar from "./SearchBar";
+import CoctailsContainer from "./CoctailsContainer";
 
 function App() {
   return (
     <>
-      <div class="main-container">
+      <div className="main-container">
         <Searchbar />
+        <CoctailsContainer />
       </div>
     </>
   );
