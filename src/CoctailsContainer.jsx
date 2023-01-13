@@ -6,27 +6,27 @@ const CoctailsContainer = () => {
           <h3>Select category:</h3>
           <ul>
             <li>
-              <img src="src/icons/category_icons/whiskey.png" />
+              <img alt="#" src="src/icons/category_icons/whiskey.png" />
               <p>Whisky</p>
             </li>
             <li>
-              <img src="src/icons/category_icons/bourbon.png" />
+              <img alt="#" src="src/icons/category_icons/bourbon.png" />
               <p>Burbon</p>
             </li>
             <li>
-              <img src="src/icons/category_icons/vodka.png" />
+              <img alt="#" src="src/icons/category_icons/vodka.png" />
               <p>Vodka</p>
             </li>
             <li>
-              <img src="src/icons/category_icons/gin.png" />
+              <img alt="#" src="src/icons/category_icons/gin.png" />
               <p>Gin</p>
             </li>
             <li>
-              <img src="src/icons/category_icons/Tequila.png" />
+              <img alt="#" src="src/icons/category_icons/Tequila.png" />
               <p>Tequila</p>
             </li>
             <li>
-              <img src="src/icons/category_icons/Rum.png" />
+              <img alt="#" src="src/icons/category_icons/Rum.png" />
               <p>Rum</p>
             </li>
           </ul>
@@ -36,7 +36,7 @@ const CoctailsContainer = () => {
           <div className="grid-coctails">
             <section className="grid-coctails__product">
               <div>
-                <img src="src/icons/category.jpg" />
+                <img alt="#" src="src/icons/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
                 <i className="fa-solid fa-circle-plus add-favourite"></i>
@@ -44,7 +44,7 @@ const CoctailsContainer = () => {
             </section>
             <section className="grid-coctails__product">
               <div>
-                <img src="src/icons/category.jpg" />
+                <img alt="#" src="src/icons/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
                 <i className="fa-solid fa-circle-plus add-favourite"></i>
@@ -52,7 +52,7 @@ const CoctailsContainer = () => {
             </section>
             <section className="grid-coctails__product">
               <div>
-                <img src="src/icons/category.jpg" />
+                <img alt="#" src="src/icons/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
                 <i className="fa-solid fa-circle-plus add-favourite"></i>
@@ -60,7 +60,7 @@ const CoctailsContainer = () => {
             </section>
             <section className="grid-coctails__product">
               <div>
-                <img src="src/icons/category.jpg" />
+                <img alt="#" src="src/icons/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
                 <i className="fa-solid fa-circle-plus add-favourite"></i>
