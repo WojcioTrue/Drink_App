@@ -1,9 +1,10 @@
-import React from "react";
+import Searchbar from "./SearchBar";
+
 
 function App() {
   return (
     <>
-      <div class="main-container"></div>
+      <Searchbar/>
     </>
   );
 }
