@@ -1,4 +1,5 @@
 import "./styles/coctails_container.css";
+import "./styles/coctails_favourite.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -79,15 +80,15 @@ const CoctailsContainer = () => {
         <ul>
           <li>
             <h4>favourite 1</h4>
-            <FontAwesomeIcon icon={faMinusCircle} />
+            <FontAwesomeIcon icon={faMinusCircle} className="remove-favourite"/>
           </li>
           <li>
             <h4>favourite 2</h4>
-            <FontAwesomeIcon icon={faMinusCircle} />
+            <FontAwesomeIcon icon={faMinusCircle} className="remove-favourite"/>
           </li>
           <li>
             <h4>favourite 3</h4>
-            <FontAwesomeIcon icon={faMinusCircle} />
+            <FontAwesomeIcon icon={faMinusCircle} className="remove-favourite"/>
           </li>
         </ul>
       </section>

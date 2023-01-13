@@ -5,7 +5,7 @@ import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
 
 const NotificationPrompt = () => {
   return (
-    <div class="favourite-notification">
+    <div className="favourite-notification">
       <p>
         Added to favourite drinks ! 
       </p>
