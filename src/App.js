@@ -2,6 +2,8 @@ import Searchbar from "./SearchBar";
 import CoctailsContainer from "./CoctailsContainer";
 import "./styles/main_container.css";
 import FavButton from './FavButton'
+import NotificationPrompt from "./NotificationPrompt";
+import CoctailFull from "./CoctailFull";
 function App() {
   return (
     <>
@@ -9,6 +11,8 @@ function App() {
         <Searchbar />
         <CoctailsContainer />
         <FavButton />
+        <NotificationPrompt />
+        <CoctailFull />
       </div>
     </>
   );
