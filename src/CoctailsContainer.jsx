@@ -1,6 +1,6 @@
 import "./styles/coctails_container.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMinus } from '@fortawesome/free-solid-svg-icons'
+import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 const CoctailsContainer = () => {
   return (
@@ -44,7 +44,7 @@ const CoctailsContainer = () => {
                 <img alt="#" src="./img/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
-                <i className="fa-solid fa-circle-plus add-favourite"></i>
+                <FontAwesomeIcon icon={faPlusCircle} className="add-favourite"/>
               </div>
             </section>
             <section className="grid-coctails__product">
@@ -52,7 +52,7 @@ const CoctailsContainer = () => {
                 <img alt="#" src="./img/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
-                <i className="fa-solid fa-circle-plus add-favourite"></i>
+                <FontAwesomeIcon icon={faPlusCircle} className="add-favourite"/>
               </div>
             </section>
             <section className="grid-coctails__product">
@@ -60,7 +60,7 @@ const CoctailsContainer = () => {
                 <img alt="#" src="./img/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
-                <i className="fa-solid fa-circle-plus add-favourite"></i>
+                <FontAwesomeIcon icon={faPlusCircle} className="add-favourite"/>
               </div>
             </section>
             <section className="grid-coctails__product">
@@ -68,7 +68,7 @@ const CoctailsContainer = () => {
                 <img alt="#" src="./img/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
-                <i className="fa-solid fa-circle-plus add-favourite"></i>
+                <FontAwesomeIcon icon={faPlusCircle} className="add-favourite"/>
               </div>
             </section>
           </div>
@@ -79,15 +79,15 @@ const CoctailsContainer = () => {
         <ul>
           <li>
             <h4>favourite 1</h4>
-            <FontAwesomeIcon icon={faMinus} />
+            <FontAwesomeIcon icon={faMinusCircle} />
           </li>
           <li>
             <h4>favourite 2</h4>
-            <FontAwesomeIcon icon={faMinus} />
+            <FontAwesomeIcon icon={faMinusCircle} />
           </li>
           <li>
             <h4>favourite 3</h4>
-            <FontAwesomeIcon icon={faMinus} />
+            <FontAwesomeIcon icon={faMinusCircle} />
           </li>
         </ul>
       </section>
