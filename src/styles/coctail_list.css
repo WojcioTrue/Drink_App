@@ -1,0 +1,65 @@
+.coctails-main .list-coctails h3 {
+    font-size: 1.25rem;
+    color: #1C0B19;
+  }
+  .coctails-main .list-coctails .grid-coctails {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    padding: 10px 10px;
+  }
+  .coctails-main .list-coctails .grid-coctails .grid-coctails__product {
+    background-color: #FDFDFD;
+    border-radius: 20px;
+    padding: 20px 10px;
+    max-width: 250px;
+    box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+    -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+    -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+  }
+  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div {
+    position: relative;
+  }
+  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div img {
+    position: relative;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div h4 {
+    margin-bottom: 0px;
+    color: #1C0B19;
+  }
+  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div p {
+    color: #808080;
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+  }
+  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div .add-favourite {
+    float: right;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div .add-favourite path {
+    fill: rgb(255, 91, 31);
+  }
+  
+  @media only screen and (min-width: 576px) {
+    .coctails-main .list-coctails .grid-coctails {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .coctails-main .list-coctails .grid-coctails {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    .coctails-container {
+      flex-direction: row;
+    }
+    .coctails-main {
+      width: 75%;
+    }
+  }
