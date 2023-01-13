@@ -24,6 +24,3 @@ const CoctailsFavourite = () => {
 }
 
 export default CoctailsFavourite
-
-
-{/*  */}
