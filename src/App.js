@@ -1,5 +1,6 @@
 import Searchbar from "./SearchBar";
 import CoctailsContainer from "./CoctailsContainer";
+import "./styles/main_container.css"
 
 function App() {
   return (

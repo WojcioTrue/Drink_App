@@ -1,3 +1,5 @@
+import "./styles/coctails_container.css"
+
 const CoctailsContainer = () => {
   return (
     <div className="coctails-container">
