@@ -1,5 +1,5 @@
 import "./styles/coctail_list.css";
-import CoctailElement from "./CoctailElement";
+import CoctailElement from "./CoctailListElement";
 
 const CoctailList = () => {
   return (

@@ -1,5 +1,5 @@
 import "./styles/coctails_container.css";
-import CoctailsFavourite from "./CoctailsFavourite";
+import CoctailsFavourite from "./FavList";
 import CategoriesList from "./CategoriesList";
 import CoctailList from "./CoctailList";
 
