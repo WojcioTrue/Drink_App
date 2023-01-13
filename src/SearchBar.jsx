@@ -1,10 +1,12 @@
 import "./styles/search_bar.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass, faMartiniGlassCitrus } from "@fortawesome/free-solid-svg-icons";
 
 const Searchbar = () => {
   return (
     <div className="search-bar">
       <h2>
-        <i className="fa-solid fa-martini-glass-citrus search-bar__logo"> </i>
+      <FontAwesomeIcon icon={faMartiniGlassCitrus} className="search-bar__logo"/>
         FindMyDrink.
       </h2>
       <span className="search-bar__input">
@@ -15,7 +17,8 @@ const Searchbar = () => {
           name="SearchDrink"
           placeholder="Search"
         />
-        <i className="fa-solid fa-magnifying-glass icon"></i>
+        <FontAwesomeIcon icon={faMagnifyingGlass} className="icon"/>
+        
       </span>
     </div>
   );
