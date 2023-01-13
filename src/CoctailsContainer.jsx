@@ -1,4 +1,6 @@
-import "./styles/coctails_container.css"
+import "./styles/coctails_container.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
 
 const CoctailsContainer = () => {
   return (
@@ -18,6 +20,7 @@ const CoctailsContainer = () => {
             <li>
               <img alt="#" src="./img/category_icons/vodka.png" />
               <p>Vodka</p>
+              
             </li>
             <li>
               <img alt="#" src="./img/category_icons/gin.png" />
@@ -38,7 +41,7 @@ const CoctailsContainer = () => {
           <div className="grid-coctails">
             <section className="grid-coctails__product">
               <div>
-                <img alt="#" src="src/icons/category.jpg" />
+                <img alt="#" src="./img/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
                 <i className="fa-solid fa-circle-plus add-favourite"></i>
@@ -46,7 +49,7 @@ const CoctailsContainer = () => {
             </section>
             <section className="grid-coctails__product">
               <div>
-                <img alt="#" src="src/icons/category.jpg" />
+                <img alt="#" src="./img/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
                 <i className="fa-solid fa-circle-plus add-favourite"></i>
@@ -54,7 +57,7 @@ const CoctailsContainer = () => {
             </section>
             <section className="grid-coctails__product">
               <div>
-                <img alt="#" src="src/icons/category.jpg" />
+                <img alt="#" src="./img/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
                 <i className="fa-solid fa-circle-plus add-favourite"></i>
@@ -62,7 +65,7 @@ const CoctailsContainer = () => {
             </section>
             <section className="grid-coctails__product">
               <div>
-                <img alt="#" src="src/icons/category.jpg" />
+                <img alt="#" src="./img/category.jpg" />
                 <h4>Name of Coctail</h4>
                 <p>Description of Coctail</p>
                 <i className="fa-solid fa-circle-plus add-favourite"></i>
@@ -76,15 +79,15 @@ const CoctailsContainer = () => {
         <ul>
           <li>
             <h4>favourite 1</h4>
-            <i className="fa-solid fa-circle-minus remove-favourite"></i>
+            <FontAwesomeIcon icon={faMinus} />
           </li>
           <li>
             <h4>favourite 2</h4>
-            <i className="fa-solid fa-circle-minus remove-favourite"></i>
+            <FontAwesomeIcon icon={faMinus} />
           </li>
           <li>
             <h4>favourite 3</h4>
-            <i className="fa-solid fa-circle-minus remove-favourite"></i>
+            <FontAwesomeIcon icon={faMinus} />
           </li>
         </ul>
       </section>
