@@ -1,6 +1,6 @@
+import "./styles/main_container.css";
 import Searchbar from "./SearchBar";
 import CoctailsContainer from "./CoctailsContainer";
-import "./styles/main_container.css";
 import FavButton from "./FavButton";
 import NotificationPrompt from "./NotificationPrompt";
 import CoctailFull from "./CoctailFull";

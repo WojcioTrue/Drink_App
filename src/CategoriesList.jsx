@@ -1,4 +1,4 @@
-import "./styles/categories_list.css"
+import "./styles/categories_list.css";
 
 const CategoriesList = () => {
   return (
