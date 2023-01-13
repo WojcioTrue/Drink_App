@@ -1,4 +1,4 @@
-import FavouriteListElement from "./FavouriteListElement";
+import FavouriteListElement from "./FavListElement";
 
 const CoctailsFavourite = () => {
   return (
