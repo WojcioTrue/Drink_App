@@ -1,4 +1,4 @@
-import "./styles/coctail_fullscreen_prompt.css";
+import "./styles/coctail_fullscreen.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
