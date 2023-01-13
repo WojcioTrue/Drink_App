@@ -8,27 +8,27 @@ const CoctailsContainer = () => {
           <h3>Select category:</h3>
           <ul>
             <li>
-              <img alt="#" src="src/icons/category_icons/whiskey.png" />
+              <img alt="#" src={"./img/category_icons/whiskey.png"} />
               <p>Whisky</p>
             </li>
             <li>
-              <img alt="#" src="src/icons/category_icons/bourbon.png" />
+              <img alt="#" src="./img/category_icons/bourbon.png" />
               <p>Burbon</p>
             </li>
             <li>
-              <img alt="#" src="src/icons/category_icons/vodka.png" />
+              <img alt="#" src="./img/category_icons/vodka.png" />
               <p>Vodka</p>
             </li>
             <li>
-              <img alt="#" src="src/icons/category_icons/gin.png" />
+              <img alt="#" src="./img/category_icons/gin.png" />
               <p>Gin</p>
             </li>
             <li>
-              <img alt="#" src="src/icons/category_icons/Tequila.png" />
+              <img alt="#" src="./img/category_icons/Tequila.png" />
               <p>Tequila</p>
             </li>
             <li>
-              <img alt="#" src="src/icons/category_icons/Rum.png" />
+              <img alt="#" src="./img/category_icons/Rum.png" />
               <p>Rum</p>
             </li>
           </ul>
