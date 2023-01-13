@@ -1,4 +1,5 @@
 import FavouriteListElement from "./FavListElement";
+import "./styles/fav_list.css";
 
 const CoctailsFavourite = () => {
   return (

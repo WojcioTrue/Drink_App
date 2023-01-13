@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
-import "./styles/coctails_favourite.css";
 
 const FavouriteListElement = () => {
   return (
