@@ -3,11 +3,11 @@ import CoctailsFavourite from "./FavList";
 import CategoriesList from "./CategoriesList";
 import CoctailList from "./CoctailList";
 
-const CoctailsContainer = ({drinkData}) => {
+const CoctailsContainer = ({drinkData, getCategory}) => {
   return (
     <div className="coctails-container">
       <div className="coctails-main">
-        <CategoriesList />
+        <CategoriesList getCategory={getCategory}/>
         <CoctailList drinkData={drinkData}/>
       </div>
       <CoctailsFavourite />

@@ -8,27 +8,27 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [drinkData, setDdrinkData] = useState();
-  
+  const [category, setCategory] = useState("Vodka");
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(
-        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka"
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${category}`
       );
-  
+
       const response = await data.json();
       await setDdrinkData(response);
     };
     fetchData();
-  },[]);
-  
-  
+  }, [category]);
+
+  const getCategory = (id) => setCategory(id);
 
   return (
     <>
       <div className="main-container">
         <Searchbar />
-        <CoctailsContainer drinkData={drinkData}/>
+        <CoctailsContainer drinkData={drinkData} getCategory={getCategory}/>
         <FavButton />
         <NotificationPrompt />
         <CoctailFull />
