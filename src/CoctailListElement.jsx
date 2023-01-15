@@ -1,17 +1,29 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
-const CoctailElement = () => {
+const CoctailElement = ({ drinkData }) => {
   return (
-    <section className="grid-coctails__product">
-          <div>
-            <img alt="#" src="./img/category.jpg" />
-            <h4>Name of Coctail</h4>
-            <p>Description of Coctail</p>
-            <FontAwesomeIcon icon={faPlusCircle} className="add-favourite" />
-          </div>
-        </section>
-  )
-}
+    <>
+      {drinkData
+        ? drinkData.drinks.map((element) => {
+            return (
+              <section key={element.idDrink} className="grid-coctails__product">
+                <div>
+                  <img alt="#" src={element.strDrinkThumb} />
+                  <h4>{element.strDrink}</h4>
+                  <p>Description of Coctail</p>
+                  <FontAwesomeIcon
+                    icon={faPlusCircle}
+                    className="add-favourite"
+                  />
+                </div>
+              </section>
+            );
+          })
+        : "Loading"}
+      {/*  */}
+    </>
+  );
+};
 
-export default CoctailElement
+export default CoctailElement;

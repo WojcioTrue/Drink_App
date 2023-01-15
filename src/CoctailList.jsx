@@ -1,12 +1,12 @@
 import "./styles/coctail_list.css";
 import CoctailElement from "./CoctailListElement";
 
-const CoctailList = () => {
+const CoctailList = ({drinkData}) => {
   return (
     <div className="list-coctails">
       <h3>List of coctails:</h3>
       <div className="grid-coctails">
-        <CoctailElement />
+        <CoctailElement drinkData={drinkData}/>
       </div>
     </div>
   );

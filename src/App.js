@@ -7,17 +7,17 @@ import CoctailFull from "./CoctailFullScreen";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [drinkArray, setDrinkArray] = useState();
-
+  const [drinkData, setDdrinkData] = useState();
+  
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(
-        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin"
+        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka"
       );
   
       const response = await data.json();
-      await setDrinkArray(response);
+      await setDdrinkData(response);
     };
     fetchData();
   },[]);
@@ -28,7 +28,7 @@ function App() {
     <>
       <div className="main-container">
         <Searchbar />
-        <CoctailsContainer />
+        <CoctailsContainer drinkData={drinkData}/>
         <FavButton />
         <NotificationPrompt />
         <CoctailFull />
