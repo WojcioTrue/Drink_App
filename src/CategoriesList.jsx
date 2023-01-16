@@ -11,11 +11,11 @@ const CategoriesList = ({getCategory}) => {
     <div className="categories-list">
       <h3>Select category:</h3>
       <ul>
-        <li value="whisky" onClick={changeCategory}>
+        <li value="Whiskey" onClick={changeCategory}>
           <img alt="#" src={"./img/category_icons/whiskey.png"} />
           <p>Whisky</p>
         </li>
-        <li value="Burbon" onClick={changeCategory}>
+        <li value="Bourbon" onClick={changeCategory}>
           <img alt="#" src="./img/category_icons/bourbon.png" />
           <p>Burbon</p>
         </li>
