@@ -3,9 +3,6 @@ import "./CategoryListElement";
 import CategoryListElement from "./CategoryListElement";
 
 const CategoryList = ({ getCategory }) => {
-  function changeCategory(e) {
-    getCategory(e.currentTarget.getAttribute("value"));
-  }
 
   return (
     <div className="categories-list">
