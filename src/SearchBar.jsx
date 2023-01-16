@@ -13,6 +13,16 @@ const Searchbar = () => {
     setSearchDrink(e.target.value);
   };
 
+  const findByName = async () => {
+    const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchDrink}`);
+    
+    const data = await response.json();
+    console.clear();
+    console.log(data);
+  }
+
+  findByName();
+
   return (
     <div className="search-bar">
       <h2>
@@ -22,7 +32,6 @@ const Searchbar = () => {
         />
         FindMyDrink.
       </h2>
-      <p>{searchDrink}</p>
       <span className="search-bar__input">
         <input
           type="text"

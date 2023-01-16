@@ -11,12 +11,13 @@ const CoctailElement = ({ drinkData }) => {
                 <div>
                   <img alt="#" src={element.strDrinkThumb} />
                   <h4>{element.strDrink}</h4>
-                  <p>Description of Coctail</p>
-                  <FontAwesomeIcon
+                  <p>Description of Coctail Description of Coctail Description of Coctail Description of Coctail Description of Coctail</p>
+                  
+                </div>
+                <FontAwesomeIcon
                     icon={faPlusCircle}
                     className="add-favourite"
                   />
-                </div>
               </section>
             );
           })
