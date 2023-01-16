@@ -1,40 +1,56 @@
 import "./styles/categories_list.css";
+import "./CategoryListElement";
+import CategoryListElement from "./CategoryListElement";
 
-const CategoryList = ({getCategory}) => {
-
+const CategoryList = ({ getCategory }) => {
   function changeCategory(e) {
     getCategory(e.currentTarget.getAttribute("value"));
   }
-
 
   return (
     <div className="categories-list">
       <h3>Select category:</h3>
       <ul>
-        <li value="Whiskey" onClick={changeCategory}>
-          <img alt="#" src={"./img/category_icons/whiskey.png"} />
-          <p>Whisky</p>
-        </li>
-        <li value="Bourbon" onClick={changeCategory}>
-          <img alt="#" src="./img/category_icons/bourbon.png" />
-          <p>Burbon</p>
-        </li>
-        <li value="Vodka" onClick={changeCategory}>
-          <img alt="#" src="./img/category_icons/vodka.png" />
-          <p>Vodka</p>
-        </li>
-        <li value="Gin" onClick={changeCategory}>
-          <img alt="#" src="./img/category_icons/gin.png" />
-          <p>Gin</p>
-        </li>
-        <li value="Tequila" onClick={changeCategory}>
-          <img alt="#" src="./img/category_icons/Tequila.png" />
-          <p>Tequila</p>
-        </li>
-        <li value="Rum" onClick={changeCategory}>
-          <img alt="#" src="./img/category_icons/Rum.png" />
-          <p>Rum</p>
-        </li>
+        <CategoryListElement
+          value={"Whiskey"}
+          imgSrc={"./img/category_icons/whiskey.png"}
+          text={"Whiskey"}
+          getCategory={getCategory}
+        />
+        <CategoryListElement
+          value={"Bourbon"}
+          imgSrc={"./img/category_icons/bourbon.png"}
+          text={"Burbon"}
+          getCategory={getCategory}
+        />
+
+        <CategoryListElement
+          value={"Vodka"}
+          imgSrc={"./img/category_icons/vodka.png"}
+          text={"Vodka"}
+          getCategory={getCategory}
+        />
+
+        <CategoryListElement
+          value={"Gin"}
+          imgSrc={"./img/category_icons/gin.png"}
+          text={"Gin"}
+          getCategory={getCategory}
+        />
+
+        <CategoryListElement
+          value={"Tequila"}
+          imgSrc={"./img/category_icons/Tequila.png"}
+          text={"Tequila"}
+          getCategory={getCategory}
+        />
+
+        <CategoryListElement
+          value={"Rum"}
+          imgSrc={"./img/category_icons/Rum.png"}
+          text={"Rum"}
+          getCategory={getCategory}
+        />
       </ul>
     </div>
   );
