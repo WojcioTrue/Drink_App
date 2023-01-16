@@ -1,8 +1,18 @@
 import "./styles/search_bar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faMartiniGlassCitrus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faMartiniGlassCitrus,
+} from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 const Searchbar = () => {
+  const [searchDrink, setSearchDrink] = useState("");
+
+  const drinkToSearch = (e) => {
+    setSearchDrink(e.target.value);
+  };
+
   return (
     <div className="search-bar">
       <h2>
@@ -12,13 +22,15 @@ const Searchbar = () => {
         />
         FindMyDrink.
       </h2>
+      <p>{searchDrink}</p>
       <span className="search-bar__input">
         <input
           type="text"
-          // value=""
+          value={searchDrink}
           id="SearchDrink"
           name="SearchDrink"
           placeholder="Search"
+          onChange={drinkToSearch}
         />
         <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
       </span>
