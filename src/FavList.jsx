@@ -1,7 +1,8 @@
 import FavouriteListElement from "./FavListElement";
 import "./styles/fav_list.css";
 
-const CoctailsFavourite = () => {
+const CoctailsFavourite = ({listOfFav}) => {
+  console.log(listOfFav);
   return (
     <section className="coctails-favourite">
       <h3>Favourite drinks:</h3>

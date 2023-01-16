@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [drinkData, setDdrinkData] = useState();
   const [category, setCategory] = useState("Vodka");
+  const [listOfFav, setListOfFav] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,16 +25,18 @@ function App() {
 
   const getCategory = (id) => setCategory(id);
 
-  const [listOfFav, setListOfFav] = useState([]);
-
-
-  const addToFav = (argument) => console.log(argument, listOfFav);
+  const addToFav = (argument) => setListOfFav([argument, ...listOfFav]);
 
   return (
     <>
       <div className="main-container">
         <Searchbar />
-        <CoctailsContainer drinkData={drinkData} getCategory={getCategory} addToFav={addToFav}/>
+        <CoctailsContainer
+          drinkData={drinkData}
+          getCategory={getCategory}
+          addToFav={addToFav}
+          listOfFav={listOfFav}
+        />
         <FavButton />
         <NotificationPrompt />
         <CoctailFull />
