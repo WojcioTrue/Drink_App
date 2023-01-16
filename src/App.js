@@ -24,13 +24,16 @@ function App() {
 
   const getCategory = (id) => setCategory(id);
 
-  const initFavourite = (argument) => console.log(argument);
+  const [listOfFav, setListOfFav] = useState([]);
+
+
+  const addToFav = (argument) => console.log(argument, listOfFav);
 
   return (
     <>
       <div className="main-container">
         <Searchbar />
-        <CoctailsContainer drinkData={drinkData} getCategory={getCategory} initFavourite={initFavourite}/>
+        <CoctailsContainer drinkData={drinkData} getCategory={getCategory} addToFav={addToFav}/>
         <FavButton />
         <NotificationPrompt />
         <CoctailFull />

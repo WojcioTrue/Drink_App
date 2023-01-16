@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
-const CoctailElement = ({ drinkData, initFavourite }) => {
+const CoctailElement = ({ drinkData, addToFav }) => {
   return (
     <>
       {drinkData
@@ -17,7 +17,7 @@ const CoctailElement = ({ drinkData, initFavourite }) => {
                 <FontAwesomeIcon
                     icon={faPlusCircle}
                     className="add-favourite"
-                    onClick={() => initFavourite(`${element.strDrink} ${element.idDrink}`)}
+                    onClick={() => addToFav(`${element.strDrink} ${element.idDrink}`)}
                   />
               </section>
             );
