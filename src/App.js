@@ -24,11 +24,13 @@ function App() {
 
   const getCategory = (id) => setCategory(id);
 
+  const initFavourite = (argument) => console.log(argument);
+
   return (
     <>
       <div className="main-container">
         <Searchbar />
-        <CoctailsContainer drinkData={drinkData} getCategory={getCategory}/>
+        <CoctailsContainer drinkData={drinkData} getCategory={getCategory} initFavourite={initFavourite}/>
         <FavButton />
         <NotificationPrompt />
         <CoctailFull />

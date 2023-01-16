@@ -1,16 +1,16 @@
 import "./styles/coctails_container.css";
-import CoctailsFavourite from "./FavList";
+import FavList from "./FavList";
 import CategoryList from "./CategoryList";
 import CoctailList from "./CoctailList";
 
-const CoctailsContainer = ({drinkData, getCategory}) => {
+const CoctailsContainer = ({drinkData, getCategory, initFavourite}) => {
   return (
     <div className="coctails-container">
       <div className="coctails-main">
         <CategoryList getCategory={getCategory}/>
-        <CoctailList drinkData={drinkData}/>
+        <CoctailList drinkData={drinkData} initFavourite={initFavourite}/>
       </div>
-      <CoctailsFavourite />
+      <FavList />
     </div>
   );
 };
