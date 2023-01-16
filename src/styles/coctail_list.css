@@ -40,10 +40,11 @@
     margin-right: 10px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
   }
   .coctails-main .list-coctails .grid-coctails .grid-coctails__product div .add-favourite path {
     fill: rgb(255, 91, 31);
-    cursor: pointer;
+    
   }
   
   @media only screen and (min-width: 576px) {
