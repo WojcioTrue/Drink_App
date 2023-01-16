@@ -1,6 +1,6 @@
 import "./styles/categories_list.css";
 
-const CategoriesList = ({getCategory}) => {
+const CategoryList = ({getCategory}) => {
 
   function changeCategory(e) {
     getCategory(e.currentTarget.getAttribute("value"));
@@ -40,4 +40,4 @@ const CategoriesList = ({getCategory}) => {
   );
 };
 
-export default CategoriesList;
+export default CategoryList;
