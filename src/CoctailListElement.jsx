@@ -12,13 +12,14 @@ const CoctailElement = ({ drinkData, addToFav }) => {
                   <img alt="#" src={element.strDrinkThumb} />
                   <h4>{element.strDrink}</h4>
                   <p>Description of Coctail</p>
-                  
                 </div>
                 <FontAwesomeIcon
-                    icon={faPlusCircle}
-                    className="add-favourite"
-                    onClick={() => addToFav(`${element.strDrink} ${element.idDrink}`)}
-                  />
+                  icon={faPlusCircle}
+                  className="add-favourite"
+                  onClick={() =>
+                    addToFav({ name: element.strDrink, id: element.idDrink })
+                  }
+                />
               </section>
             );
           })
