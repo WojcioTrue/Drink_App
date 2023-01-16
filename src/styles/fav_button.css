@@ -6,6 +6,7 @@
   right: 20px;
   bottom: 20px;
   border-radius: 100px;
+  cursor: pointer;
 }
 .fav-button img {
   width: 40px;
