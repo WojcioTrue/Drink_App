@@ -25,7 +25,16 @@ function App() {
 
   const getCategory = (id) => setCategory(id);
 
-  const addToFav = (argument) => setListOfFav([argument, ...listOfFav]);
+  const addToFav = (argument) => {
+    const elementExist = listOfFav.some(
+      (element) => element.id === argument.id
+    );
+    if (elementExist) {
+      console.log("element się powtarza");
+    } else {
+      setListOfFav([argument, ...listOfFav]);
+    }
+  };
 
   return (
     <>

@@ -9,7 +9,11 @@ const root = ReactDOM.createRoot(container);
 root.render(<Index />);
 
 function Index() {
-  return <App />;
+  return (
+    <React.StrictMode>
+      <App />;
+    </React.StrictMode>
+  );
 }
 
 export default Index;
