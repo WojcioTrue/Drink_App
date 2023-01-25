@@ -9,19 +9,20 @@ import { useState } from "react";
 const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
 
-  const drinkToSearch = (e) => {
-    setSearchDrink(e.target.value);
-  };
-
   const findByName = async () => {
-    const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchDrink}`);
-    
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchDrink}`
+    );
+
     const data = await response.json();
 
-    // console.log(data);
-  }
+    console.log(data);
+  };
 
-  findByName();
+  const drinkToSearch = (e) => {
+    findByName();
+    setSearchDrink(e.target.value);
+  };
 
   return (
     <div className="search-bar">
