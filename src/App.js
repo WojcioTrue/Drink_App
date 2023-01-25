@@ -36,6 +36,11 @@ function App() {
     }
   };
 
+  const removeFav = (id) => {
+    const filteredList = listOfFav.filter((element) => element.id !== id);
+    setListOfFav(filteredList);
+  };
+
   return (
     <>
       <div className="main-container">
@@ -45,6 +50,7 @@ function App() {
           getCategory={getCategory}
           addToFav={addToFav}
           listOfFav={listOfFav}
+          removeFav={removeFav}
         />
         <FavButton />
         <NotificationPrompt />
