@@ -23,7 +23,7 @@ const SearchBarSuggestions = ({ drinkList }) => {
     <div className="search-bar__suggestions">
       <ul>
         {listToMap && 
-            listToMap.map((element) => <li key={element.idDrink}>{element.strDrink}</li>)
+            listToMap.map((element) => <SearchBarListElement key={element.idDrink} name={element.strDrink}/>)
         }
       </ul>
     </div>
