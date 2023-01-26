@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import SearchBarSuggestions from "./SearchBarSuggestions"
 const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
   const [drinkList, setDrinkList] = useState();
@@ -61,14 +61,7 @@ const Searchbar = () => {
           onChange={drinkToSearch}
         />
         <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
-        <div className="search-bar__suggestions">
-          <ul>
-            <li>
-              <img alt="" src={"./img/category.jpg"} />
-              Drink 1 Drink 1 Drink 1 Drink 1 Drink 1 Drink 1 Drink 1{" "}
-            </li>
-          </ul>
-        </div>
+        <SearchBarSuggestions/>
       </span>
     </div>
   );
