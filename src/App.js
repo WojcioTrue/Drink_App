@@ -10,6 +10,7 @@ function App() {
   const [drinkData, setDdrinkData] = useState();
   const [category, setCategory] = useState("Vodka");
   const [listOfFav, setListOfFav] = useState([]);
+  const [addedTrigger, setAddedTrigger] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +27,7 @@ function App() {
   const getCategory = (id) => setCategory(id);
 
   const addToFav = (argument) => {
+    setAddedTrigger(true);
     const elementExist = listOfFav.some(
       (element) => element.id === argument.id
     );
@@ -41,6 +43,14 @@ function App() {
     setListOfFav(filteredList);
   };
 
+  // useEffect for notification prompt 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAddedTrigger(false)
+    },500);
+    return () => clearTimeout(timer);
+  },[addedTrigger]);
+
   return (
     <>
       <div className="main-container">
@@ -53,7 +63,7 @@ function App() {
           removeFav={removeFav}
         />
         <FavButton />
-        <NotificationPrompt />
+        {addedTrigger &&<NotificationPrompt />}
         <CoctailFull />
       </div>
     </>

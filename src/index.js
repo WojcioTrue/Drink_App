@@ -11,7 +11,7 @@ root.render(<Index />);
 function Index() {
   return (
     <React.StrictMode>
-      <App />;
+      <App />
     </React.StrictMode>
   );
 }
