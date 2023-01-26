@@ -1,7 +1,7 @@
-const SearchBarListElement = ({name}) => {
+const SearchBarListElement = ({name, img}) => {
   return (
     <li>
-      <img alt="" src={"./img/category.jpg"} />
+      <img alt="" src={img} />
       {name}
     </li>
   );
