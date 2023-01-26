@@ -1,16 +1,33 @@
+import { useEffect, useState } from "react";
+import SearchBarListElement from "./SearchBarListElement";
 
+const SearchBarSuggestions = ({ drinkList }) => {
+  const [listToMap, setListToMap] = useState();
+  useEffect(() => {
+    display();
+  }, [drinkList]);
 
-const SearchBarSuggestions = () => {
+  async function display() {
+    if (drinkList) {
+      if (!drinkList.drinks) {
+        console.log("nie ma takich drinków");
+      } else {
+        setListToMap(drinkList.drinks);
+      }
+    } else {
+      console.log("loading");
+    }
+  }
+
   return (
     <div className="search-bar__suggestions">
-          <ul>
-            <li>
-              <img alt="" src={"./img/category.jpg"} />
-              Drink 1 Drink 1 Drink 1 Drink 1 Drink 1 Drink 1 Drink 1{" "}
-            </li>
-          </ul>
-        </div>
-  )
-}
+      <ul>
+        {listToMap && 
+            listToMap.map((element) => <li key={element.idDrink}>{element.strDrink}</li>)
+        }
+      </ul>
+    </div>
+  );
+};
 
-export default SearchBarSuggestions
+export default SearchBarSuggestions;

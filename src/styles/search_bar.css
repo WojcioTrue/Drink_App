@@ -68,6 +68,7 @@
   flex-wrap: nowrap;
   align-items: center;
   border-bottom: 1px solid white;
+  cursor: pointer;
 }
 .search-bar__input .search-bar__suggestions ul li img {
   border-radius: 10px;
