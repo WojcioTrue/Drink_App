@@ -19,8 +19,6 @@ const SearchBarSuggestions = ({ drinkList }) => {
     display();
   }, [drinkList]);
 
-  console.log(listToMap);
-
   return (
     <div className="search-bar__suggestions">
       <ul>

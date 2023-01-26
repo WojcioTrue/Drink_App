@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
   padding: 0px 15px;
 }
+
 .search-bar h2 {
   color: #1C0B19;
 }
@@ -12,6 +12,7 @@
 .search-bar__logo {
   padding-right: 5px;
 }
+
 .search-bar__logo path {
   fill: #1C0B19;
 }
@@ -22,15 +23,18 @@
   max-width: 500px;
   height: 35px;
 }
+
 .search-bar__input .icon {
   position: absolute;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
 }
+
 .search-bar__input .icon path {
   fill: #1C0B19;
 }
+
 .search-bar__input input[id=SearchDrink] {
   width: 100%;
   height: 100%;
@@ -42,27 +46,32 @@
   outline: 1px solid #EAEAEA;
   transition: outline 0.3s ease-out;
 }
+
 .search-bar__input input[id=SearchDrink]:focus {
   transition: outline 0.3s ease-out;
   outline: 1px solid #1C0B19;
 }
-.search-bar__input input[id=SearchDrink]:focus ~ .search-bar__suggestions {
+
+.search-bar__input input[id=SearchDrink]:focus~.search-bar__suggestions {
   display: block;
 }
+
 .search-bar__input .search-bar__suggestions {
   position: relative;
   z-index: 5;
   display: none;
   margin-top: 5px;
-  background-color: #EAEAEA;
+  background-color: #eaeaeaec;
   border-radius: 15px;
-  
+
 }
+
 .search-bar__input .search-bar__suggestions ul {
   margin: 0px;
   list-style: none;
   padding: 0px;
 }
+
 .search-bar__input .search-bar__suggestions ul li {
   padding: 5px 10px;
   font-weight: bold;
@@ -73,12 +82,14 @@
   border-bottom: 1px solid white;
   cursor: pointer;
 }
+
 .search-bar__input .search-bar__suggestions ul li img {
   border-radius: 5px;
   height: 30px;
   width: 30px;
   margin-right: 10px;
 }
+
 .search-bar__input .search-bar__suggestions ul li:last-child {
   border-bottom: 0px;
 }

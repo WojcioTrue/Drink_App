@@ -18,10 +18,10 @@ const Searchbar = () => {
       );
 
       const data = await response.json();
-      if (searchDrink.length > 0) {
-        await setDrinkList(data);
-      }
+
+      await setDrinkList(data);
     };
+
     fetchData();
   }, [searchDrink]);
 
@@ -46,11 +46,13 @@ const Searchbar = () => {
           value={searchDrink}
           id="SearchDrink"
           name="SearchDrink"
-          placeholder="Search"
+          placeholder="Search for drink"
           onChange={drinkToSearch}
         />
         <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
-        <SearchBarSuggestions drinkList={drinkList} />
+        {Boolean(searchDrink.length) && 
+          <SearchBarSuggestions drinkList={drinkList} />
+        }
       </span>
     </div>
   );
