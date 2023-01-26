@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import SearchBarListElement from "./SearchBarListElement";
+import { faFaceSadCry } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SearchBarSuggestions = ({ drinkList }) => {
   const [listToMap, setListToMap] = useState();
-
   useEffect(() => {
     async function display() {
       if (drinkList) {
         if (!drinkList.drinks) {
-          console.log("nie ma takich drinków");
+          setListToMap(false);
         } else {
           setListToMap(drinkList.drinks);
         }
@@ -22,14 +23,14 @@ const SearchBarSuggestions = ({ drinkList }) => {
   return (
     <div className="search-bar__suggestions">
       <ul>
-        {listToMap &&
+        {listToMap ?
           listToMap.map((element) => (
             <SearchBarListElement
               key={element.idDrink}
               name={element.strDrink}
               img={element.strDrinkThumb}
             />
-          ))}
+          )) : <SearchBarListElement img={"./img/category_icons/face-sad-tear-solid.svg"} name={"There is no such drink..."}/>}
       </ul>
     </div>
   );
