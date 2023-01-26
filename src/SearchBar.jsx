@@ -18,7 +18,7 @@ const Searchbar = () => {
       );
 
       const data = await response.json();
-      console.log(data);
+      await setDrinkList(data);
     };
     fetchData();
   }, [searchDrink]);
@@ -26,6 +26,19 @@ const Searchbar = () => {
   const drinkToSearch = (e) => {
     setSearchDrink(e.target.value);
   };
+
+  async function display() {
+    if (drinkList) {
+      if (!drinkList.drinks) {
+        console.log("nie ma takich drinków");
+      } else {
+        console.log(drinkList.drinks);
+      }
+    } else {
+      console.log("loading");
+    }
+  }
+  display();
 
   return (
     <div className="search-bar">
@@ -48,6 +61,14 @@ const Searchbar = () => {
           onChange={drinkToSearch}
         />
         <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
+        <div className="search-bar__suggestions">
+          <ul>
+            <li>
+              <img alt="" src={"./img/category.jpg"} />
+              Drink 1 Drink 1 Drink 1 Drink 1 Drink 1 Drink 1 Drink 1{" "}
+            </li>
+          </ul>
+        </div>
       </span>
     </div>
   );
