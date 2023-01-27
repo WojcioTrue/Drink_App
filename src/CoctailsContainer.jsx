@@ -8,7 +8,7 @@ const CoctailsContainer = ({drinkData, getCategory, addToFav, listOfFav,removeFa
     <div className="coctails-container">
       <div className="coctails-main">
         <CategoryList getCategory={getCategory}/>
-        <CoctailList drinkData={drinkData} addToFav={addToFav}/>
+        <CoctailList drinkData={drinkData} addToFav={addToFav} removeFav={removeFav}/>
       </div>
       <FavList listOfFav={listOfFav} removeFav={removeFav}/>
     </div>

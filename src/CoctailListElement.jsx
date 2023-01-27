@@ -3,8 +3,9 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-const CoctailElement = ({ id, name, imgSrc, addToFav }) => {
+const CoctailElement = ({ id, name, imgSrc, addToFav, removeFav }) => {
   const [inFavourite, setInFavourite] = useState(false);
+
   return (
     <section className="grid-coctails__product">
       <div>
@@ -16,18 +17,19 @@ const CoctailElement = ({ id, name, imgSrc, addToFav }) => {
         <FontAwesomeIcon
           icon={faMinusCircle}
           className="add-favourite remove-color"
-          onClick={() => setInFavourite((prev) => !prev)}
+          onClick={() => {
+            setInFavourite((prev) => !prev);
+            removeFav(id);
+          }}
         />
       ) : (
         <FontAwesomeIcon
           icon={faPlusCircle}
           className="add-favourite"
-          onClick={() =>
-            addToFav(
-              { name: name, id: id },
-              setInFavourite((prev) => !prev)
-            )
-          }
+          onClick={() => {
+            addToFav({ name: name, id: id });
+            setInFavourite((prev) => !prev);
+          }}
         />
       )}
     </section>

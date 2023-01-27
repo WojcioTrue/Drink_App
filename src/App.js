@@ -43,13 +43,13 @@ function App() {
     setListOfFav(filteredList);
   };
 
-  // useEffect for notification prompt 
+  // useEffect for notification prompt
   useEffect(() => {
     const timer = setTimeout(() => {
-      setAddedTrigger(false)
-    },500);
+      setAddedTrigger(false);
+    }, 500);
     return () => clearTimeout(timer);
-  },[addedTrigger]);
+  }, [addedTrigger]);
 
   return (
     <>
@@ -63,7 +63,7 @@ function App() {
           removeFav={removeFav}
         />
         <FavButton />
-        {addedTrigger &&<NotificationPrompt />}
+        {addedTrigger && <NotificationPrompt />}
         <CoctailFull />
       </div>
     </>
