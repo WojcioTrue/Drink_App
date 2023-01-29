@@ -42,7 +42,6 @@ function App() {
     const filteredList = listOfFav.filter((element) => element.id !== id);
     setListOfFav(filteredList);
   };
-
   // useEffect for notification prompt
   useEffect(() => {
     const timer = setTimeout(() => {

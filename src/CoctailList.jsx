@@ -1,7 +1,7 @@
 import "./styles/coctail_list.css";
 import CoctailElement from "./CoctailListElement";
 
-const CoctailList = ({ drinkData, addToFav, removeFav }) => {
+const CoctailList = ({ drinkData, addToFav, removeFav,listOfFav }) => {
   return (
     <div className="list-coctails">
       <h3>List of coctails:</h3>
@@ -18,6 +18,7 @@ const CoctailList = ({ drinkData, addToFav, removeFav }) => {
                   imgSrc={element.strDrinkThumb}
                   addToFav={addToFav}
                   removeFav={removeFav}
+                  listOfFav={listOfFav}
                 />
               ))
             : "Loading"}
