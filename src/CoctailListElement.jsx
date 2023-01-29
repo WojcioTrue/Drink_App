@@ -14,14 +14,12 @@ const CoctailElement = ({
 }) => {
   const [inFavourite, setInFavourite] = useState(false);
 
-  const checkOnList = () => {
-    return listOfFav.some((drink) => drink.id === id);
-  };
-
   useEffect(() => {
-    const isOnList = checkOnList();
+    const isOnList = () => {
+      return listOfFav.some((drink) => drink.id === id);
+    };
     setInFavourite(isOnList);
-  },[listOfFav]);
+  }, [listOfFav]);
 
   return (
     <section className="grid-coctails__product">
