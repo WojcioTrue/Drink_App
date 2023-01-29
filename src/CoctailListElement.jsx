@@ -15,9 +15,9 @@ const CoctailElement = ({
   const [inFavourite, setInFavourite] = useState(false);
 
   useEffect(() => {
-    const isOnList = () => {
+    function isOnList() {
       return listOfFav.some((drink) => drink.id === id);
-    };
+    }
     setInFavourite(isOnList);
   }, [listOfFav]);
 
