@@ -5,6 +5,8 @@ import FavButton from "./FavButton";
 import NotificationPrompt from "./NotificationPrompt";
 import CoctailFull from "./CoctailFullScreen";
 import { useState, useEffect } from "react";
+import ContextComponent from './context/Context';
+
 
 function App() {
   const [drinkData, setDdrinkData] = useState();
@@ -51,7 +53,7 @@ function App() {
   }, [addedTrigger]);
 
   return (
-    <>
+    <ContextComponent>
       <div className="main-container">
         <Searchbar />
         <CoctailsContainer
@@ -65,7 +67,7 @@ function App() {
         {addedTrigger && <NotificationPrompt />}
         <CoctailFull />
       </div>
-    </>
+    </ContextComponent>
   );
 }
 
