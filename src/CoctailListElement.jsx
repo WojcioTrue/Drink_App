@@ -26,7 +26,6 @@ const CoctailElement = ({
       <div>
         <img alt="#" src={imgSrc} />
         <h4>{name}</h4>
-        <p>Description of Coctail</p>
       </div>
       {inFavourite ? (
         <FontAwesomeIcon
