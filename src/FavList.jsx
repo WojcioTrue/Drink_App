@@ -7,7 +7,7 @@ const CoctailsFavourite = ({ listOfFav, removeFav }) => {
   let afterSlice;
   const sliceFavourite = () => {
     if (listOfFavourite.length >= 4) {
-      afterSlice = listOfFavourite.slice(0, 4).map(({ name, id }) => {
+      afterSlice = listOfFavourite.slice(0, 5).map(({ name, id }) => {
         return (
           <FavouriteListElement
             key={id}
@@ -35,7 +35,7 @@ const CoctailsFavourite = ({ listOfFav, removeFav }) => {
     <section className="coctails-favourite">
       <h3>Favourite drinks {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:</h3>
       <ul>{afterSlice}</ul>    
-      <h4>{listOfFavourite.length > 4 && `Check all favourite drinks`}</h4>
+      <h4>{listOfFavourite.length > 5 && `Check all favourite drinks`}</h4>
     </section>
   );
 };

@@ -56,9 +56,9 @@ function App() {
         <Searchbar />
         <CoctailsContainer
           drinkData={drinkData}
+          listOfFav={listOfFav}
           getCategory={getCategory}
           addToFav={addToFav}
-          listOfFav={listOfFav}
           removeFav={removeFav}
         />
         <FavButton />
