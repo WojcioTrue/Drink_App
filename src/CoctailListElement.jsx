@@ -19,7 +19,7 @@ const CoctailElement = ({
       return listOfFav.some((drink) => drink.id === id);
     }
     setInFavourite(isOnList);
-  }, [listOfFav]);
+  }, [listOfFav, id]);
 
   return (
     <section className="grid-coctails__product">
