@@ -5,7 +5,6 @@ import FavButton from "./FavButton";
 import NotificationPrompt from "./NotificationPrompt";
 import CoctailFull from "./CoctailFullScreen";
 import { useContext } from "react";
-
 import { MyContext } from "./context/ContextComponent";
 function App() {
   const { addedTrigger } = useContext(MyContext);

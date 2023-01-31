@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 const CoctailList = () => {
   const {drinkData} = useContext(MyContext);
+
   return (
     <div className="list-coctails">
       <h3>List of coctails:</h3>
