@@ -4,6 +4,7 @@ import CategoryList from "./CategoryList";
 import CoctailList from "./CoctailList";
 
 const CoctailsContainer = () => {
+  
   return (
     <div className="coctails-container">
       <div className="coctails-main">

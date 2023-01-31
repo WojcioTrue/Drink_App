@@ -1,8 +1,9 @@
-import { useState, useEffect, createContext } from "react"
+import { useState, useEffect, createContext } from "react";
 
-export const MyContext = createContext()
+export const MyContext = createContext();
 
-const ContextComponent = ({children}) => {
+const ContextComponent = ({ children }) => {
+  
   const [drinkData, setDdrinkData] = useState();
   const [category, setCategory] = useState("Vodka");
   const [listOfFav, setListOfFav] = useState([]);
@@ -46,21 +47,20 @@ const ContextComponent = ({children}) => {
     return () => clearTimeout(timer);
   }, [addedTrigger]);
 
-
-
-
   return (
-    <MyContext.Provider value={{
-      addedTrigger,
-      drinkData,
-      addToFav,
-      removeFav,
-      getCategory,
-      listOfFav
-   } }>
-        {children}
+    <MyContext.Provider
+      value={{
+        addedTrigger,
+        drinkData,
+        addToFav,
+        removeFav,
+        getCategory,
+        listOfFav,
+      }}
+    >
+      {children}
     </MyContext.Provider>
-  )
-}
+  );
+};
 
-export default ContextComponent
+export default ContextComponent;

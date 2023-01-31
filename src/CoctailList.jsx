@@ -4,7 +4,8 @@ import { MyContext } from "./context/ContextComponent";
 import { useContext } from "react";
 
 const CoctailList = () => {
-  const {drinkData} = useContext(MyContext);
+  
+  const { drinkData } = useContext(MyContext);
 
   return (
     <div className="list-coctails">
