@@ -1,9 +1,10 @@
 import FavouriteListElement from "./FavListElement";
 import "./styles/fav_list.css";
-
-const CoctailsFavourite = ({ listOfFav, removeFav }) => {
-  const listOfFavourite = listOfFav;
-
+import { useContext } from "react";
+import { MyContext } from "./context/ContextComponent";
+const CoctailsFavourite = () => {
+  const {listOfFav} = useContext(MyContext);
+  let listOfFavourite = listOfFav;
   let afterSlice;
   const sliceFavourite = () => {
     if (listOfFavourite.length >= 4) {
@@ -12,7 +13,6 @@ const CoctailsFavourite = ({ listOfFav, removeFav }) => {
           <FavouriteListElement
             key={id}
             name={name}
-            removeFav={removeFav}
             id={id}
           />
         );
@@ -23,7 +23,6 @@ const CoctailsFavourite = ({ listOfFav, removeFav }) => {
           <FavouriteListElement
             key={id}
             name={name}
-            removeFav={removeFav}
             id={id}
           />
         );
@@ -33,8 +32,11 @@ const CoctailsFavourite = ({ listOfFav, removeFav }) => {
   sliceFavourite();
   return (
     <section className="coctails-favourite">
-      <h3>Favourite drinks {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:</h3>
-      <ul>{afterSlice}</ul>    
+      <h3>
+        Favourite drinks{" "}
+        {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:
+      </h3>
+      <ul>{afterSlice}</ul>
       <h4>{listOfFavourite.length > 5 && `Check all favourite drinks`}</h4>
     </section>
   );

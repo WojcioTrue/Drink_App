@@ -1,8 +1,11 @@
 import "./styles/categories_list.css";
 import "./CategoryListElement";
 import CategoryListElement from "./CategoryListElement";
+import { useContext } from "react";
+import { MyContext } from "./context/ContextComponent";
+const CategoryList = () => {
 
-const CategoryList = ({ getCategory }) => {
+  const {getCategory} = useContext(MyContext);
 
   return (
     <div className="categories-list">

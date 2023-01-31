@@ -1,19 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { MyContext } from "./context/ContextComponent";
 
-const CoctailElement = ({
-  id,
-  name,
-  imgSrc,
-  addToFav,
-  removeFav,
-  listOfFav,
-}) => {
+const CoctailElement = ({ id, name, imgSrc }) => {
   const [inFavourite, setInFavourite] = useState(false);
-
+  const { addToFav, removeFav,listOfFav } = useContext(MyContext);
   useEffect(() => {
     function isOnList() {
       return listOfFav.some((drink) => drink.id === id);

@@ -3,14 +3,14 @@ import FavList from "./FavList";
 import CategoryList from "./CategoryList";
 import CoctailList from "./CoctailList";
 
-const CoctailsContainer = ({drinkData, getCategory, addToFav, listOfFav,removeFav}) => {
+const CoctailsContainer = () => {
   return (
     <div className="coctails-container">
       <div className="coctails-main">
-        <CategoryList getCategory={getCategory}/>
-        <CoctailList drinkData={drinkData} addToFav={addToFav} removeFav={removeFav} listOfFav={listOfFav}/>
+        <CategoryList />
+        <CoctailList />
       </div>
-      <FavList listOfFav={listOfFav} removeFav={removeFav}/>
+      <FavList />
     </div>
   );
 };
