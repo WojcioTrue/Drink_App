@@ -2,11 +2,12 @@ import { useState, useEffect, createContext } from "react";
 
 export const MyContext = createContext();
 
+const localFavList = JSON.parse(localStorage.getItem("fav-list"));
+
 const ContextComponent = ({ children }) => {
-  
   const [drinkData, setDdrinkData] = useState();
   const [category, setCategory] = useState("Vodka");
-  const [listOfFav, setListOfFav] = useState([]);
+  const [listOfFav, setListOfFav] = useState(localFavList);
   const [addedTrigger, setAddedTrigger] = useState(false);
 
   // fetch data with category variables (default "Vodka")
@@ -24,6 +25,11 @@ const ContextComponent = ({ children }) => {
 
   // get category from CategoryListElement
   const getCategory = (id) => setCategory(id);
+
+  //local storage for favourite list
+  useEffect(() => {
+    localStorage.setItem("fav-list", JSON.stringify(listOfFav));
+  }, [listOfFav]);
 
   // display prompt and add drink to favourite
   const addToFav = (argument) => {
