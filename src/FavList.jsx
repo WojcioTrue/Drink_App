@@ -4,20 +4,19 @@ import { useContext } from "react";
 import { MyContext } from "./context/ContextComponent";
 
 const CoctailsFavourite = () => {
-
   const { listOfFav } = useContext(MyContext);
 
-  let listOfFavourite = listOfFav;
+  const listOfFavourite = listOfFav;
   let afterSlice;
+  const returnFavourite = ({name, id}) => {
+    return <FavouriteListElement key={id} name={name} id={id} />;
+  }
+
   const sliceFavourite = () => {
     if (listOfFavourite.length >= 4) {
-      afterSlice = listOfFavourite.slice(0, 5).map(({ name, id }) => {
-        return <FavouriteListElement key={id} name={name} id={id} />;
-      });
+      afterSlice = listOfFavourite.slice(0, 5).map(returnFavourite);
     } else {
-      afterSlice = listOfFavourite.map(({ name, id }) => {
-        return <FavouriteListElement key={id} name={name} id={id} />;
-      });
+      afterSlice = listOfFavourite.map(returnFavourite);
     }
   };
   sliceFavourite();
