@@ -9,6 +9,7 @@ const ContextComponent = ({ children }) => {
   const [listOfFav, setListOfFav] = useState([]);
   const [addedTrigger, setAddedTrigger] = useState(false);
 
+  // fetch data with category variables (default "Vodka")
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(
@@ -21,8 +22,10 @@ const ContextComponent = ({ children }) => {
     fetchData();
   }, [category]);
 
+  // get category from CategoryListElement
   const getCategory = (id) => setCategory(id);
 
+  // display prompt and add drink to favourite
   const addToFav = (argument) => {
     setAddedTrigger(true);
     const elementExist = listOfFav.some(
@@ -34,7 +37,7 @@ const ContextComponent = ({ children }) => {
       setListOfFav([argument, ...listOfFav]);
     }
   };
-
+  // remove element with the same id using filter method
   const removeFav = (id) => {
     const filteredList = listOfFav.filter((element) => element.id !== id);
     setListOfFav(filteredList);
