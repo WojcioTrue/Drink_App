@@ -13,7 +13,7 @@ const CoctailsFavourite = () => {
   }
 
   const sliceFavourite = () => {
-    if (listOfFavourite.length >= 4) {
+    if ( listOfFavourite.length >= 4) {
       afterSlice = listOfFavourite.slice(0, 5).map(returnFavourite);
     } else {
       afterSlice = listOfFavourite.map(returnFavourite);

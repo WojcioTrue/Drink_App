@@ -2,14 +2,21 @@ import { useState, useEffect, createContext } from "react";
 
 export const MyContext = createContext();
 
+//initialization of local storage
 const localFavList = JSON.parse(localStorage.getItem("fav-list"));
-
+// set default empty array [] if local storage don't have items
+const CheckLocal = () => {
+  if (localFavList == null) {
+    return [];
+  } else {
+    return localFavList;
+  }
+};
 const ContextComponent = ({ children }) => {
   const [drinkData, setDdrinkData] = useState();
   const [category, setCategory] = useState("Vodka");
-  const [listOfFav, setListOfFav] = useState(localFavList);
+  const [listOfFav, setListOfFav] = useState(CheckLocal);
   const [addedTrigger, setAddedTrigger] = useState(false);
-
   // fetch data with category variables (default "Vodka")
   useEffect(() => {
     const fetchData = async () => {
