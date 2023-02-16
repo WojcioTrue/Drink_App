@@ -15,6 +15,10 @@
     justify-content: space-around;
     gap: 13px;
   }
+
+  .coctails-main .categories-list ul a {
+    text-decoration: none;
+  }
   .coctails-main .categories-list ul li {
     margin: 0px 5px;
     cursor: pointer;
@@ -36,21 +40,21 @@
     -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
     -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
   }
-  .coctails-main .categories-list ul li:nth-child(1) > img {
+  .coctails-main .categories-list ul a:nth-child(1) li > img {
     background-color: rgba(251, 54, 64, 0.2666666667);
   }
-  .coctails-main .categories-list ul li:nth-child(2) > img {
+  .coctails-main .categories-list ul a:nth-child(2) li > img {
     background-color: rgba(234, 198, 56, 0.3490196078);
   }
-  .coctails-main .categories-list ul li:nth-child(3) > img {
+  .coctails-main .categories-list ul a:nth-child(3) li > img {
     background-color: rgba(122, 195, 19, 0.3215686275);
   }
-  .coctails-main .categories-list ul li:nth-child(4) > img {
+  .coctails-main .categories-list ul a:nth-child(4) li > img {
     background-color: rgba(59, 112, 128, 0.2745098039);
   }
-  .coctails-main .categories-list ul li:nth-child(5) > img {
+  .coctails-main .categories-list ul a:nth-child(5) li > img {
     background-color: rgba(112, 105, 147, 0.3137254902);
   }
-  .coctails-main .categories-list ul li:nth-child(6) > img {
+  .coctails-main .categories-list ul a:nth-child(6) li > img {
     background-color: rgba(63, 44, 185, 0.2705882353);
   }

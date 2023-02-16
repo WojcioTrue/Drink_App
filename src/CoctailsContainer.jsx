@@ -9,7 +9,6 @@ const CoctailsContainer = () => {
     <div className="coctails-container">
       <div className="coctails-main">
         <CategoryList />
-        <CoctailList />
       </div>
       <FavList />
     </div>
