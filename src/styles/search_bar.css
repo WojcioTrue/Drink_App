@@ -5,6 +5,10 @@
   padding: 0px 15px;
 }
 
+.search-bar a {
+  text-decoration: none;
+}
+
 .search-bar h2 {
   color: #1C0B19;
 }
