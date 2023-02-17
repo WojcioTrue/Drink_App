@@ -1,6 +1,7 @@
 import "./styles/categories_list.css";
 import "./CategoryListElement";
 import CategoryListElement from "./CategoryListElement";
+import NotFound from "./NotFound";
 import CoctailList from "./CoctailList";
 import { useContext } from "react";
 import { MyContext } from "./context/ContextComponent";
@@ -64,14 +65,18 @@ const CategoryList = () => {
           </Link>
         </ul>
       </div>
-      <CoctailList />
+      
       <Routes>
-        <Route path="/Whiskey" element={<CoctailList />} />
+        <Route path="/" element={<CoctailList />} />
+        <Route path="/Whiskey" element={<CoctailList />}>
+          
+        </Route>
         <Route path="/Bourbon" element={<CoctailList />} />
         <Route path="/Vodka" element={<CoctailList />} />
         <Route path="/Gin" element={<CoctailList />} />
         <Route path="/Tequila" element={<CoctailList />} />
         <Route path="/Rum" element={<CoctailList />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
