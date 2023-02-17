@@ -3,6 +3,7 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
 import { MyContext } from "./context/ContextComponent";
+import { Link } from "react-router-dom";
 
 const CoctailElement = ({ id, name, imgSrc }) => {
   const [inFavourite, setInFavourite] = useState(false);
@@ -15,11 +16,15 @@ const CoctailElement = ({ id, name, imgSrc }) => {
   }, [listOfFav, id]);
 
   return (
+
     <section className="grid-coctails__product">
       <div>
         <img alt="#" src={imgSrc} />
         <h4>{name}</h4>
       </div>
+      <Link to={`/Whiskey/${id}`}>
+      <button>More info</button>
+      </Link>
       {inFavourite ? (
         <FontAwesomeIcon
           icon={faMinusCircle}
@@ -38,6 +43,7 @@ const CoctailElement = ({ id, name, imgSrc }) => {
         />
       )}
     </section>
+    
   );
 };
 

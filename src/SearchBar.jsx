@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import SearchBarSuggestions from "./SearchBarSuggestions";
 import { Link } from "react-router-dom";
-
 const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
   const [drinkList, setDrinkList] = useState();
