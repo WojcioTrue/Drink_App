@@ -69,7 +69,7 @@ const CategoryList = () => {
       <Routes>
         <Route path="/" element={<CoctailList />} />
         <Route path="/Whiskey" element={<CoctailList />}/>
-        <Route path="/Whiskey/:id" element={<NotFound />}/>
+        <Route path="/:id" element={<NotFound />}/>
         <Route path="/Bourbon" element={<CoctailList />} />
         <Route path="/Vodka" element={<CoctailList />} />
         <Route path="/Gin" element={<CoctailList />} />

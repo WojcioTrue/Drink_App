@@ -22,7 +22,7 @@ const CoctailElement = ({ id, name, imgSrc }) => {
         <img alt="#" src={imgSrc} />
         <h4>{name}</h4>
       </div>
-      <Link to={`/Whiskey/${id}`}>
+      <Link to={`/${id}`}>
       <button>More info</button>
       </Link>
       {inFavourite ? (
