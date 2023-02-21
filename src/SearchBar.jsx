@@ -17,7 +17,7 @@ const Searchbar = () => {
 
       const data = await response.json();
 
-      setDrinkList(data);
+      await setDrinkList(data);
     };
 
     fetchData();
@@ -51,7 +51,7 @@ const Searchbar = () => {
         />
         <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
         {Boolean(searchDrink.length) && 
-          <SearchBarSuggestions drinkList={drinkList} />
+          <SearchBarSuggestions drinkList={drinkList} setSearchDrink={setSearchDrink}/>
         }
       </span>
     </div>

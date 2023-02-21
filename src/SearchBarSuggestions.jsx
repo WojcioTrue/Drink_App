@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import SearchBarListElement from "./SearchBarListElement";
-import { faFaceSadCry } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 
-const SearchBarSuggestions = ({ drinkList }) => {
+const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
   const [listToMap, setListToMap] = useState();
   useEffect(() => {
     async function display() {
@@ -31,6 +28,7 @@ const SearchBarSuggestions = ({ drinkList }) => {
               name={element.strDrink}
               img={element.strDrinkThumb}
               id={element.idDrink}
+              setSearchDrink={setSearchDrink}
             />
           )) : <SearchBarListElement img={"./img/category_icons/face-sad-tear-solid.svg"} name={"There is no such drink..."}/>}
       </ul>
