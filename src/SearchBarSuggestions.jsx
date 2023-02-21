@@ -22,7 +22,7 @@ const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
     <div className="search-bar__suggestions">
       <ul>
         {listToMap ?
-          listToMap.map((element) => (
+          listToMap.slice(0,7).map((element) => (
             <SearchBarListElement
               key={element.idDrink}
               name={element.strDrink}

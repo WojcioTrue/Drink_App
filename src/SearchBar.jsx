@@ -1,13 +1,17 @@
 import "./styles/search_bar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faMartiniGlassCitrus, faXmark} from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import { useEffect } from "react";
+import {
+  faMagnifyingGlass,
+  faMartiniGlassCitrus,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
 import SearchBarSuggestions from "./SearchBarSuggestions";
 import { Link } from "react-router-dom";
 const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
   const [drinkList, setDrinkList] = useState();
+  const [clickedOutside, setClickedOutside] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,27 +36,38 @@ const Searchbar = () => {
   }
 
   // check if element have focus, if so display list
-  const checkFocus =() => {
-    const elementFocus = document.querySelector('#SearchDrink');
+  const checkFocus = () => {
+    const elementFocus = document.querySelector("#SearchDrink");
     const documentFocus = document.activeElement;
-    if(elementFocus === documentFocus){
-      return true
+    if (elementFocus === documentFocus) {
+      return true;
     } else {
-      return false
+      return false;
     }
-  }
+  };
+
+  // setClickedOutside to true if we focused input, remove focus when clicked outside the input, re
+  useEffect(() => {
+    window.addEventListener("click", () => {
+      setClickedOutside(checkFocus());
+    });
+    return () => {
+      window.removeEventListener("click", () => {
+        setClickedOutside(checkFocus());
+      });
+    };
+  }, []);
 
   return (
     <div className="search-bar">
       <Link to="/">
-      <h2>
-        
-        <FontAwesomeIcon
-          icon={faMartiniGlassCitrus}
-          className="search-bar__logo"
-        />
-        FindMyDrink.
-      </h2>
+        <h2>
+          <FontAwesomeIcon
+            icon={faMartiniGlassCitrus}
+            className="search-bar__logo"
+          />
+          FindMyDrink.
+        </h2>
       </Link>
       <span className="search-bar__input">
         <input
@@ -64,13 +79,23 @@ const Searchbar = () => {
           placeholder="Search for drink"
           onChange={drinkToSearch}
         />
-        {Boolean(searchDrink.length) ?
-        <FontAwesomeIcon icon={faXmark} className="icon" onClick={clearSearch}/> :
-        <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />}
-        
-        {(checkFocus() && Boolean(searchDrink.length)) && 
-          <SearchBarSuggestions drinkList={drinkList} setSearchDrink={setSearchDrink}/>
-        }
+        {Boolean(searchDrink.length) ? (
+          <FontAwesomeIcon
+            icon={faXmark}
+            className="icon"
+            onClick={clearSearch}
+          />
+        ) : (
+          <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
+        )}
+
+        {/* remove focus when list element is clicked, hide suggestions */}
+        {clickedOutside && Boolean(searchDrink.length) && (
+          <SearchBarSuggestions
+            drinkList={drinkList}
+            setSearchDrink={setSearchDrink}
+          />
+        )}
       </span>
     </div>
   );
