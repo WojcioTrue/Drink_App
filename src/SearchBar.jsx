@@ -1,6 +1,6 @@
 import "./styles/search_bar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faMartiniGlassCitrus} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faMartiniGlassCitrus, faXmark} from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useEffect } from "react";
 import SearchBarSuggestions from "./SearchBarSuggestions";
@@ -27,6 +27,10 @@ const Searchbar = () => {
     setSearchDrink(e.target.value);
   };
 
+  function clearSearch() {
+    setSearchDrink("");
+  }
+
   return (
     <div className="search-bar">
       <Link to="/">
@@ -49,7 +53,10 @@ const Searchbar = () => {
           placeholder="Search for drink"
           onChange={drinkToSearch}
         />
-        <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
+        {Boolean(searchDrink.length) ?
+        <FontAwesomeIcon icon={faXmark} className="icon" onClick={clearSearch}/> :
+        <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />}
+        
         {Boolean(searchDrink.length) && 
           <SearchBarSuggestions drinkList={drinkList} setSearchDrink={setSearchDrink}/>
         }
