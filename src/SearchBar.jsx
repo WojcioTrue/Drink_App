@@ -31,14 +31,16 @@ const Searchbar = () => {
     setSearchDrink("");
   }
 
-
-  // function checkFocus(){
-  //   // const focusElement = document.querySelector('#SearchDrink');
-  //   const focusElement = document.activeElement;
-  //   console.log(Boolean(focusElement.id));
-  // }
-
-  // checkFocus();
+  // check if element have focus, if so display list
+  const checkFocus =() => {
+    const elementFocus = document.querySelector('#SearchDrink');
+    const documentFocus = document.activeElement;
+    if(elementFocus === documentFocus){
+      return true
+    } else {
+      return false
+    }
+  }
 
   return (
     <div className="search-bar">
@@ -66,7 +68,7 @@ const Searchbar = () => {
         <FontAwesomeIcon icon={faXmark} className="icon" onClick={clearSearch}/> :
         <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />}
         
-        {Boolean(searchDrink.length) && 
+        {(checkFocus() && Boolean(searchDrink.length)) && 
           <SearchBarSuggestions drinkList={drinkList} setSearchDrink={setSearchDrink}/>
         }
       </span>
