@@ -7,6 +7,7 @@
 
 .search-bar a {
   text-decoration: none;
+  width: 100%;
 }
 
 .search-bar h2 {
@@ -51,40 +52,45 @@
   transition: outline 0.3s ease-out;
 }
 
-.search-bar__input input[id=SearchDrink]:focus {
+.search-bar__input input[id=SearchDrink]:focus{
   transition: outline 0.3s ease-out;
   outline: 1px solid #1C0B19;
 }
 
-.search-bar__input input[id=SearchDrink]:focus~.search-bar__suggestions {
+.search-bar__input input[id=SearchDrink]~.search-bar__suggestions {
   display: block;
+  position: relative;
+  z-index: 100;
 }
 
-.search-bar__input .search-bar__suggestions {
+.search-bar__input .search-bar__suggestions{
   position: relative;
-  z-index: 5;
   display: none;
   margin-top: 5px;
-  background-color: #eaeaeaec;
-  border-radius: 15px;
-
 }
 
 .search-bar__input .search-bar__suggestions ul {
+  background-color: #eaeaeaec;
   margin: 0px;
   list-style: none;
   padding: 0px;
+  border-radius: 15px;
 }
 
-.search-bar__input .search-bar__suggestions ul li {
+.search-bar__input .search-bar__suggestions ul  li {
   padding: 10px 10px;
   font-weight: bold;
+  
+  border-bottom: 1px solid white;
+  cursor: pointer;
+}
+
+.search-bar__input .search-bar__suggestions ul  li a{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  border-bottom: 1px solid white;
-  cursor: pointer;
+  color: #1C0B19;
 }
 
 .search-bar__input .search-bar__suggestions ul li img {

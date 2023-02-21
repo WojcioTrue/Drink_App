@@ -17,7 +17,7 @@ const Searchbar = () => {
 
       const data = await response.json();
 
-      await setDrinkList(data);
+      setDrinkList(data);
     };
 
     fetchData();
