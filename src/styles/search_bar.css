@@ -80,9 +80,12 @@
 .search-bar__input .search-bar__suggestions ul  li {
   padding: 10px 10px;
   font-weight: bold;
-  
   border-bottom: 1px solid white;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .search-bar__input .search-bar__suggestions ul  li a{

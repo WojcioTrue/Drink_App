@@ -12,10 +12,8 @@ const SearchBarListElement = ({ name, img, id, setSearchDrink, noElement }) => {
         </li>
       ) : (
         <li>
-          <Link to={`${id}`}>
             <img alt="" src={img} />
             {name}
-          </Link>
         </li>
       )}
     </>
