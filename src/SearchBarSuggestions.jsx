@@ -29,8 +29,9 @@ const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
               img={element.strDrinkThumb}
               id={element.idDrink}
               setSearchDrink={setSearchDrink}
+              noElement={true}
             />
-          )) : <SearchBarListElement img={"./img/category_icons/face-sad-tear-solid.svg"} name={"There is no such drink..."}/>}
+          )) : <SearchBarListElement img={"./img/category_icons/face-sad-tear-solid.svg"} name={"There is no such drink..."} noElement={false}/>}
       </ul>
     </div>
   );

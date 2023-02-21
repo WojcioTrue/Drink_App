@@ -31,6 +31,15 @@ const Searchbar = () => {
     setSearchDrink("");
   }
 
+
+  // function checkFocus(){
+  //   // const focusElement = document.querySelector('#SearchDrink');
+  //   const focusElement = document.activeElement;
+  //   console.log(Boolean(focusElement.id));
+  // }
+
+  // checkFocus();
+
   return (
     <div className="search-bar">
       <Link to="/">

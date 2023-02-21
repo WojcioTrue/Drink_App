@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
 
-const SearchBarListElement = ({ name, img, id, setSearchDrink }) => {
-
+const SearchBarListElement = ({ name, img, id, setSearchDrink, noElement }) => {
   return (
-      
-      <li onClick={() => setSearchDrink(name)}>
-        <Link to={`${id}`}>
-        <img alt="" src={img} />
-        {name}
-        </Link>
-      </li>
-      
+    <>
+      {noElement ? (
+        <li onClick={() => setSearchDrink(name)}>
+          <Link to={`${id}`}>
+            <img alt="" src={img} />
+            {name}
+          </Link>
+        </li>
+      ) : (
+        <li>
+          <Link to={`${id}`}>
+            <img alt="" src={img} />
+            {name}
+          </Link>
+        </li>
+      )}
+    </>
   );
 };
 

@@ -52,7 +52,7 @@
   transition: outline 0.3s ease-out;
 }
 
-.search-bar__input input[id=SearchDrink]:focus{
+.search-bar__input input[id=SearchDrink]:focus-within{
   transition: outline 0.3s ease-out;
   outline: 1px solid #1C0B19;
 }
