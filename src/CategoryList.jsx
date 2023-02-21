@@ -15,49 +15,43 @@ const CategoryList = () => {
       <div className="categories-list">
         <h3>Select category:</h3>
         <ul>
-          <Link to="Whiskey">
+          <Link to="whiskey" state={{category : "Whiskey"}}>
           <CategoryListElement
-            value={"Whiskey"}
             imgSrc={"./img/category_icons/whiskey.png"}
             text={"Whiskey"}
             getCategory={getCategory}
           />
           </Link>
-          <Link to="Bourbon">
+          <Link to="bourbon" state={{category : "Bourbon"}}>
           <CategoryListElement
-            value={"Bourbon"}
             imgSrc={"./img/category_icons/bourbon.png"}
-            text={"Burbon"}
+            text={"Bourbon"}
             getCategory={getCategory}
           />
           </Link>
-          <Link to="Vodka">
+          <Link to="vodka" state={{category : "Vodka"}}>
           <CategoryListElement
-            value={"Vodka"}
             imgSrc={"./img/category_icons/vodka.png"}
             text={"Vodka"}
             getCategory={getCategory}
           />
           </Link>
-          <Link to="Gin">
+          <Link to="gin" state={{category : "Gin"}}>
           <CategoryListElement
-            value={"Gin"}
             imgSrc={"./img/category_icons/gin.png"}
             text={"Gin"}
             getCategory={getCategory}
           />
           </Link>
-          <Link to="Tequila">
+          <Link to="tequila" state={{category : "Tequila"}}>
           <CategoryListElement
-            value={"Tequila"}
             imgSrc={"./img/category_icons/Tequila.png"}
             text={"Tequila"}
             getCategory={getCategory}
           />
           </Link>
-          <Link to="Rum">
+          <Link to="rum" state={{category : "Rum"}}>
             <CategoryListElement
-              value={"Rum"}
               imgSrc={"./img/category_icons/Rum.png"}
               text={"Rum"}
               getCategory={getCategory}
@@ -68,13 +62,13 @@ const CategoryList = () => {
       
       <Routes>
         <Route path="/" element={<CoctailList />} />
-        <Route path="/Whiskey" element={<CoctailList />}/>
+        <Route path="/whiskey" element={<CoctailList />}/>
         <Route path="/:id" element={<NotFound />}/>
-        <Route path="/Bourbon" element={<CoctailList />} />
-        <Route path="/Vodka" element={<CoctailList />} />
-        <Route path="/Gin" element={<CoctailList />} />
-        <Route path="/Tequila" element={<CoctailList />} />
-        <Route path="/Rum" element={<CoctailList />} />
+        <Route path="/bourbon" element={<CoctailList />} />
+        <Route path="/vodka" element={<CoctailList />} />
+        <Route path="/gin" element={<CoctailList />} />
+        <Route path="/tequila" element={<CoctailList />} />
+        <Route path="/rum" element={<CoctailList />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
