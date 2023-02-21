@@ -21,7 +21,12 @@
   -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
   border-radius: 10px;
 }
-.coctails-favourite ul li h4 {
+
+.coctails-favourite ul li a {
+  text-decoration: none;
+}
+
+.coctails-favourite ul li a h4 {
   font-weight: 400;
   color: #808080;
 }
