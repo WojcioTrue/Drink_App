@@ -1,6 +1,7 @@
 import "./styles/categories_list.css";
 import "./CategoryListElement";
 import CategoryListElement from "./CategoryListElement";
+import DrinkInfo from "./DrinkInfo";
 import NotFound from "./NotFound";
 import CoctailList from "./CoctailList";
 import { Routes, Route, Link } from "react-router-dom";
@@ -54,7 +55,7 @@ const CategoryList = () => {
       <Routes>
         <Route path="/" element={<CoctailList />} />
         <Route path="/whiskey" element={<CoctailList />}/>
-        <Route path="/:id" element={<NotFound />}/>
+        <Route path="/:id" element={<DrinkInfo />}/>
         <Route path="/bourbon" element={<CoctailList />} />
         <Route path="/vodka" element={<CoctailList />} />
         <Route path="/gin" element={<CoctailList />} />

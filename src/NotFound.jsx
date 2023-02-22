@@ -1,10 +1,7 @@
-import { useParams } from "react-router-dom"
-
-const NewComponent = () => {
-    const {id} = useParams()
+const NotFound = () => {
   return (
-    <div>NewComponent {id}</div>
+    <div>Element not Found</div>
   )
 }
 
-export default NewComponent
+export default NotFound
