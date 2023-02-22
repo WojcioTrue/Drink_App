@@ -47,8 +47,8 @@ const DrinkInfo = () => {
   return (
     <>
       {drink ? (
-        <div>
-          <h4>Name of drink: {drink.strDrink}</h4>
+        <div class="drink-info">
+          <h3>Name of drink: {drink.strDrink}</h3>
           <h4>Type of glass: {drink.strGlass}</h4>
           <h4>{drink.strInstructions}</h4>
           {ingredients && ingredients.map(ing => <li>{ing}</li>)}
