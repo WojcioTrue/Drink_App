@@ -1,7 +1,11 @@
+import { useState } from "react"
 import { useParams } from "react-router-dom"
 
 const DrinkInfo = () => {
-    const {id} = useParams()
+ 
+  const {id} = useParams()
+
+
   return (
     <div>DrinkInfo {id}</div>
   )
