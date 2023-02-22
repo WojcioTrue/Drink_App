@@ -14,7 +14,7 @@ const CategoryListElement = ({ imgSrc, text }) => {
     } else {
       console.log(false);
     }
-  }, [location]);
+  }, [location, getCategory]);
 
   return (
     <li value={text}>
