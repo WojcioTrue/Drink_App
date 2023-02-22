@@ -1,10 +1,13 @@
 import "./styles/fav_button.css";
+import { Link } from "react-router-dom";
 
 const FavButton = () => {
   return (
-    <div className="fav-button">
-      <img alt="#" src="./img/fav_icon.png" />
-    </div>
+    <Link to="/">
+      <div className="fav-button">
+        <img alt="#" src="./img/fav_icon.png" />
+      </div>
+    </Link>
   );
 };
 
