@@ -40,6 +40,17 @@
   
 }
 
+.coctails-favourite .coctails-favourite__button {
+  float: right;
+  transition: all .2s;
+}
+
+.coctails-favourite .coctails-favourite__button:hover {
+  transform: translateY(-5px);
+  background-color: #ff8eb9;
+}
+
+
 @media only screen and (min-width: 992px) {
   .coctails-favourite {
     display: block;
