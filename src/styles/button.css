@@ -1,7 +1,4 @@
-.coctail-detail {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+.rounded-button {
     background-color: #EA4C89;
     border-radius: 20px;
     border-style: none;
@@ -19,17 +16,9 @@
     padding: 10px 16px;
     text-align: center;
     text-decoration: none;
-    transition: background-color 200ms;
+    transition: background-color .2s;
     vertical-align: baseline;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-}
-
-.grid-coctails__product .coctail-detail:hover {
-    background-color: #fc83b1;
-}
-
-grid-coctails__product .coctail-detail:focus {
-    background-color: #fc83b1;
 }

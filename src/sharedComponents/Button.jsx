@@ -1,9 +1,14 @@
+import "../styles/button.css"
 
-
-const Button = () => {
+const Button = ({text, variant}) => {
   return (
-    <button className="coctail-detail">Details</button>
+    <button className={`rounded-button ${variant}`}>{text}</button>
   )
 }
 
+Button.defaultProps = {
+  text : "Button"
+}
+
 export default Button
+
