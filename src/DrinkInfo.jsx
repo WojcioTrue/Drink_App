@@ -39,9 +39,10 @@ const DrinkInfo = () => {
   return <>{drink ? 
   <>
   <h1>{drink.strDrink}</h1>
-  {ingredients.map((ingredient) => <p>{ingredient}</p>)}
+  {ingredients.map((ingredient) => <p key={ingredient}>{ingredient}</p>)}
   </>
    : "Loading"}</>;
 };
+
 
 export default DrinkInfo;
