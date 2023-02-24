@@ -1,0 +1,35 @@
+.coctail-detail {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #EA4C89;
+    border-radius: 20px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    height: 35px;
+    line-height: 15px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 200ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.grid-coctails__product .coctail-detail:hover {
+    background-color: #fc83b1;
+}
+
+grid-coctails__product .coctail-detail:focus {
+    background-color: #fc83b1;
+}

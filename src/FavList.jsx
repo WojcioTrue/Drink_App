@@ -3,6 +3,7 @@ import "./styles/fav_list.css";
 import { useContext } from "react";
 import { MyContext } from "./context/ContextComponent";
 import { Link } from "react-router-dom";
+import Button from "./sharedComponents/Button";
 
 const CoctailsFavourite = () => {
   const { listOfFav } = useContext(MyContext);
@@ -29,7 +30,7 @@ const CoctailsFavourite = () => {
         {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:
       </h3>
       <ul>{afterSlice}</ul>
-      {listOfFavourite.length > 5 && <button><Link to="/">Check all drinks</Link></button>}
+      {listOfFavourite.length > 5 && <Link to="/"><Button/></Link>}
     </section>
   );
 };
