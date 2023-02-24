@@ -20,6 +20,7 @@ const DrinkInfo = () => {
     fetchData();
   }, [id]);
 
+  // creating array with ingredients
   useEffect(() => {
     function checkIngredients() {
       let i = 1;
@@ -31,6 +32,7 @@ const DrinkInfo = () => {
       setIngredients(listOfIngredients);
     }
 
+  // initiate looking for ingredients if drink exist
     if (drink !== undefined) {
       checkIngredients();
     }
