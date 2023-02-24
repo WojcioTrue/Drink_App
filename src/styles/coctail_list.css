@@ -1,111 +1,123 @@
 .coctails-main .list-coctails h3 {
-    font-size: 1.25rem;
-    color: #1C0B19;
-  }
-  .coctails-main .list-coctails .grid-coctails {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(1, 1fr);
-    justify-items: center;
-    padding: 10px 10px;
-  }
-  .coctails-main .list-coctails .grid-coctails .grid-coctails__product {
-    position: relative;
-    background-color: #FDFDFD;
-    border-radius: 20px;
-    padding: 20px 10px 60px 10px;
-    max-width: 250px;
-    box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
-    -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
-    -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
-  }
+  font-size: 1.25rem;
+  color: #1C0B19;
+}
 
- .coctails-main .list-coctails .grid-coctails .grid-coctails__product .coctail-detail {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: #EA4C89;
-    border-radius: 8px;
-    border-style: none;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 700;
-    height: 40px;
-    line-height: 15px;
-    list-style: none;
-    margin: 0;
-    outline: none;
-    padding: 10px 16px;
+.coctails-main .list-coctails .grid-coctails {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: center;
+  padding: 10px 10px;
+}
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product {
+  position: relative;
+  background-color: #FDFDFD;
+  border-radius: 20px;
+  padding: 20px 10px 60px 10px;
+  max-width: 250px;
+  box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+  -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+  -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+}
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product .coctail-detail {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #EA4C89;
+  border-radius: 20px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  height: 35px;
+  line-height: 15px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
   text-align: center;
   text-decoration: none;
-  transition: color 100ms;
+  transition: background-color 200ms;
   vertical-align: baseline;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  }
-  
-  /* .button-1:hover,
-  .button-1:focus {
-    background-color: #F082AC;
-  } */
-  
-  
-  .coctails-main .list-coctails .grid-coctails .grid-coctails__product .add-favourite {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+}
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product .coctail-detail:hover {
+  background-color: #fc83b1;
   }
 
-  .coctails-main .list-coctails .grid-coctails .grid-coctails__product .add-favourite path {
-    fill: rgb(255, 91, 31);
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product .coctail-detail:focus {
+    background-color: #fc83b1;
+    ;
+    } 
+
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product .add-favourite {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product .add-favourite path {
+  fill: rgb(255, 91, 31);
+}
+
+
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product .remove-color path {
+  fill: rgb(100, 58, 131);
+}
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product div {
+  position: relative;
+}
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product div img {
+  position: relative;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product div h4 {
+  margin-bottom: 0px;
+  color: #1C0B19;
+}
+
+.coctails-main .list-coctails .grid-coctails .grid-coctails__product div p {
+  color: #808080;
+  font-size: 0.8rem;
+  margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 576px) {
+  .coctails-main .list-coctails .grid-coctails {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .coctails-main .list-coctails .grid-coctails {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .coctails-container {
+    flex-direction: row;
   }
 
-  
-
-  .coctails-main .list-coctails .grid-coctails .grid-coctails__product .remove-color path {
-    fill: rgb(100, 58, 131);
+  .coctails-main {
+    width: 75%;
   }
-
-  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div {
-    position: relative;
-  }
-  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div img {
-    position: relative;
-    width: 100%;
-    border-radius: 15px;
-  }
-  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div h4 {
-    margin-bottom: 0px;
-    color: #1C0B19;
-  }
-  .coctails-main .list-coctails .grid-coctails .grid-coctails__product div p {
-    color: #808080;
-    font-size: 0.8rem;
-    margin-bottom: 30px;
-  }
-
-  @media only screen and (min-width: 576px) {
-    .coctails-main .list-coctails .grid-coctails {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media only screen and (min-width: 768px) {
-    .coctails-main .list-coctails .grid-coctails {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  @media only screen and (min-width: 992px) {
-    .coctails-container {
-      flex-direction: row;
-    }
-    .coctails-main {
-      width: 75%;
-    }
-  }
+}

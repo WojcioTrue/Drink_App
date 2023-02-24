@@ -23,7 +23,7 @@ const CoctailElement = ({ id, name, imgSrc }) => {
         <h4>{name}</h4>
       </div>
       <Link to={`/${id}`}>
-      <button className="coctail-detail">Coctail Detail</button>
+      <button className="coctail-detail">Details</button>
       </Link>
       {inFavourite ? (
         <FontAwesomeIcon
