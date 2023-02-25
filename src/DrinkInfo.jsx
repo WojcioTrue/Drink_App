@@ -36,7 +36,7 @@ const DrinkInfo = () => {
       checkIngredients();
     }
   }, [drink]);
-  console.log(drink);
+
   return (
     <>
       {drink ? (
@@ -44,19 +44,23 @@ const DrinkInfo = () => {
           <div className="drink-info__img">
             <img
               alt="#"
-              src="https://www.thecocktaildb.com/images/media/drink/xxyywq1454511117.jpg"
+              src={drink.strDrinkThumb}
+              
             />
+           
           </div>
           <div className="drink-info__description">
-            <h3>{drink.strDrink}</h3>
+            <h2>{drink.strDrink}</h2>
             <ul>
-            <label>List of ingredients:</label>
+            <h3>List of ingredients:</h3>
               {ingredients.map((ingredient) => (
-                <li key={ingredient}>{ingredient}</li>
+                <li key={ingredient}>- {ingredient}</li>
               ))}
             </ul>
-            <h3>Preparation: {drink.strInstructions}</h3>
-            <h3>Type of glass: {drink.strGlass}</h3>
+            <h3>Preparation:</h3>
+            <p>{drink.strInstructions}</p>
+            <h3>Type of glass:</h3>
+            <p>{drink.strGlass}</p>
           </div>
         </div>
       ) : (

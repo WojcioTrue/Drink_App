@@ -1,9 +1,13 @@
 .drink-info {
-    margin: 45px 0px;
     color: #1C0B19;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    border-radius: 20px;
+  padding: 20px 10px;
+  box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+  -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+  -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
 }
 
 .drink-info__img {
@@ -12,19 +16,27 @@
 
 .drink-info__img img {
     width: 100%;
-    max-width: 350px;
+    max-width: 220px;
     border-radius: 15px;
     display: block;
     margin: 0 auto;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .drink-info__description {
+    padding-left: 0px 10px;
+    box-sizing: border-box;
+}
 
+.drink-info .drink-info__description h2 {
+    font-size: 1.5rem;
+    margin: 10px 0px;
 }
 
 .drink-info .drink-info__description h3 {
-    font-size: 1.25rem;
+    border-top: 1px solid rgba(201, 201, 201, 0.8705882353);
+    padding-top: 20px;
 }
 
 .drink-info .drink-info__description ul {
@@ -33,36 +45,43 @@
 }
 
 .drink-info .drink-info__description ul label {
-    
+    margin-bottom: 10px;
 }
 
 .drink-info .drink-info__description ul li {
+    color: #808080;
+    margin-left: 15px;
+    margin-top: 5px;
     list-style-type: none;
     font-size: 0.8rem;
     font-weight: 600;
 }
 
 .drink-info .drink-info__description p {
+    color: #808080;
+    margin-left: 10px;
     font-size: 0.8rem;
-    margin-left: 15px;
+    font-weight: 600;
 }
 
-@media only screen and (min-width: 576px) {}
-
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 576px) {
     .drink-info {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
-
+    
     }
     .drink-info__img {
-        width: 30%;
+        width: 35%;
     }
     
     .drink-info__description {
-        width: 70%;
+        width: 65%;
     }
+}
+
+@media only screen and (min-width: 768px) {
+    
 }
 
 @media only screen and (min-width: 992px) {}
