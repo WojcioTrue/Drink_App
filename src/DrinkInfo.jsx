@@ -49,7 +49,7 @@ const DrinkInfo = () => {
               
             />
             <span>Add to favourite: </span>
-            <AddRemButton/>
+            <AddRemButton name={drink.strDrink} id={id}/>
           </div>
           <div className="drink-info__description">
             <h2>{drink.strDrink}</h2>

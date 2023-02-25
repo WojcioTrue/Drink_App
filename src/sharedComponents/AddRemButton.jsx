@@ -4,13 +4,11 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import {useContext}  from "react";
 import { MyContext } from "../context/ContextComponent";
-import { useParams } from "react-router-dom";
 import "../styles/AddRemButton.css"
 
-function AddRemButton() {
+function AddRemButton({name, id}) {
     const [inFavourite, setInFavourite] = useState(false);
     const { addToFav, removeFav, listOfFav } = useContext(MyContext);
-    const { id } = useParams();
 
     useEffect(() => {
         function isOnList() {
@@ -33,7 +31,7 @@ function AddRemButton() {
                     icon={faPlusCircle}
                     className="add-favourite"
                     onClick={() => {
-                        addToFav({ id: id });
+                        addToFav({name: name, id: id });
                     } } />
             )}
         </>

@@ -1,20 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect, useContext } from "react";
-import { MyContext } from "./context/ContextComponent";
+
 import { Link } from "react-router-dom";
 import Button from "./sharedComponents/Button";
+import AddRemButton from "./sharedComponents/AddRemButton";
+
 
 const CoctailElement = ({ id, name, imgSrc }) => {
-  const [inFavourite, setInFavourite] = useState(false);
-  const { addToFav, removeFav, listOfFav } = useContext(MyContext);
-  useEffect(() => {
-    function isOnList() {
-      return listOfFav.some((drink) => drink.id === id);
-    }
-    setInFavourite(isOnList);
-  }, [listOfFav, id]);
 
   return (
     <section className="grid-coctails__product">
@@ -25,23 +15,8 @@ const CoctailElement = ({ id, name, imgSrc }) => {
       <Link to={`/${id}`}>
         <Button variant="product-button" text="Details"/>
       </Link>
-      {inFavourite ? (
-        <FontAwesomeIcon
-          icon={faMinusCircle}
-          className="add-favourite remove-color"
-          onClick={() => {
-            removeFav(id);
-          }}
-        />
-      ) : (
-        <FontAwesomeIcon
-          icon={faPlusCircle}
-          className="add-favourite"
-          onClick={() => {
-            addToFav({ name: name, id: id });
-          }}
-        />
-      )}
+
+      <AddRemButton name={name} id={id}/>
     </section>
   );
 };
