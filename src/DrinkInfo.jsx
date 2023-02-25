@@ -31,20 +31,39 @@ const DrinkInfo = () => {
       }
       setIngredients(listOfIngredients);
     }
-
-  // initiate looking for ingredients if drink exist
+    // initiate looking for ingredients if drink exist
     if (drink !== undefined) {
       checkIngredients();
     }
   }, [drink]);
-
-  return <>{drink ? 
-  <>
-  <h1>{drink.strDrink}</h1>
-  {ingredients.map((ingredient) => <p key={ingredient}>{ingredient}</p>)}
-  </>
-   : "Loading"}</>;
+  console.log(drink);
+  return (
+    <>
+      {drink ? (
+        <div className="drink-info">
+          <div className="drink-info__img">
+            <img
+              alt="#"
+              src="https://www.thecocktaildb.com/images/media/drink/xxyywq1454511117.jpg"
+            />
+          </div>
+          <div className="drink-info__description">
+            <h3>{drink.strDrink}</h3>
+            <ul>
+            <label>List of ingredients:</label>
+              {ingredients.map((ingredient) => (
+                <li key={ingredient}>{ingredient}</li>
+              ))}
+            </ul>
+            <h3>Preparation: {drink.strInstructions}</h3>
+            <h3>Type of glass: {drink.strGlass}</h3>
+          </div>
+        </div>
+      ) : (
+        "Loading"
+      )}
+    </>
+  );
 };
-
 
 export default DrinkInfo;
