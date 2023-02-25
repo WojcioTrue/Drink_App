@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./styles/Drink_info.css";
+import AddRemButton from "./sharedComponents/AddRemButton";
 
 const DrinkInfo = () => {
   const { id } = useParams();
@@ -48,6 +49,7 @@ const DrinkInfo = () => {
               
             />
             <span>Add to favourite: </span>
+            <AddRemButton/>
           </div>
           <div className="drink-info__description">
             <h2>{drink.strDrink}</h2>
