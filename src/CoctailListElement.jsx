@@ -1,8 +1,6 @@
-
 import { Link } from "react-router-dom";
 import Button from "./sharedComponents/Button";
 import AddRemButton from "./sharedComponents/AddRemButton";
-
 
 const CoctailElement = ({ id, name, imgSrc }) => {
 
@@ -15,7 +13,6 @@ const CoctailElement = ({ id, name, imgSrc }) => {
       <Link to={`/${id}`}>
         <Button variant="product-button" text="Details"/>
       </Link>
-
       <AddRemButton name={name} id={id}/>
     </section>
   );
