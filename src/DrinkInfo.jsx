@@ -47,7 +47,7 @@ const DrinkInfo = () => {
               src={drink.strDrinkThumb}
               
             />
-           
+            <span>Add to favourite:</span>
           </div>
           <div className="drink-info__description">
             <h2>{drink.strDrink}</h2>
