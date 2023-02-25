@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { MyContext } from "../context/ContextComponent";
 import "../styles/AddRemButton.css";
 
-function AddRemButton({ name, id }) {
+function AddRemButton({ name, id, className }) {
   const [inFavourite, setInFavourite] = useState(false);
   const { addToFav, removeFav, listOfFav } = useContext(MyContext);
 
@@ -22,7 +22,7 @@ function AddRemButton({ name, id }) {
       {inFavourite ? (
         <FontAwesomeIcon
           icon={faMinusCircle}
-          className="add-favourite remove-color"
+          className={`add-favourite remove-color ${className}`}
           onClick={() => {
             removeFav(id);
           }}
@@ -30,7 +30,7 @@ function AddRemButton({ name, id }) {
       ) : (
         <FontAwesomeIcon
           icon={faPlusCircle}
-          className="add-favourite"
+          className={`add-favourite ${className}`}
           onClick={() => {
             addToFav({ name: name, id: id });
           }}

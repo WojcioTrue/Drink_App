@@ -13,7 +13,7 @@ const CoctailElement = ({ id, name, imgSrc }) => {
       <Link to={`/${id}`}>
         <Button variant="product-button" text="Details"/>
       </Link>
-      <AddRemButton name={name} id={id}/>
+      <AddRemButton name={name} id={id} className="grid-button"/>
     </section>
   );
 };

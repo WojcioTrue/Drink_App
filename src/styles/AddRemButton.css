@@ -1,3 +1,9 @@
+.add-favourite {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
 .add-favourite path {
     fill: rgb(255, 91, 31);
   }
