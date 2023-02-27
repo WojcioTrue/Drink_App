@@ -3,7 +3,7 @@ import Button from "./sharedComponents/Button";
 import AddRemButton from "./sharedComponents/AddRemButton";
 
 const CoctailElement = ({ id, name, imgSrc }) => {
-
+  
   return (
     <section className="grid-coctails__product">
       <div>
@@ -13,7 +13,7 @@ const CoctailElement = ({ id, name, imgSrc }) => {
       <Link to={`/${id}`}>
         <Button variant="product-button" text="Details"/>
       </Link>
-      <AddRemButton name={name} id={id} className="grid-button"/>
+      <AddRemButton name={name} id={id} img={imgSrc} className="grid-button"/>
     </section>
   );
 };

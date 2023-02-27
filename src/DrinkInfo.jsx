@@ -62,6 +62,7 @@ const DrinkInfo = () => {
             <AddRemButton
                 name={drink.strDrink}
                 id={id}
+                img={drink.strDrinkThumb}
                 className="drink-info__addbutton"
               />
               {isFavourite ? "Remove from favourite" : "Add to favourite"}

@@ -30,6 +30,7 @@ const ContextComponent = ({ children }) => {
     fetchData();
   }, [category]);
 
+  console.log(listOfFav);
   // get category from CategoryListElement
   const getCategory = (id) => setCategory(id);
 

@@ -6,10 +6,10 @@ import { useContext } from "react";
 import { MyContext } from "../context/ContextComponent";
 import "../styles/AddRemButton.css";
 
-function AddRemButton({ name, id, className }) {
+function AddRemButton({ name, id, img, className }) {
   const [inFavourite, setInFavourite] = useState(false);
   const { addToFav, removeFav, listOfFav } = useContext(MyContext);
-
+  console.log(listOfFav);
   useEffect(() => {
     function isOnList() {
       return listOfFav.some((drink) => drink.id === id);
@@ -32,7 +32,7 @@ function AddRemButton({ name, id, className }) {
           icon={faPlusCircle}
           className={`add-favourite ${className}`}
           onClick={() => {
-            addToFav({ name: name, id: id });
+            addToFav({ name: name, id: id, img : img });
           }}
         />
       )}
