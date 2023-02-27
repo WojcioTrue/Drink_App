@@ -12,7 +12,7 @@ function AddRemButton({ name, id, img, className }) {
   console.log(listOfFav);
   useEffect(() => {
     function isOnList() {
-      return listOfFav.some((drink) => drink.id === id);
+      return listOfFav.some((drink) => drink.idDrink === id);
     }
     setInFavourite(isOnList);
   }, [listOfFav, id]);
@@ -32,7 +32,7 @@ function AddRemButton({ name, id, img, className }) {
           icon={faPlusCircle}
           className={`add-favourite ${className}`}
           onClick={() => {
-            addToFav({ name: name, id: id, img : img });
+            addToFav({idDrink: id, strDrink: name,  strDrinkThumb : img });
           }}
         />
       )}

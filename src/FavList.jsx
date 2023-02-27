@@ -10,8 +10,8 @@ const CoctailsFavourite = () => {
 
   const listOfFavourite = listOfFav;
   let afterSlice;
-  const returnFavourite = ({ name, id }) => {
-    return <FavouriteListElement key={id} name={name} id={id} />;
+  const returnFavourite = ({ strDrink, idDrink }) => {
+    return <FavouriteListElement key={idDrink} strDrink={strDrink} id={idDrink} />;
   };
 
   const sliceFavourite = () => {

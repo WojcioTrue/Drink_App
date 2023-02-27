@@ -43,7 +43,7 @@ const ContextComponent = ({ children }) => {
   const addToFav = (argument) => {
     setAddedTrigger(true);
     const elementExist = listOfFav.some(
-      (element) => element.id === argument.id
+      (element) => element.idDrink === argument.idDrink
     );
     if (elementExist) {
       console.log("element się powtarza");
@@ -53,7 +53,7 @@ const ContextComponent = ({ children }) => {
   };
   // remove element with the same id using filter method
   const removeFav = (id) => {
-    const filteredList = listOfFav.filter((element) => element.id !== id);
+    const filteredList = listOfFav.filter((element) => element.idDrink !== id);
     setListOfFav(filteredList);
   };
   // useEffect for notification prompt

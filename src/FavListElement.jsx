@@ -3,13 +3,13 @@ import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { MyContext } from "./context/ContextComponent";
 import { Link } from "react-router-dom";
-const FavouriteListElement = ({ name, id }) => {
+const FavouriteListElement = ({ strDrink, id }) => {
   const { removeFav } = useContext(MyContext);
 
   return (
     <li>
       <Link to={`${id}`}>
-        <h4>{name}</h4>
+        <h4>{strDrink}</h4>
       </Link>
 
       <FontAwesomeIcon
