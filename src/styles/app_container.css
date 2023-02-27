@@ -6,20 +6,21 @@ body {
   min-height: 100vh;
   margin: 0px;
   font-family: Montserrat;
-  background-color: #EAEAEA;
+
 }
 
 #root {
   box-sizing: border-box;
   padding: 15px;
   margin: 0px;
-
+  background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+  background-attachment: fixed;
 }
 
 .main-container {
   box-sizing: border-box;
   position: relative;
-  background-color: #FDFDFD;
+  background-color: #fdfdfdd7;
   border-radius: 25px;
   padding: 16px;
   max-width: 1200px;
