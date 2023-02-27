@@ -7,10 +7,13 @@
 
 .search-bar a {
   text-decoration: none;
-  width: 100%;
 }
 
 .search-bar h2 {
+  width: 100%;
+}
+
+.search-bar h2 a {
   color: #1C0B19;
 }
 

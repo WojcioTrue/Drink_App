@@ -60,15 +60,16 @@ const Searchbar = () => {
 
   return (
     <div className="search-bar">
-      <Link to="/" state={{category : "Vodka"}}>
-        <h2>
+      <h2>
+        <Link to="/" state={{ category: "Vodka" }}>
           <FontAwesomeIcon
             icon={faMartiniGlassCitrus}
             className="search-bar__logo"
           />
           FindMyDrink.
-        </h2>
-      </Link>
+        </Link>
+      </h2>
+
       <span className="search-bar__input">
         <input
           autoComplete="off"
