@@ -43,18 +43,20 @@ const DrinkInfo = () => {
       {drink ? (
         <div className="drink-info">
           <div className="drink-info__img">
-            <img
-              alt="#"
-              src={drink.strDrinkThumb}
-              
-            />
-            <span>Add to favourite: </span>
-            <AddRemButton name={drink.strDrink} id={id}/>
+            <img alt="#" src={drink.strDrinkThumb} />
           </div>
           <div className="drink-info__description">
             <h2>{drink.strDrink}</h2>
+            <p className="favouriteButton">
+              Add to favourite
+              <AddRemButton
+                name={drink.strDrink}
+                id={id}
+                className="drink-info__addbutton"
+              />
+            </p>
             <ul>
-            <h3>List of ingredients:</h3>
+              <h3>List of ingredients:</h3>
               {ingredients.map((ingredient) => (
                 <li key={ingredient}>- {ingredient}</li>
               ))}
