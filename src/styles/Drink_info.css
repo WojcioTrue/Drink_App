@@ -33,9 +33,12 @@
 
 .drink-info .drink-info__description p {
     color: #808080;
-    margin-left: 10px;
     font-size: 0.8rem;
     font-weight: 600;
+}
+
+.drink-info .paragraph-margin {
+    margin-left: 10px;
 }
 
 .drink-info__description .favouriteButton {
@@ -48,7 +51,7 @@
 }
 
 .drink-info__description .drink-info__addbutton {
-    margin-left: 10px;
+    margin-right: 10px;
     width: 25px;
     height: 25px;
  }

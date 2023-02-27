@@ -1,13 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import "./styles/Drink_info.css";
 import AddRemButton from "./sharedComponents/AddRemButton";
+import { MyContext } from "./context/ContextComponent";
 
 const DrinkInfo = () => {
-  const { id } = useParams();
   const [drink, setDrink] = useState();
   const [ingredients, setIngredients] = useState([]);
+  const [isFavourite, setIsFavourite] = useState(true);
+  const { id } = useParams();
+  const { listOfFav } = useContext(MyContext);
 
+  useEffect(() => {
+    const onList = listOfFav.some(element => element.id === id);
+    setIsFavourite(onList);
+  }, [listOfFav]);
   // fetching drink data with id passed from useParams hook
   useEffect(() => {
     const fetchData = async () => {
@@ -38,6 +45,8 @@ const DrinkInfo = () => {
     }
   }, [drink]);
 
+
+
   return (
     <>
       {drink ? (
@@ -48,12 +57,13 @@ const DrinkInfo = () => {
           <div className="drink-info__description">
             <h2>{drink.strDrink}</h2>
             <p className="favouriteButton">
-              Add to favourite
-              <AddRemButton
+            <AddRemButton
                 name={drink.strDrink}
                 id={id}
                 className="drink-info__addbutton"
               />
+              {isFavourite ? "Remove from favourite" : "Add to favourite"}
+              
             </p>
             <ul>
               <h3>List of ingredients:</h3>
@@ -62,9 +72,9 @@ const DrinkInfo = () => {
               ))}
             </ul>
             <h3>Preparation:</h3>
-            <p>{drink.strInstructions}</p>
+            <p className="paragraph-margin">{drink.strInstructions}</p>
             <h3>Type of glass:</h3>
-            <p>{drink.strGlass}</p>
+            <p className="paragraph-margin">{drink.strGlass}</p>
           </div>
         </div>
       ) : (
