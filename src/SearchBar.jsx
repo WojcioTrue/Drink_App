@@ -60,7 +60,7 @@ const Searchbar = () => {
 
   return (
     <div className="search-bar">
-      <Link to="/">
+      <Link to="/" state={{category : "Vodka"}}>
         <h2>
           <FontAwesomeIcon
             icon={faMartiniGlassCitrus}
