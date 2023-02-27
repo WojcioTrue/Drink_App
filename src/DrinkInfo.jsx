@@ -11,6 +11,7 @@ const DrinkInfo = () => {
   const { id } = useParams();
   const { listOfFav } = useContext(MyContext);
 
+  // check if element is on favourite list
   useEffect(() => {
     const onList = listOfFav.some(element => element.id === id);
     setIsFavourite(onList);
