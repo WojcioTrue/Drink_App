@@ -4,16 +4,25 @@ html,
 body {
   display: block;
   min-height: 100vh;
-  margin: 10px;
+  margin: 0px;
   font-family: Montserrat;
   background-color: #EAEAEA;
 }
 
+#root {
+  box-sizing: border-box;
+  padding: 15px;
+  margin: 0px;
+
+}
+
 .main-container {
+  box-sizing: border-box;
   position: relative;
   background-color: #FDFDFD;
   border-radius: 25px;
-  padding: 1rem;
+  padding: 16px;
   max-width: 1200px;
   margin: 0px auto;
+  min-height: calc(100vh - 30px);
 }
