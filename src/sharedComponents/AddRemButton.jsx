@@ -9,7 +9,7 @@ import "../styles/AddRemButton.css";
 function AddRemButton({ name, id, img, className }) {
   const [inFavourite, setInFavourite] = useState(false);
   const { addToFav, removeFav, listOfFav } = useContext(MyContext);
-  console.log(listOfFav);
+
   useEffect(() => {
     function isOnList() {
       return listOfFav.some((drink) => drink.idDrink === id);

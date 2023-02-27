@@ -17,6 +17,8 @@ const ContextComponent = ({ children }) => {
   const [category, setCategory] = useState("Vodka");
   const [listOfFav, setListOfFav] = useState(checkLocal);
   const [addedTrigger, setAddedTrigger] = useState(false);
+
+
   // fetch data with category variables (default "Vodka")
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +32,6 @@ const ContextComponent = ({ children }) => {
     fetchData();
   }, [category]);
 
-  console.log(listOfFav);
   // get category from CategoryListElement
   const getCategory = (id) => setCategory(id);
 
