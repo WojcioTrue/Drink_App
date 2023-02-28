@@ -6,8 +6,9 @@ export const MyContext = createContext();
 const checkLocal = () => {
   const localFavList = JSON.parse(localStorage.getItem("fav-list"));
   // set default empty array [] if local storage don't have items
+  
   if (localFavList === null) {
-    return [];
+    return { };
   } else {
     return localFavList;
   }
@@ -17,7 +18,6 @@ const ContextComponent = ({ children }) => {
   const [category, setCategory] = useState("Vodka");
   const [listOfFav, setListOfFav] = useState(checkLocal);
   const [addedTrigger, setAddedTrigger] = useState(false);
-
 
   // fetch data with category variables (default "Vodka")
   useEffect(() => {
@@ -43,19 +43,19 @@ const ContextComponent = ({ children }) => {
   // display prompt and add drink to favourite
   const addToFav = (argument) => {
     setAddedTrigger(true);
-    const elementExist = listOfFav.some(
+    const elementExist = listOfFav.drinks.some(
       (element) => element.idDrink === argument.idDrink
     );
     if (elementExist) {
       console.log("element się powtarza");
     } else {
-      setListOfFav([argument, ...listOfFav]);
+      setListOfFav({ drinks: [argument, ...listOfFav.drinks]});
     }
   };
   // remove element with the same id using filter method
   const removeFav = (id) => {
-    const filteredList = listOfFav.filter((element) => element.idDrink !== id);
-    setListOfFav(filteredList);
+    const filteredList = listOfFav.drinks.filter((element) => element.idDrink !== id);
+    setListOfFav({drinks: filteredList});
   };
   // useEffect for notification prompt
   useEffect(() => {

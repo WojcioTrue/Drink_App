@@ -8,7 +8,7 @@ import Button from "./sharedComponents/Button";
 const CoctailsFavourite = () => {
   const { listOfFav } = useContext(MyContext);
 
-  const listOfFavourite = listOfFav;
+  const listOfFavourite = listOfFav.drinks;
   let afterSlice;
   const returnFavourite = ({ strDrink, idDrink }) => {
     return <FavouriteListElement key={idDrink} strDrink={strDrink} id={idDrink} />;
@@ -22,7 +22,7 @@ const CoctailsFavourite = () => {
     }
   };
   sliceFavourite();
-
+  
   return (
     <section className="coctails-favourite">
       <h3>

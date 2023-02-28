@@ -12,7 +12,7 @@ function AddRemButton({ name, id, img, className }) {
 
   useEffect(() => {
     function isOnList() {
-      return listOfFav.some((drink) => drink.idDrink === id);
+      return listOfFav.drinks.some((drink) => drink.idDrink === id);
     }
     setInFavourite(isOnList);
   }, [listOfFav, id]);

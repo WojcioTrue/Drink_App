@@ -13,7 +13,7 @@ const DrinkInfo = () => {
 
   // check if element is on favourite list
   useEffect(() => {
-    const onList = listOfFav.some(element => element.idDrink === id);
+    const onList = listOfFav.drinks.some(element => element.idDrink === id);
     setIsFavourite(onList);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listOfFav]);
