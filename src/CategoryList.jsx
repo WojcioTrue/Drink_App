@@ -4,6 +4,7 @@ import CategoryListElement from "./CategoryListElement";
 import DrinkInfo from "./DrinkInfo";
 import NotFound from "./NotFound";
 import CoctailList from "./CoctailList";
+import FavListFullScreen from "./FavListFullScreen"
 import { Routes, Route, Link } from "react-router-dom";
 
 const CategoryList = () => {
@@ -65,7 +66,7 @@ const CategoryList = () => {
         <Route path="/tequila" element={<CoctailList />} />
         <Route path="/rum" element={<CoctailList />} />
         {/* favourite list route */}
-        <Route path="/favourite_list" element={<CoctailList/>}/>
+        <Route path="/favourite_list" element={<FavListFullScreen/>}/>
         {/* not found element */}
         <Route path="*" element={<NotFound />} />
       </Routes>
