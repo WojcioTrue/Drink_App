@@ -65,7 +65,7 @@ const CategoryList = () => {
         <Route path="/tequila" element={<CoctailList />} />
         <Route path="/rum" element={<CoctailList />} />
         {/* favourite list route */}
-        <Route path="favourite_list" element={<CoctailList/>}/>
+        <Route path="/favourite_list" element={<CoctailList/>}/>
         {/* not found element */}
         <Route path="*" element={<NotFound />} />
       </Routes>
