@@ -53,14 +53,20 @@ const CategoryList = () => {
       </div>
       
       <Routes>
+        {/* home/index route */}
         <Route path="/" element={<CoctailList />} />
-        <Route path="/whiskey" element={<CoctailList />}/>
+        {/* path for drink with id */}
         <Route path="/:id" element={<DrinkInfo />}/>
+        {/* categories */}
+        <Route path="/whiskey" element={<CoctailList />}/>
         <Route path="/bourbon" element={<CoctailList />} />
         <Route path="/vodka" element={<CoctailList />} />
         <Route path="/gin" element={<CoctailList />} />
         <Route path="/tequila" element={<CoctailList />} />
         <Route path="/rum" element={<CoctailList />} />
+        {/* favourite list route */}
+        <Route path="favourite_list" element={<CoctailList/>}/>
+        {/* not found element */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
