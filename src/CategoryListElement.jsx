@@ -9,11 +9,7 @@ const CategoryListElement = ({ imgSrc, text }) => {
   const { getCategory } = useContext(MyContext);
 
   useEffect(() => {
-    if (location.state !== null) {
-      getCategory(location.state.category);
-    } else {
-      console.log(false);
-    }
+      location.state && getCategory(location.state.category);
   }, [location, getCategory]);
 
   return (

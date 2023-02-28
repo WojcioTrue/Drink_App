@@ -13,7 +13,7 @@ const checkLocal = () => {
   }
 };
 const ContextComponent = ({ children }) => {
-  const [drinkData, setDdrinkData] = useState();
+  const [drinkData, setDrinkData] = useState();
   const [category, setCategory] = useState("Vodka");
   const [listOfFav, setListOfFav] = useState(checkLocal);
   const [addedTrigger, setAddedTrigger] = useState(false);
@@ -27,7 +27,7 @@ const ContextComponent = ({ children }) => {
       );
 
       const response = await data.json();
-      await setDdrinkData(response);
+      await setDrinkData(response);
     };
     fetchData();
   }, [category]);
@@ -72,8 +72,9 @@ const ContextComponent = ({ children }) => {
         drinkData,
         addToFav,
         removeFav,
+        setDrinkData,
         getCategory,
-        listOfFav,
+        listOfFav
       }}
     >
       {children}
