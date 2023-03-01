@@ -2,12 +2,13 @@ import { useContext } from "react";
 import "./styles/coctail_list.css";
 import { MyContext } from "./context/ContextComponent";
 import CoctailListElement from "./CoctailListElement";
+import "./styles/fav_list_fullscreen.css"
 
 const FavListFullScreen = () => {
   const { listOfFav } = useContext(MyContext);
   const favouriteList = listOfFav.drinks;
 
-  console.log(favouriteList.length);
+
   return (
     <div className="list-coctails">
       
