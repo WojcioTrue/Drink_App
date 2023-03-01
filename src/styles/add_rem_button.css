@@ -6,6 +6,7 @@
 
 .add-favourite path {
     fill: rgb(255, 91, 31);
+    transition: fill .2s;
   }
   
 .remove-color path {
