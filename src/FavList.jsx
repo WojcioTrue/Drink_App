@@ -26,7 +26,7 @@ const CoctailsFavourite = () => {
   return (
     <section className="coctails-favourite">
       <h3>
-        Favourite drinks{" "}
+        {"Favourite drinks "}
         {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:
       </h3>
       <ul>{afterSlice}</ul>
