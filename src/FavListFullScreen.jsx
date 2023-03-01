@@ -6,20 +6,26 @@ import CoctailListElement from "./CoctailListElement";
 const FavListFullScreen = () => {
   const { listOfFav } = useContext(MyContext);
   const favouriteList = listOfFav.drinks;
+
+  console.log(favouriteList.length);
   return (
     <div className="list-coctails">
       <h3>List of coctails:</h3>
       <div className="grid-coctails">
-        {favouriteList.map((element) => {
-          return (
-            <CoctailListElement
-              key={element.idDrink}
-              id={element.idDrink}
-              name={element.strDrink}
-              imgSrc={element.strDrinkThumb}
-            />
-          );
-        })}
+        {favouriteList.length > 0 ? (
+          favouriteList.map((element) => {
+            return (
+              <CoctailListElement
+                key={element.idDrink}
+                id={element.idDrink}
+                name={element.strDrink}
+                imgSrc={element.strDrinkThumb}
+              />
+            );
+          })
+        ) : (
+          <h3>"Dodaj coś!"</h3>
+        )}
       </div>
     </div>
   );
