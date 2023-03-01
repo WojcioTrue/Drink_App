@@ -21,6 +21,11 @@
   -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
   -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
   border-radius: 10px;
+  transition: transform .2s;
+}
+
+.coctails-favourite ul li:hover {
+  transform: translateX(10px);
 }
 
 .coctails-favourite ul li a {
