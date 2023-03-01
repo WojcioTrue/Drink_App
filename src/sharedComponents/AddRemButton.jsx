@@ -4,7 +4,7 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { MyContext } from "../context/ContextComponent";
-import "../styles/AddRemButton.css";
+import "../styles/add_rem_button.css";
 
 function AddRemButton({ name, id, img, className }) {
   const [inFavourite, setInFavourite] = useState(false);

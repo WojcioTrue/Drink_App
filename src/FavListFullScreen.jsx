@@ -28,7 +28,8 @@ const FavListFullScreen = () => {
           </div>
           </>
         ) : (
-          <div>
+          <div className="empty-list">
+            <img alt="#" src="./img/fav_icon.png"></img>
             <h3>Your list is empty!</h3>
             <p>Add something to your favourite list. drink responsibly!</p>
           </div>
