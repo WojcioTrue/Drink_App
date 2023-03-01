@@ -30,7 +30,7 @@ const CoctailsFavourite = () => {
         {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:
       </h3>
       <ul>{afterSlice}</ul>
-      {listOfFavourite.length > 5 && <Link to="/favourite_list"><Button variant="coctails-favourite__button" text="View all favourite drinks"/></Link>}
+      {listOfFavourite.length > 0 && <Link to="/favourite_list"><Button variant="coctails-favourite__button" text="View all favourite drinks"/></Link>}
     </section>
   );
 };

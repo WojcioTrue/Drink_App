@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FavButton = () => {
   return (
-    <Link to="/">
+    <Link to="/favourite_list">
       <div className="fav-button">
         <img alt="#" src="./img/fav_icon.png" />
       </div>
