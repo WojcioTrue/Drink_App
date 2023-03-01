@@ -10,10 +10,12 @@ const FavListFullScreen = () => {
   console.log(favouriteList.length);
   return (
     <div className="list-coctails">
-      <h3>List of coctails:</h3>
-      <div className="grid-coctails">
+      
         {favouriteList.length > 0 ? (
-          favouriteList.map((element) => {
+          <>
+          <h3>FavouriteDrinks:</h3>
+          <div className="grid-coctails">
+            {favouriteList.map((element) => {
             return (
               <CoctailListElement
                 key={element.idDrink}
@@ -22,12 +24,16 @@ const FavListFullScreen = () => {
                 imgSrc={element.strDrinkThumb}
               />
             );
-          })
+          })}
+          </div>
+          </>
         ) : (
-          <h3>"Dodaj coś!"</h3>
+          <div>
+            <h3>Your list is empty!</h3>
+            <p>Add something to your favourite list. drink responsibly!</p>
+          </div>
         )}
       </div>
-    </div>
   );
 };
 
