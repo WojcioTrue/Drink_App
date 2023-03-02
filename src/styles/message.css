@@ -1,6 +1,7 @@
 .message__list {
     width: 100%;
     margin-top: 35px;
+    margin-bottom: 30px;
     min-height: 300px;
     position: relative;
     display: flex;
