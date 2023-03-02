@@ -5,7 +5,9 @@ import DrinkInfo from "./DrinkInfo";
 import NotFound from "./NotFound";
 import CoctailList from "./CoctailList";
 import FavListFullScreen from "./FavListFullScreen"
+import Message from "./Message";
 import { Routes, Route, Link } from "react-router-dom";
+
 
 const CategoryList = () => {
   

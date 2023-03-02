@@ -27,7 +27,7 @@ const DrinkInfo = () => {
         const response = await data.json();
         setDrink(response.drinks[0]);
       } catch (error) {
-        console.log('Error', error);
+        console.log("Probably can't find drink with this id, check your id and try again.",error );
       }
       
     };
