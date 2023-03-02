@@ -3,6 +3,10 @@
   color: #1C0B19;
 }
 
+.coctails-main .list-coctails {
+  margin-bottom: 30px;
+}
+
 .coctails-main .list-coctails .grid-coctails {
   display: grid;
   gap: 1.5rem;
@@ -81,5 +85,9 @@
 
   .coctails-main {
     width: 75%;
+  }
+
+  .coctails-main .list-coctails {
+    margin-bottom: 0px;
   }
 }
