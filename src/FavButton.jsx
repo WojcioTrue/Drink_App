@@ -5,7 +5,7 @@ const FavButton = () => {
   return (
     <Link to="/favourite_list">
       <div className="fav-button">
-        <img alt="#" src="./img/fav_icon.png" />
+        <img alt="#" src={process.env.PUBLIC_URL + "/img/fav_icon.png"} />
       </div>
     </Link>
   );
