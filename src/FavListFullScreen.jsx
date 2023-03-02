@@ -3,6 +3,7 @@ import "./styles/coctail_list.css";
 import { MyContext } from "./context/ContextComponent";
 import CoctailListElement from "./CoctailListElement";
 import "./styles/fav_list_fullscreen.css";
+import Message from "./Message";
 
 const FavListFullScreen = () => {
   const { listOfFav } = useContext(MyContext);
@@ -27,19 +28,17 @@ const FavListFullScreen = () => {
           </div>
         </>
       ) : (
-        <div className="empty-list">
-          <span className="empty-list-img">
-            <img alt="#" src="./img/fav_icon.png"></img>
-          </span>
-          <section>
-            <h3>Your list is empty!</h3>
-            <p>Add something to your favourite list.</p>
-            <p>Drink responsibly!</p>
-          </section>
-        </div>
+        <Message 
+        header={"Your list is empty!"} 
+        text={"Add something to your favourite list."}
+        secondText={"Drink responsibly!"}
+        img={"./img/fav_icon.png"}
+        />
       )}
     </div>
   );
 };
+
+
 
 export default FavListFullScreen;
