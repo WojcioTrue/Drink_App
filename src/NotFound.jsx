@@ -1,9 +1,10 @@
 import Message from "./Message";
 import Button from "./sharedComponents/Button";
 import { Link } from "react-router-dom";
+import './styles/not_found.css'
 const NotFound = () => {
   return (
-    <>
+    <div className="not-found">
       <Message
         header={"Something went wrong!"}
         text={"I don't see the page you looking for, or some error occured..."}
@@ -11,9 +12,9 @@ const NotFound = () => {
         img={process.env.PUBLIC_URL + "/img/fav_icon.png"}
       />
       <Link to="/">
-        <Button>{"Return home"}</Button>
+        <Button variant="not-found__button">{"Return home"}</Button>
       </Link>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,17 @@
+.not-found {
+    text-align: center;
+}
+
+.not-found a {
+    text-decoration: none;
+}
+
+.not-found__button {
+    background-color: rgba(100, 58, 131,1);
+    transition: transform .2s, background-color .2s;
+}
+
+.not-found__button:hover {
+    background-color: rgba(100, 58, 131,.7);
+    transform: translateY(-5px);
+}
