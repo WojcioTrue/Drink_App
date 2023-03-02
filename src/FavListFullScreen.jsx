@@ -31,7 +31,7 @@ const FavListFullScreen = () => {
         header={"Your list is empty!"} 
         text={"Add something to your favourite list."}
         secondText={"Drink responsibly!"}
-        img={"./img/fav_icon.png"}
+        img={process.env.PUBLIC_URL + "/img/fav_icon.png"}
         />
       )}
     </div>

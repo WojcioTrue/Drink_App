@@ -31,7 +31,7 @@ const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
               setSearchDrink={setSearchDrink}
               noElement={true}
             />
-          )) : <SearchBarListElement img={"./img/category_icons/face-sad-tear-solid.svg"} name={"There is no such drink..."} noElement={false}/>}
+          )) : <SearchBarListElement img={process.env.PUBLIC_URL + "/img/broken_glass.png"} name={"There is no such drink..."} noElement={false}/>}
       </ul>
     </div>
   );
