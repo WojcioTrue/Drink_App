@@ -6,16 +6,28 @@ export const MyContext = createContext();
 const checkLocal = () => {
   const localFavList = JSON.parse(localStorage.getItem("fav-list"));
   // set default empty array [] if local storage don't have items
-  
+
   if (localFavList === null) {
-    return { };
+    return {};
   } else {
     return localFavList;
   }
 };
+
+const actualCategory = () => {
+  const category = sessionStorage.getItem('category');
+  if(category === null){
+    return "Vodka";
+  } else {
+    return category;
+  }
+}
+
+actualCategory();
+
 const ContextComponent = ({ children }) => {
   const [drinkData, setDrinkData] = useState();
-  const [category, setCategory] = useState("Vodka");
+  const [category, setCategory] = useState(actualCategory);
   const [listOfFav, setListOfFav] = useState(checkLocal);
   const [addedTrigger, setAddedTrigger] = useState(false);
 
@@ -30,6 +42,11 @@ const ContextComponent = ({ children }) => {
       await setDrinkData(response);
     };
     fetchData();
+  }, [category]);
+
+  // set category to local storage
+  useEffect(() => {
+    sessionStorage.setItem("category", category);
   }, [category]);
 
   // get category from CategoryListElement
@@ -49,13 +66,15 @@ const ContextComponent = ({ children }) => {
     if (elementExist) {
       console.log("element się powtarza");
     } else {
-      setListOfFav({ drinks: [argument, ...listOfFav.drinks]});
+      setListOfFav({ drinks: [argument, ...listOfFav.drinks] });
     }
   };
   // remove element with the same id using filter method
   const removeFav = (id) => {
-    const filteredList = listOfFav.drinks.filter((element) => element.idDrink !== id);
-    setListOfFav({drinks: filteredList});
+    const filteredList = listOfFav.drinks.filter(
+      (element) => element.idDrink !== id
+    );
+    setListOfFav({ drinks: filteredList });
   };
   // useEffect for notification prompt
   useEffect(() => {
@@ -74,7 +93,7 @@ const ContextComponent = ({ children }) => {
         removeFav,
         setDrinkData,
         getCategory,
-        listOfFav
+        listOfFav,
       }}
     >
       {children}
