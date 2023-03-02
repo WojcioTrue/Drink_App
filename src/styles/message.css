@@ -1,4 +1,4 @@
-.empty-list {
+.message__list {
     width: 100%;
     margin-top: 35px;
     min-height: 300px;
@@ -9,13 +9,13 @@
     flex-wrap: nowrap;
 }
 
-.coctails-main .list-coctails .empty-list h3 {
+.coctails-main .list-coctails .message__list h3 {
     position: relative;
     text-align: center;
     font-size: 1.5rem;
 }
 
-.empty-list p {
+.message__list p {
     position: relative;
     z-index: 5;
     font-size: 1rem;
@@ -24,7 +24,7 @@
     text-align: center;
 }
 
-.empty-list .empty-list-img {
+.message__list .message__list-img {
     width: 100px;
     height: 100px;
     background-color: rgb(108, 55, 146);
@@ -32,12 +32,12 @@
     border-radius: 999px;
 }
 
-.empty-list .empty-list-img img {
+.message__list .message__list-img img {
     width: 100%;
 }
 
-@media only screen and (min-width: 992px) {
-    .empty-list {
-        margin-top: 100px;
+@media only screen and (min-width: 768px) {
+    .message__list {
+        margin-top: 125px;
     }
   }
