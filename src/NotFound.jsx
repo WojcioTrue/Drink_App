@@ -9,7 +9,7 @@ const NotFound = () => {
         header={"Something went wrong!"}
         text={"I don't see the page you looking for, or some error occured..."}
         secondText={"Return to home page."}
-        img={process.env.PUBLIC_URL + "/img/fav_icon.png"}
+        img={process.env.PUBLIC_URL + "/img/broken_glass.png"}
       />
       <Link to="/">
         <Button variant="not-found__button">{"Return home"}</Button>
