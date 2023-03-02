@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams, Navigate, redirect } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import "./styles/Drink_info.css";
 import AddRemButton from "./sharedComponents/AddRemButton";
 import { MyContext } from "./context/ContextComponent";
