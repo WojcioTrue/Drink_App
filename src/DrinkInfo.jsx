@@ -23,9 +23,13 @@ const DrinkInfo = () => {
       const data = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
       );
-
-      const response = await data.json();
-      setDrink(response.drinks[0]);
+      try {
+        const response = await data.json();
+        setDrink(response.drinks[0]);
+      } catch (error) {
+        console.log('Error', error);
+      }
+      
     };
     fetchData();
   }, [id]);
