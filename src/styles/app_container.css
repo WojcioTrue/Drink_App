@@ -13,14 +13,14 @@ body {
   box-sizing: border-box;
   padding: 15px;
   margin: 0px;
-  background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
   background-attachment: fixed;
 }
 
 .main-container {
   box-sizing: border-box;
   position: relative;
-  background-color: #fdfdfdd7;
+  background-color: #fdfdfde7;
   border-radius: 25px;
   padding: 16px;
   max-width: 1200px;
