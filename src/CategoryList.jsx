@@ -5,7 +5,7 @@ import DrinkInfo from "./DrinkInfo";
 import NotFound from "./NotFound";
 import CoctailList from "./CoctailList";
 import FavListFullScreen from "./FavListFullScreen"
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 
 
 const CategoryList = () => {
@@ -69,7 +69,8 @@ const CategoryList = () => {
         {/* favourite list route */}
         <Route path="/favourite_list" element={<FavListFullScreen/>}/>
         {/* not found element */}
-        <Route path="*" element={<NotFound />} />
+        <Route path="error" element={<NotFound />} />
+        <Route path="*" element={<Navigate replace to="/error" />} />
       </Routes>
     </>
   );

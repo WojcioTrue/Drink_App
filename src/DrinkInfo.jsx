@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate, redirect } from "react-router-dom";
 import "./styles/Drink_info.css";
 import AddRemButton from "./sharedComponents/AddRemButton";
 import { MyContext } from "./context/ContextComponent";
@@ -8,14 +8,15 @@ const DrinkInfo = () => {
   const [drink, setDrink] = useState();
   const [ingredients, setIngredients] = useState([]);
   const [isFavourite, setIsFavourite] = useState(true);
+  const [notFound, setNotFound] = useState(false);
   const { id } = useParams();
   const { listOfFav } = useContext(MyContext);
 
   // check if element is on favourite list
   useEffect(() => {
-    const onList = listOfFav.drinks.some(element => element.idDrink === id);
+    const onList = listOfFav.drinks.some((element) => element.idDrink === id);
     setIsFavourite(onList);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listOfFav]);
   // fetching drink data with id passed from useParams hook
   useEffect(() => {
@@ -27,9 +28,12 @@ const DrinkInfo = () => {
         const response = await data.json();
         setDrink(response.drinks[0]);
       } catch (error) {
-        console.log("Probably can't find drink with this id, check your id and try again.",error );
+        console.log(
+          "Probably can't find drink with this id, check your id and try again.",
+          error
+        );
+        setNotFound(true);
       }
-      
     };
     fetchData();
   }, [id]);
@@ -51,9 +55,9 @@ const DrinkInfo = () => {
     }
   }, [drink]);
 
-
-
-  return (
+  return notFound ? (
+    <Navigate replace to="*" />
+  ) : (
     <>
       {drink ? (
         <div className="drink-info">
@@ -63,14 +67,13 @@ const DrinkInfo = () => {
           <div className="drink-info__description">
             <h2>{drink.strDrink}</h2>
             <p className="favouriteButton">
-            <AddRemButton
+              <AddRemButton
                 name={drink.strDrink}
                 id={id}
                 img={drink.strDrinkThumb}
                 className="drink-info__addbutton"
               />
               {isFavourite ? "Remove from favourite" : "Add to favourite"}
-              
             </p>
             <ul>
               <h3>List of ingredients:</h3>
@@ -85,7 +88,7 @@ const DrinkInfo = () => {
           </div>
         </div>
       ) : (
-        "Loading"
+        "loading"
       )}
     </>
   );
