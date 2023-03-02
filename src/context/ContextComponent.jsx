@@ -14,6 +14,9 @@ const checkLocal = () => {
   }
 };
 
+// set category in sessionStorage, so for example: if we reload page
+// with category whiskey, category won't be set to 'vodka' as default,
+// like it previously did
 const actualCategory = () => {
   const category = sessionStorage.getItem('category');
   if(category === null){
