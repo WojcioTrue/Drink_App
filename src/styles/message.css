@@ -9,10 +9,12 @@
     flex-wrap: nowrap;
 }
 
-.coctails-main .list-coctails .message__list h3 {
+.message__list section .header {
     position: relative;
     text-align: center;
     font-size: 1.5rem;
+    color: #1C0B19;
+    font-weight: bold;
 }
 
 .message__list p {

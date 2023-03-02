@@ -7,8 +7,9 @@ const Message = ({header, text, secondText, img}) => {
             <img alt="#" src={img}></img>
           </span>
           <section>
-            <h3>{header}</h3>
-            <p>{text}<br/></p><p>{secondText}</p>
+            <p className='header'>{header}</p>
+            <p>{text}</p>
+            <p>{secondText}</p>
           </section>
         </div>
   )
