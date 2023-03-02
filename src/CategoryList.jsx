@@ -5,7 +5,6 @@ import DrinkInfo from "./DrinkInfo";
 import NotFound from "./NotFound";
 import CoctailList from "./CoctailList";
 import FavListFullScreen from "./FavListFullScreen"
-import Message from "./Message";
 import { Routes, Route, Link } from "react-router-dom";
 
 
@@ -18,37 +17,37 @@ const CategoryList = () => {
         <ul>
           <Link to="whiskey" state={{category : "Whiskey"}}>
           <CategoryListElement
-            imgSrc={"./img/category_icons/whiskey.png"}
+            imgSrc={process.env.PUBLIC_URL + "/img/category_icons/whiskey.png"}
             text={"Whiskey"}
           />
           </Link>
           <Link to="bourbon" state={{category : "Bourbon"}}>
           <CategoryListElement
-            imgSrc={"./img/category_icons/bourbon.png"}
+            imgSrc={process.env.PUBLIC_URL + "/img/category_icons/bourbon.png"}
             text={"Bourbon"}
           />
           </Link>
           <Link to="vodka" state={{category : "Vodka"}}>
           <CategoryListElement
-            imgSrc={"./img/category_icons/vodka.png"}
+            imgSrc={process.env.PUBLIC_URL + "/img/category_icons/vodka.png"}
             text={"Vodka"}
           />
           </Link>
           <Link to="gin" state={{category : "Gin"}}>
           <CategoryListElement
-            imgSrc={"./img/category_icons/gin.png"}
+            imgSrc={process.env.PUBLIC_URL + "/img/category_icons/gin.png"}
             text={"Gin"}
           />
           </Link>
           <Link to="tequila" state={{category : "Tequila"}}>
           <CategoryListElement
-            imgSrc={"./img/category_icons/Tequila.png"}
+            imgSrc={process.env.PUBLIC_URL + "/img/category_icons/Tequila.png"}
             text={"Tequila"}
           />
           </Link>
           <Link to="rum" state={{category : "Rum"}}>
             <CategoryListElement
-              imgSrc={"./img/category_icons/Rum.png"}
+              imgSrc={process.env.PUBLIC_URL + "/img/category_icons/Rum.png"}
               text={"Rum"}
             />
           </Link>
