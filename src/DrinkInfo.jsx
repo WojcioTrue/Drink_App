@@ -56,7 +56,7 @@ const DrinkInfo = () => {
   }, [drink]);
 
   return notFound ? (
-    <Navigate replace to="*" />
+    <Navigate to="/error"/>
   ) : (
     <>
       {drink ? (

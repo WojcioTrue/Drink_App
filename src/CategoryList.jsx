@@ -69,8 +69,8 @@ const CategoryList = () => {
         {/* favourite list route */}
         <Route path="/favourite_list" element={<FavListFullScreen/>}/>
         {/* not found element */}
-        <Route path="error" element={<NotFound />} />
-        <Route path="*" element={<Navigate replace to="/error" />} />
+        <Route path="/error" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/error" />}/>
       </Routes>
     </>
   );
