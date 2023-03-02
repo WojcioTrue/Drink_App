@@ -1,8 +1,8 @@
 import "../styles/button.css"
 
-const Button = ({text, variant}) => {
+const Button = ({children, variant}) => {
   return (
-    <button className={`rounded-button ${variant}`}>{text}</button>
+    <button className={`rounded-button ${variant}`}>{children}</button>
   )
 }
 
