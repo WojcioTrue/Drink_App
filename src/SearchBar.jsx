@@ -13,6 +13,7 @@ const Searchbar = () => {
   const [drinkList, setDrinkList] = useState();
   const [clickedOutside, setClickedOutside] = useState(false);
 
+  // useEffect for searching drink by name
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -27,10 +28,11 @@ const Searchbar = () => {
     fetchData();
   }, [searchDrink]);
 
+  // event listener for changed input value
   const drinkToSearch = (e) => {
     setSearchDrink(e.target.value);
   };
-
+  // Clear search input
   function clearSearch() {
     setSearchDrink("");
   }
