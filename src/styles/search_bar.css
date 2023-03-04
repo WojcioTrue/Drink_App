@@ -34,9 +34,16 @@
 
 .search-bar__input .icon {
   position: absolute;
-  right: 20px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.magnify {
+  left: 15px;
+}
+
+ .x-mark {
+  right: 15px;
 }
 
 .search-bar__input .icon path {
@@ -49,7 +56,7 @@
   box-sizing: border-box;
   border-radius: 30px;
   border-width: 0px;
-  padding-left: 20px;
+  padding: 0px 45px;
   background-color: #EAEAEA;
   outline: 1px solid #EAEAEA;
   transition: outline 0.3s ease-out;

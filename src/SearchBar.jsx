@@ -82,14 +82,13 @@ const Searchbar = () => {
           placeholder="Search for drink"
           onChange={drinkToSearch}
         />
-        {Boolean(searchDrink.length) ? (
+        <FontAwesomeIcon icon={faMagnifyingGlass} className="icon magnify" />
+        {Boolean(searchDrink.length) && (
           <FontAwesomeIcon
             icon={faXmark}
-            className="icon"
+            className="icon x-mark"
             onClick={clearSearch}
           />
-        ) : (
-          <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
         )}
 
         {/* remove focus when list element is clicked, hide suggestions */}
