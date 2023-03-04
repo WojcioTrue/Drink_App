@@ -83,10 +83,14 @@ const Searchbar = () => {
           onChange={drinkToSearch}
         />
         <FontAwesomeIcon icon={faMagnifyingGlass} className="icon magnify" />
-        {Boolean(searchDrink.length) && (
+        { (
           <FontAwesomeIcon
             icon={faXmark}
-            className="icon x-mark"
+            className={
+              Boolean(searchDrink.length)
+                ? `icon x-mark x-mark--focus`
+                : `icon x-mark `
+            }
             onClick={clearSearch}
           />
         )}

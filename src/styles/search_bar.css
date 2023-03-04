@@ -44,16 +44,23 @@
 
  .x-mark {
   right: 15px;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.x-mark--focus {
+  opacity: 1;
 }
 
 .search-bar__input .icon path {
-  fill: #1C0B19;
+  fill: #808080;
 }
 
 .search-bar__input input[id=SearchDrink] {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  font-weight: 600;
   border-radius: 30px;
   border-width: 0px;
   padding: 0px 45px;
@@ -64,7 +71,7 @@
 
 .search-bar__input input[id=SearchDrink]:focus-within{
   transition: outline 0.3s ease-out;
-  outline: 1px solid #1C0B19;
+  outline: 1px solid #808080;
 }
 
 .search-bar__input input[id=SearchDrink]~.search-bar__suggestions {
