@@ -1,9 +1,11 @@
-
+import NotificationPrompt from "./NotificationPrompt";
 
 const NotificationList = () => {
   return (
-    <div>NotificationList</div>
-  )
-}
+  <div className="favourite-notification-list">
+    NotificationList
+    </div>
+    )
+};
 
-export default NotificationList
+export default NotificationList;
