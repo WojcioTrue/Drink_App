@@ -8,7 +8,7 @@ const NotificationPrompt = ({ added }) => {
   useEffect(() => {
     const hideNotification = setTimeout(() => {
       setDisplay(false);
-    }, 3000);
+    }, 1500);
     return () => clearTimeout(hideNotification);
   }, []);
 
