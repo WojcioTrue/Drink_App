@@ -1,4 +1,4 @@
-.favourite-notification {
+.favourite-notification-list {
   display: block;
   position: fixed;
   bottom: 20px;
@@ -7,15 +7,15 @@
   padding: 0px 20px;
   border-radius: 10px;
 }
-.favourite-notification p {
+.favourite-notification div p {
   color: #FDFDFD;
   display: inline-block;
   font-weight: 600;
   margin-right: 15px;
 }
-.favourite-notification.remove {
+.favourite-notification div .remove {
   background-color: rgb(108, 55, 146);
 }
-.favourite-notification svg path {
+.favourite-notification div svg path {
   fill: #FDFDFD;
 }

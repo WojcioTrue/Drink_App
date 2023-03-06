@@ -4,10 +4,12 @@ import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
 
 const NotificationPrompt = () => {
   return (
-    <div className="favourite-notification">
-      <p>Added to favourite drinks !</p>
-      <FontAwesomeIcon icon={faHeart} size="lg" />
-      <FontAwesomeIcon icon={faHeartBroken} size="lg" />
+    <div className="favourite-notification-list">
+      <div>
+        <p>Added to favourite drinks !</p>
+        <FontAwesomeIcon icon={faHeart} size="lg" />
+        <FontAwesomeIcon icon={faHeartBroken} size="lg" />
+      </div>
     </div>
   );
 };
