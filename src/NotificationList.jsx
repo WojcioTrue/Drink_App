@@ -4,9 +4,9 @@ import { MyContext } from "./context/ContextComponent";
 import "./styles/notification_prompt.css";
 
 const NotificationList = () => {
-  const { alertList, setAlertList } = useContext(MyContext);
+  const { alertList } = useContext(MyContext);
   
-  
+
   return (
     <div className="favourite-notification-list">
         {alertList.length > 0 && alertList.map((element) => 
