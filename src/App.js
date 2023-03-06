@@ -8,14 +8,22 @@ import { MyContext } from "./context/ContextComponent";
 
 function App() {
 
-  const { addedTrigger } = useContext(MyContext);
-  
+  const { alertList } = useContext(MyContext);
+  console.log(alertList);
+
   return (
     <div className="main-container">
       <Searchbar />
       <CoctailsContainer />
       <FavButton />
-      {addedTrigger && <NotificationPrompt />}
+      {/* <NotificationPrompt /> */}
+      {alertList.map((element) => {
+        if(element === 'added'){
+          return <NotificationPrompt/>
+        } else {
+          return <NotificationPrompt/>
+        }
+      })}
     </div>
   );
 }

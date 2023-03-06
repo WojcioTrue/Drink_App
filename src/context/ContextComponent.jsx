@@ -32,7 +32,7 @@ const ContextComponent = ({ children }) => {
   const [drinkData, setDrinkData] = useState();
   const [category, setCategory] = useState(actualCategory);
   const [listOfFav, setListOfFav] = useState(checkLocal);
-  const [addedTrigger, setAddedTrigger] = useState(false);
+  const [alertList, setAlertList] = useState([]);
 
   // fetch data with category variables (default "Vodka")
   useEffect(() => {
@@ -62,7 +62,7 @@ const ContextComponent = ({ children }) => {
 
   // display prompt and add drink to favourite
   const addToFav = (argument) => {
-    setAddedTrigger(true);
+    setAlertList([...alertList, 'added']);
     const elementExist = listOfFav.drinks.some(
       (element) => element.idDrink === argument.idDrink
     );
@@ -74,29 +74,24 @@ const ContextComponent = ({ children }) => {
   };
   // remove element with the same id using filter method
   const removeFav = (id) => {
+    setAlertList([...alertList, 'removed']);
     const filteredList = listOfFav.drinks.filter(
       (element) => element.idDrink !== id
     );
     setListOfFav({ drinks: filteredList });
   };
-  // useEffect for notification prompt
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAddedTrigger(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, [addedTrigger]);
+
 
   return (
     <MyContext.Provider
       value={{
-        addedTrigger,
-        drinkData,
         addToFav,
         removeFav,
         setDrinkData,
         getCategory,
+        drinkData,
         listOfFav,
+        alertList,
       }}
     >
       {children}
