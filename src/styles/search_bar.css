@@ -96,7 +96,7 @@
   border-radius: 15px;
 }
 
-.search-bar__input .search-bar__suggestions ul  li {
+.search-bar__input .search-bar__suggestions ul li {
   font-weight: bold;
   border-bottom: 1px solid white;
   cursor: pointer;
@@ -104,6 +104,10 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
+}
+
+ .no-element {
+  padding: 10px;
 }
 
 .search-bar__input .search-bar__suggestions ul  li a{

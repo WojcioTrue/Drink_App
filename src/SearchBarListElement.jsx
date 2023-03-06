@@ -11,7 +11,7 @@ const SearchBarListElement = ({ name, img, id, setSearchDrink, noElement }) => {
           </Link>
         </li>
       ) : (
-        <li>
+        <li className={'no-element'}>
             <img alt="" src={img} />
             {name}
         </li>
