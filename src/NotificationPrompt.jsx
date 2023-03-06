@@ -1,16 +1,32 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { MyContext } from "./context/ContextComponent";
+
+
+
+
 
 const NotificationPrompt = ({ added }) => {
   const [display, setDisplay] = useState(true);
+  const { alertList, setAlertList } = useContext(MyContext);
 
+  // remove component after set time
   useEffect(() => {
     const hideNotification = setTimeout(() => {
       setDisplay(false);
-    }, 1500);
+    }, 1250);
     return () => clearTimeout(hideNotification);
   }, []);
+
+  // clear alertList 
+  useEffect(() => {
+    const clearList = setTimeout(() => {
+      console.log(alertList);
+      setAlertList([]);
+    }, 1500);
+    return () => clearTimeout(clearList);
+  },[]);
 
   return (
     <>

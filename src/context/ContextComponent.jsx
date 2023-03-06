@@ -89,9 +89,10 @@ const ContextComponent = ({ children }) => {
         removeFav,
         setDrinkData,
         getCategory,
+        setAlertList,
         drinkData,
         listOfFav,
-        alertList,
+        alertList
       }}
     >
       {children}
