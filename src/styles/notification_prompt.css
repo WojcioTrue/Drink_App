@@ -3,19 +3,24 @@
   position: fixed;
   bottom: 20px;
   left: 20px;
+  
+}
+.favourite-notification {
   background-color: rgb(255, 91, 31);
   padding: 0px 20px;
   border-radius: 10px;
 }
-.favourite-notification div p {
+
+.favourite-notification p {
   color: #FDFDFD;
   display: inline-block;
   font-weight: 600;
   margin-right: 15px;
 }
-.favourite-notification div .remove {
+
+.favourite-notification .remove {
   background-color: rgb(108, 55, 146);
 }
-.favourite-notification div svg path {
+.favourite-notification svg path {
   fill: #FDFDFD;
 }
