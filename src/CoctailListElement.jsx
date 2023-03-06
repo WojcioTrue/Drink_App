@@ -11,7 +11,7 @@ const CoctailElement = ({ id, name, imgSrc }) => {
         <h4>{name}</h4>
       </div>
       <Link to={`/${id}`}>
-        <Button variant="product-button" >{"Welcome"}</Button>
+        <Button variant="product-button" >{"Details"}</Button>
       </Link>
       <AddRemButton name={name} id={id} img={imgSrc} className="grid-button"/>
     </section>

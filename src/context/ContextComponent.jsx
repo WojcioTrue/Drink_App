@@ -83,7 +83,7 @@ const ContextComponent = ({ children }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setAddedTrigger(false);
-    }, 500);
+    }, 1500);
     return () => clearTimeout(timer);
   }, [addedTrigger]);
 
