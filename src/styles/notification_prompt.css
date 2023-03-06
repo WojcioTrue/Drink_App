@@ -9,6 +9,9 @@
   background-color: rgb(255, 91, 31);
   padding: 0px 20px;
   border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .favourite-notification p {
