@@ -1,12 +1,16 @@
 @import url('https://fonts.cdnfonts.com/css/montserrat');
 
+html {
+  overflow-y: scroll;
+}
+
 html,
 body {
   display: block;
   min-height: 100vh;
   margin: 0px;
   font-family: Montserrat;
-
+  
 }
 
 #root {
