@@ -8,7 +8,9 @@ const NotificationList = () => {
   console.log(alertList);
   return (
     <div className="favourite-notification-list">
-        <NotificationPrompt added={true}/>
+        {alertList.map((element) => 
+          <NotificationPrompt added={element} />
+        )}
     </div>
     )
 };
