@@ -22,7 +22,6 @@ const NotificationPrompt = ({ added }) => {
   // clear alertList, ignoring error in dependecy setAlertList
   useEffect(() => {
     const clearList = setTimeout(() => {
-      console.log(alertList);
       setAlertList([]);
     }, 1500);
     return () => clearTimeout(clearList);
