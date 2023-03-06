@@ -10,7 +10,7 @@
   padding: 0px 20px;
   border-radius: 10px;
   margin-top: 5px;
-  min-width: 249px;
+  width: inherit;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +19,7 @@
 .favourite-notification p {
   color: #FDFDFD;
   display: inline-block;
+  font-size: 0.8rem;
   font-weight: 600;
   margin-right: 15px;
 }
