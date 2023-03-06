@@ -5,7 +5,7 @@ import "./styles/notification_prompt.css";
 
 const NotificationList = () => {
   const { alertList } = useContext(MyContext);
-  
+
   
   const sliceAlertList = () => {
     if(alertList.length > 3){
@@ -15,7 +15,7 @@ const NotificationList = () => {
     }
   }
 
-  console.log(sliceAlertList());
+  console.log('normal ' + alertList);
 
   return (
     <div className="favourite-notification-list">
