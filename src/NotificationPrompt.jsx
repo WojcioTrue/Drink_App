@@ -26,7 +26,7 @@ const NotificationPrompt = ({ added }) => {
       setAlertList([]);
     }, 1500);
     return () => clearTimeout(clearList);
-  },[]);
+  },[alertList]);
 
   return (
     <>
