@@ -18,8 +18,9 @@
   margin-right: 15px;
 }
 
-.favourite-notification .remove {
+.favourite-notification-list .remove {
   background-color: rgb(108, 55, 146);
+
 }
 .favourite-notification svg path {
   fill: #FDFDFD;

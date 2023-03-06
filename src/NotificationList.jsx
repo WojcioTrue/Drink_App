@@ -8,7 +8,7 @@ const NotificationList = () => {
   console.log(alertList);
   return (
     <div className="favourite-notification-list">
-        <NotificationPrompt/>
+        <NotificationPrompt added={true}/>
     </div>
     )
 };
