@@ -19,13 +19,14 @@ const NotificationPrompt = ({ added }) => {
     return () => clearTimeout(hideNotification);
   }, []);
 
-  // clear alertList 
+  // clear alertList, ignoring error in dependecy setAlertList
   useEffect(() => {
     const clearList = setTimeout(() => {
       console.log(alertList);
       setAlertList([]);
     }, 1500);
     return () => clearTimeout(clearList);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[alertList]);
 
   return (
