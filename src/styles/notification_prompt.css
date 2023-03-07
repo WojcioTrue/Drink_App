@@ -10,10 +10,10 @@
   padding: 0px 20px;
   border-radius: 10px;
   margin-top: 5px;
-  min-width: 249px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: fit-content;
 }
 
 .favourite-notification p {
@@ -21,6 +21,7 @@
   display: inline-block;
   font-weight: 600;
   margin-right: 15px;
+  font-size: 0.8rem;
 }
 
 .favourite-notification-list .remove {
