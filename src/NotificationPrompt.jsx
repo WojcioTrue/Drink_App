@@ -26,7 +26,6 @@ const NotificationPrompt = ({ added }) => {
   useEffect(() => {
     const clearList = setTimeout(() => {
       setAlertList([]);
-      console.log(alertList);
     // clearing alertList after notificationDelay passes
     }, notificationDelay);
     return () => clearTimeout(clearList);
