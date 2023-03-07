@@ -10,12 +10,15 @@ import { MyContext } from "./context/ContextComponent";
 const NotificationPrompt = ({ added }) => {
   const [display, setDisplay] = useState(true);
   const { alertList, setAlertList } = useContext(MyContext);
+  // in miliseconds, delay for removing element
+  const notificationDelay = 1250;
 
   // remove component after set time
   useEffect(() => {
     const hideNotification = setTimeout(() => {
       setDisplay(false);
-    }, 1250);
+
+    }, notificationDelay);
     return () => clearTimeout(hideNotification);
   }, []);
 
@@ -23,7 +26,9 @@ const NotificationPrompt = ({ added }) => {
   useEffect(() => {
     const clearList = setTimeout(() => {
       setAlertList([]);
-    }, 1500);
+      console.log(alertList);
+    // clearing alertList after notificationDelay passes
+    }, notificationDelay);
     return () => clearTimeout(clearList);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[alertList]);
