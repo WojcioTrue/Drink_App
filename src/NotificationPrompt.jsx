@@ -14,27 +14,9 @@ const NotificationPrompt = ({ added }) => {
   const notificationDelay = 1250;
 
   // remove component after set time
-  useEffect(() => {
-    const hideNotification = setTimeout(() => {
-      setDisplay(false);
-
-    }, notificationDelay);
-    return () => clearTimeout(hideNotification);
-  }, []);
-
-  // clear alertList, ignoring error in dependecy setAlertList
-  useEffect(() => {
-    const clearList = setTimeout(() => {
-      setAlertList([]);
-    // clearing alertList after notificationDelay passes
-    }, notificationDelay);
-    return () => clearTimeout(clearList);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[alertList]);
 
   return (
     <>
-      {display ? (
         <div className={`favourite-notification ${added ? "" : "remove"}`}>
           {added ? (
             <p>Added to favourite!</p>
@@ -47,9 +29,6 @@ const NotificationPrompt = ({ added }) => {
             <FontAwesomeIcon icon={faHeartBroken} size="lg" />
           )}
         </div>
-      ) : (
-        ""
-      )}
     </>
   );
 };
