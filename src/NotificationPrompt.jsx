@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
 import {motion} from 'framer-motion'
+import { notificationPrompt } from "./framerStyles/variants";
 
 const NotificationPrompt = ({ added }) => {
 
@@ -8,9 +9,10 @@ const NotificationPrompt = ({ added }) => {
     <>
         <motion.div
         layout
-        initial={{opacity:0, x: -15}}
-        animate={{opacity:1, x: 0}}
-        exit={{opacity:0, x: -25}}
+        variants={notificationPrompt}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
         className={`favourite-notification ${added ? "" : "remove"}`}>
           {added ? (
             <p>Added to favourite!</p>

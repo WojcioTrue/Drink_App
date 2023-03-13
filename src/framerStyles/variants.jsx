@@ -31,3 +31,8 @@ export const singleDrink = {
   show: { opacity: 1, x : 0, transition: { duration: 2 } },
   whileInView : { opacity: 1, x: 0, transition: { duration: 0.3 } }
 };
+
+export const notificationPrompt = {
+  hidden : {opacity:0, x: -15},
+  show: {opacity:1, x: 0}
+}
