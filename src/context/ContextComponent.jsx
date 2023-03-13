@@ -62,7 +62,7 @@ const ContextComponent = ({ children }) => {
 
   // display prompt and add drink to favourite
   const addToFav = (argument) => {
-    setAlertList([...alertList,true]);
+    setAlertList([...alertList,{id: Date.now(),isAdded:true}]);
     const elementExist = listOfFav.drinks.some(
       (element) => element.idDrink === argument.idDrink
     );
@@ -74,7 +74,7 @@ const ContextComponent = ({ children }) => {
   };
   // remove element with the same id using filter method
   const removeFav = (id) => {
-    setAlertList([...alertList,false]);
+    setAlertList([...alertList,{id: Date.now(),isAdded:false}]);
     const filteredList = listOfFav.drinks.filter(
       (element) => element.idDrink !== id
     );
