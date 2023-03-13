@@ -1,13 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState, useContext } from "react";
-import { MyContext } from "./context/ContextComponent";
-
 
 
 const NotificationPrompt = ({ added }) => {
-  const [display, setDisplay] = useState(true);
-  const { alertList, setAlertList } = useContext(MyContext);
 
   return (
     <>
