@@ -1,5 +1,5 @@
 import NotificationPromptCheck from "./NotificationPromptCheck";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MyContext } from "./context/ContextComponent";
 import "./styles/notification_prompt.css";
 
