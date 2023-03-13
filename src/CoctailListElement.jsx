@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import Button from "./sharedComponents/Button";
 import AddRemButton from "./sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
-import { singleDrink } from "./framerStyles/variants";
 
 const CoctailElement = ({ id, name, imgSrc }) => {
-  console.log(singleDrink);
 
   return (
     <motion.section
