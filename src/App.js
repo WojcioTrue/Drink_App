@@ -3,15 +3,31 @@ import Searchbar from "./SearchBar";
 import CoctailsContainer from "./CoctailsContainer";
 import FavButton from "./FavButton";
 import NotificationList from "./NotificationList";
+import { motion } from "framer-motion";
+
+const appVariant = {
+  hidden: { opacity: 0 },
+  show: { 
+    opacity: 1, 
+    transition: { 
+      duration: 0.3
+    } 
+  }
+};
 
 function App() {
   return (
-    <div className="main-container">
+    <motion.div
+      variants={appVariant}
+      initial="hidden"
+      animate="show"
+      className="main-container"
+    >
       <Searchbar />
       <CoctailsContainer />
       <FavButton />
       <NotificationList />
-    </div>
+    </motion.div>
   );
 }
 
