@@ -8,6 +8,9 @@ import {
 import { useState, useEffect } from "react";
 import SearchBarSuggestions from "./SearchBarSuggestions";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion'
+import { mainView } from './framerStyles/variants'
+
 const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
   const [drinkList, setDrinkList] = useState();
@@ -61,7 +64,12 @@ const Searchbar = () => {
   }, []);
 
   return (
-    <div className="search-bar">
+    <motion.div
+      variants={mainView}
+      custom={1}
+      initial="hidden"
+      animate="show"
+      className="search-bar">
       <h2>
         <Link to="/" state={{ category: "Vodka" }}>
           <FontAwesomeIcon
@@ -103,7 +111,7 @@ const Searchbar = () => {
           />
         )}
       </span>
-    </div>
+    </motion.div>
   );
 };
 
