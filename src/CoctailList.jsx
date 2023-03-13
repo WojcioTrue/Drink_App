@@ -2,12 +2,20 @@ import "./styles/coctail_list.css";
 import CoctailElement from "./CoctailListElement";
 import { MyContext } from "./context/ContextComponent";
 import { useContext } from "react";
+import { motion } from "framer-motion";
+import { mainView } from "./framerStyles/variants";
+
 
 const CoctailList = () => {
   const { drinkData } = useContext(MyContext);
 
   return (
-    <div className="list-coctails">
+    <motion.div
+    variants={mainView}
+    custom={0.4}
+    initial="hidden"
+    animate="show" 
+    className="list-coctails">
       <h3>List of coctails:</h3>
       <div className="grid-coctails">
         {drinkData
@@ -21,7 +29,7 @@ const CoctailList = () => {
             ))
           : "Loading"}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
