@@ -21,7 +21,7 @@ const NotificationPromptCheck = ({ element }) => {
     return () => {
       clearTimeout(clearList);
     };
-  }, [alertList]);
+  }, [alertList, setAlertList]);
 
   return <>{display && <NotificationPrompt added={element.isAdded} />}</>;
 };
