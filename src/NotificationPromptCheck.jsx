@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import NotificationPrompt from "./NotificationPrompt";
 import { MyContext } from "./context/ContextComponent";
+import { AnimatePresence } from "framer-motion";
 const NotificationPromptCheck = ({ element }) => {
   // state to display NotificationPrompt
   const [display, setDisplay] = useState(true);
@@ -23,7 +24,11 @@ const NotificationPromptCheck = ({ element }) => {
     };
   }, [alertList, setAlertList]);
 
-  return <>{display && <NotificationPrompt added={element.isAdded} />}</>;
+  return (
+    <AnimatePresence>
+      {display && <NotificationPrompt added={element.isAdded} />}
+    </AnimatePresence>
+  );
 };
 
 export default NotificationPromptCheck;
