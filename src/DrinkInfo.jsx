@@ -3,6 +3,8 @@ import { useParams, Navigate } from "react-router-dom";
 import "./styles/Drink_info.css";
 import AddRemButton from "./sharedComponents/AddRemButton";
 import { MyContext } from "./context/ContextComponent";
+import { motion } from "framer-motion";
+import { drinkInfo } from "./framerStyles/variants";
 
 const DrinkInfo = () => {
   const [drink, setDrink] = useState();
@@ -56,37 +58,71 @@ const DrinkInfo = () => {
   }, [drink]);
 
   return notFound ? (
-    <Navigate to="/error"/>
+    <Navigate to="/error" />
   ) : (
     <>
       {drink ? (
-        <div className="drink-info">
-          <div className="drink-info__img">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+          className="drink-info"
+        >
+          <motion.div
+            variants={drinkInfo}
+            initial="hidden"
+            animate="show"
+            custom={1}
+            className="drink-info__img"
+          >
             <img alt="#" src={drink.strDrinkThumb} />
-          </div>
+          </motion.div>
           <div className="drink-info__description">
-            <h2>{drink.strDrink}</h2>
-            <p className="favouriteButton">
-              <AddRemButton
-                name={drink.strDrink}
-                id={id}
-                img={drink.strDrinkThumb}
-                className="drink-info__addbutton"
-              />
-              {isFavourite ? "Remove from favourite" : "Add to favourite"}
-            </p>
-            <ul>
+            <motion.span
+            variants={drinkInfo}
+            initial="hidden"
+            animate="show"
+            custom={1}>
+              <h2>{drink.strDrink}</h2>
+              <p className="favouriteButton">
+                <AddRemButton
+                  name={drink.strDrink}
+                  id={id}
+                  img={drink.strDrinkThumb}
+                  className="drink-info__addbutton"
+                />
+                {isFavourite ? "Remove from favourite" : "Add to favourite"}
+              </p>
+            </motion.span>
+
+            <motion.ul
+            variants={drinkInfo}
+            initial="hidden"
+            animate="show"
+            custom={2}>
               <h3>List of ingredients:</h3>
               {ingredients.map((ingredient) => (
                 <li key={ingredient}>- {ingredient}</li>
               ))}
-            </ul>
-            <h3>Preparation:</h3>
-            <p className="paragraph-margin">{drink.strInstructions}</p>
-            <h3>Type of glass:</h3>
-            <p className="paragraph-margin">{drink.strGlass}</p>
+            </motion.ul>
+            <motion.span
+            variants={drinkInfo}
+            initial="hidden"
+            animate="show"
+            custom={3}>
+              <h3>Preparation:</h3>
+              <p className="paragraph-margin">{drink.strInstructions}</p>
+            </motion.span>
+            <motion.span
+            variants={drinkInfo}
+            initial="hidden"
+            animate="show"
+            custom={4}>
+              <h3>Type of glass:</h3>
+              <p className="paragraph-margin">{drink.strGlass}</p>
+            </motion.span>
           </div>
-        </div>
+        </motion.div>
       ) : (
         "loading"
       )}
