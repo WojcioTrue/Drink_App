@@ -6,10 +6,11 @@ const NotificationPrompt = ({ added }) => {
 
   return (
     <>
-        <motion.div 
+        <motion.div
+        layout
         initial={{opacity:0, x: -15}}
         animate={{opacity:1, x: 0}}
-        exit={{opacity:0, x: -15}}
+        exit={{opacity:0, x: -25}}
         className={`favourite-notification ${added ? "" : "remove"}`}>
           {added ? (
             <p>Added to favourite!</p>

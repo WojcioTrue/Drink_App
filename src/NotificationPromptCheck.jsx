@@ -10,7 +10,7 @@ const NotificationPromptCheck = ({ element }) => {
   useEffect(() => {
     setTimeout(() => {
       setDisplay(false);
-    }, 1000);
+    }, 1500);
   }, []);
 
   // Clear AlertList after a certain time
@@ -25,7 +25,7 @@ const NotificationPromptCheck = ({ element }) => {
   }, [alertList, setAlertList]);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="popLayout">
       {display && <NotificationPrompt added={element.isAdded} />}
     </AnimatePresence>
   );
