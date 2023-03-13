@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
-import {motion} from 'framer-motion'
+import {motion, AnimatePresence} from 'framer-motion'
 import { notificationPrompt } from "./framerStyles/variants";
 
 const NotificationPrompt = ({ added }) => {

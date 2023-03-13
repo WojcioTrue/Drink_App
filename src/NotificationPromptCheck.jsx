@@ -25,9 +25,11 @@ const NotificationPromptCheck = ({ element }) => {
   }, [alertList, setAlertList]);
 
   return (
-    <AnimatePresence mode="popLayout">
-      {display && <NotificationPrompt added={element.isAdded} />}
-    </AnimatePresence>
+    <>
+      <AnimatePresence>
+        {display && <NotificationPrompt added={element.isAdded} />}
+      </AnimatePresence>
+    </>
   );
 };
 
