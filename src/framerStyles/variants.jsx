@@ -4,7 +4,7 @@ export const mainView = {
       opacity: 1, 
       transition: { 
         duration: 0.3,
-        delay: i * 0.2
+        delay: i * 1
       } 
     })
   };

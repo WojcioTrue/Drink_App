@@ -66,7 +66,7 @@ const Searchbar = () => {
   return (
     <motion.div
       variants={mainView}
-      custom={1}
+      custom={0.2}
       initial="hidden"
       animate="show"
       className="search-bar">
