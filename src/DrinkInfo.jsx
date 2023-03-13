@@ -72,7 +72,7 @@ const DrinkInfo = () => {
             variants={drinkInfo}
             initial="hidden"
             animate="show"
-            custom={1}
+            custom={2}
             className="drink-info__img"
           >
             <img alt="#" src={drink.strDrinkThumb} />
