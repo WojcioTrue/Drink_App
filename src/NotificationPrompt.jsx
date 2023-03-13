@@ -5,8 +5,6 @@ import { MyContext } from "./context/ContextComponent";
 
 
 
-
-
 const NotificationPrompt = ({ added }) => {
   const [display, setDisplay] = useState(true);
   const { alertList, setAlertList } = useContext(MyContext);
