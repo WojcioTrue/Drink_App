@@ -39,11 +39,9 @@ const CoctailsFavourite = () => {
         {"Favourite drinks "}
         {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:
       </h3>
-      <AnimatePresence>
       <ul>
         {afterSlice}
       </ul>
-      </AnimatePresence>
       {listOfFavourite.length > 0 && (
         <Link to="/favourite_list">
           <Button variant="coctails-favourite__button">

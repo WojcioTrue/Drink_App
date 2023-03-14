@@ -60,12 +60,6 @@
   left: 10px;
 }
 
-.product-button:hover,
-.product-button:focus {
-  transform: translateY(-5px);
-  background-color: #ff8eb9;
-}
-
 @media only screen and (min-width: 576px) {
   .coctails-main .list-coctails .grid-coctails {
     grid-template-columns: repeat(2, 1fr);
