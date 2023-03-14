@@ -10,7 +10,9 @@ const CoctailElement = ({ id, name, imgSrc }) => {
     <motion.section
       // for some reason variants dont work with whileInView
       // option...
+      layout
       initial={{ opacity: 0.2, x: 15 }}
+      exit={{opacity: 0, x: -15}}
       whileInView={{ opacity: 1, x: 0, transition: { duration: 0.3 } }}
       viewport={{ once: true, margin: "-100px" }}
       className="grid-coctails__product"

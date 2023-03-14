@@ -3,6 +3,7 @@ import "./styles/coctail_list.css";
 import { MyContext } from "./context/ContextComponent";
 import CoctailListElement from "./CoctailListElement";
 import Message from "./Message";
+import { AnimatePresence } from "framer-motion";
 
 const FavListFullScreen = () => {
   const { listOfFav } = useContext(MyContext);
@@ -14,30 +15,32 @@ const FavListFullScreen = () => {
         <>
           <h3>FavouriteDrinks:</h3>
           <div className="grid-coctails">
+          <AnimatePresence>
             {favouriteList.map((element) => {
               return (
-                <CoctailListElement
-                  key={element.idDrink}
-                  id={element.idDrink}
-                  name={element.strDrink}
-                  imgSrc={element.strDrinkThumb}
-                />
+                
+                  <CoctailListElement
+                    key={element.idDrink}
+                    id={element.idDrink}
+                    name={element.strDrink}
+                    imgSrc={element.strDrinkThumb}
+                  />
+                
               );
             })}
+            </AnimatePresence>
           </div>
         </>
       ) : (
-        <Message 
-        header={"Your list is empty!"} 
-        text={"Add something to your favourite list."}
-        secondText={"Drink responsibly!"}
-        img={process.env.PUBLIC_URL + "./img/fav_icon.png"}
+        <Message
+          header={"Your list is empty!"}
+          text={"Add something to your favourite list."}
+          secondText={"Drink responsibly!"}
+          img={process.env.PUBLIC_URL + "./img/fav_icon.png"}
         />
       )}
     </div>
   );
 };
-
-
 
 export default FavListFullScreen;
