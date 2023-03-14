@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { MyContext } from "./context/ContextComponent";
 import { Link } from "react-router-dom";
 import Button from "./sharedComponents/Button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { mainView } from "./framerStyles/variants";
 
 const CoctailsFavourite = () => {
@@ -39,7 +39,11 @@ const CoctailsFavourite = () => {
         {"Favourite drinks "}
         {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:
       </h3>
-      <ul>{afterSlice}</ul>
+      <AnimatePresence>
+      <ul>
+        {afterSlice}
+      </ul>
+      </AnimatePresence>
       {listOfFavourite.length > 0 && (
         <Link to="/favourite_list">
           <Button variant="coctails-favourite__button">

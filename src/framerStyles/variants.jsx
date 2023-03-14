@@ -10,8 +10,8 @@ export const mainView = {
 };
 
 export const categoryGestures = {
-  tap: { scale: 0.95, transition: { duration: 0.15 } },
-  hover: { scale: 1.1, transition: { duration: 0.15 } },
+  tap: { scale: 0.97, transition: { duration: 0.15 } },
+  hover: { scale: 1.07, transition: { duration: 0.15 } },
 };
 
 export const drinkInfo = {

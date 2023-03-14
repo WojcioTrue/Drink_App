@@ -3,11 +3,16 @@ import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { MyContext } from "./context/ContextComponent";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion'
+
 const FavouriteListElement = ({ strDrink, id }) => {
   const { removeFav } = useContext(MyContext);
 
   return (
-    <li>
+    <motion.li
+      initial={{opacity: 0, x : -10}}
+      animate={{opacity: 1, x : 0}}
+    >
       <Link to={`${id}`}>
         <h4>{strDrink}</h4>
       </Link>
@@ -17,7 +22,7 @@ const FavouriteListElement = ({ strDrink, id }) => {
         icon={faMinusCircle}
         className="remove-favourite"
       />
-    </li>
+    </motion.li>
   );
 };
 
