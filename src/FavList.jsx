@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { MyContext } from "./context/ContextComponent";
 import { Link } from "react-router-dom";
 import Button from "./sharedComponents/Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { mainView } from "./framerStyles/variants";
 
 const CoctailsFavourite = () => {
