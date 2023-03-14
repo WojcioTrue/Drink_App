@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SearchBarListElement from "./SearchBarListElement";
+import { motion } from 'framer-motion'
 
 const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
   const [listToMap, setListToMap] = useState();
@@ -20,7 +21,11 @@ const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
 
   return (
     <div className="search-bar__suggestions">
-      <ul>
+      <motion.ul
+        
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+      >
         {listToMap ?
           listToMap.slice(0,7).map((element) => (
             <SearchBarListElement
@@ -32,7 +37,7 @@ const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
               noElement={true}
             />
           )) : <SearchBarListElement img={process.env.PUBLIC_URL + "/img/broken_glass.png"} name={"There is no such drink..."} noElement={false}/>}
-      </ul>
+      </motion.ul>
     </div>
   );
 };
