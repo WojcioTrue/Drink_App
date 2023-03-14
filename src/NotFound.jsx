@@ -2,6 +2,8 @@ import Message from "./Message";
 import Button from "./sharedComponents/Button";
 import { Link } from "react-router-dom";
 import './styles/not_found.css'
+import { coctailButton } from './framerStyles/variants'
+
 const NotFound = () => {
   return (
     <div className="not-found">
@@ -12,7 +14,7 @@ const NotFound = () => {
         img={process.env.PUBLIC_URL + "/img/broken_glass.png"}
       />
       <Link to="/">
-        <Button variant="not-found__button">{"Return home"}</Button>
+        <Button animationVariant={coctailButton} variant="not-found__button">{"Return home"}</Button>
       </Link>
     </div>
   );
