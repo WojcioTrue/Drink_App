@@ -4,13 +4,13 @@ import AddRemButton from "./sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
 import { coctailButton } from './framerStyles/variants'
 
-const CoctailElement = ({ id, name, imgSrc }) => {
+const CoctailElement = ({ id, name, imgSrc, useLayout }) => {
 
   return (
     <motion.section
       // for some reason variants dont work with whileInView
       // option...
-      layout
+      layout = {useLayout ? true : false}
       initial={{ opacity: 0.2, x: 15 }}
       exit={{opacity: 0, x: -15}}
       whileInView={{ opacity: 1, x: 0, transition: { duration: 0.3 } }}

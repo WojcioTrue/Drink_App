@@ -5,10 +5,14 @@ import CoctailListElement from "./CoctailListElement";
 import Message from "./Message";
 import { AnimatePresence } from "framer-motion";
 import { noFavouriteDrinks } from "./framerStyles/variants";
+import { useLocation } from 'react-router-dom';
+
 
 const FavListFullScreen = () => {
   const { listOfFav } = useContext(MyContext);
   const favouriteList = listOfFav.drinks;
+  const location = useLocation();
+  const inFavourite = location.pathname === "/favourite_list";
 
   return (
     <div className="list-coctails">
@@ -25,6 +29,7 @@ const FavListFullScreen = () => {
                     id={element.idDrink}
                     name={element.strDrink}
                     imgSrc={element.strDrinkThumb}
+                    useLayout={inFavourite}
                   />
                 
               );
