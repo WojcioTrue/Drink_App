@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Button from "./sharedComponents/Button";
 import AddRemButton from "./sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
+import { coctailButton } from './framerStyles/variants'
 
 const CoctailElement = ({ id, name, imgSrc }) => {
 
@@ -19,7 +20,7 @@ const CoctailElement = ({ id, name, imgSrc }) => {
         <h4>{name}</h4>
       </div>
       <Link to={`/${id}`}>
-        <Button variant="product-button">{"Details"}</Button>
+        <Button animationVariant={coctailButton} variant="product-button">{"Details"}</Button>
       </Link>
       <AddRemButton name={name} id={id} img={imgSrc} className="grid-button" />
     </motion.section>

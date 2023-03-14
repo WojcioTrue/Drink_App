@@ -44,3 +44,9 @@ export const favouriteButton = {
   tap: { scale: 0.95 },
   transition: { type: "spring", stiffness: 400, damping: 17 }
 }
+
+export const coctailButton = {
+  hover: { scale: 1.1 },
+  tap: { scale: 0.95 },
+  transition: {type: "string", stiffness: 400, damping: 17}
+}
