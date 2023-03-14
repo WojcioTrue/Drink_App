@@ -47,11 +47,12 @@
   right: 5px;
   opacity: 0;
   transition: opacity .2s;
-  cursor: pointer;
+  
 }
 
 .x-mark--focus {
   opacity: 1;
+  cursor: pointer;
 }
 
 .search-bar__input .icon path {
