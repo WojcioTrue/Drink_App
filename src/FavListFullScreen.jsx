@@ -33,6 +33,7 @@ const FavListFullScreen = () => {
         </>
       ) : (
         <Message
+          animationVariant={''}
           header={"Your list is empty!"}
           text={"Add something to your favourite list."}
           secondText={"Drink responsibly!"}
