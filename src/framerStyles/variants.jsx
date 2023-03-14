@@ -36,3 +36,11 @@ export const notificationPrompt = {
   hidden : {opacity:0, x: -15},
   show: {opacity:1, x: 0}
 }
+
+export const favouriteButton = {
+  hidden: {opacity: 0, x: -15},
+  show: {opacity: 1, x: 0, transition: {duration: 0.2, delay: 0.15}},
+  hover: { scale: 1.1 },
+  tap: { scale: 0.95 },
+  transition: { type: "spring", stiffness: 400, damping: 17 }
+}
