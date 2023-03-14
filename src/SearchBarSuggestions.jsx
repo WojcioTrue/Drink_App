@@ -22,7 +22,6 @@ const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
   return (
     <div className="search-bar__suggestions">
       <motion.ul
-        
         initial={{opacity: 0}}
         animate={{opacity: 1}}
       >
