@@ -4,6 +4,7 @@ import { MyContext } from "./context/ContextComponent";
 import CoctailListElement from "./CoctailListElement";
 import Message from "./Message";
 import { AnimatePresence } from "framer-motion";
+import { noFavouriteDrinks } from "./framerStyles/variants";
 
 const FavListFullScreen = () => {
   const { listOfFav } = useContext(MyContext);
@@ -33,7 +34,7 @@ const FavListFullScreen = () => {
         </>
       ) : (
         <Message
-          animationVariant={''}
+          animationVariant={noFavouriteDrinks}
           header={"Your list is empty!"}
           text={"Add something to your favourite list."}
           secondText={"Drink responsibly!"}

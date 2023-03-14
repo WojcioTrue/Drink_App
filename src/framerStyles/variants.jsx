@@ -50,3 +50,8 @@ export const coctailButton = {
   tap: { scale: 0.95 },
   transition: {type: "string", stiffness: 400, damping: 17}
 }
+
+export const noFavouriteDrinks = {
+  hidden: {opacity: 0},
+  show: {opacity : 1}
+}
