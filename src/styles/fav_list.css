@@ -30,6 +30,8 @@
 
 .coctails-favourite ul li a {
   text-decoration: none;
+  width: 100%;
+  margin-right: 10px;
 }
 
 .coctails-favourite ul li a h4 {
