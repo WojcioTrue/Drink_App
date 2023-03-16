@@ -22,10 +22,13 @@ const Searchbar = () => {
       const response = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchDrink}`
       );
-
-      const data = await response.json();
-
-      await setDrinkList(data);
+      try {
+        const data = await response.json();
+        setDrinkList(data);
+      } catch (error) {
+        console.log(error)
+      }
+      
     };
 
     fetchData();
