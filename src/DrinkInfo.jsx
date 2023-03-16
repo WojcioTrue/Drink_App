@@ -19,8 +19,8 @@ const DrinkInfo = () => {
   useEffect(() => {
     const onList = listOfFav.drinks.some((element) => element.idDrink === id);
     setIsFavourite(onList);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [listOfFav]);
+    
+  }, [listOfFav, id]);
   // fetching drink data with id passed from useParams hook
   useEffect(() => {
     const fetchData = async () => {
