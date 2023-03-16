@@ -37,10 +37,15 @@ const ContextComponent = ({ children }) => {
     const fetchData = async () => {
       const data = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${category}`
-      );
-
+      )
+      try {
       const response = await data.json();
       await setDrinkData(response);
+      }
+      catch(error) {
+        console.log("Cant find desired category", error);
+      }
+      
     };
     fetchData();
   }, [category]);
