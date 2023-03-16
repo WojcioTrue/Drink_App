@@ -8,9 +8,10 @@ import {  motion } from "framer-motion";
 import { mainView } from "./framerStyles/variants";
 import { favouriteButton } from "./framerStyles/variants";
 
+
 const CoctailsFavourite = () => {
   const { listOfFav } = useContext(MyContext);
-
+// trying to create array of elements without using useEffect Hook
   const listOfFavourite = listOfFav.drinks;
   let afterSlice;
   const returnFavourite = ({ strDrink, idDrink }) => {
