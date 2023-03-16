@@ -11,6 +11,8 @@ import { useLocation } from 'react-router-dom';
 const FavListFullScreen = () => {
   const { listOfFav } = useContext(MyContext);
   const favouriteList = listOfFav.drinks;
+  // check if CoctailListElement is inside favourite_list component,
+  // if so return true
   const location = useLocation();
   const inFavourite = location.pathname === "/favourite_list";
 

@@ -19,6 +19,7 @@ const NotificationPromptCheck = ({ element }) => {
     const clearList = setTimeout(() => {
       setAlertList([]);
     }, 2000);
+    // clearUp 
     return () => {
       clearTimeout(clearList);
     };

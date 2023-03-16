@@ -10,6 +10,7 @@ const CoctailElement = ({ id, name, imgSrc, useLayout }) => {
     <motion.section
       // for some reason variants dont work with whileInView
       // option...
+      // if CoctailElement is in FavListFullScreen, add layout effect
       layout = {useLayout ? true : false}
       initial={{ opacity: 0.2, x: 15 }}
       exit={{opacity: 0, x: -15}}
