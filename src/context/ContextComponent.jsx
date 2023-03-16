@@ -2,13 +2,12 @@ import { useState, useEffect, createContext } from "react";
 
 export const MyContext = createContext();
 
-//initialization of local storage
+//get favourite Drinks from local storage
 const checkLocal = () => {
   const localFavList = JSON.parse(localStorage.getItem("fav-list"));
-  // set default empty array [] if local storage don't have items
-
-  if (localFavList === null) {
-    return {};
+  // set default empty object {drink: []} if local storage don't have items
+  if (!localFavList) {
+    return {drinks: []};
   } else {
     return localFavList;
   }
@@ -26,7 +25,6 @@ const actualCategory = () => {
   }
 }
 
-actualCategory();
 
 const ContextComponent = ({ children }) => {
   const [drinkData, setDrinkData] = useState();
