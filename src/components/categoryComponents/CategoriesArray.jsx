@@ -1,37 +1,37 @@
 
 export const arrayOfCategories = [
     {
-      LinkTo: "whiskey",
+      LinkTo: "Whiskey",
       state: { category: "Whiskey" },
       img: process.env.PUBLIC_URL + "/img/category_icons/whiskey.png",
       text: "Whiskey",
     },
     {
-      LinkTo: "bourbon",
+      LinkTo: "Bourbon",
       state: { category: "Bourbon" },
       img: process.env.PUBLIC_URL + "/img/category_icons/bourbon.png",
       text: "Bourbon",
     },
     {
-      LinkTo: "vodka",
+      LinkTo: "Vodka",
       state: { category: "Vodka" },
       img: process.env.PUBLIC_URL + "/img/category_icons/vodka.png",
       text: "Vodka",
     },
     {
-      LinkTo: "gin",
+      LinkTo: "Gin",
       state: { category: "Gin" },
       img: process.env.PUBLIC_URL + "/img/category_icons/gin.png",
       text: "Gin",
     },
     {
-      LinkTo: "tequila",
+      LinkTo: "Tequila",
       state: { category: "Tequila" },
       img: process.env.PUBLIC_URL + "/img/category_icons/Tequila.png",
       text: "Tequila",
     },
     {
-      LinkTo: "rum",
+      LinkTo: "Rum",
       state: { category: "Rum" },
       img: process.env.PUBLIC_URL + "/img/category_icons/Rum.png",
       text: "Rum",
