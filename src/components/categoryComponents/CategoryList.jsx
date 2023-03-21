@@ -21,8 +21,8 @@ const CategoryList = () => {
       >
         <h3>Select category:</h3>
         <ul>
-        {arrayOfCategories.map( element => {
-          return <Link to={element.LinkTo} state={element.state}>
+        {arrayOfCategories.map( (element, id) => {
+          return <Link key={id} to={`categories/${element.LinkTo}`} state={element.state}>
             <CategoryListElement
               imgSrc={element.img}
               text={element.text}/>
@@ -37,12 +37,7 @@ const CategoryList = () => {
         {/* path for drink with id */}
         <Route path="/drink/:id" element={<DrinkInfo />} />
         {/* categories */}
-        <Route path="/whiskey" element={<CoctailList />} />
-        <Route path="/bourbon" element={<CoctailList />} />
-        <Route path="/vodka" element={<CoctailList />} />
-        <Route path="/gin" element={<CoctailList />} />
-        <Route path="/tequila" element={<CoctailList />} />
-        <Route path="/rum" element={<CoctailList />} />
+        <Route path="/categories/:id" element={<CoctailList />} />
         {/* favourite list route */}
         <Route path="/favourite_list" element={<FavListFullScreen />} />
         {/* not found element */}

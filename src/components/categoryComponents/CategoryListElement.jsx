@@ -4,12 +4,17 @@ import "../../styles/categories_list.css";
 import { useContext } from "react";
 import { MyContext } from "../../context/ContextComponent";
 import { motion } from 'framer-motion';
+import { useParams } from "react-router-dom";
 import { categoryGestures } from '../../framerStyles/variants'
+
+
 
 const CategoryListElement = ({ imgSrc, text }) => {
   const location = useLocation();
   const { getCategory } = useContext(MyContext);
+  const id = useParams();
 
+  console.log(id);
   useEffect(() => {
       location.state && getCategory(location.state.category);
   }, [location, getCategory]);
