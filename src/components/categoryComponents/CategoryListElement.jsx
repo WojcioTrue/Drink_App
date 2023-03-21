@@ -12,7 +12,11 @@ const CategoryListElement = ({ imgSrc, text }) => {
   const location = useLocation();
   const { getCategory } = useContext(MyContext);
   useEffect(() => {
-      location.state && getCategory(location.state.category);
+      if(!location.state){
+        getCategory('redirect')
+      } else {
+        getCategory(location.state.category);
+      }
   }, [location, getCategory]);
 
   return (

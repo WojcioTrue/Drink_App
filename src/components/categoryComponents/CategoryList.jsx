@@ -37,13 +37,15 @@ const CategoryList = () => {
         {/* path for drink with id */}
         <Route path="/drink/:id" element={<DrinkInfo />} />
         {/* categories */}
-        <Route path="/categories/:id" element={<CoctailList />} />
+        <Route path="categories">
+          <Route path=":id" element={<CoctailList/>}/>
+        </Route>
         {/* favourite list route */}
         <Route path="/favourite_list" element={<FavListFullScreen />} />
         {/* not found element */}
         <Route path="/error" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/error" />} />
-        <Route path="/categories/*" element={<Navigate to="/error" />} />
+        
       </Routes>
     </>
   );

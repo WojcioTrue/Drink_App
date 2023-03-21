@@ -17,18 +17,21 @@ const CoctailList = () => {
     animate="show" 
     className="list-coctails">
       <h3>List of coctails:</h3>
-      <div className="grid-coctails">
+      
         {drinkData
-          ? drinkData.drinks.map((element) => (
+          ? 
+          <div className="grid-coctails">
+          {drinkData.drinks.map((element) => (
               <CoctailElement
                 key={element.idDrink}
                 id={element.idDrink}
                 name={element.strDrink}
                 imgSrc={element.strDrinkThumb}
               />
-            ))
+            ))}
+            </div>
           : <LoadingScreen/>}
-      </div>
+      
     </motion.div>
   );
 };
