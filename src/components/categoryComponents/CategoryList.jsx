@@ -35,7 +35,7 @@ const CategoryList = () => {
         {/* home/index route */}
         <Route path="/" element={<CoctailList />} />
         {/* path for drink with id */}
-        <Route path="/:id" element={<DrinkInfo />} />
+        <Route path="/drink/:id" element={<DrinkInfo />} />
         {/* categories */}
         <Route path="/whiskey" element={<CoctailList />} />
         <Route path="/bourbon" element={<CoctailList />} />

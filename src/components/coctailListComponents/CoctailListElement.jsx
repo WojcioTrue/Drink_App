@@ -22,7 +22,7 @@ const CoctailElement = ({ id, name, imgSrc, useLayout }) => {
         <img alt="#" src={imgSrc} />
         <h4>{name}</h4>
       </div>
-      <Link to={`/${id}`}>
+      <Link to={`/drink/${id}`}>
         <Button animationVariant={coctailButton} variant="product-button">{"Details"}</Button>
       </Link>
       <AddRemButton name={name} id={id} img={imgSrc} className="grid-button" />

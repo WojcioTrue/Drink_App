@@ -5,7 +5,7 @@ const SearchBarListElement = ({ name, img, id, setSearchDrink, noElement }) => {
     <>
       {noElement ? (
         <li onClick={() => setSearchDrink(name)}>
-          <Link to={`${id}`}>
+          <Link to={`/drink/${id}`}>
             <img alt="" src={img} />
             {name}
           </Link>
