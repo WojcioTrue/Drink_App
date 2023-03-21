@@ -1,6 +1,6 @@
 import "./styles/app_container.css";
 import Searchbar from "./SearchBar";
-import CoctailsContainer from "./CoctailsContainer";
+import CoctailsContainer from "./components/CoctailsContainer";
 import FavButton from "./sharedComponents/FavButton";
 import NotificationList from "./NotificationList";
 import { motion } from "framer-motion";

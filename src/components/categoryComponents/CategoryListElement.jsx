@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import "./styles/categories_list.css";
+import "../../styles/categories_list.css";
 import { useContext } from "react";
-import { MyContext } from "./context/ContextComponent";
+import { MyContext } from "../../context/ContextComponent";
 import { motion } from 'framer-motion';
-import { categoryGestures } from './framerStyles/variants'
+import { categoryGestures } from '../../framerStyles/variants'
 
 const CategoryListElement = ({ imgSrc, text }) => {
   const location = useLocation();

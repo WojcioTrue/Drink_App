@@ -1,6 +1,6 @@
-import "./styles/coctails_container.css";
-import FavList from "./FavList";
-import CategoryList from "./CategoryList";
+import "../styles/coctails_container.css";
+import FavList from "../FavList";
+import CategoryList from "./categoryComponents/CategoryList";
 
 const CoctailsContainer = () => {
   

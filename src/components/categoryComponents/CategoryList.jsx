@@ -1,13 +1,13 @@
-import "./styles/categories_list.css";
+import "../../styles/categories_list.css";
 import "./CategoryListElement";
 import CategoryListElement from "./CategoryListElement";
-import DrinkInfo from "./DrinkInfo";
-import NotFound from "./NotFound";
-import CoctailList from "./CoctailList";
-import FavListFullScreen from "./FavListFullScreen";
+import DrinkInfo from "../../DrinkInfo";
+import NotFound from "../../NotFound";
+import CoctailList from "../../CoctailList";
+import FavListFullScreen from "../../FavListFullScreen";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { mainView } from "./framerStyles/variants";
+import { mainView } from "../../framerStyles/variants";
 import { arrayOfCategories } from "./CategoriesArray";
 const CategoryList = () => {
   return (
