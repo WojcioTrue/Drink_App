@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams, Navigate } from "react-router-dom";
-import "./styles/Drink_info.css";
-import AddRemButton from "./sharedComponents/AddRemButton";
-import { MyContext } from "./context/ContextComponent";
+import "../../styles/Drink_info.css";
+import AddRemButton from "../../sharedComponents/AddRemButton";
+import { MyContext } from "../../context/ContextComponent";
 import { motion } from "framer-motion";
-import { drinkInfo } from "./framerStyles/variants";
-import LoadingScreen from "./LoadingScreen";
+import { drinkInfo } from "../../framerStyles/variants";
+import LoadingScreen from "../../LoadingScreen";
 
 const DrinkInfo = () => {
   const [drink, setDrink] = useState();

@@ -1,7 +1,7 @@
 import "../../styles/categories_list.css";
 import "./CategoryListElement";
 import CategoryListElement from "./CategoryListElement";
-import DrinkInfo from "../../DrinkInfo";
+import DrinkInfo from "../coctailListComponents/DrinkInfo";
 import NotFound from "../../NotFound";
 import CoctailList from "../coctailListComponents/CoctailList";
 import FavListFullScreen from "../favouriteListComponents/FavListFullScreen";
