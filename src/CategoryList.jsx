@@ -60,48 +60,13 @@ const CategoryList = () => {
       >
         <h3>Select category:</h3>
         <ul>
-          <Link to="whiskey" state={{ category: "Whiskey" }}>
+        {arrayOfCategories.map( element => {
+          return <Link to={element.LinkTo} state={element.state}>
             <CategoryListElement
-              imgSrc={
-                process.env.PUBLIC_URL + "/img/category_icons/whiskey.png"
-              }
-              text={"Whiskey"}
-            />
+              imgSrc={element.img}
+              text={element.text}/>
           </Link>
-          <Link to="bourbon" state={{ category: "Bourbon" }}>
-            <CategoryListElement
-              imgSrc={
-                process.env.PUBLIC_URL + "/img/category_icons/bourbon.png"
-              }
-              text={"Bourbon"}
-            />
-          </Link>
-          <Link to="vodka" state={{ category: "Vodka" }}>
-            <CategoryListElement
-              imgSrc={process.env.PUBLIC_URL + "/img/category_icons/vodka.png"}
-              text={"Vodka"}
-            />
-          </Link>
-          <Link to="gin" state={{ category: "Gin" }}>
-            <CategoryListElement
-              imgSrc={process.env.PUBLIC_URL + "/img/category_icons/gin.png"}
-              text={"Gin"}
-            />
-          </Link>
-          <Link to="tequila" state={{ category: "Tequila" }}>
-            <CategoryListElement
-              imgSrc={
-                process.env.PUBLIC_URL + "/img/category_icons/Tequila.png"
-              }
-              text={"Tequila"}
-            />
-          </Link>
-          <Link to="rum" state={{ category: "Rum" }}>
-            <CategoryListElement
-              imgSrc={process.env.PUBLIC_URL + "/img/category_icons/Rum.png"}
-              text={"Rum"}
-            />
-          </Link>
+        })}
         </ul>
       </motion.div>
 
