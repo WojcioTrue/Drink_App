@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import NotificationPrompt from "./NotificationPrompt";
-import { MyContext } from "./context/ContextComponent";
+import { MyContext } from "../../context/ContextComponent";
 import { AnimatePresence } from "framer-motion";
 const NotificationPromptCheck = ({ element }) => {
   // state to display NotificationPrompt

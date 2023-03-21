@@ -1,7 +1,7 @@
 import NotificationPromptCheck from "./NotificationPromptCheck";
 import { useContext } from "react";
-import { MyContext } from "./context/ContextComponent";
-import "./styles/notification_prompt.css";
+import { MyContext } from "../../context/ContextComponent";
+import "../../styles/notification_prompt.css";
 
 const NotificationList = () => {
   const { alertList } = useContext(MyContext);
