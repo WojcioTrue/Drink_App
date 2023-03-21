@@ -1,4 +1,4 @@
-import "./styles/loading_screen.css";
+import "../styles/loading_screen.css";
 
 const LoadingScreen = () => {
   return (

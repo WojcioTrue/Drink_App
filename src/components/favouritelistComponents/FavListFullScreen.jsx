@@ -2,7 +2,7 @@ import { useContext } from "react";
 import "../../styles/coctail_list.css";
 import { MyContext } from "../../context/ContextComponent";
 import CoctailListElement from "../coctailListComponents/CoctailListElement";
-import Message from "../../Message";
+import Message from "../Message";
 import { AnimatePresence } from "framer-motion";
 import { noFavouriteDrinks } from "../../framerStyles/variants";
 import { useLocation } from 'react-router-dom';

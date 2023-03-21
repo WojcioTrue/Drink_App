@@ -1,5 +1,6 @@
-import "./styles/message.css";
+import "../styles/message.css";
 import { motion } from "framer-motion";
+
 const Message = ({ header, text, secondText, img, animationVariant }) => {
   return (
     <motion.div

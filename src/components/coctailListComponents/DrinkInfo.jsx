@@ -5,7 +5,7 @@ import AddRemButton from "../../sharedComponents/AddRemButton";
 import { MyContext } from "../../context/ContextComponent";
 import { motion } from "framer-motion";
 import { drinkInfo } from "../../framerStyles/variants";
-import LoadingScreen from "../../LoadingScreen";
+import LoadingScreen from "../../sharedComponents/LoadingScreen";
 
 const DrinkInfo = () => {
   const [drink, setDrink] = useState();

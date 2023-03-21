@@ -2,7 +2,7 @@ import "../../styles/categories_list.css";
 import "./CategoryListElement";
 import CategoryListElement from "./CategoryListElement";
 import DrinkInfo from "../coctailListComponents/DrinkInfo";
-import NotFound from "../../NotFound";
+import NotFound from "../../sharedComponents/NotFound";
 import CoctailList from "../coctailListComponents/CoctailList";
 import FavListFullScreen from "../favouriteListComponents/FavListFullScreen";
 import { Routes, Route, Link, Navigate } from "react-router-dom";

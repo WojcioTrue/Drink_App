@@ -1,9 +1,9 @@
 import Message from "./Message";
-import Button from "./sharedComponents/Button";
+import Button from "../sharedComponents/Button";
 import { Link } from "react-router-dom";
-import './styles/not_found.css'
-import { coctailButton } from './framerStyles/variants'
-import { noFavouriteDrinks } from './framerStyles/variants'
+import '../styles/not_found.css'
+import { coctailButton } from '../framerStyles/variants'
+import { noFavouriteDrinks } from '../framerStyles/variants'
 
 const NotFound = () => {
   return (
