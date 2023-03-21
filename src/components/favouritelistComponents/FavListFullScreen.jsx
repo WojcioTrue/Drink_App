@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import "../../styles/coctail_list.css";
 import { MyContext } from "../../context/ContextComponent";
-import CoctailListElement from "../../CoctailListElement";
+import CoctailListElement from "../coctailListComponents/CoctailListElement";
 import Message from "../../Message";
 import { AnimatePresence } from "framer-motion";
 import { noFavouriteDrinks } from "../../framerStyles/variants";

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import Button from "./sharedComponents/Button";
-import AddRemButton from "./sharedComponents/AddRemButton";
+import Button from "../../sharedComponents/Button";
+import AddRemButton from "../../sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
-import { coctailButton } from './framerStyles/variants'
+import { coctailButton } from "../../framerStyles/variants"
 
 const CoctailElement = ({ id, name, imgSrc, useLayout }) => {
 
