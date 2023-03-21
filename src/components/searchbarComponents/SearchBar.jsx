@@ -1,4 +1,4 @@
-import "./styles/search_bar.css";
+import "../../styles/search_bar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import SearchBarSuggestions from "./SearchBarSuggestions";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
-import { mainView } from './framerStyles/variants'
+import { mainView } from '../../framerStyles/variants'
 
 const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
