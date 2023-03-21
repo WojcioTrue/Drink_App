@@ -13,7 +13,7 @@ const FavouriteListElement = ({ strDrink, id }) => {
       initial={{opacity: 0, x : -10}}
       animate={{opacity: 1, x : 0}}
     >
-      <Link to={`${id}`}>
+      <Link to={`/drink/${id}`}>
         <h4>{strDrink}</h4>
       </Link>
 
