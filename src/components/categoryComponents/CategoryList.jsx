@@ -4,7 +4,7 @@ import CategoryListElement from "./CategoryListElement";
 import DrinkInfo from "../../DrinkInfo";
 import NotFound from "../../NotFound";
 import CoctailList from "../../CoctailList";
-import FavListFullScreen from "../../FavListFullScreen";
+import FavListFullScreen from "../favouritelistComponents/FavListFullScreen";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";

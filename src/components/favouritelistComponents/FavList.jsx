@@ -1,12 +1,12 @@
 import FavouriteListElement from "./FavListElement";
-import "./styles/fav_list.css";
+import "../../styles/fav_list.css";
 import { useContext } from "react";
-import { MyContext } from "./context/ContextComponent";
+import { MyContext } from "../../context/ContextComponent";
 import { Link } from "react-router-dom";
-import Button from "./sharedComponents/Button";
+import Button from "../../sharedComponents/Button";
 import {  motion } from "framer-motion";
-import { mainView } from "./framerStyles/variants";
-import { favouriteButton } from "./framerStyles/variants";
+import { mainView } from "../../framerStyles/variants";
+import { favouriteButton } from "../../framerStyles/variants";
 
 
 const CoctailsFavourite = () => {

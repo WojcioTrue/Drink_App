@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
-import { MyContext } from "./context/ContextComponent";
+import { MyContext } from "../../context/ContextComponent";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
 

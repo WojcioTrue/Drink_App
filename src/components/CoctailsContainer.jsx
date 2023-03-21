@@ -1,5 +1,5 @@
 import "../styles/coctails_container.css";
-import FavList from "../FavList";
+import FavList from "./favouritelistComponents/FavList";
 import CategoryList from "./categoryComponents/CategoryList";
 
 const CoctailsContainer = () => {
