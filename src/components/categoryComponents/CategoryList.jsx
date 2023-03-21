@@ -43,6 +43,7 @@ const CategoryList = () => {
         {/* not found element */}
         <Route path="/error" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/error" />} />
+        <Route path="/categories/*" element={<Navigate to="/error" />} />
       </Routes>
     </>
   );
