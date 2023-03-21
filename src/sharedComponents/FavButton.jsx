@@ -1,4 +1,4 @@
-import "./styles/fav_button.css";
+import "../styles/fav_button.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { mainView } from "../framerStyles/variants";
