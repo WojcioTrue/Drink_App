@@ -17,13 +17,18 @@ const ContextComponent = ({ children }) => {
   const [drinkData, setDrinkData] = useState(false);
   const [listOfFav, setListOfFav] = useState(checkLocal);
   const [alertList, setAlertList] = useState([]);
+  // false as default value, thanks to that we have 
+  // error in API request and we dont display nothing
   const [categoryId, setCategoryId] = useState(false);
   // fetch data with category variables (default "Vodka")
   useEffect(() => {
     const checkCategory = () => {
       console.log(categoryId);
+      // default value for main page, sets drinkData to 
+      // Vodka category if path have nothing (undefined)
       if (categoryId === undefined) {
         return "Vodka";
+      // checking if path have correct category
       } else if (
         categoryId === "Vodka" ||
         categoryId === "Whiskey" ||
@@ -41,7 +46,7 @@ const ContextComponent = ({ children }) => {
       );
       try {
         const response = await data.json();
-        await setDrinkData(response);
+        setDrinkData(response);
       } catch (error) {
         console.log("Cant find desired category", error);
       }
