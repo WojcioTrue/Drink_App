@@ -13,15 +13,15 @@ import { useContext, useEffect } from "react";
 import { MyContext } from "../../context/ContextComponent";
 
 const CategoryList = () => {
-  const location = useLocation();
-  const { getCategory } = useContext(MyContext);
-  useEffect(() => {
-      if(!location.state){
-        getCategory(false)
-      } else {
-        getCategory(location.state.category);
-      }
-  }, [location, getCategory]);
+  // const location = useLocation();
+  // const { getCategory } = useContext(MyContext);
+  // useEffect(() => {
+  //     if(!location.state){
+  //       getCategory(false)
+  //     } else {
+  //       getCategory(location.state.category);
+  //     }
+  // }, [location, getCategory]);
 
   return (
     <>

@@ -1,14 +1,20 @@
 import "../../styles/coctail_list.css";
 import CoctailElement from "./CoctailListElement";
 import { MyContext } from "../../context/ContextComponent";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import LoadingScreen from '../../sharedComponents/LoadingScreen'
-
+import { useParams } from "react-router-dom";
 const CoctailList = () => {
-  const { drinkData } = useContext(MyContext);
+  const { drinkData, setCategoryId } = useContext(MyContext);
+  const { id } = useParams();
 
+
+  useEffect(() => {
+    console.log(id);
+    setCategoryId(id);
+  }, [id])
   return (
     <motion.div
     variants={mainView}
