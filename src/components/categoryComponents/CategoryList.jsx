@@ -17,7 +17,7 @@ const CategoryList = () => {
   const { getCategory } = useContext(MyContext);
   useEffect(() => {
       if(!location.state){
-        getCategory('redirect')
+        getCategory(false)
       } else {
         getCategory(location.state.category);
       }
