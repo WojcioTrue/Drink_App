@@ -23,20 +23,11 @@ const ContextComponent = ({ children }) => {
   // fetch data with category variables (default "Vodka")
   useEffect(() => {
     const checkCategory = () => {
-      console.log(categoryId);
       // default value for main page, sets drinkData to 
       // Vodka category if path have nothing (undefined)
       if (categoryId === undefined) {
         return "Vodka";
-      // checking if path have correct category
-      } else if (
-        categoryId === "Vodka" ||
-        categoryId === "Whiskey" ||
-        categoryId === "Bourbon" ||
-        categoryId === "Gin" ||
-        categoryId === "Tequila" ||
-        categoryId === "Rum"
-      ) {
+      } else {
         return categoryId;
       }
     };
