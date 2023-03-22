@@ -14,7 +14,7 @@ const CoctailList = () => {
   useEffect(() => {
     console.log(id);
     setCategoryId(id);
-  }, [id])
+  }, [id, setCategoryId])
   return (
     <motion.div
     variants={mainView}

@@ -5,23 +5,12 @@ import DrinkInfo from "../coctailListComponents/DrinkInfo";
 import NotFound from "../../sharedComponents/NotFound";
 import CoctailList from "../coctailListComponents/CoctailList";
 import FavListFullScreen from "../favouriteListComponents/FavListFullScreen";
-import { Routes, Route, Link, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { arrayOfCategories } from "./CategoriesArray";
-import { useContext, useEffect } from "react";
-import { MyContext } from "../../context/ContextComponent";
 
 const CategoryList = () => {
-  // const location = useLocation();
-  // const { getCategory } = useContext(MyContext);
-  // useEffect(() => {
-  //     if(!location.state){
-  //       getCategory(false)
-  //     } else {
-  //       getCategory(location.state.category);
-  //     }
-  // }, [location, getCategory]);
 
   return (
     <>
