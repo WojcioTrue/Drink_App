@@ -21,13 +21,13 @@ const CoctailList = () => {
         {drinkData
           ? 
           <div className="grid-coctails">
-          {drinkData.drinks.map((element) => (
+            {drinkData.drinks.map((element) => (
               <CoctailElement
                 key={element.idDrink}
                 id={element.idDrink}
                 name={element.strDrink}
                 imgSrc={element.strDrinkThumb}
-              />
+              />    
             ))}
             </div>
           : <LoadingScreen/>}

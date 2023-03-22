@@ -28,7 +28,7 @@ const actualCategory = () => {
 
 const ContextComponent = ({ children }) => {
   const [drinkData, setDrinkData] = useState();
-  const [category, setCategory] = useState(actualCategory);
+  const [category, setCategory] = useState(() =>actualCategory);
   const [listOfFav, setListOfFav] = useState(checkLocal);
   const [alertList, setAlertList] = useState([]);
 
