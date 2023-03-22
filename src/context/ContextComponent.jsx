@@ -16,24 +16,34 @@ const checkLocal = () => {
 // set category in sessionStorage, so for example: if we reload page
 // with category whiskey, category won't be set to 'vodka' as default,
 // like it previously did
-const actualCategory = () => {
-  const category = sessionStorage.getItem('category');
-  if(category === null){
-    return "Vodka";
-  } else {
-    return category;
-  }
-}
+// const actualCategory = () => {
+//   const category = sessionStorage.getItem('category');
+//   console.log("wywołanie", category)
+//   if(category === null){
+//     return "Vodka";
+//   } else {
+//     return category;
+//   }
+// }
 
 
 const ContextComponent = ({ children }) => {
-  const [drinkData, setDrinkData] = useState();
-  const [category, setCategory] = useState(() =>actualCategory);
+  const [drinkData, setDrinkData] = useState(false);
+  const [category, setCategory] = useState("vodka");
   const [listOfFav, setListOfFav] = useState(checkLocal);
   const [alertList, setAlertList] = useState([]);
 
+    // get category from CategoryListElement
+    const getCategory = (id) => {
+      setCategory(id)
+      console.log('redirect z category', id);
+    };
+
   // fetch data with category variables (default "Vodka")
   useEffect(() => {
+    if(category === 'redirect'){
+      console.log("reditect z useEffect")
+    }
     const fetchData = async () => {
       const data = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${category}`
@@ -51,12 +61,11 @@ const ContextComponent = ({ children }) => {
   }, [category]);
 
   // set category to local storage
-  useEffect(() => {
-    sessionStorage.setItem("category", category);
-  }, [category]);
+  // useEffect(() => {
+  //   sessionStorage.setItem("category", category);
+  // }, [category]);
 
-  // get category from CategoryListElement
-  const getCategory = (id) => setCategory(id);
+
 
   //local storage for favourite list
   useEffect(() => {

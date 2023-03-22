@@ -1,23 +1,10 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import "../../styles/categories_list.css";
-import { useContext } from "react";
-import { MyContext } from "../../context/ContextComponent";
 import { motion } from 'framer-motion';
 import { categoryGestures } from '../../framerStyles/variants'
 
 
 
 const CategoryListElement = ({ imgSrc, text }) => {
-  const location = useLocation();
-  const { getCategory } = useContext(MyContext);
-  useEffect(() => {
-      if(!location.state){
-        getCategory('redirect')
-      } else {
-        getCategory(location.state.category);
-      }
-  }, [location, getCategory]);
 
   return (
     <motion.li 
