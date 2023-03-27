@@ -4,7 +4,7 @@ import { MyContext } from "../../context/ContextComponent";
 import { useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
-import LoadingScreen from '../../sharedComponents/LoadingScreen'
+import NotFound from '../../sharedComponents/NotFound'
 import { useParams } from "react-router-dom";
 const CoctailList = () => {
   const { drinkData, setCategoryId } = useContext(MyContext);
@@ -22,10 +22,12 @@ const CoctailList = () => {
     initial="hidden"
     animate="show" 
     className="list-coctails">
-      <h3>List of coctails:</h3>
+      
       
         {drinkData
           ? 
+          <>
+          <h3>List of coctails:</h3>
           <div className="grid-coctails">
             {drinkData.drinks.map((element) => (
               <CoctailElement
@@ -36,7 +38,8 @@ const CoctailList = () => {
               />    
             ))}
             </div>
-          : <LoadingScreen/>}
+            </>
+          : <NotFound/>}
       
     </motion.div>
   );
