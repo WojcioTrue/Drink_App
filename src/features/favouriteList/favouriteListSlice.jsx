@@ -18,7 +18,14 @@ export const initialState = [
 export const favouriteListSlice = createSlice({
     name: "favouriteList",
     initialState,
-    reducers:{}
+    reducers:{
+      addToFavourite: (state,action) => {
+        console.log(action.payload);
+        return state = [...state, action.payload]
+      }
+    }
 })
+
+export const { addToFavourite } = favouriteListSlice.actions
 
 export default favouriteListSlice.reducer

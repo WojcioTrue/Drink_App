@@ -5,11 +5,15 @@ import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { MyContext } from "../context/ContextComponent";
 import "../styles/add_rem_button.css";
+import { useDispatch } from 'react-redux'
+import { addToFavourite } from "../features/favouriteList/favouriteListSlice"
+
 
 function AddRemButton({ name, id, img, className }) {
   const [inFavourite, setInFavourite] = useState(false);
   const { addToFav, removeFav, listOfFav } = useContext(MyContext);
 
+  const dispatch = useDispatch();
   useEffect(() => {
     function isOnList() {
       return listOfFav.drinks.some((drink) => drink.idDrink === id);
@@ -33,6 +37,7 @@ function AddRemButton({ name, id, img, className }) {
           className={`add-favourite ${className}`}
           onClick={() => {
             addToFav({idDrink: id, strDrink: name,  strDrinkThumb : img });
+            dispatch(addToFavourite({idDrink: id, strDrink: name,  strDrinkThumb : img }))
           }}
         />
       )}
