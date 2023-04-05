@@ -12,7 +12,6 @@ const CoctailList = () => {
 
 
   useEffect(() => {
-    console.log(id);
     setCategoryId(id);
   }, [id, setCategoryId])
   return (
