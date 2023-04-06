@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { MyContext } from "../context/ContextComponent";
 import "../styles/add_rem_button.css";
 import { useDispatch } from 'react-redux'
-import { addToFavourite } from "../features/favouriteList/favouriteListSlice"
+import { addToFavourite, removeFromFavourite } from "../features/favouriteList/favouriteListSlice"
 
 
 function AddRemButton({ name, id, img, className }) {
@@ -29,6 +29,7 @@ function AddRemButton({ name, id, img, className }) {
           className={`add-favourite remove-color ${className}`}
           onClick={() => {
             removeFav(id);
+            dispatch(removeFromFavourite({idDrink: id}));
           }}
         />
       ) : (

@@ -1,18 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = [
-  {
-    id: "15300",
-    imgSrc:
-      "https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg",
-    name: "3-Mile Long Island Iced Tea",
-  },
-  {
-    id: "15300",
-    imgSrc:
-      "https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg",
-    name: "3-Mile Long Island Iced Tea",
-  },
+  
 ];
 
 export const favouriteListSlice = createSlice({
@@ -20,12 +9,15 @@ export const favouriteListSlice = createSlice({
     initialState,
     reducers:{
       addToFavourite: (state,action) => {
-        console.log(action.payload);
         return state = [...state, action.payload]
+      },
+      removeFromFavourite: (state, action) => {
+        
+        return state = state.filter(element => element.idDrink !== action.payload.idDrink)
       }
     }
 })
 
-export const { addToFavourite } = favouriteListSlice.actions
+export const { addToFavourite, removeFromFavourite } = favouriteListSlice.actions
 
 export default favouriteListSlice.reducer
