@@ -9,7 +9,7 @@ export const favouriteListSlice = createSlice({
     initialState,
     reducers:{
       addToFavourite: (state,action) => {
-        return state = [...state, action.payload]
+        return state = [ action.payload, ...state]
       },
       removeFromFavourite: (state, action) => {        
         return state = state.filter(element => element.idDrink !== action.payload.idDrink)

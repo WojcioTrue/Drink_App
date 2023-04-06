@@ -4,9 +4,12 @@ import { useContext } from "react";
 import { MyContext } from "../../context/ContextComponent";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
-
+import { useDispatch } from "react-redux";
+import { removeFromFavourite } from "./favouriteListSlice"
 const FavouriteListElement = ({ strDrink, id }) => {
   const { removeFav } = useContext(MyContext);
+
+  const dispatch = useDispatch();
 
   return (
     <motion.li
@@ -18,7 +21,11 @@ const FavouriteListElement = ({ strDrink, id }) => {
       </Link>
 
       <FontAwesomeIcon
-        onClick={() => removeFav(id)}
+        onClick={() => {
+          removeFav(id);
+          dispatch(removeFromFavourite({idDrink: id}));
+          }
+        }
         icon={faMinusCircle}
         className="remove-favourite"
       />

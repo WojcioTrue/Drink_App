@@ -5,7 +5,7 @@ import Button from "../../sharedComponents/Button";
 import {  motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { favouriteButton } from "../../framerStyles/variants";
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 
 
 const FavouriteListRedux = () => {

@@ -7,7 +7,6 @@ import Button from "../../sharedComponents/Button";
 import {  motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { favouriteButton } from "../../framerStyles/variants";
-import FavouriteListRedux from "../../features/favouriteList/FavouriteListRedux";
 
 
 const CoctailsFavourite = () => {
@@ -53,7 +52,6 @@ const CoctailsFavourite = () => {
           </Button>
         </Link>
       )}
-      <FavouriteListRedux/>
     </motion.section>
     
     </>
