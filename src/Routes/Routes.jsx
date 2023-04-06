@@ -1,7 +1,7 @@
 import DrinkInfo from "../components/coctailListComponents/DrinkInfo";
 import NotFound from "../sharedComponents/NotFound";
 import CoctailList from "../components/coctailListComponents/CoctailList";
-import FavListFullScreen from "../components/favouriteListComponents/FavListFullScreen";
+import FavListFullScreen from "../features/favouriteList/FavListFullScreen";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 const RouteComponent = () => {

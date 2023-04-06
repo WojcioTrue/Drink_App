@@ -32,7 +32,11 @@ const FavouriteListRedux = () => {
 
   return (
     <>
-      <section
+      <motion.section
+      variants={mainView}
+      custom={0.5}
+      initial="hidden"
+      animate="show"
       className="coctails-favourite"
     >
       <h3>
@@ -50,7 +54,7 @@ const FavouriteListRedux = () => {
         </Link>
       )}
 
-    </section>
+    </motion.section>
     
     </>
   )

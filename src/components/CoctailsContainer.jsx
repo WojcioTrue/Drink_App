@@ -1,5 +1,5 @@
 import "../styles/coctails_container.css";
-import FavList from "./favouriteListComponents/FavList";
+// import FavList from "./favouriteListComponents/FavList";
 import CategoryList from "./categoryComponents/CategoryList";
 import FavouriteListRedux from "../features/favouriteList/FavouriteListRedux";
 const CoctailsContainer = () => {
@@ -9,7 +9,7 @@ const CoctailsContainer = () => {
       <div className="coctails-main">
         <CategoryList />
       </div>
-      <FavList />
+      {/* <FavList /> */}
       <FavouriteListRedux/>
     </div>
   );
