@@ -1,11 +1,14 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import NotificationPrompt from "./NotificationPrompt";
-import { MyContext } from "../../context/ContextComponent";
 import { AnimatePresence } from "framer-motion";
+import { useSelector, useDispatch } from "react-redux";
+import { clearNotification } from "./notificationListSlice" 
+
 const NotificationPromptCheck = ({ element }) => {
   // state to display NotificationPrompt
   const [display, setDisplay] = useState(true);
-  const { alertList, setAlertList } = useContext(MyContext);
+  const notificationList = useSelector(state => state.notificationList)
+  const dispatch = useDispatch();
   // unmount element after Timeout is out
   useEffect(() => {
     setTimeout(() => {
@@ -17,13 +20,13 @@ const NotificationPromptCheck = ({ element }) => {
   useEffect(() => {
     // Timeout to initiate after certain time to clear list
     const clearList = setTimeout(() => {
-      setAlertList([]);
+      dispatch(clearNotification())
     }, 2000);
     // clearUp 
     return () => {
       clearTimeout(clearList);
     };
-  }, [alertList, setAlertList]);
+  }, [notificationList]);
 
   return (
     <>
