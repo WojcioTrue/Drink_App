@@ -26,7 +26,7 @@ const NotificationPromptCheck = ({ element }) => {
     return () => {
       clearTimeout(clearList);
     };
-  }, [notificationList]);
+  }, [notificationList, dispatch]);
 
   return (
     <>
