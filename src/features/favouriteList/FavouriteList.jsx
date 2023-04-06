@@ -1,4 +1,4 @@
-import FavouriteListElement from "./FavListElementRedux";
+import FavouriteListElement from "./FavListElement";
 import "../../styles/fav_list.css";
 import { Link } from "react-router-dom";
 import Button from "../../sharedComponents/Button";
