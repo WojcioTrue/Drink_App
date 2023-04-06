@@ -27,8 +27,6 @@ const FavouriteListRedux = () => {
       };
       sliceFavourite();
 
-    // const displayList = listOfFavourite.map(element => 
-    //     <li>{element.idDrink}</li>)
 
   return (
     <>

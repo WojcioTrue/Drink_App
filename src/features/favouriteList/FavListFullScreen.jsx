@@ -1,16 +1,16 @@
-import { useContext } from "react";
 import "../../styles/coctail_list.css";
-import { MyContext } from "../../context/ContextComponent";
+
 import CoctailListElement from "../../components/coctailListComponents/CoctailListElement";
 import Message from "../../sharedComponents/Message";
 import { AnimatePresence } from "framer-motion";
 import { noFavouriteDrinks } from "../../framerStyles/variants";
 import { useLocation } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 
 const FavListFullScreen = () => {
-  const { listOfFav } = useContext(MyContext);
-  const favouriteList = listOfFav.drinks;
+  const  listOfFav  = useSelector(state => state.favouriteList)
+  const favouriteList = listOfFav;
   // check if CoctailListElement is inside favourite_list component,
   // if so return true
   const location = useLocation();

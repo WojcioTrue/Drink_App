@@ -22,7 +22,6 @@ const FavouriteListElement = ({ strDrink, id }) => {
 
       <FontAwesomeIcon
         onClick={() => {
-          removeFav(id);
           dispatch(removeFromFavourite({idDrink: id}));
           }
         }

@@ -16,11 +16,11 @@ const DrinkInfo = () => {
   const { listOfFav } = useContext(MyContext);
 
   // check if element is on favourite list
-  useEffect(() => {
-    const onList = listOfFav.drinks.some((element) => element.idDrink === id);
-    setIsFavourite(onList);
+  // useEffect(() => {
+  //   const onList = listOfFav.drinks.some((element) => element.idDrink === id);
+  //   setIsFavourite(onList);
     
-  }, [listOfFav, id]);
+  // }, [listOfFav, id]);
   // fetching drink data with id passed from useParams hook
   useEffect(() => {
     const fetchData = async () => {

@@ -2,20 +2,20 @@ import { useState, useEffect, createContext } from "react";
 export const MyContext = createContext();
 
 //get favourite Drinks from local storage
-const checkLocal = () => {
-  const localFavList = JSON.parse(localStorage.getItem("fav-list"));
-  // set default empty object {drink: []} if local storage don't have items
-  if (!localFavList) {
-    return { drinks: [] };
-  } else {
-    return localFavList;
-  }
-};
+// const checkLocal = () => {
+//   const localFavList = JSON.parse(localStorage.getItem("fav-list"));
+//   // set default empty object {drink: []} if local storage don't have items
+//   if (!localFavList) {
+//     return { drinks: [] };
+//   } else {
+//     return localFavList;
+//   }
+// };
 
 
 const ContextComponent = ({ children }) => {
   const [drinkData, setDrinkData] = useState(false);
-  const [listOfFav, setListOfFav] = useState(checkLocal);
+  // const [listOfFav, setListOfFav] = useState(checkLocal);
   const [alertList, setAlertList] = useState([]);
   // false as default value, thanks to that we have 
   // error in API request and we dont display nothing
@@ -47,41 +47,38 @@ const ContextComponent = ({ children }) => {
 
 
   //local storage for favourite list
-  useEffect(() => {
-    localStorage.setItem("fav-list", JSON.stringify(listOfFav));
-  }, [listOfFav]);
+  // useEffect(() => {
+  //   localStorage.setItem("fav-list", JSON.stringify(listOfFav));
+  // }, [listOfFav]);
 
   // display prompt and add drink to favourite
-  const addToFav = (argument) => {
-    setAlertList([...alertList, { id: Date.now(), isAdded: true }]);
-    const elementExist = listOfFav.drinks.some(
-      (element) => element.idDrink === argument.idDrink
-    );
-    if (elementExist) {
-      console.log("element się powtarza");
-    } else {
-      setListOfFav({ drinks: [argument, ...listOfFav.drinks] });
-    }
-  };
+  // const addToFav = (argument) => {
+  //   setAlertList([...alertList, { id: Date.now(), isAdded: true }]);
+  //   const elementExist = listOfFav.drinks.some(
+  //     (element) => element.idDrink === argument.idDrink
+  //   );
+  //   if (elementExist) {
+  //     console.log("element się powtarza");
+  //   } else {
+  //     setListOfFav({ drinks: [argument, ...listOfFav.drinks] });
+  //   }
+  // };
   // remove element with the same id using filter method
-  const removeFav = (id) => {
-    setAlertList([...alertList, { id: Date.now(), isAdded: false }]);
-    const filteredList = listOfFav.drinks.filter(
-      (element) => element.idDrink !== id
-    );
-    setListOfFav({ drinks: filteredList });
-  };
+  // const removeFav = (id) => {
+  //   setAlertList([...alertList, { id: Date.now(), isAdded: false }]);
+  //   const filteredList = listOfFav.drinks.filter(
+  //     (element) => element.idDrink !== id
+  //   );
+  //   setListOfFav({ drinks: filteredList });
+  // };
 
   return (
     <MyContext.Provider
       value={{
-        addToFav,
-        removeFav,
         setDrinkData,
         setAlertList,
         setCategoryId,
         drinkData,
-        listOfFav,
         alertList,
       }}
     >
