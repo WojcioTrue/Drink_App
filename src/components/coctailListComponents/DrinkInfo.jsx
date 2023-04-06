@@ -1,8 +1,7 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import "../../styles/Drink_info.css";
 import AddRemButton from "../../sharedComponents/AddRemButton";
-import { MyContext } from "../../context/ContextComponent";
 import { motion } from "framer-motion";
 import { drinkInfo } from "../../framerStyles/variants";
 import LoadingScreen from "../../sharedComponents/LoadingScreen";
@@ -13,7 +12,7 @@ const DrinkInfo = () => {
   const [isFavourite, setIsFavourite] = useState(true);
   const [notFound, setNotFound] = useState(false);
   const { id } = useParams();
-  const { listOfFav } = useContext(MyContext);
+
 
   // check if element is on favourite list
   // useEffect(() => {

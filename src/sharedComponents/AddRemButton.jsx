@@ -2,23 +2,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
-
 import "../styles/add_rem_button.css";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addToFavourite, removeFromFavourite } from "../features/favouriteList/favouriteListSlice"
 
 
 function AddRemButton({ name, id, img, className }) {
+  const isOnFavourite = useSelector(state => state.favouriteList);
   const [inFavourite, setInFavourite] = useState(false);
 
 
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   function isOnList() {
-  //     return listOfFav.drinks.some((drink) => drink.idDrink === id);
-  //   }
-  //   setInFavourite(isOnList);
-  // }, [listOfFav, id]);
+  useEffect(() => {
+    function isOnList() {
+      return isOnFavourite.some((drink) => drink.idDrink === id);
+    }
+    setInFavourite(isOnList);
+  }, [isOnFavourite, id]);
 
   return (
     <>
