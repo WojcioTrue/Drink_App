@@ -5,8 +5,10 @@ import AddRemButton from "../../sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
 import { drinkInfo } from "../../framerStyles/variants";
 import LoadingScreen from "../../sharedComponents/LoadingScreen";
+import { useSelector } from "react-redux";
 
 const DrinkInfo = () => {
+  const listOfFavourite = useSelector(state => state.favouriteList)
   const [drink, setDrink] = useState();
   const [ingredients, setIngredients] = useState([]);
   const [isFavourite, setIsFavourite] = useState(true);
@@ -15,11 +17,11 @@ const DrinkInfo = () => {
 
 
   // check if element is on favourite list
-  // useEffect(() => {
-  //   const onList = listOfFav.drinks.some((element) => element.idDrink === id);
-  //   setIsFavourite(onList);
+  useEffect(() => {
+    const onList = listOfFavourite.some((element) => element.idDrink === id);
+    setIsFavourite(onList);
     
-  // }, [listOfFav, id]);
+  }, [listOfFavourite, id]);
   // fetching drink data with id passed from useParams hook
   useEffect(() => {
     const fetchData = async () => {

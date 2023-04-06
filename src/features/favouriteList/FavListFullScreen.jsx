@@ -1,5 +1,4 @@
 import "../../styles/coctail_list.css";
-
 import CoctailListElement from "../../components/coctailListComponents/CoctailListElement";
 import Message from "../../sharedComponents/Message";
 import { AnimatePresence } from "framer-motion";
@@ -9,8 +8,8 @@ import { useSelector } from "react-redux";
 
 
 const FavListFullScreen = () => {
-  const  listOfFav  = useSelector(state => state.favouriteList)
-  const favouriteList = listOfFav;
+  const  listOfFavourite  = useSelector(state => state.favouriteList)
+  const favouriteList = listOfFavourite;
   // check if CoctailListElement is inside favourite_list component,
   // if so return true
   const location = useLocation();
