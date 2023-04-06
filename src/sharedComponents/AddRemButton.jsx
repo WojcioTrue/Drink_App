@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import "../styles/add_rem_button.css";
 import { useDispatch, useSelector } from 'react-redux'
 import { addToFavourite, removeFromFavourite } from "../features/favouriteList/favouriteListSlice"
-
+import { addNotification } from "../features/notificationList/notificationListSlice"
+import { nanoid } from "@reduxjs/toolkit";
 
 function AddRemButton({ name, id, img, className }) {
   const isOnFavourite = useSelector(state => state.favouriteList);
@@ -28,6 +29,7 @@ function AddRemButton({ name, id, img, className }) {
           className={`add-favourite remove-color ${className}`}
           onClick={() => {
             dispatch(removeFromFavourite({idDrink: id}));
+            dispatch(addNotification({id : id, isAdded:false}));
           }}
         />
       ) : (
@@ -36,6 +38,7 @@ function AddRemButton({ name, id, img, className }) {
           className={`add-favourite ${className}`}
           onClick={() => {
             dispatch(addToFavourite({idDrink: id, strDrink: name,  strDrinkThumb : img }))
+            dispatch(addNotification({id : nanoid(), isAdded: true}));
           }}
         />
       )}
