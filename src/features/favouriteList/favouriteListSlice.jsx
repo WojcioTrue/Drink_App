@@ -11,8 +11,7 @@ export const favouriteListSlice = createSlice({
       addToFavourite: (state,action) => {
         return state = [...state, action.payload]
       },
-      removeFromFavourite: (state, action) => {
-        
+      removeFromFavourite: (state, action) => {        
         return state = state.filter(element => element.idDrink !== action.payload.idDrink)
       }
     }

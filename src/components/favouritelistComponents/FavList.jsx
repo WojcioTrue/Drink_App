@@ -7,6 +7,7 @@ import Button from "../../sharedComponents/Button";
 import {  motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { favouriteButton } from "../../framerStyles/variants";
+import FavouriteListRedux from "../../features/favouriteList/FavouriteListRedux";
 
 
 const CoctailsFavourite = () => {
@@ -30,7 +31,8 @@ const CoctailsFavourite = () => {
   sliceFavourite();
 
   return (
-    <motion.section
+    <>
+      <motion.section
       variants={mainView}
       custom={0.5}
       initial="hidden"
@@ -51,7 +53,11 @@ const CoctailsFavourite = () => {
           </Button>
         </Link>
       )}
+      <FavouriteListRedux/>
     </motion.section>
+    
+    </>
+    
   );
 };
 
