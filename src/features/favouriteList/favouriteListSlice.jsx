@@ -16,9 +16,10 @@ const favouriteListSlice = createSlice({
         localFavouriteList([...state, action.payload])
         return state = [ action.payload, ...state];
       },
-      removeFromFavourite: (state, action) => {      
-        localFavouriteList(state.filter(element => element.idDrink !== action.payload.idDrink));
-        return state = state.filter(element => element.idDrink !== action.payload.idDrink)
+      removeFromFavourite: (state, action) => {
+        const afterRemove = state.filter(element => element.idDrink !== action.payload.idDrink);
+        localFavouriteList(afterRemove);
+        return state = afterRemove;
       }
     }
 })
