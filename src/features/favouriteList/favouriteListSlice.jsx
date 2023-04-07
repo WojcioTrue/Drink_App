@@ -6,8 +6,6 @@ const initialState =
   ? JSON.parse(localStorage.getItem("favouriteList"))
   : [];
 
-console.log(initialState);
-
 const localFavouriteList = (favouriteElement) => localStorage.setItem("favouriteList", JSON.stringify(favouriteElement))
 
 const favouriteListSlice = createSlice({
