@@ -1,10 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { removeFromFavourite } from "./favouriteListSlice";
-import { addNotification } from "../notificationList/notificationListSlice";
+
 import AddRemButton from "../../sharedComponents/AddRemButton";
 
 const FavouriteListElement = ({ strDrink, id }) => {
