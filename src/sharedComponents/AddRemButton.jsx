@@ -29,7 +29,7 @@ function AddRemButton({ name, id, img, className }) {
           className={`add-favourite remove-color ${className}`}
           onClick={() => {
             dispatch(removeFromFavourite({idDrink: id}));
-            dispatch(addNotification({id : id, isAdded:false}));
+            dispatch(addNotification({id : nanoid(), isAdded:false}));
           }}
         />
       ) : (
