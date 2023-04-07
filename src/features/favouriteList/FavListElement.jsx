@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { removeFromFavourite } from "./favouriteListSlice";
 import { addNotification } from "../notificationList/notificationListSlice";
+import AddRemButton from "../../sharedComponents/AddRemButton";
 
 const FavouriteListElement = ({ strDrink, id }) => {
   const dispatch = useDispatch();
@@ -15,14 +16,7 @@ const FavouriteListElement = ({ strDrink, id }) => {
         <h4>{strDrink}</h4>
       </Link>
 
-      <FontAwesomeIcon
-        onClick={() => {
-          dispatch(removeFromFavourite({ idDrink: id }));
-          dispatch(addNotification({ id: id, isAdded: false }));
-        }}
-        icon={faMinusCircle}
-        className="remove-favourite"
-      />
+      <AddRemButton name={strDrink} id={id} className="remove-favourite"/>
     </motion.li>
   );
 };
