@@ -6,10 +6,6 @@ import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { favouriteButton } from "../../framerStyles/variants";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
-
-const localStorageFavouriteList = (state,favouriteElement) => localStorage.setItem("favouriteList", JSON.stringify([state,favouriteElement]))
-
 
 const FavouriteList = () => {
   const listOfFavourite = useSelector((state) => state.favouriteList);

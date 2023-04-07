@@ -3,15 +3,40 @@ import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import "../styles/add_rem_button.css";
-import { useDispatch, useSelector } from 'react-redux'
-import { addToFavourite, removeFromFavourite } from "../features/favouriteList/favouriteListSlice"
-import { addNotification } from "../features/notificationList/notificationListSlice"
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToFavourite,
+  removeFromFavourite,
+} from "../features/favouriteList/favouriteListSlice";
+import { addNotification } from "../features/notificationList/notificationListSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
-function AddRemButton({ name, id, img, className }) {
-  const isOnFavourite = useSelector(state => state.favouriteList);
-  const [inFavourite, setInFavourite] = useState(false);
+const localStorageFavouriteList = (type, state, element) => {
+  switch (type) {
+    case "add":
+      localStorage.setItem(
+        "favouriteList",
+        JSON.stringify([...state, element])
+      );
+      break;
+    case "remove":
+      localStorage.setItem(
+        "favouriteList",
+        JSON.stringify(
+          state.filter(
+            (stateElement) => stateElement.idDrink !== element.idDrink
+          )
+        )
+      );
+      break;
+    default:
+      console.log("nie znam tego typu");
+  }
+};
 
+function AddRemButton({ name, id, img, className }) {
+  const isOnFavourite = useSelector((state) => state.favouriteList);
+  const [inFavourite, setInFavourite] = useState(false);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,8 +53,13 @@ function AddRemButton({ name, id, img, className }) {
           icon={faMinusCircle}
           className={`add-favourite remove-color ${className}`}
           onClick={() => {
-            dispatch(removeFromFavourite({idDrink: id}));
-            dispatch(addNotification({id : nanoid(), isAdded:false}));
+            dispatch(removeFromFavourite({ idDrink: id }));
+            dispatch(addNotification({ id: nanoid(), isAdded: false }));
+            localStorageFavouriteList("remove", isOnFavourite, {
+              idDrink: id,
+              strDrink: name,
+              strDrinkThumb: img,
+            });
           }}
         />
       ) : (
@@ -37,8 +67,19 @@ function AddRemButton({ name, id, img, className }) {
           icon={faPlusCircle}
           className={`add-favourite ${className}`}
           onClick={() => {
-            dispatch(addToFavourite({idDrink: id, strDrink: name,  strDrinkThumb : img }))
-            dispatch(addNotification({id : nanoid(), isAdded: true}));
+            dispatch(
+              addToFavourite({
+                idDrink: id,
+                strDrink: name,
+                strDrinkThumb: img,
+              })
+            );
+            dispatch(addNotification({ id: nanoid(), isAdded: true }));
+            localStorageFavouriteList("add", isOnFavourite, {
+              idDrink: id,
+              strDrink: name,
+              strDrinkThumb: img,
+            });
           }}
         />
       )}
