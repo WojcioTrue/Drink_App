@@ -10,7 +10,7 @@ import { useSelector } from "react-redux"
 
 const FavouriteListRedux = () => {
     const listOfFavourite = useSelector(state => state.favouriteList)
-
+    console.log("FavouriteList" , listOfFavourite);
     let afterSlice;
     const returnFavourite = ({ strDrink, idDrink }) => {
         return (
