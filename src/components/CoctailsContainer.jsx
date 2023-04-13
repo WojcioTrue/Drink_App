@@ -1,7 +1,7 @@
 import "../styles/coctails_container.css";
 // import FavList from "./favouriteListComponents/FavList";
-import CategoryList from "./categoryComponents/CategoryList";
 import FavouriteList from "../features/favouriteList/FavouriteList";
+import CategoryList from "../features/categoryList/CategoryList";
 const CoctailsContainer = () => {
   
   return (
