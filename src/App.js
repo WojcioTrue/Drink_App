@@ -24,7 +24,6 @@ function App() {
       animate="show"
       className="main-container"
     >
-      <CategoryListRedux/>
       <Searchbar />
       <CoctailsContainer />
       <FavButton />
