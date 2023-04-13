@@ -1,7 +1,6 @@
 import "../../styles/coctail_list.css";
 import CoctailElement from "./CoctailListElement";
-import { MyContext } from "../../context/ContextComponent";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import NotFound from "../../sharedComponents/NotFound";
