@@ -10,8 +10,6 @@ import { getDrinks } from "../../features/categoryList/categoryListSlice";
 import LoadingScreen from "../../sharedComponents/LoadingScreen";
 
 const CoctailList = () => {
-  // const { drinkData, setCategoryId } = useContext(MyContext);
-
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.categoryList);
   const { id } = useParams();
