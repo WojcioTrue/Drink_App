@@ -23,12 +23,9 @@ const CoctailList = () => {
   let content;
 
   if (loading === "pending") {
-    console.log("Loading pending", loading)
     content = <LoadingScreen />;
   }
   if (loading === "idle") {
-    console.log("Loading idle")
-    console.log("data", data)
     content = (
       <>
         <h3>List of coctails:</h3>
