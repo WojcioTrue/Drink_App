@@ -1,18 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 export const MyContext = createContext();
 
-//get favourite Drinks from local storage
-// const checkLocal = () => {
-//   const localFavList = JSON.parse(localStorage.getItem("fav-list"));
-//   // set default empty object {drink: []} if local storage don't have items
-//   if (!localFavList) {
-//     return { drinks: [] };
-//   } else {
-//     return localFavList;
-//   }
-// };
-
-
 const ContextComponent = ({ children }) => {
   const [drinkData, setDrinkData] = useState(false);
   // error in API request and we dont display nothing
