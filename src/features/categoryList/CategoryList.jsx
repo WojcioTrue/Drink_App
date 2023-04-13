@@ -9,7 +9,11 @@ import { arrayOfCategories } from "./CategoriesArray";
 import { useSelector } from "react-redux";
 
 const CategoryList = () => {
-  const category = useSelector(state => state.categoryList.category)
+  const category = useSelector((state) => state.categoryList.category);
+
+
+
+  console.log(category);
   return (
     <>
       <motion.div
@@ -21,19 +25,23 @@ const CategoryList = () => {
       >
         <h3>Select category:</h3>
         <ul>
-        {arrayOfCategories.map( (element, id) => {
-          return <Link key={id} to={`categories/${element.LinkTo}`} state={element.state}>
-            <CategoryListElement
-              imgSrc={element.img}
-              text={element.text}/>
-          </Link>
-        })}
+          {arrayOfCategories.map((element, id) => {
+            return (
+              <Link
+                key={id}
+                to={`categories/${element.LinkTo}`}
+                state={element.state}
+              >
+                <CategoryListElement imgSrc={element.img} text={element.text} />
+              </Link>
+            );
+          })}
         </ul>
       </motion.div>
 
-      <RouteComponent/>
+      <RouteComponent />
     </>
   );
-}
+};
 
-export default CategoryList
+export default CategoryList;
