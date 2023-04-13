@@ -11,9 +11,6 @@ import { useSelector } from "react-redux";
 const CategoryList = () => {
   const category = useSelector((state) => state.categoryList.category);
 
-
-
-  console.log(category);
   return (
     <>
       <motion.div
