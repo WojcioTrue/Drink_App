@@ -6,10 +6,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { arrayOfCategories } from "./CategoriesArray";
-import { useSelector } from "react-redux";
 
 const CategoryList = () => {
-  const category = useSelector((state) => state.categoryList.category);
 
   return (
     <>
