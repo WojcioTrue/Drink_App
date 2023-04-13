@@ -3,9 +3,9 @@ import axios from "axios";
 
 export const getDrinks = createAsyncThunk(
   `categoryList/getDrinks`,
-  async () => {
+  async (category) => {
     const response = await axios.get(
-      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka`
+      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${category}`
     );
     return response.data;
   }
@@ -29,7 +29,7 @@ const categoryListSlice = createSlice({
     });
     builder.addCase(getDrinks.fulfilled, (state, action) => {
       if (state.loading === "pending") {
-        state.data = action.payload;
+        state.data = action.payload.drinks;
         state.loading = "idle";
       }
     });

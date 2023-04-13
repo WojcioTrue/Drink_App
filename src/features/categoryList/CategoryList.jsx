@@ -8,7 +8,6 @@ import { mainView } from "../../framerStyles/variants";
 import { arrayOfCategories } from "./CategoriesArray";
 
 const CategoryList = () => {
-
   return (
     <>
       <motion.div
@@ -33,7 +32,6 @@ const CategoryList = () => {
           })}
         </ul>
       </motion.div>
-
       <RouteComponent />
     </>
   );
