@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const getDrinks = createAsyncThunk(`categoryList/getDrinks`, async () => {
-    const data = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka`
-      )
-    console.log(data)
+    const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka`)
+    return response.data
 })
 
 
