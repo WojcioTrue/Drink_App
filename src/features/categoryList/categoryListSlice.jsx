@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getDrinks = createAsyncThunk(
   `categoryList/getDrinks`,
-  async (category) => {
+  async (category = "Vodka") => {
     const response = await axios.get(
       `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${category}`
     );
