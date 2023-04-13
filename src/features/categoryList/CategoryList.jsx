@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux"
 
-const CategoryList = () => {
-  return (
-    <div>CategoryList</div>
+
+const CategoryListRedux = () => {
+  const category = useSelector(state => state.categoryList.category)
+    return (
+    <p>{category}</p>
   )
 }
 
-export default CategoryList
+export default CategoryListRedux

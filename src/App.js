@@ -4,6 +4,7 @@ import CoctailsContainer from "./components/CoctailsContainer";
 import FavButton from "./sharedComponents/FavButton";
 import NotificationList from "./features/notificationList/NotificationList"
 import { motion } from "framer-motion";
+import CategoryListRedux from "./features/categoryList/CategoryList";
 
 const appVariant = {
   hidden: { opacity: 0 },
@@ -23,6 +24,7 @@ function App() {
       animate="show"
       className="main-container"
     >
+      <CategoryListRedux/>
       <Searchbar />
       <CoctailsContainer />
       <FavButton />
