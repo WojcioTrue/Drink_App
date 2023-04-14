@@ -16,7 +16,7 @@ const CoctailList = () => {
 
   useEffect(() => {
     dispatch(getDrinks(id));
-  }, [dispatch,id]);
+  }, [dispatch, id]);
   
   let content;
 
@@ -41,7 +41,7 @@ const CoctailList = () => {
     );
   }
   if(error !== null){
-    content = (<NotFound/>)
+    content = <NotFound/>
   }
 
   return (
@@ -58,25 +58,3 @@ const CoctailList = () => {
 };
 
 export default CoctailList;
-
-/* // useEffect(() => {
-  //   console.log(drinksData);
-  //   setCategoryId(id);
-  //   dispatch(getDrinks(id));
-  // }, [id, setCategoryId, dispatch]) */
-/* {drinkData
-          ? 
-          <>
-          <h3>List of coctails:</h3>
-          <div className="grid-coctails">
-            {drinkData.drinks.map((element) => (
-              <CoctailElement
-                key={element.idDrink}
-                id={element.idDrink}
-                name={element.strDrink}
-                imgSrc={element.strDrinkThumb}
-              />    
-            ))}
-            </div>
-            </>
-          : <NotFound/>} */
