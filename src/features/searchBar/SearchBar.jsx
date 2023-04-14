@@ -10,35 +10,26 @@ import SearchBarSuggestions from "./SearchBarSuggestions";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
 import { mainView } from '../../framerStyles/variants'
+import { useDispatch, useSelector } from "react-redux";
+import { getDrinks } from "./searchBarSlice";
 
 const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
-  const [drinkList, setDrinkList] = useState();
   const [clickedOutside, setClickedOutside] = useState(false);
-
-  // useEffect for searching drink by name
+  const dispatch = useDispatch();
+  const { searchDrinkData, loading, error } = useSelector(state => state.searchBar)
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchDrink}`
-      );
-      try {
-        const data = await response.json();
-        setDrinkList(data);
-      } catch (error) {
-        console.log(error)
-      }
-      
-    };
+    console.log(searchDrink);
+    dispatch(getDrinks(searchDrink))
+  }, [dispatch, searchDrink])
 
-    fetchData();
-  }, [searchDrink]);
+
 
   // event listener for changed input value
   const drinkToSearch = (e) => {
     setSearchDrink(e.target.value);
   };
-  // Clear search input
+  // Clear search input button
   function clearSearch() {
     setSearchDrink("");
   }
@@ -107,9 +98,9 @@ const Searchbar = () => {
         )}
 
         {/* remove focus when list element is clicked, hide suggestions */}
-        {clickedOutside && Boolean(searchDrink.length) && (
+        {clickedOutside && Boolean(searchDrinkData) && (
           <SearchBarSuggestions
-            drinkList={drinkList}
+            drinkList={searchDrinkData}
             setSearchDrink={setSearchDrink}
           />
         )}
