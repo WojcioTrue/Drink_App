@@ -5,12 +5,11 @@ export const getDrinks = createAsyncThunk(
   async (category = "Vodka", {rejectWithValue}) => {
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${category}`
-    );
+    )
     try {
       const data = await response.json();
       return data.drinks;
     } catch (error) {
-      console.log(error);
       return rejectWithValue(error.response.data);
     }
   }
@@ -40,12 +39,9 @@ const categoryListSlice = createSlice({
         state.error = null;
       }
     });
-    builder.addCase(getDrinks.rejected, (state, action) => {
-      state.loading = "rejected"     
-      if (state.loading === "rejected") {
+    builder.addCase(getDrinks.rejected, (state, action) => { 
         state.loading = "idle";
         state.error = "Error occured";
-      }
     });
   },
 });
