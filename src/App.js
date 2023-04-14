@@ -1,5 +1,5 @@
 import "./styles/app_container.css";
-import Searchbar from "./components/searchBarComponents/SearchBar";
+import Searchbar from "./features/searchBar/SearchBar";
 import CoctailsContainer from "./components/CoctailsContainer";
 import FavButton from "./sharedComponents/FavButton";
 import NotificationList from "./features/notificationList/NotificationList"
