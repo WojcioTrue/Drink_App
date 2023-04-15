@@ -3,7 +3,7 @@ import SearchBarListElement from "./SearchBarListElement";
 import { motion } from 'framer-motion'
 import {loading, error} from './searchBarSlice'
 
-const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
+const SearchBarSuggestions = ({ drinkList, setSearchDrink, searchDrink }) => {
   const [listToMap, setListToMap] = useState();
   useEffect(() => {
     async function display() {
@@ -20,23 +20,36 @@ const SearchBarSuggestions = ({ drinkList, setSearchDrink }) => {
     display();
   }, [drinkList]);
 
+  console.log(searchDrink.length);
+  console.log(Boolean(listToMap))
+
+  let searchBarContent;
+  
+
+  if(listToMap && searchDrink.length > 0){
+    searchBarContent =  listToMap.slice(0,7).map((element) => (
+      <SearchBarListElement
+        key={element.idDrink}
+        name={element.strDrink}
+        img={element.strDrinkThumb}
+        id={element.idDrink}
+        setSearchDrink={setSearchDrink}
+        noElement={true}
+      />
+     ))
+  }
+
+  if(!listToMap && searchDrink.length > 0){
+    searchBarContent =  <SearchBarListElement img={process.env.PUBLIC_URL + "/img/broken_glass.png"} name={"There is no such drink..."} noElement={false}/>
+  }
+
   return (
     <div className="search-bar__suggestions">
       <motion.ul
         initial={{opacity: 0}}
         animate={{opacity: 1}}
       >
-        {listToMap ?
-          listToMap.slice(0,7).map((element) => (
-            <SearchBarListElement
-              key={element.idDrink}
-              name={element.strDrink}
-              img={element.strDrinkThumb}
-              id={element.idDrink}
-              setSearchDrink={setSearchDrink}
-              noElement={true}
-            />
-          )) : <SearchBarListElement img={process.env.PUBLIC_URL + "/img/broken_glass.png"} name={"There is no such drink..."} noElement={false}/>}
+        {searchBarContent}
       </motion.ul>
     </div>
   );

@@ -100,6 +100,7 @@ const Searchbar = () => {
           <SearchBarSuggestions
             drinkList={searchDrinkData}
             setSearchDrink={setSearchDrink}
+            searchDrink={searchDrink}
           />
         )}
       </span>
