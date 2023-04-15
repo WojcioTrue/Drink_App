@@ -15,14 +15,12 @@ import { getDrinks } from "./searchBarSlice";
 
 const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
-  const [clickedOutside, setClickedOutside] = useState(false);
+  const [searchInputFocus, setSearchInputFocus] = useState(false);
   const dispatch = useDispatch();
   const { searchDrinkData, loading, error } = useSelector(state => state.searchBar)
   useEffect(() => {
-    console.log(searchDrink);
     dispatch(getDrinks(searchDrink))
   }, [dispatch, searchDrink])
-
 
 
   // event listener for changed input value
@@ -34,7 +32,7 @@ const Searchbar = () => {
     setSearchDrink("");
   }
 
-  // check if element have focus, if so display list
+  // check if element have focus
   const checkFocus = () => {
     const elementFocus = document.querySelector("#SearchDrink");
     const documentFocus = document.activeElement;
@@ -45,14 +43,14 @@ const Searchbar = () => {
     }
   };
 
-  // setClickedOutside to true if we focused input, remove focus when clicked outside the input, re
+  // set searchInputFocus to true if we focused input, remove focus when clicked outside the input
   useEffect(() => {
     window.addEventListener("click", () => {
-      setClickedOutside(checkFocus());
+      setSearchInputFocus(checkFocus());
     });
     return () => {
       window.removeEventListener("click", () => {
-        setClickedOutside(checkFocus());
+        setSearchInputFocus(checkFocus());
       });
     };
   }, []);
@@ -97,8 +95,8 @@ const Searchbar = () => {
           />
         )}
 
-        {/* remove focus when list element is clicked, hide suggestions */}
-        {clickedOutside && Boolean(searchDrinkData) && (
+        {/* remove focus when you click outside searchbar, hide suggestions */}
+        {searchInputFocus && Boolean(searchDrinkData) && (
           <SearchBarSuggestions
             drinkList={searchDrinkData}
             setSearchDrink={setSearchDrink}
