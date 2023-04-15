@@ -20,9 +20,6 @@ const SearchBarSuggestions = ({ drinkList, setSearchDrink, searchDrink }) => {
     display();
   }, [drinkList]);
 
-  console.log(searchDrink.length);
-  console.log(Boolean(listToMap))
-
   let searchBarContent;
   
 
