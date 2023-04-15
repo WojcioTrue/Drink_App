@@ -17,7 +17,7 @@ const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
   const [searchInputFocus, setSearchInputFocus] = useState(false);
   const dispatch = useDispatch();
-  const { searchDrinkData, loading, error } = useSelector(state => state.searchBar)
+  const { searchDrinkData } = useSelector(state => state.searchBar)
   useEffect(() => {
     dispatch(getDrinks(searchDrink))
   }, [dispatch, searchDrink])
