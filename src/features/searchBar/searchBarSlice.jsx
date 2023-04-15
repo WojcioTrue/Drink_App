@@ -3,7 +3,9 @@ import axios from 'axios'
 
 export const getDrinks = createAsyncThunk('searchBar/getDrinks', async (drinkName = "") => {
     const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`)
-    return response.data
+    if(drinkName.length > 0){
+        return response.data
+    }
   })
 
 const initialState = {

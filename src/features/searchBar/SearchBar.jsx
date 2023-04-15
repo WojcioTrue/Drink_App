@@ -8,8 +8,8 @@ import {
 import { useState, useEffect } from "react";
 import SearchBarSuggestions from "./SearchBarSuggestions";
 import { Link } from "react-router-dom";
-import { motion } from 'framer-motion'
-import { mainView } from '../../framerStyles/variants'
+import { motion } from "framer-motion";
+import { mainView } from "../../framerStyles/variants";
 import { useDispatch, useSelector } from "react-redux";
 import { getDrinks } from "./searchBarSlice";
 
@@ -17,11 +17,10 @@ const Searchbar = () => {
   const [searchDrink, setSearchDrink] = useState("");
   const [searchInputFocus, setSearchInputFocus] = useState(false);
   const dispatch = useDispatch();
-  const { searchDrinkData } = useSelector(state => state.searchBar)
+  const { searchDrinkData } = useSelector((state) => state.searchBar);
   useEffect(() => {
-    dispatch(getDrinks(searchDrink))
-  }, [dispatch, searchDrink])
-
+      dispatch(getDrinks(searchDrink));
+  }, [dispatch, searchDrink]);
 
   // event listener for changed input value
   const drinkToSearch = (e) => {
@@ -61,7 +60,8 @@ const Searchbar = () => {
       custom={0.2}
       initial="hidden"
       animate="show"
-      className="search-bar">
+      className="search-bar"
+    >
       <h2>
         <Link to="/" state={{ category: "Vodka" }}>
           <FontAwesomeIcon
@@ -83,7 +83,7 @@ const Searchbar = () => {
           onChange={drinkToSearch}
         />
         <FontAwesomeIcon icon={faMagnifyingGlass} className="icon magnify" />
-        { (
+        {
           <FontAwesomeIcon
             icon={faXmark}
             className={
@@ -93,7 +93,7 @@ const Searchbar = () => {
             }
             onClick={clearSearch}
           />
-        )}
+        }
 
         {/* remove focus when you click outside searchbar, hide suggestions */}
         {searchInputFocus && Boolean(searchDrinkData) && (

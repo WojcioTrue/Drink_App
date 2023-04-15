@@ -36,7 +36,7 @@ const SearchBarSuggestions = ({ drinkList, setSearchDrink, searchDrink }) => {
      ))
   }
 
-  if(!listToMap && searchDrink.length > 0){
+  if(!listToMap){
     searchBarContent =  <SearchBarListElement img={process.env.PUBLIC_URL + "/img/broken_glass.png"} name={"There is no such drink..."} noElement={false}/>
   }
 
