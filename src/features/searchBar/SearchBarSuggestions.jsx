@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import SearchBarListElement from "./SearchBarListElement";
 import { motion } from 'framer-motion'
-import {loading, error} from './searchBarSlice'
 
 const SearchBarSuggestions = ({ drinkList, setSearchDrink, searchDrink }) => {
   const [listToMap, setListToMap] = useState();
