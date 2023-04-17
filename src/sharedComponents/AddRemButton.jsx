@@ -53,7 +53,7 @@ function AddRemButton({ name, id, img, className }) {
           icon={faMinusCircle}
           className={`add-favourite remove-color ${className}`}
           onClick={() => {
-            dispatch(removeFromFavourite({ idDrink: id }));
+            dispatch(removeFromFavourite(id));
             dispatch(addNotification({ id: nanoid(), isAdded: false }));
             localStorageFavouriteList("remove", isOnFavourite, {
               idDrink: id,
@@ -68,11 +68,7 @@ function AddRemButton({ name, id, img, className }) {
           className={`add-favourite ${className}`}
           onClick={() => {
             dispatch(
-              addToFavourite({
-                idDrink: id,
-                strDrink: name,
-                strDrinkThumb: img,
-              })
+              addToFavourite(id,name,img)
             );
             dispatch(addNotification({ id: nanoid(), isAdded: true }));
             localStorageFavouriteList("add", isOnFavourite, {

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 // getting localstore for favourite Drinks
 const initialState =
   localStorage.getItem("favouriteList") !== null
@@ -10,13 +9,33 @@ const favouriteListSlice = createSlice({
   name: "favouriteList",
   initialState,
   reducers: {
-    addToFavourite: (state, action) => {
-      return (state = [action.payload, ...state]);
+    addToFavourite: {
+      reducer(state, action) {
+        return (state = [action.payload, ...state]);
+      },
+      prepare(id, name, img) {
+        return {
+          payload: {
+            idDrink: id,
+            strDrink: name,
+            strDrinkThumb: img,
+          },
+        };
+      },
     },
-    removeFromFavourite: (state, action) => {
-      return (state = state.filter(
-        (element) => element.idDrink !== action.payload.idDrink
-      ));
+    removeFromFavourite: {
+      reducer(state, action) {
+        return (state = state.filter(
+          (element) => element.idDrink !== action.payload.idDrink
+        ));
+      },
+      prepare(id) {
+        return {
+          payload: {
+            idDrink: id,
+          },
+        };
+      },
     },
   },
 });
