@@ -29,7 +29,7 @@ const localStorageFavouriteList = (type, state, element) => {
       );
       break;
     default:
-      console.log("nie znam tego typu");
+      console.log("Default case for localStorageFavouriteItem");
   }
 };
 
