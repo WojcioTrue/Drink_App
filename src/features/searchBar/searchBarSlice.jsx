@@ -1,17 +1,22 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from 'axios'
+import axios from "axios";
 
-export const getDrinks = createAsyncThunk('searchBar/getDrinks', async (drinkName = "") => {
-    const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`)
-    if(drinkName.length > 0){
-        return response.data
+export const getDrinks = createAsyncThunk(
+  "searchBar/getDrinks",
+  async (drinkName = "") => {
+    const response = await axios.get(
+      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`
+    );
+    if (drinkName.length > 0) {
+      return response.data;
     }
-  })
+  }
+);
 
 const initialState = {
-    searchDrinkData: [],
-    loading: 'idle',
-    error: null
+  searchDrinkData: [],
+  loading: "idle",
+  error: null,
 };
 
 const searchBarSlice = createSlice({
@@ -29,14 +34,8 @@ const searchBarSlice = createSlice({
             state.searchDrinkData = action.payload
             state.loading = 'idle'
         }
-    })
-    builder.addCase(getDrinks.rejected, (state, action) => {
-        if(state.loading === 'pending'){
-            state.loading = 'idle'
-            state.error = 'Error occured'
-        }
-    })
-  }
+    });
+  },
 });
 
 export default searchBarSlice.reducer;
