@@ -9,7 +9,6 @@ import {
   removeFromFavourite,
 } from "../features/favouriteList/favouriteListSlice";
 import { addNotification } from "../features/notificationList/notificationListSlice";
-import { nanoid } from "@reduxjs/toolkit";
 
 const localStorageFavouriteList = (type, state, element) => {
   switch (type) {
