@@ -1,7 +1,7 @@
 import "../../styles/categories_list.css";
 import "./CategoryListElement";
 import CategoryListElement from "./CategoryListElement";
-import RouteComponent from "../../Routes/Routes";
+import RouteComponent from "../../routes/Routes";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
