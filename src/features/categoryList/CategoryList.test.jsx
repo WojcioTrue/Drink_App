@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import store from "../../app/store";
 
 describe("basic tests", () => {
-  test("display header form category list", () => {
+  test("display header form category lista", () => {
     render(
       <MemoryRouter>
         <Provider store={store}>
