@@ -14,7 +14,6 @@ describe("Loop every element from CategoryList", () => {
         />)
         const singleElement = screen.getByText(element.text)
         expect(singleElement).toBeInTheDocument()
-        console.log(element.img)
         const singleElementImg = screen.getByRole('img')
         expect(singleElementImg.getAttribute('src')).toBe(element.img)
     })})
