@@ -19,7 +19,7 @@ const FavListFullScreen = () => {
     <div className="list-coctails">
       {favouriteList.length > 0 ? (
         <>
-          <h3>FavouriteDrinks:</h3>
+          <h3>Favourite drinks:</h3>
           <div className="grid-coctails">
           <AnimatePresence>
             {favouriteList.map((element) => {
