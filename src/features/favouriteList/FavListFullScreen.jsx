@@ -14,7 +14,6 @@ const FavListFullScreen = () => {
   // if so return true
   const location = useLocation();
   const inFavourite = location.pathname === "/favourite_list";
-
   return (
     <div className="list-coctails">
       {favouriteList.length > 0 ? (
