@@ -13,7 +13,6 @@ const CoctailList = () => {
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.categoryList);
   const { id } = useParams();
-
   useEffect(() => {
     dispatch(getDrinks(id));
   }, [dispatch, id]);
