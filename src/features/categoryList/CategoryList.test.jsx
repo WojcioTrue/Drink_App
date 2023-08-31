@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import CategoryList from "./CategoryList";
 import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "../../app/store";
+import { store } from "../../app/store";
 
 describe("Tests for category list elements", () => {
   test("display header form category list", () => {

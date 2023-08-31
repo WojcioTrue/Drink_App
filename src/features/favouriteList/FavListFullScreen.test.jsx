@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import FavListFullScreen from "./FavListFullScreen";
 import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "../../app/store";
+import { store } from "../../app/store";
 
 afterEach(cleanup);
 
@@ -27,16 +27,16 @@ describe("tests for favourite list container full screen", () => {
     expect(addText).toBeInTheDocument();
     expect(responsinilityText).toBeInTheDocument();
   });
-  // test("snapshot test with empty list", () => {
-  //   const { asFragment } = render(
-  //     <MemoryRouter>
-  //       <Provider store={store}>
-  //         <FavListFullScreen />
-  //       </Provider>
-  //     </MemoryRouter>
-  //   );
-  //   expect(asFragment(<FavListFullScreen />)).toMatchSnapshot();
-  // });
+  test("snapshot test with empty list", () => {
+    const { asFragment } = render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <FavListFullScreen />
+        </Provider>
+      </MemoryRouter>
+    );
+    expect(asFragment(<FavListFullScreen />)).toMatchSnapshot();
+  });
   test("Get favouriteList from store", async () => {
     render(
       <MemoryRouter>
@@ -45,7 +45,5 @@ describe("tests for favourite list container full screen", () => {
         </Provider>
       </MemoryRouter>
     );
-      console.log(store)
-
-    });
   });
+});
