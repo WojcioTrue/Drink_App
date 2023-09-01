@@ -16,32 +16,6 @@ const CoctailList = () => {
   useEffect(() => {
     dispatch(getDrinks(id));
   }, [dispatch, id]);
-  
-  let content;
-
-  if (loading === "pending") {
-    content = <LoadingScreen />;
-  }
-  if (loading === "idle") {
-    content = (
-      <>
-        <h3>List of coctails:</h3>
-        <div className="grid-coctails">
-          {data.map((element) => (
-            <CoctailElement
-              key={element.idDrink}
-              id={element.idDrink}
-              name={element.strDrink}
-              imgSrc={element.strDrinkThumb}
-            />
-          ))}
-        </div>
-      </>
-    );
-  }
-  if(error !== null){
-    content = <NotFound/>
-  }
 
   return (
     <motion.div
@@ -51,7 +25,23 @@ const CoctailList = () => {
       animate="show"
       className="list-coctails"
     >
-      {content}
+      {loading === "pending" && <LoadingScreen />}
+      {loading === "idle" && (
+        <>
+          <h3>List of coctails:</h3>
+          <div className="grid-coctails">
+            {data.map((element) => (
+              <CoctailElement
+                key={element.idDrink}
+                id={element.idDrink}
+                name={element.strDrink}
+                imgSrc={element.strDrinkThumb}
+              />
+            ))}
+          </div>
+        </>
+      )}
+      {error && <NotFound />}
     </motion.div>
   );
 };

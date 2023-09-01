@@ -1,18 +1,4 @@
-import { rest } from "msw";
-
-export const handlers = [
-  rest.get(
-    "http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin",
-    (req, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json(arr)
-      );
-    }
-  ),
-];
-
-const arr = {
+export const arr = {
   drinks: [
     {
       strDrink: "3-Mile Long Island Iced Tea",
