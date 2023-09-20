@@ -27,17 +27,13 @@ const categoryListSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getDrinks.pending, (state) => {
-      if (state.loading === "idle") {
         state.loading = "pending";
         state.error = null;
-      }
     });
     builder.addCase(getDrinks.fulfilled, (state, action) => {
-      if (state.loading === "pending") {
         state.data = action.payload;
         state.loading = "idle";
         state.error = null;
-      }
     });
     builder.addCase(getDrinks.rejected, (state, action) => { 
         state.loading = "idle";

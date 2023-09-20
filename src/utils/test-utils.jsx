@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 // As a basic setup, import your same slice reducers
 import { setupStore } from "../app/store";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 export function renderWithProviders(
   ui,
   {
@@ -15,9 +15,9 @@ export function renderWithProviders(
 ) {
   function Wrapper({ children }) {
     return (
-      <BrowserRouter>
+      <MemoryRouter>
         <Provider store={store}>{children}</Provider>
-      </BrowserRouter>
+      </MemoryRouter>
     );
   }
 

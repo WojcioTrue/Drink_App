@@ -1,8 +1,10 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import favouriteListReducer from "../features/favouriteList/favouriteListSlice";
 import notificationListReducer from "../features/notificationList/notificationListSlice";
 import categoryListReducer from "../features/categoryList/categoryListSlice";
 import searchBarReducer from "../features/searchBar/searchBarSlice";
+
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+
 
 const rootReducer = combineReducers({
   favouriteList: favouriteListReducer,
@@ -10,6 +12,8 @@ const rootReducer = combineReducers({
   categoryList: categoryListReducer,
   searchBar: searchBarReducer,
 });
+
+
 
 export const store = configureStore({
   reducer: rootReducer,
