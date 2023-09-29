@@ -14,6 +14,7 @@ const NotFound = () => {
         text={"I don't see the page you looking for, or some error occured..."}
         secondText={"Return to home page."}
         img={process.env.PUBLIC_URL + "/img/broken_glass.png"}
+        imgAltText={"Alt img for error prompt"}
       />
       <Link to="/">
         <Button animationVariant={coctailButton} variant="not-found__button">{"Return home"}</Button>

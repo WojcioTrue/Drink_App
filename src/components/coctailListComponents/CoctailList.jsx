@@ -26,7 +26,7 @@ const CoctailList = () => {
       className="list-coctails"
     >
       {loading === "pending" && <LoadingScreen />}
-      {loading === "idle" && (
+      {(loading === "idle" && error == null) && (
         <>
           <h3>List of coctails:</h3>
           <div className="grid-coctails">

@@ -1,7 +1,7 @@
 import "../styles/message.css";
 import { motion } from "framer-motion";
 
-const Message = ({ header, text, secondText, img, animationVariant }) => {
+const Message = ({ header, text, secondText, img, imgAltText, animationVariant }) => {
   return (
     <motion.div
       variants={animationVariant}
@@ -9,7 +9,7 @@ const Message = ({ header, text, secondText, img, animationVariant }) => {
       animate="show"
       className="message__list">
         <span className="message__list-img">
-          <img alt="#" src={img}></img>
+          <img src={img} alt={imgAltText}/>
         </span>
         <section>
           <p className="header">{header}</p>
