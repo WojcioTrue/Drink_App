@@ -1,9 +1,5 @@
 import { setupServer } from "msw/node";
-import {
-  screen,
-  waitFor,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { screen, waitForElementToBeRemoved } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/test-utils";
 import CoctailList from "./CoctailList";
 import {
@@ -124,7 +120,7 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
     }
   });
 
-  test("test for dispatching wrong category", async () => {
+  test("dispatching wrong category", async () => {
     // setup initial store for redux wrapper
     const store = setupStore();
     // dispatching invalid category to redux thunk
