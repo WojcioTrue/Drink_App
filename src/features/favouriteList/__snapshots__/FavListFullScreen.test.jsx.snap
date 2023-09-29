@@ -13,7 +13,6 @@ exports[`tests for favourite list container full screen snapshot test with empty
         class="message__list-img"
       >
         <img
-          alt="#"
           src="./img/fav_icon.png"
         />
       </span>
