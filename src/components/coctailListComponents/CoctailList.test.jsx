@@ -9,7 +9,7 @@ import {
   bourbonData as bourbon,
   tequilaData as tequila,
   rumData as rum,
-} from "./testData.jsx";
+} from "./testListData.jsx";
 import { rest } from "msw";
 import "react-intersection-observer/test-utils";
 import { setupStore } from "../../app/store";
