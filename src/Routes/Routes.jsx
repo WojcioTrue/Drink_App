@@ -1,4 +1,4 @@
-import DrinkInfo from "../components/coctailListComponents/DrinkInfo";
+import DrinkInfo from "../features/drinkInfo/DrinkInfo";
 import NotFound from "../sharedComponents/NotFound";
 import CoctailList from "../components/coctailListComponents/CoctailList";
 import FavListFullScreen from "../features/favouriteList/FavListFullScreen";
