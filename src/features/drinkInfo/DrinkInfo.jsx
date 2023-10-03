@@ -5,65 +5,50 @@ import AddRemButton from "../../sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
 import { drinkInfo } from "../../framerStyles/variants";
 import LoadingScreen from "../../sharedComponents/LoadingScreen";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getDrinkData } from "./drinkDataSlice";
+import NotFound from "../../sharedComponents/NotFound";
 
 const DrinkInfo = () => {
-  const listOfFavourite = useSelector(state => state.favouriteList)
-  const [drink, setDrink] = useState();
+  const dispatch = useDispatch();
+  const listOfFavourite = useSelector((state) => state.favouriteList);
+  const { data, loading, error } = useSelector((state) => state.drinkData);
   const [ingredients, setIngredients] = useState([]);
   const [isFavourite, setIsFavourite] = useState(true);
-  const [notFound, setNotFound] = useState(false);
   const { id } = useParams();
 
+  // dispatch getDrinkData thunk
+  useEffect(() => {
+    dispatch(getDrinkData(id));
+  }, []);
 
-  // check if element is on favourite list
+  // check if drink is already on favourite list
   useEffect(() => {
     const onList = listOfFavourite.some((element) => element.idDrink === id);
     setIsFavourite(onList);
-    
   }, [listOfFavourite, id]);
-  // fetching drink data with id passed from useParams hook
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
-      );
-      try {
-        const response = await data.json();
-        setDrink(response.drinks[0]);
-      } catch (error) {
-        console.log(
-          "Probably can't find drink with this id, check your id and try again.",
-          error
-        );
-        setNotFound(true);
-      }
-    };
-    fetchData();
-  }, [id]);
 
-  // creating array with ingredients
-  useEffect(() => {
-    function checkIngredients() {
-      let i = 1;
-      const listOfIngredients = [];
-      while (drink[`strIngredient${i}`] !== null) {
-        listOfIngredients.push(drink[`strIngredient${i}`]);
-        i++;
-      }
-      setIngredients(listOfIngredients);
+  // loop through ingredients of drink
+  function checkIngredients() {
+    let i = 1;
+    const listOfIngredients = [];
+    while (data[`strIngredient${i}`] !== null) {
+      listOfIngredients.push(data[`strIngredient${i}`]);
+      i++;
     }
-    // initiate looking for ingredients if drink exist
-    if (drink !== undefined) {
+    setIngredients(listOfIngredients);
+  }
+  // initiate looping through ingredients when data is available
+  useEffect(() => {
+    if (data.strDrink) {
       checkIngredients();
     }
-  }, [drink]);
+  }, [data]);
 
-  return notFound ? (
-    <Navigate to="/error" />
-  ) : (
+  return (
     <>
-      {drink ? (
+      {loading === "pending" && <LoadingScreen />}
+      {loading === "idle" && error === null && (
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -77,20 +62,22 @@ const DrinkInfo = () => {
             custom={2}
             className="drink-info__img"
           >
-            <img alt="#" src={drink.strDrinkThumb} />
+            <img alt="#" src={data.strDrinkThumb} />
           </motion.div>
+
           <div className="drink-info__description">
             <motion.span
-            variants={drinkInfo}
-            initial="hidden"
-            animate="show"
-            custom={1}>
-              <h2>{drink.strDrink}</h2>
+              variants={drinkInfo}
+              initial="hidden"
+              animate="show"
+              custom={1}
+            >
+              <h2>{data.strDrink}</h2>
               <p className="favouriteButton">
                 <AddRemButton
-                  name={drink.strDrink}
+                  name={data.strDrink}
                   id={id}
-                  img={drink.strDrinkThumb}
+                  img={data.strDrinkThumb}
                   className="drink-info__addbutton"
                 />
                 {isFavourite ? "Remove from favourite" : "Add to favourite"}
@@ -98,36 +85,38 @@ const DrinkInfo = () => {
             </motion.span>
 
             <motion.ul
-            variants={drinkInfo}
-            initial="hidden"
-            animate="show"
-            custom={2}>
+              variants={drinkInfo}
+              initial="hidden"
+              animate="show"
+              custom={2}
+            >
               <h3>List of ingredients:</h3>
               {ingredients.map((ingredient) => (
                 <li key={ingredient}>- {ingredient}</li>
               ))}
             </motion.ul>
             <motion.span
-            variants={drinkInfo}
-            initial="hidden"
-            animate="show"
-            custom={3}>
+              variants={drinkInfo}
+              initial="hidden"
+              animate="show"
+              custom={3}
+            >
               <h3>Preparation:</h3>
-              <p className="paragraph-margin">{drink.strInstructions}</p>
+              <p className="paragraph-margin">{data.strInstructions}</p>
             </motion.span>
             <motion.span
-            variants={drinkInfo}
-            initial="hidden"
-            animate="show"
-            custom={4}>
+              variants={drinkInfo}
+              initial="hidden"
+              animate="show"
+              custom={4}
+            >
               <h3>Type of glass:</h3>
-              <p className="paragraph-margin">{drink.strGlass}</p>
+              <p className="paragraph-margin">{data.strGlass}</p>
             </motion.span>
           </div>
         </motion.div>
-      ) : (
-        <LoadingScreen/>
       )}
+      {error !== null && <NotFound />}
     </>
   );
 };

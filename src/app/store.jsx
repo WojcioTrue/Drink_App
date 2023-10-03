@@ -2,6 +2,7 @@ import favouriteListReducer from "../features/favouriteList/favouriteListSlice";
 import notificationListReducer from "../features/notificationList/notificationListSlice";
 import categoryListReducer from "../features/categoryList/categoryListSlice";
 import searchBarReducer from "../features/searchBar/searchBarSlice";
+import drinkDataSlice from "../features/drinkInfo/drinkDataSlice";
 
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   notificationList: notificationListReducer,
   categoryList: categoryListReducer,
   searchBar: searchBarReducer,
+  drinkData: drinkDataSlice
 });
 
 
