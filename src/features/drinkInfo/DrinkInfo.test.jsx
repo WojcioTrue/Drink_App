@@ -12,11 +12,11 @@ import { store } from "../../app/store";
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useParams: () => ({
-        id: "13940",
+        id: "17105",
     })
 }))
 
-const customRoute = "/drink/13940";
+const customRoute = "/drink/17105";
 describe("test for single drink with provided route parameter", () => {
   test("display component", async () => {
     render(
@@ -29,6 +29,6 @@ describe("test for single drink with provided route parameter", () => {
 
     await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
 
-    
+    screen.debug()
   });
 });
