@@ -79,6 +79,7 @@ const DrinkInfo = () => {
                   id={id}
                   img={data.strDrinkThumb}
                   className="drink-info__addbutton"
+                  title={isFavourite ? "favourite" : "notFavourite"}
                 />
                 {isFavourite ? "Remove from favourite" : "Add to favourite"}
               </p>

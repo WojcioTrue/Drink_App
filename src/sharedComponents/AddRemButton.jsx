@@ -33,7 +33,7 @@ const localStorageFavouriteList = (type, state, element) => {
   }
 };
 
-function AddRemButton({ name, id, img, className }) {
+function AddRemButton({ name, id, img, className,title }) {
   const isOnFavourite = useSelector((state) => state.favouriteList);
   const [inFavourite, setInFavourite] = useState(false);
 
@@ -51,6 +51,7 @@ function AddRemButton({ name, id, img, className }) {
         <FontAwesomeIcon
           icon={faMinusCircle}
           className={`add-favourite remove-color ${className}`}
+          title={title}
           onClick={() => {
             dispatch(removeFromFavourite(id));
             dispatch(addNotification(false));
@@ -65,6 +66,7 @@ function AddRemButton({ name, id, img, className }) {
         <FontAwesomeIcon
           icon={faPlusCircle}
           className={`add-favourite ${className}`}
+          title={title}
           onClick={() => {
             dispatch(
               addToFavourite(id,name,img)
