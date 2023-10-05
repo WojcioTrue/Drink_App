@@ -30,14 +30,16 @@ beforeAll(() => server.listen());
 afterAll(() => server.close());
 
 describe("test for single drink with provided route parameter", () => {
-  test("expect to render 501 Blue drinkName", async () => {
+  test("should render 501 Blue drinkName", async () => {
     // initiate render with dispatched drink id
     renderWithProviders(<DrinkInfo />);
     // await for response from rendered component
-    const drinkName = await screen.findByRole("heading", { name: /501 blue/i });
+    const drinkName = await screen.findByRole("heading", {
+      name: testDrink.drinks[0]["strDrink"],
+    });
     expect(drinkName).toBeInTheDocument();
   });
-  test("render add/remove button and trigger click event", async () => {
+  test("should render add/remove button and trigger click event", async () => {
     // initiate render with dispatched drink id
     renderWithProviders(<DrinkInfo />);
 
@@ -58,5 +60,53 @@ describe("test for single drink with provided route parameter", () => {
       /remove from favourite/i
     );
     expect(removeButtonDescription).toBeInTheDocument();
+  });
+  test("should render list of ingredients", async () => {
+    renderWithProviders(<DrinkInfo />);
+
+    const ingredientsHeader = await screen.findByRole("heading", {
+      level: 3,
+      name: /list of ingredients/i,
+    });
+    expect(ingredientsHeader).toBeInTheDocument();
+
+    const listOfIngredients = await screen.findAllByRole("listitem");
+
+    // compare list of ingredients with test data
+    function checkIngredients() {
+      let i = 0;
+      while (listOfIngredients[i] !== undefined) {
+        expect(listOfIngredients[i]).toHaveTextContent(
+          testDrink.drinks[0][`strIngredient${i + 1}`]
+        );
+        i++;
+      }
+    }
+
+    checkIngredients();
+  });
+  test("should return preparation info", async () => {
+    renderWithProviders(<DrinkInfo />);
+
+    const preparationHeader = await screen.findByText(/preparation/i);
+    expect(preparationHeader).toBeInTheDocument();
+
+    const preparationDescription = await screen.findByText(
+      testDrink.drinks[0]["strInstructions"]
+    );
+
+    expect(preparationDescription).toBeInTheDocument();
+  });
+  test("should return type of glass for drink", async () => {
+    renderWithProviders(<DrinkInfo />);
+
+    const preparationHeader = await screen.findByText(/type of glass/i);
+    expect(preparationHeader).toBeInTheDocument();
+
+    const preparationDescription = await screen.findByText(
+      testDrink.drinks[0]["strGlass"]
+    );
+
+    expect(preparationDescription).toBeInTheDocument();
   });
 });
