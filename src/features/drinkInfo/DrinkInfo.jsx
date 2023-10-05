@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../../styles/Drink_info.css";
 import AddRemButton from "../../sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
@@ -20,7 +20,7 @@ const DrinkInfo = () => {
   // dispatch getDrinkData thunk
   useEffect(() => {
     dispatch(getDrinkData(id));
-  }, []);
+  }, [dispatch,id]);
 
   // check if drink is already on favourite list
   useEffect(() => {
@@ -29,17 +29,18 @@ const DrinkInfo = () => {
   }, [listOfFavourite, id]);
 
   // loop through ingredients of drink
-  function checkIngredients() {
-    let i = 1;
-    const listOfIngredients = [];
-    while (data[`strIngredient${i}`] !== null) {
-      listOfIngredients.push(data[`strIngredient${i}`]);
-      i++;
-    }
-    setIngredients(listOfIngredients);
-  }
+
   // initiate looping through ingredients when data is available
   useEffect(() => {
+    function checkIngredients() {
+      let i = 1;
+      const listOfIngredients = [];
+      while (data[`strIngredient${i}`] !== null) {
+        listOfIngredients.push(data[`strIngredient${i}`]);
+        i++;
+      }
+      setIngredients(listOfIngredients);
+    }
     if (data.strDrink) {
       checkIngredients();
     }
