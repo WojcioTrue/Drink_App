@@ -44,7 +44,7 @@ describe("test for single drink with provided route parameter", () => {
     renderWithProviders(<DrinkInfo />);
 
     // find button add/remove by title 'not favourite'
-    const addButton = await screen.findByTitle(/notFavourite/i);
+    const addButton = await screen.findByTitle(/addFavourite/i);
     expect(addButton).toBeInTheDocument();
     // text that will change after button is clicked
     const buttonDescription = await screen.findByText(/add to favourite/i);
@@ -53,7 +53,7 @@ describe("test for single drink with provided route parameter", () => {
     // fire event to change state of button
     fireEvent.click(addButton);
     // changed title for button after click event to 'favourite'
-    const removeButton = screen.getByTitle(/favourite/i);
+    const removeButton = screen.getByTitle(/removeFavourite/i);
     expect(removeButton).toBeInTheDocument();
     // text changed after button was clicked
     const removeButtonDescription = await screen.findByText(

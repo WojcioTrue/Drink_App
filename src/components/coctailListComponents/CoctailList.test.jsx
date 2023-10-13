@@ -66,12 +66,14 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
     // waiting for pending data to be sucessful and "loading..." text to me removed
     await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
 
+    //loop through vodka drinks and check if img exist
     for (let i = 0; i < vodka.drinks.length; i++) {
-      const gridCoctailsImg = screen.getAllByRole("img");
-      // check if img element is rendered
-      expect(gridCoctailsImg[i]).toBeInTheDocument();
-      // compare src attribute to have the same value as mocked data
-      expect(gridCoctailsImg[i].src).toBe(`${vodka.drinks[i].strDrinkThumb}`);
+      let element = vodka.drinks[i];
+      const drinkImage = await screen.findByRole("img", {
+        name: element.strDrink,
+      });
+      // src of img should be the same as mocked data
+      expect(drinkImage.src).toContain(element.strDrinkThumb)
     }
   });
   test("compare rendered names of drinks with the one from mocked data", async () => {

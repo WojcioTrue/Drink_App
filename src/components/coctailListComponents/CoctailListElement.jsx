@@ -19,7 +19,7 @@ const CoctailElement = ({ id, name, imgSrc, useLayout }) => {
       className="grid-coctails__product"
     >
       <div>
-        <img alt="#" src={imgSrc} />
+        <img alt={name} src={imgSrc}/>
         <h4>{name}</h4>
       </div>
       <Link to={`/drink/${id}`}>
