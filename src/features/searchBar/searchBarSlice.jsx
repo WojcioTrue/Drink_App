@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getDrinks = createAsyncThunk(
-  "searchBar/getDrinks",
+export const searchDrinks = createAsyncThunk(
+  "searchBar/searchDrinks",
   async (drinkName = "") => {
     const response = await axios.get(
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`
@@ -24,12 +24,12 @@ const searchBarSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getDrinks.pending, (state, action) => {
+    builder.addCase(searchDrinks.pending, (state, action) => {
         if(state.loading === 'idle'){
             state.loading = 'pending'
         }
     })
-    builder.addCase(getDrinks.fulfilled, (state, action) => {
+    builder.addCase(searchDrinks.fulfilled, (state, action) => {
         if(state.loading === 'pending'){
             state.searchDrinkData = action.payload
             state.loading = 'idle'

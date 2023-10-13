@@ -25,14 +25,14 @@
   fill: #1C0B19;
 }
 
-.search-bar__input {
+.search-bar__textbox {
   position: relative;
   width: 100%;
   max-width: 500px;
   height: 35px;
 }
 
-.search-bar__input .icon {
+.search-bar__textbox .icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -55,11 +55,11 @@
   cursor: pointer;
 }
 
-.search-bar__input .icon path {
+.search-bar__textbox .icon path {
   fill: #808080;
 }
 
-.search-bar__input input[id=SearchDrink] {
+.search-bar__textbox input[id=SearchDrink] {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -72,24 +72,23 @@
   transition: outline 0.3s ease-out;
 }
 
-.search-bar__input input[id=SearchDrink]:focus-within{
+.search-bar__textbox input[id=SearchDrink]:focus{ 
   transition: outline 0.3s ease-out;
   outline: 1px solid #808080;
 }
 
-.search-bar__input input[id=SearchDrink]~.search-bar__suggestions {
+.search-bar__textbox input[id=SearchDrink]~.search-bar__suggestions {
   display: block;
-  position: relative;
   z-index: 100;
 }
 
-.search-bar__input .search-bar__suggestions{
+.search-bar__textbox .search-bar__suggestions{
   position: relative;
   display: none;
   margin-top: 5px;
 }
 
-.search-bar__input .search-bar__suggestions ul {
+.search-bar__textbox .search-bar__suggestions ul {
   background-color: #eaeaeaec;
   margin: 0px;
   list-style: none;
@@ -97,7 +96,7 @@
   border-radius: 15px;
 }
 
-.search-bar__input .search-bar__suggestions ul li {
+.search-bar__textbox .search-bar__suggestions ul li {
   font-weight: bold;
   border-bottom: 1px solid white;
   display: flex;
@@ -111,7 +110,7 @@
   cursor: default;
 }
 
-.search-bar__input .search-bar__suggestions ul  li a{
+.search-bar__textbox .search-bar__suggestions ul  li a{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -123,19 +122,19 @@
   padding: 10px;
 }
 
-.search-bar__input .search-bar__suggestions ul  li a:hover {
+.search-bar__textbox .search-bar__suggestions ul  li a:hover {
   transform: translateX(10px);
   color: #808080;
 }
 
-.search-bar__input .search-bar__suggestions ul li img {
+.search-bar__textbox .search-bar__suggestions ul li img {
   border-radius: 5px;
   height: 30px;
   width: 30px;
   margin-right: 10px;
 }
 
-.search-bar__input .search-bar__suggestions ul li:last-child {
+.search-bar__textbox .search-bar__suggestions ul li:last-child {
   border-bottom: 0px;
 }
 

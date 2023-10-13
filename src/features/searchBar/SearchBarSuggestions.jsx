@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const SearchBarSuggestions = ({ drinkList, setSearchDrink, searchDrink }) => {
   const [listToMap, setListToMap] = useState();
   useEffect(() => {
-    async function display() {
+    function display() {
       if (drinkList) {
         if (!drinkList.drinks) {
           setListToMap(false);
