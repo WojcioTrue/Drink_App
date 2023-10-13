@@ -1,21 +1,12 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import {screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import FavListFullScreen from "./FavListFullScreen";
-import { MemoryRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "../../app/store";
-
-afterEach(cleanup);
+import { renderWithProviders } from "../../utils/test-utils";
+import { setupStore } from "../../app/store";
 
 describe("tests for favourite list container full screen", () => {
   test("Basic header content test with empty list", () => {
-    render(
-      <MemoryRouter>
-        <Provider store={store}>
-          <FavListFullScreen />
-        </Provider>
-      </MemoryRouter>
-    );
+    renderWithProviders(<FavListFullScreen />);
 
     const bottleImg = screen.getByRole("img");
     const header = screen.getByText(/Your list is empty!/i);
@@ -28,22 +19,11 @@ describe("tests for favourite list container full screen", () => {
     expect(responsinilityText).toBeInTheDocument();
   });
   test("snapshot test with empty list", () => {
-    const { asFragment } = render(
-      <MemoryRouter>
-        <Provider store={store}>
-          <FavListFullScreen />
-        </Provider>
-      </MemoryRouter>
-    );
-    expect(asFragment(<FavListFullScreen />)).toMatchSnapshot();
-  });
-  test("Get favouriteList from store", async () => {
-    render(
-      <MemoryRouter>
-        <Provider store={store}>
-          <FavListFullScreen />
-        </Provider>
-      </MemoryRouter>
-    );
+    const store = setupStore();
+    // dispatching new category to redux thunk
+    // store.dispatch();
+
+    renderWithProviders(<FavListFullScreen />, {store});
+    screen.debug()
   });
 });

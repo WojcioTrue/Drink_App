@@ -6,25 +6,26 @@ import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { favouriteButton } from "../../framerStyles/variants";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 const FavouriteList = () => {
   const listOfFavourite = useSelector((state) => state.favouriteList);
+  const [afterSliceList, setAfterSliceList] = useState([])
 
-  let afterSlice;
   const returnFavourite = ({ strDrink, idDrink }) => {
     return (
       <FavouriteListElement key={idDrink} strDrink={strDrink} id={idDrink} />
     );
   };
 
-  const sliceFavourite = () => {
+
+  useEffect(() => {
     if (listOfFavourite.length >= 4) {
-      afterSlice = listOfFavourite.slice(0, 5).map(returnFavourite);
+      setAfterSliceList(listOfFavourite.slice(0, 5).map(returnFavourite));
     } else {
-      afterSlice = listOfFavourite.map(returnFavourite);
+      setAfterSliceList(listOfFavourite.map(returnFavourite))
     }
-  };
-  sliceFavourite();
+  },[listOfFavourite])
 
   return (
     <>
@@ -39,7 +40,7 @@ const FavouriteList = () => {
           {"Favourite drinks "}
           {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:
         </h3>
-        <ul>{afterSlice}</ul>
+        <ul>{afterSliceList}</ul>
         {listOfFavourite.length > 0 && (
           <Link to="/favourite_list">
             <Button
