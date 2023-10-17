@@ -6,7 +6,7 @@ import { rest } from "msw";
 import { testDrink } from "./drinkInfoTestData";
 import { renderWithProviders } from "../../utils/test-utils";
 
-// mock react router for proper id for useParams hook
+// mock react router for proper id inside useParams hook
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useParams: () => ({
