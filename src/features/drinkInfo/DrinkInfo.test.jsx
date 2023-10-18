@@ -9,7 +9,7 @@ import { setupServer } from "msw/lib/node";
 import { rest } from "msw";
 import { testDrink } from "./drinkInfoTestData";
 import { renderWithProviders } from "../../utils/test-utils";
-import { Router, useParams } from "react-router-dom";
+
 
 // mock react router for proper id inside useParams hook
 jest.mock("react-router-dom", () => ({
