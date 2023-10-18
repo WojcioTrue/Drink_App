@@ -1,7 +1,7 @@
 import "../styles/button.css";
 import { motion } from "framer-motion";
 
-const Button = ({ children, variant, animationVariant }) => {
+const Button = ({ children, variant, animationVariant, buttonFunction }) => {
   return (
     <motion.button
       variants={animationVariant}
@@ -10,6 +10,7 @@ const Button = ({ children, variant, animationVariant }) => {
       whileHover="hover"
       whileTap="tap"
       className={`rounded-button ${variant}`}
+      onClick={buttonFunction}
     >
       {children}
     </motion.button>

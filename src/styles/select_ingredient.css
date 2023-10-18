@@ -1,0 +1,5 @@
+.find-ingredient {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 15px;
+}

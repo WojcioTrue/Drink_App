@@ -4,6 +4,7 @@ import CoctailsContainer from "./components/CoctailsContainer";
 import FavButton from "./sharedComponents/FavButton";
 import NotificationList from "./features/notificationList/NotificationList"
 import { motion } from "framer-motion";
+import FindByIngredients from "./features/ingredientSearch/FindByIngredients";
 
 
 const appVariant = {
@@ -25,6 +26,7 @@ function App() {
       className="main-container"
     >
       <Searchbar />
+      <FindByIngredients/>
       <CoctailsContainer />
       <FavButton />
       <NotificationList />
