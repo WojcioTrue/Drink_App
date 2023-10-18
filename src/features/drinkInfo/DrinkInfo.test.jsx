@@ -1,17 +1,20 @@
-import { fireEvent, screen } from "@testing-library/react";
+import {
+  fireEvent,
+  screen,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import DrinkInfo from "./DrinkInfo";
 import "react-intersection-observer/test-utils";
 import { setupServer } from "msw/lib/node";
 import { rest } from "msw";
 import { testDrink } from "./drinkInfoTestData";
 import { renderWithProviders } from "../../utils/test-utils";
+import { Router, useParams } from "react-router-dom";
 
 // mock react router for proper id inside useParams hook
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
-  useParams: () => ({
-    id: "17105",
-  }),
+  useParams: jest.fn(),
 }));
 
 const server = setupServer(
@@ -21,6 +24,8 @@ const server = setupServer(
       const drinkId = req.url.searchParams.get("i");
       if (drinkId === "17105") {
         return res(ctx.status(200), ctx.json(testDrink));
+      } else {
+        return res(ctx.status(404));
       }
     }
   )
@@ -31,6 +36,7 @@ afterAll(() => server.close());
 
 describe("test for single drink with provided route parameter", () => {
   test("should render 501 Blue drinkName", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
     // initiate render with dispatched drink id
     renderWithProviders(<DrinkInfo />);
     // await for response from rendered component
@@ -40,6 +46,7 @@ describe("test for single drink with provided route parameter", () => {
     expect(drinkName).toBeInTheDocument();
   });
   test("should render add/remove button and trigger click event", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
     // initiate render with dispatched drink id
     renderWithProviders(<DrinkInfo />);
 
@@ -62,6 +69,7 @@ describe("test for single drink with provided route parameter", () => {
     expect(removeButtonDescription).toBeInTheDocument();
   });
   test("should render list of ingredients", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
     renderWithProviders(<DrinkInfo />);
 
     const ingredientsHeader = await screen.findByRole("heading", {
@@ -86,6 +94,7 @@ describe("test for single drink with provided route parameter", () => {
     checkIngredients();
   });
   test("should return preparation info", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
     renderWithProviders(<DrinkInfo />);
 
     const preparationHeader = await screen.findByText(/preparation/i);
@@ -98,6 +107,7 @@ describe("test for single drink with provided route parameter", () => {
     expect(preparationDescription).toBeInTheDocument();
   });
   test("should return type of glass for drink", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
     renderWithProviders(<DrinkInfo />);
 
     const preparationHeader = await screen.findByText(/type of glass/i);
@@ -108,5 +118,23 @@ describe("test for single drink with provided route parameter", () => {
     );
 
     expect(preparationDescription).toBeInTheDocument();
+  });
+  test("mock react thunk with invalid drink id", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105x" });
+    renderWithProviders(<DrinkInfo />);
+
+    await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
+
+    const errorHeader = screen.getByText(/something went wrong!/i);
+    expect(errorHeader).toBeInTheDocument();
+    const firstErrorMessage = screen.getByText(
+      /i don't see the page you looking for, or some error occured.../i
+    );
+    expect(firstErrorMessage).toBeInTheDocument()
+    const secondErrorMessage = screen.getByText(/return to home page./i);
+    expect(secondErrorMessage).toBeInTheDocument()
+
+    const returnButton = screen.getByRole('button', {name: /return home/i})
+    expect(returnButton).toBeInTheDocument()
   });
 });
