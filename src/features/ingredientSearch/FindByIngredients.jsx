@@ -1,21 +1,25 @@
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
-import { useState } from "react";
 import "../../styles/select_ingredient.css";
-import IngredientPrompt from "./IngredientPrompt";
+import { useDispatch } from "react-redux";
+import { displayElement } from "./findByIngredientsSlice";
+
 
 const FindByIngredients = () => {
-  const [displayIngredients, setdisplayIngredients] = useState(false);
+  const dispatch = useDispatch()
+
+  const displayPrompt = () => {
+    dispatch(displayElement())
+  }
 
   return (
     <div className="find-ingredient">
       <Button
-        buttonFunction={() => setdisplayIngredients(true)}
+        buttonFunction={() => displayPrompt()}
         animationVariant={coctailButton}
       >
         Find by ingredients
       </Button>
-      {displayIngredients && <IngredientPrompt/>}
     </div>
   );
 };

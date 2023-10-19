@@ -5,7 +5,7 @@ import FavButton from "./sharedComponents/FavButton";
 import NotificationList from "./features/notificationList/NotificationList"
 import { motion } from "framer-motion";
 import FindByIngredients from "./features/ingredientSearch/FindByIngredients";
-
+import IngredientPrompt from "./features/ingredientSearch/IngredientPrompt";
 
 const appVariant = {
   hidden: { opacity: 0 },
@@ -27,6 +27,7 @@ function App() {
     >
       <Searchbar />
       <FindByIngredients/>
+      <IngredientPrompt/>
       <CoctailsContainer />
       <FavButton />
       <NotificationList />

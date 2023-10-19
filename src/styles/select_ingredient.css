@@ -3,3 +3,31 @@
     justify-content: flex-end;
     padding: 0px 15px;
 }
+
+.ingredient-prompt {
+    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #FDFDFD;
+    border-radius: 20px;
+    padding: 20px 10px 60px 10px;
+    width: 85%;
+    max-width: 650px;
+    box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+    -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+    -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+}
+
+.ingredient-prompt .close-prompt {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color:  #FDFDFD;;
+    background-color: rgb(100, 58, 131);
+    padding: 5px;
+    width: 17px;
+    height: 17px;
+    border-radius: 100px;
+}
