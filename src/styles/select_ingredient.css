@@ -24,10 +24,16 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    color:  #FDFDFD;;
+    color:  #FDFDFD;
     background-color: rgb(100, 58, 131);
     padding: 5px;
     width: 17px;
     height: 17px;
     border-radius: 100px;
+}
+
+.ingredient-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }

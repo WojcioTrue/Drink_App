@@ -18,7 +18,7 @@ const Button = ({ children, variant, animationVariant, buttonFunction }) => {
 };
 
 Button.defaultProps = {
-  text: "Button",
+  children: "Button",
 };
 
 export default Button;
