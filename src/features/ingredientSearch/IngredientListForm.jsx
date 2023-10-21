@@ -1,17 +1,34 @@
 import { useState, useEffect } from "react";
 import IngredientListElement from "./IngredientListElement";
+import { nanoid } from "@reduxjs/toolkit";
 
 const IngredientList = () => {
   const [ingredientList, setIngredientList] = useState([]);
-  const [onList, setOnList] = useState([]);
-  
+  const [onList, setOnList] = useState([{ id: nanoid(), value: "Light rum" }]);
+
+  const addIngredient = () => {
+    setOnList([...onList, { id: nanoid(), value: "Light rum" }]);
+  };
+
+  const removeIngredient = (id) => {
+    setOnList(onList.filter((ingredient) => ingredient.id !== id));
+  };
+
+  const changeSelected = (id, value) => {
+    setOnList(onList.map((listElement) => listElement.id === id ? {id : id, value : value} : listElement))
+  }
+
+  useEffect(() => {
+    console.log(onList)
+  },[onList])
+
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
         const response = await fetch(
           "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
         );
-        
+
         const data = await response.json();
         setIngredientList(data.drinks);
       } catch (error) {
@@ -21,14 +38,21 @@ const IngredientList = () => {
     fetchIngredients();
   }, []);
 
-
-
   return (
     <ul>
-      <IngredientListElement ingredientList={ingredientList}/>
-      <button>Add ingredient</button>
+      {onList.map((listElement, index) => (
+        <IngredientListElement
+          key={index}
+          ingredientList={ingredientList}
+          listNumber={index}
+          listElement={listElement}
+          removeIngredient={removeIngredient}
+          changeSelected={changeSelected}
+        />
+      ))}
+
+      <button onClick={() => addIngredient()}>Add ingredient</button>
     </ul>
-    
   );
 };
 
