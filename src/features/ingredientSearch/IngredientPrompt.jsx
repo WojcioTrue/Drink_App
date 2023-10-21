@@ -4,7 +4,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { hideElement } from "./findByIngredientsSlice";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
-import IngredientList from "./IngredientList";
+import IngredientListForm from "./IngredientListForm";
 
 const IngredientPrompt = () => {
   const { display } = useSelector((state) => state.ingredientsData);
@@ -26,12 +26,12 @@ const IngredientPrompt = () => {
             
           />
           <h3>Select ingredients: </h3>
-          <IngredientList/>
-          <Button 
+          <IngredientListForm/>
+          {/* <Button 
           variant="ingredient-button" 
           animationVariant={coctailButton}
           >Show Drinks
-          </Button>
+          </Button> */}
         </div>
       )}
     </>
