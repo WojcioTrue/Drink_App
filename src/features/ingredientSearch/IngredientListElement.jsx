@@ -22,15 +22,9 @@ const IngredientListElement = ({
         value={listElement.value}
       >
         {ingredientList.map((element) =>
-          element.strIngredient1 === listElement.value ? (
-            <option key={nanoid()} value={listElement.value} >
-              {listElement.value}
-            </option>
-          ) : (
             <option key={nanoid()} value={element.strIngredient1}>
               {element.strIngredient1}
             </option>
-          )
         )}
       </select>
       <FontAwesomeIcon
