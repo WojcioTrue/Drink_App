@@ -1,6 +1,7 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { nanoid } from "@reduxjs/toolkit";
+import { useEffect, useState } from "react";
 
 const IngredientListElement = ({
   ingredientList,
@@ -8,9 +9,25 @@ const IngredientListElement = ({
   listElement,
   removeIngredient,
   changeSelected,
+  onList,
 }) => {
+  const [removedDuplicates, setRemovedDuplicates] = useState([])
   const id = listElement.id;
 
+  useEffect(() => {
+    let shallowCopy = [...ingredientList]
+    for(let element of onList){
+      // make selected element visible on list
+      if(element.value === listElement.value){
+        continue
+      } else {
+        // remove duplicate of ingredient
+        const index = shallowCopy.indexOf(element.value)
+        shallowCopy.splice(index, 1)
+      }
+    }
+    setRemovedDuplicates(shallowCopy)
+  },[onList,ingredientList, listElement])
 
   return (
     <li>
@@ -21,11 +38,12 @@ const IngredientListElement = ({
         id={id}
         value={listElement.value}
       >
-        {ingredientList.map((element) =>
-            <option key={nanoid()} value={element.strIngredient1}>
-              {element.strIngredient1}
-            </option>
-        )}
+        <option value="">--Please choose an option--</option>
+        {removedDuplicates.map((element) => (
+          <option key={nanoid()} value={element}>
+            {element}
+          </option>
+        ))}
       </select>
       <FontAwesomeIcon
         onClick={() => {

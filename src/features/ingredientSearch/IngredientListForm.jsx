@@ -4,10 +4,10 @@ import { nanoid } from "@reduxjs/toolkit";
 
 const IngredientList = () => {
   const [ingredientList, setIngredientList] = useState([]);
-  const [onList, setOnList] = useState([{ id: nanoid(), value: "Light rum" }]);
+  const [onList, setOnList] = useState([{ id: nanoid(), value: "" }]);
 
   const addIngredient = () => {
-    setOnList([...onList, { id: nanoid(), value: "Light rum" }]);
+    setOnList([...onList, { id: nanoid(), value: "" }]);
   };
 
   const removeIngredient = (id) => {
@@ -18,9 +18,6 @@ const IngredientList = () => {
     setOnList(onList.map((listElement) => listElement.id === id ? {id : id, value : value} : listElement))
   }
 
-  useEffect(() => {
-    console.log(onList)
-  },[onList])
 
   useEffect(() => {
     const fetchIngredients = async () => {
@@ -30,7 +27,8 @@ const IngredientList = () => {
         );
 
         const data = await response.json();
-        setIngredientList(data.drinks);
+        const removeObj = data.drinks.map((element) => element.strIngredient1)
+        setIngredientList(removeObj);
       } catch (error) {
         console.error(error);
       }
@@ -46,6 +44,7 @@ const IngredientList = () => {
           ingredientList={ingredientList}
           listNumber={index}
           listElement={listElement}
+          onList={onList}
           removeIngredient={removeIngredient}
           changeSelected={changeSelected}
         />
