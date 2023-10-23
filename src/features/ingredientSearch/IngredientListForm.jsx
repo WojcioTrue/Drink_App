@@ -18,6 +18,7 @@ const IngredientList = () => {
     setOnList(onList.map((listElement) => listElement.id === id ? {id : id, value : value} : listElement))
   }
 
+  console.log(onList)
 
   useEffect(() => {
     const fetchIngredients = async () => {
@@ -50,7 +51,11 @@ const IngredientList = () => {
         />
       ))}
 
+      {onList.length >= 5 ? 
+      <button onClick={() => addIngredient()} disabled>Add ingredient</button> :
       <button onClick={() => addIngredient()}>Add ingredient</button>
+      }
+      
     </ul>
   );
 };
