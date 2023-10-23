@@ -68,13 +68,15 @@ const IngredientList = () => {
         );
 
         const data = await response.json();
-        console.log(data.drinks)
+        setIngredientDrinkList(data.drinks)
       } catch (error) {
         console.error(error);
       }
     };
     fetchDrinks();
   }, [searchParams]);
+
+  console.log(ingredientDrinkList)
 
   return (
     <ul>
