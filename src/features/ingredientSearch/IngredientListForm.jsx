@@ -5,6 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 const IngredientList = () => {
   const [ingredientList, setIngredientList] = useState([]);
   const [onList, setOnList] = useState([{ id: nanoid(), value: "" }]);
+  const [searchParams, setSearchParams] = useState('')
 
   const addIngredient = () => {
     setOnList([...onList, { id: nanoid(), value: "" }]);
@@ -17,8 +18,6 @@ const IngredientList = () => {
   const changeSelected = (id, value) => {
     setOnList(onList.map((listElement) => listElement.id === id ? {id : id, value : value} : listElement))
   }
-
-  console.log(onList)
 
   useEffect(() => {
     const fetchIngredients = async () => {
@@ -37,6 +36,20 @@ const IngredientList = () => {
     fetchIngredients();
   }, []);
 
+  useEffect(() => {
+    const url = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
+    const arrOfIngredients = []
+    for(let element of onList){
+      if(element.value !== ""){
+      const replaceWhiteSpace = element.value.replace(/\s+/g, '_');
+      arrOfIngredients.push(replaceWhiteSpace)
+    } else {
+      continue
+    }
+    }
+    setSearchParams(url + arrOfIngredients.join(","))
+  }, [onList])
+
   return (
     <ul>
       {onList.map((listElement, index) => (
@@ -51,7 +64,7 @@ const IngredientList = () => {
         />
       ))}
 
-      {onList.length >= 5 ? 
+      {onList.length >= 4 ? 
       <button onClick={() => addIngredient()} disabled>Add ingredient</button> :
       <button onClick={() => addIngredient()}>Add ingredient</button>
       }
