@@ -17,6 +17,7 @@ const FindByIngredients = () => {
       <Button
         buttonFunction={() => displayPrompt()}
         animationVariant={coctailButton}
+        variant={"open-prompt"}
       >
         Find by ingredients
       </Button>

@@ -20,6 +20,7 @@ const Button = ({ children, variant, animationVariant, buttonFunction, isDisable
 
 Button.defaultProps = {
   children: "Button",
+  variant : ""
 };
 
 export default Button;

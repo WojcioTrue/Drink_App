@@ -1,7 +1,13 @@
 .find-ingredient {
     display: flex;
     justify-content: flex-end;
+    margin: 0 auto;
     padding: 0px 15px;
+    max-width: 500px;
+}
+
+.open-prompt {
+    margin-top: 15px;
 }
 
 .ingredient-prompt {
@@ -18,6 +24,15 @@
     box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
     -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
     -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+}
+
+.ingredient-prompt ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.ingredient-prompt ul li {
+    display: block;
 }
 
 .ingredient-prompt .close-prompt {
@@ -42,3 +57,12 @@
     cursor: default;
     background-color: rgb(124 124 124);
 }
+
+  @media only screen and (min-width: 768px) {
+    .find-ingredient {
+        max-width: 100%;
+    }
+    .open-prompt {
+        margin-top: 0px;
+    }
+  }
