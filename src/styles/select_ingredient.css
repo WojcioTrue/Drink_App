@@ -37,3 +37,7 @@
     bottom: 10px;
     right: 10px;
 }
+
+.ingredient-button:disabled {
+    background-color: blanchedalmond;
+}

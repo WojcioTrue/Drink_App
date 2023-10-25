@@ -2,11 +2,22 @@ import { useState, useEffect } from "react";
 import IngredientListElement from "./IngredientListElement";
 import { nanoid } from "@reduxjs/toolkit";
 
-const IngredientList = () => {
+const IngredientList = ({ disableButtonData }) => {
   const [ingredientList, setIngredientList] = useState([]);
   const [onList, setOnList] = useState([{ id: nanoid(), value: "" }]);
   const [searchParams, setSearchParams] = useState("");
-  const [ingredientDrinkList, setIngredientDrinkList] = useState([]);
+  const [byIngredientDrinkList, setByIngredientDrinkList] = useState([]);
+
+  useEffect(() => {
+    if (byIngredientDrinkList.length === 0) {
+      disableButtonData({ toDisable: true, drinks: 0 });
+    } else {
+      disableButtonData({
+        toDisable: false,
+        drinks: byIngredientDrinkList.length,
+      });
+    }
+  }, [byIngredientDrinkList]);
 
   const addIngredient = () => {
     setOnList([...onList, { id: nanoid(), value: "" }]);
@@ -59,24 +70,25 @@ const IngredientList = () => {
     if (searchParams !== "") {
       url += searchParams;
     } else {
+      setByIngredientDrinkList([]);
       return;
     }
     const fetchDrinks = async () => {
       try {
-        const response = await fetch(
-          url
-        );
+        const response = await fetch(url);
 
         const data = await response.json();
-        setIngredientDrinkList(data.drinks)
+        if (data.drinks === "None Found") {
+          setByIngredientDrinkList([]);
+        } else {
+          setByIngredientDrinkList(data.drinks);
+        }
       } catch (error) {
         console.error(error);
       }
     };
     fetchDrinks();
   }, [searchParams]);
-
-  console.log(ingredientDrinkList)
 
   return (
     <ul>
