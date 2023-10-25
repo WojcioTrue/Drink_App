@@ -15,7 +15,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background-color: #FDFDFD;
     border-radius: 20px;
     padding: 20px 10px 60px 10px;
@@ -31,6 +31,15 @@
     padding-left: 0px;
 }
 
+.add-ingredient {
+    background-color: rgb(255, 91, 31);
+}
+
+.add-ingredient:disabled {
+    cursor: default;
+    background-color: rgb(124 124 124);
+}
+
 .ingredient-prompt ul li {
     display: block;
 }
@@ -39,7 +48,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    color:  #FDFDFD;
+    color: #FDFDFD;
     background-color: rgb(100, 58, 131);
     padding: 5px;
     width: 17px;
@@ -58,11 +67,12 @@
     background-color: rgb(124 124 124);
 }
 
-  @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .find-ingredient {
         max-width: 100%;
     }
+
     .open-prompt {
         margin-top: 0px;
     }
-  }
+}

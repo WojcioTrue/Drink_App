@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import IngredientListElement from "./IngredientListElement";
 import { nanoid } from "@reduxjs/toolkit";
+import Button from "../../sharedComponents/Button";
+import { coctailButton } from "../../framerStyles/variants";
 
 const IngredientList = ({ disableButtonData }) => {
   const [ingredientList, setIngredientList] = useState([]);
@@ -105,11 +107,17 @@ const IngredientList = ({ disableButtonData }) => {
       ))}
 
       {onList.length >= 4 ? (
-        <button onClick={() => addIngredient()} disabled>
-          Add ingredient
-        </button>
+        <Button variant={"add-ingredient"} isDisabled={true}>
+          Add Ingredient
+        </Button>
       ) : (
-        <button onClick={() => addIngredient()}>Add ingredient</button>
+        <Button
+          variant={"add-ingredient"}
+          animationVariant={coctailButton}
+          buttonFunction={() => addIngredient()}
+        >
+          Add Ingredient
+        </Button>
       )}
     </ul>
   );
