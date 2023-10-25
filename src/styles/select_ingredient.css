@@ -39,5 +39,6 @@
 }
 
 .ingredient-button:disabled {
-    background-color: blanchedalmond;
+    cursor: default;
+    background-color: rgb(124 124 124);
 }

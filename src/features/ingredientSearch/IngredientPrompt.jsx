@@ -5,7 +5,7 @@ import { hideElement } from "./findByIngredientsSlice";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import IngredientListForm from "./IngredientListForm";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const IngredientPrompt = () => {
   const { display } = useSelector((state) => state.ingredientsData);
@@ -35,7 +35,7 @@ const IngredientPrompt = () => {
           variant="ingredient-button" 
           animationVariant={coctailButton}
           isDisabled={disableButton.toDisable}
-          >Show Drinks
+          >Display drinks
           </Button>
         </div>
       )}
