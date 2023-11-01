@@ -38,19 +38,20 @@ const IngredientListElement = ({
         id={id}
         value={listElement.value}
       >
-        <option value="">--Please choose an option--</option>
+        <option value="">--  Please choose an option  --</option>
         {removedDuplicates.map((element) => (
           <option key={nanoid()} value={element}>
             {element}
           </option>
         ))}
       </select>
-      <FontAwesomeIcon
+      {/* <FontAwesomeIcon
+        className="remove-ingredient"
         onClick={() => {
           removeIngredient(id);
         }}
         icon={faXmark}
-      />
+      /> */}
     </li>
   );
 };

@@ -3,6 +3,8 @@ import IngredientListElement from "./IngredientListElement";
 import { nanoid } from "@reduxjs/toolkit";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const IngredientList = ({ disableButtonData }) => {
   const [ingredientList, setIngredientList] = useState([]);
@@ -118,6 +120,7 @@ const IngredientList = ({ disableButtonData }) => {
         >
           Add Ingredient
         </Button>
+        
       )}
     </ul>
   );

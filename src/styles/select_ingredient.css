@@ -18,7 +18,7 @@
     transform: translate(-50%, -50%);
     background-color: #FDFDFD;
     border-radius: 20px;
-    padding: 20px 10px 60px 10px;
+    padding: 20px 20px 80px 20px;
     width: 85%;
     max-width: 650px;
     box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
@@ -26,12 +26,19 @@
     -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
 }
 
+.ingredient-prompt h3 {
+    margin: 0px;
+    margin-top: -8px;
+}
+
 .ingredient-prompt ul {
     list-style: none;
     padding-left: 0px;
+    margin: 10px;
 }
 
 .add-ingredient {
+    margin-top: 10px;
     background-color: rgb(255, 91, 31);
 }
 
@@ -42,6 +49,63 @@
 
 .ingredient-prompt ul li {
     display: block;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-bottom: 0px; 
+}
+
+.ingredient-prompt ul li label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 50px;
+}
+
+.remove-ingredient {
+    position: absolute;
+    
+}
+
+.ingredient-prompt ul li select {
+    -moz-appearance: none; 
+        /* for Safari, Chrome, Opera */ 
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    border-radius: 30px;
+    border-width: 0px;
+    padding: 5px 25px;
+    margin-top: 0px;
+    background-color: #EAEAEA;
+    outline: 1px solid #EAEAEA;
+    transition: outline 0.3s ease-out;
+    color: #808080;
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+.ingredient-prompt ul li select::-ms-expand {
+    display: none;
+}
+
+.ingredient-prompt ul li select::after {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: red;
+    color: red;
+    width: 20px;
+    height: 20px;
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+
+.ingredient-prompt ul li select:focus {
+    transition: outline 0.3s ease-out;
+    outline: 1px solid #808080;
 }
 
 .ingredient-prompt .close-prompt {
