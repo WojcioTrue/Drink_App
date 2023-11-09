@@ -1,4 +1,4 @@
-import { faTrash, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { nanoid } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
