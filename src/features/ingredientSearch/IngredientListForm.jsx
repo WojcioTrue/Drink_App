@@ -4,13 +4,17 @@ import { nanoid } from "@reduxjs/toolkit";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import { disableButton, enableButton } from "./ingredientsButtonsSlice";
-import {addIngredientField as x} from "./ingredientsDataSlice"
+import {
+  addIngredientField,
+  removeIngredientField,
+  changeSelectedField,
+} from "./ingredientsDataSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchIngrediendsData } from "./ingredientsDataSlice";
 
 const IngredientList = () => {
   const [ingredientList, setIngredientList] = useState([]);
-  const [onList, setOnList] = useState([{ id: nanoid(), value: "" }]);
+  const [onList, setOnList] = useState([]);
   const [searchParams, setSearchParams] = useState("");
   const [byIngredientDrinkList, setByIngredientDrinkList] = useState([]);
   const { data, loading, error } = useSelector(
@@ -24,9 +28,8 @@ const IngredientList = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log(data.selectedIngredients)
+    setOnList(data.selectedIngredients);
   }, [data.selectedIngredients]);
-
 
   useEffect(() => {
     const removeObj = data.ingredients.map((element) => element.strIngredient1);
@@ -41,21 +44,16 @@ const IngredientList = () => {
     }
   }, [byIngredientDrinkList, dispatch]);
 
-  const addIngredientField = () => {
-    setOnList([...onList, { id: nanoid(), value: "" }]);
-    dispatch(x())
+  const addIngredient = () => {
+    dispatch(addIngredientField());
   };
 
   const removeIngredient = (id) => {
-    setOnList(onList.filter((ingredient) => ingredient.id !== id));
+    dispatch(removeIngredientField(id));
   };
 
   const changeSelected = (id, value) => {
-    setOnList(
-      onList.map((listElement) =>
-        listElement.id === id ? { id: id, value: value } : listElement
-      )
-    );
+    dispatch(changeSelectedField({id, value}))
   };
 
   useEffect(() => {
@@ -118,7 +116,7 @@ const IngredientList = () => {
         <Button
           variant={"add-ingredient"}
           animationVariant={coctailButton}
-          buttonFunction={() => addIngredientField()}
+          buttonFunction={() => addIngredient()}
         >
           Add Ingredient
         </Button>
