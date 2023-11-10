@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchIngrediendsData } from "./ingredientsDataSlice";
 
 const IngredientList = () => {
-  const [ingredientList, setIngredientList] = useState([]);
   const [searchParams, setSearchParams] = useState("");
   const [byIngredientDrinkList, setByIngredientDrinkList] = useState([]);
   const { data, loading, error } = useSelector(
@@ -22,15 +21,9 @@ const IngredientList = () => {
 
   const dispatch = useDispatch();
 
-
-
   useEffect(() => {
     dispatch(fetchIngrediendsData());
   }, [dispatch]);
-
-  useEffect(()=> {
-    console.log("data" ,data)
-  },[data])
 
   useEffect(() => {
     if (byIngredientDrinkList.length === 0) {
