@@ -3,19 +3,29 @@ import IngredientListElement from "./IngredientListElement";
 import { nanoid } from "@reduxjs/toolkit";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { disableButton, enableButton } from "./ingredientsButtonsSlice";
-import { useDispatch } from "react-redux";
-import { findByIngredients } from './ingredientsButtonsSlice'
+import { useDispatch, useSelector } from "react-redux";
+import { fetchIngrediendsData } from "./ingredientsDataSlice";
 
 const IngredientList = () => {
   const [ingredientList, setIngredientList] = useState([]);
   const [onList, setOnList] = useState([{ id: nanoid(), value: "" }]);
   const [searchParams, setSearchParams] = useState("");
   const [byIngredientDrinkList, setByIngredientDrinkList] = useState([]);
+  const { data, loading, error } = useSelector(
+    (state) => state.ingredientsData
+  );
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchIngrediendsData());
+  }, [dispatch]);
+
+  useEffect(() => {
+    const removeObj = data.map((element) => element.strIngredient1);
+    setIngredientList(removeObj);
+  }, [data]);
 
   useEffect(() => {
     if (byIngredientDrinkList.length === 0) {
@@ -40,23 +50,6 @@ const IngredientList = () => {
       )
     );
   };
-
-  useEffect(() => {
-    const fetchIngredients = async () => {
-      try {
-        const response = await fetch(
-          "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-        );
-
-        const data = await response.json();
-        const removeObj = data.drinks.map((element) => element.strIngredient1);
-        setIngredientList(removeObj);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchIngredients();
-  }, []);
 
   useEffect(() => {
     const arrOfIngredients = [];
