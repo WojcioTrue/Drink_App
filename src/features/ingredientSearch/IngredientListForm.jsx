@@ -14,7 +14,6 @@ import { fetchIngrediendsData } from "./ingredientsDataSlice";
 
 const IngredientList = () => {
   const [ingredientList, setIngredientList] = useState([]);
-  const [onList, setOnList] = useState([]);
   const [searchParams, setSearchParams] = useState("");
   const [byIngredientDrinkList, setByIngredientDrinkList] = useState([]);
   const { data, loading, error } = useSelector(
@@ -23,18 +22,15 @@ const IngredientList = () => {
 
   const dispatch = useDispatch();
 
+
+
   useEffect(() => {
     dispatch(fetchIngrediendsData());
   }, [dispatch]);
 
-  useEffect(() => {
-    setOnList(data.selectedIngredients);
-  }, [data.selectedIngredients]);
-
-  useEffect(() => {
-    const removeObj = data.ingredients.map((element) => element.strIngredient1);
-    setIngredientList(removeObj);
-  }, [data.ingredients]);
+  useEffect(()=> {
+    console.log("data" ,data)
+  },[data])
 
   useEffect(() => {
     if (byIngredientDrinkList.length === 0) {
@@ -58,7 +54,7 @@ const IngredientList = () => {
 
   useEffect(() => {
     const arrOfIngredients = [];
-    for (let element of onList) {
+    for (let element of data.selectedIngredients) {
       if (element.value !== "") {
         const replaceWhiteSpace = element.value.replace(/\s+/g, "_");
         arrOfIngredients.push(replaceWhiteSpace);
@@ -67,7 +63,7 @@ const IngredientList = () => {
       }
     }
     setSearchParams(arrOfIngredients.join(","));
-  }, [onList]);
+  }, [data.selectedIngredients]);
 
   useEffect(() => {
     let url = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=";
@@ -96,19 +92,17 @@ const IngredientList = () => {
 
   return (
     <ul>
-      {onList.map((listElement, index) => (
+      {data.selectedIngredients.map((listElement, index) => (
         <IngredientListElement
           key={index}
-          ingredientList={ingredientList}
           listNumber={index}
           listElement={listElement}
-          onList={onList}
           removeIngredient={removeIngredient}
           changeSelected={changeSelected}
         />
       ))}
 
-      {onList.length >= 4 ? (
+      {data.selectedIngredients.length >= 4 ? (
         <Button variant={"add-ingredient"} isDisabled={true}>
           Add Ingredient
         </Button>

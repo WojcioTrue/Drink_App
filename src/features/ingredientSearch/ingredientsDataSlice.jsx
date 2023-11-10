@@ -9,7 +9,7 @@ export const fetchIngrediendsData = createAsyncThunk(
         "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
       );
       const data = await response.json();
-      return data.drinks;
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -55,7 +55,10 @@ const ingredientsDataSlice = createSlice({
       state.error = null;
     });
     builder.addCase(fetchIngrediendsData.fulfilled, (state, action) => {
-      state.data.ingredients = action.payload;
+      const data = action.payload;
+      state.data.ingredients = data.drinks.map(
+        (element) => element.strIngredient1
+      );
       state.loading = "idle";
       state.error = null;
     });

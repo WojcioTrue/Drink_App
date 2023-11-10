@@ -2,6 +2,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { nanoid } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const IngredientListElement = ({
   ingredientList,
@@ -13,9 +14,12 @@ const IngredientListElement = ({
 }) => {
   const [removedDuplicates, setRemovedDuplicates] = useState([]);
   const id = listElement.id;
-
+  const { data } = useSelector(
+    (state) => state.ingredientsData
+  );
   useEffect(() => {
-    let shallowCopy = [...ingredientList];
+    const onList = data.selectedIngredients
+    let shallowCopy = [...data.ingredients];
     for (let element of onList) {
       // make selected element visible on list
       if (element.value === listElement.value) {
@@ -27,7 +31,7 @@ const IngredientListElement = ({
       }
     }
     setRemovedDuplicates(shallowCopy);
-  }, [onList, ingredientList, listElement]);
+  }, [onList, ingredientList, listElement, data]);
 
   return (
     <li>
