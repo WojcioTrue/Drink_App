@@ -5,23 +5,24 @@ import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { disableButton, enableButton } from "./findByIngredientsSlice";
+import { useDispatch } from "react-redux";
 
-const IngredientList = ({ disableButtonData }) => {
+const IngredientList = () => {
   const [ingredientList, setIngredientList] = useState([]);
   const [onList, setOnList] = useState([{ id: nanoid(), value: "" }]);
   const [searchParams, setSearchParams] = useState("");
   const [byIngredientDrinkList, setByIngredientDrinkList] = useState([]);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (byIngredientDrinkList.length === 0) {
-      disableButtonData({ toDisable: true, drinks: 0 });
+      dispatch(disableButton());
     } else {
-      disableButtonData({
-        toDisable: false,
-        drinks: byIngredientDrinkList.length,
-      });
+      dispatch(enableButton(byIngredientDrinkList.length));
     }
-  }, [byIngredientDrinkList]);
+  }, [byIngredientDrinkList, dispatch]);
 
   const addIngredient = () => {
     setOnList([...onList, { id: nanoid(), value: "" }]);
@@ -120,7 +121,6 @@ const IngredientList = ({ disableButtonData }) => {
         >
           Add Ingredient
         </Button>
-        
       )}
     </ul>
   );

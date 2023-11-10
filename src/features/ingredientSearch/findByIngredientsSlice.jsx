@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+const displayIngredients = {
   display: false,
+  disableButtonTest: { toDisable: false, drinks: 0 },
 };
 
 const findByIngredientSlice = createSlice({
   name: "ingredientsData",
-  initialState,
+  initialState: displayIngredients,
   reducers: {
     displayElement(state) {
       state.display = true;
@@ -14,9 +15,22 @@ const findByIngredientSlice = createSlice({
     hideElement(state) {
       state.display = false;
     },
+    disableButton(state) {
+      state.disableButtonTest = {
+        toDisable: true,
+        drinks: 0,
+      };
+    },
+    enableButton(state, action) {
+      state.disableButtonTest = {
+        toDisable: false,
+        drinks: action.payload,
+      };
+    },
   },
 });
 
-export const {displayElement, hideElement} = findByIngredientSlice.actions
+export const { displayElement, hideElement, disableButton, enableButton } =
+  findByIngredientSlice.actions;
 
-export default findByIngredientSlice.reducer
+export default findByIngredientSlice.reducer;

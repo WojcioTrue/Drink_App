@@ -5,20 +5,24 @@ import { hideElement } from "./findByIngredientsSlice";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import IngredientListForm from "./IngredientListForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const IngredientPrompt = () => {
-  const { display } = useSelector((state) => state.ingredientsData);
-  const [disableButton, setDisableButton] = useState({ toDisable: true, drinks: 0 })
+  const { display, disableButtonTest } = useSelector((state) => state.ingredientsData);
+  // const [disableButton, setDisableButton] = useState({ toDisable: true, drinks: 0 })
 
   const dispatch = useDispatch();
   const hidePrompt = () => {
     dispatch(hideElement());
   };
 
-  const disableButtonData = (arg) => {
-    setDisableButton(arg)
-  }
+  // const disableButtonData = (arg) => {
+  //   setDisableButton(arg)
+  // }
+
+  useEffect(() => {
+    console.log(disableButtonTest)
+  }, [])
 
   return (
     <>
@@ -30,11 +34,11 @@ const IngredientPrompt = () => {
             icon={faXmark}
           />
           <h3>Select ingredients: </h3>
-          <IngredientListForm disableButtonData={disableButtonData}/>
+          <IngredientListForm />
           <Button 
           variant="ingredient-button" 
           animationVariant={coctailButton}
-          isDisabled={disableButton.toDisable}
+          isDisabled={disableButtonTest.toDisable}
           >Display drinks
           </Button>
         </div>
