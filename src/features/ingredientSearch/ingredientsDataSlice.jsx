@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const fetchIngrediendsData = createAsyncThunk(
     `categoryList/ingredientsData`,
@@ -16,7 +17,10 @@ export const fetchIngrediendsData = createAsyncThunk(
   );
 
 const initialState = {
-  data: [],
+  data: {
+    ingredients: [],
+    selectedIngredients: [{ id: nanoid(), value: "" }]
+  },
   loading: "idle",
   error: null,
 }
@@ -24,14 +28,18 @@ const initialState = {
 const ingredientsDataSlice = createSlice({
     name: 'ingrediendsData',
     initialState,
-    reducers: {},
+    reducers: {
+        addIngredientField(state) {
+            state.data.selectedIngredients = [...state.data.selectedIngredients, { id: nanoid(), value: "" }]
+          },
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchIngrediendsData.pending, (state) => {
           state.loading = "pending";
           state.error = null;
         });
         builder.addCase(fetchIngrediendsData.fulfilled, (state, action) => {
-          state.data = action.payload;
+          state.data.ingredients = action.payload;
           state.loading = "idle";
           state.error = null;
         });
@@ -41,5 +49,7 @@ const ingredientsDataSlice = createSlice({
         });
       },
   });
+
+  export const { addIngredientField } = ingredientsDataSlice.actions;
   
   export default ingredientsDataSlice.reducer;

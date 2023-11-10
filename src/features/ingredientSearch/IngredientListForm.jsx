@@ -4,6 +4,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import { disableButton, enableButton } from "./ingredientsButtonsSlice";
+import {addIngredientField as x} from "./ingredientsDataSlice"
 import { useDispatch, useSelector } from "react-redux";
 import { fetchIngrediendsData } from "./ingredientsDataSlice";
 
@@ -23,9 +24,14 @@ const IngredientList = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const removeObj = data.map((element) => element.strIngredient1);
+    console.log(data.selectedIngredients)
+  }, [data.selectedIngredients]);
+
+
+  useEffect(() => {
+    const removeObj = data.ingredients.map((element) => element.strIngredient1);
     setIngredientList(removeObj);
-  }, [data]);
+  }, [data.ingredients]);
 
   useEffect(() => {
     if (byIngredientDrinkList.length === 0) {
@@ -35,8 +41,9 @@ const IngredientList = () => {
     }
   }, [byIngredientDrinkList, dispatch]);
 
-  const addIngredient = () => {
+  const addIngredientField = () => {
     setOnList([...onList, { id: nanoid(), value: "" }]);
+    dispatch(x())
   };
 
   const removeIngredient = (id) => {
@@ -111,7 +118,7 @@ const IngredientList = () => {
         <Button
           variant={"add-ingredient"}
           animationVariant={coctailButton}
-          buttonFunction={() => addIngredient()}
+          buttonFunction={() => addIngredientField()}
         >
           Add Ingredient
         </Button>
