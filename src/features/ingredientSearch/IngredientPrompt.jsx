@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { hideElement } from "./findByIngredientsSlice";
+import { hideElement } from "./ingredientsButtonsSlice";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import IngredientListForm from "./IngredientListForm";

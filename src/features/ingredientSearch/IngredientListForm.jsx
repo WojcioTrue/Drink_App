@@ -5,8 +5,9 @@ import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { disableButton, enableButton } from "./findByIngredientsSlice";
+import { disableButton, enableButton } from "./ingredientsButtonsSlice";
 import { useDispatch } from "react-redux";
+import { findByIngredients } from './ingredientsButtonsSlice'
 
 const IngredientList = () => {
   const [ingredientList, setIngredientList] = useState([]);

@@ -3,7 +3,7 @@ import notificationListReducer from "../features/notificationList/notificationLi
 import categoryListReducer from "../features/categoryList/categoryListSlice";
 import searchBarReducer from "../features/searchBar/searchBarSlice";
 import drinkDataReducer from "../features/drinkInfo/drinkDataSlice";
-import ingredientsButtonsReducer from "../features/ingredientSearch/findByIngredientsSlice";
+import ingredientsButtonsReducer from "../features/ingredientSearch/ingredientsButtonsSlice";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
