@@ -7,7 +7,7 @@ import { coctailButton } from "../../framerStyles/variants";
 import IngredientListForm from "./IngredientListForm";
 
 const IngredientPrompt = () => {
-  const { display, disableButtonTest } = useSelector((state) => state.ingredientsData);
+  const { display, disableButtonTest } = useSelector((state) => state.ingredientsButtons);
 
   const dispatch = useDispatch();
   const hidePrompt = () => {

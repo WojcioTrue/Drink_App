@@ -3,7 +3,7 @@ import notificationListReducer from "../features/notificationList/notificationLi
 import categoryListReducer from "../features/categoryList/categoryListSlice";
 import searchBarReducer from "../features/searchBar/searchBarSlice";
 import drinkDataReducer from "../features/drinkInfo/drinkDataSlice";
-import findByIngredientsReducer from "../features/ingredientSearch/findByIngredientsSlice";
+import ingredientsButtonsReducer from "../features/ingredientSearch/findByIngredientsSlice";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   categoryList: categoryListReducer,
   searchBar: searchBarReducer,
   drinkData: drinkDataReducer,
-  ingredientsData: findByIngredientsReducer
+  ingredientsButtons: ingredientsButtonsReducer
 });
 
 export const store = configureStore({

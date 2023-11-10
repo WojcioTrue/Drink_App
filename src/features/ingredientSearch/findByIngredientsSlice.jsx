@@ -5,8 +5,9 @@ const displayIngredients = {
   disableButtonTest: { toDisable: false, drinks: 0 },
 };
 
-const findByIngredientSlice = createSlice({
-  name: "ingredientsData",
+// reducers linked to buttons interactions
+const ingredientsButtonsSlice = createSlice({
+  name: "ingredientsButtons",
   initialState: displayIngredients,
   reducers: {
     displayElement(state) {
@@ -30,7 +31,11 @@ const findByIngredientSlice = createSlice({
   },
 });
 
-export const { displayElement, hideElement, disableButton, enableButton } =
-  findByIngredientSlice.actions;
+const ingredientsData = createSlice({
 
-export default findByIngredientSlice.reducer;
+})
+
+export const { displayElement, hideElement, disableButton, enableButton } =
+ingredientsButtonsSlice.actions;
+
+export default ingredientsButtonsSlice.reducer;
