@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import IngredientListElement from "./IngredientListElement";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
