@@ -20,6 +20,7 @@ const initialState = {
   data: {
     ingredients: [],
     selectedIngredients: [{ id: nanoid(), value: "" }],
+    searchParams: [],
   },
   loading: "idle",
   error: null,
@@ -48,6 +49,28 @@ const ingredientsDataSlice = createSlice({
             : listElement
       );
     },
+    changeSearchParams(state){
+      const arrOfIngredients = [];
+      for (let element of state.data.selectedIngredients) {
+          if (element.value !== "") {
+            const replaceWhiteSpace = element.value.replace(/\s+/g, "_");
+            arrOfIngredients.push(replaceWhiteSpace);
+          } else {
+            continue;
+          }
+        }
+      state.data.searchParams = arrOfIngredients.join(",");
+    }
+    // const arrOfIngredients = [];
+    // for (let element of data.selectedIngredients) {
+    //   if (element.value !== "") {
+    //     const replaceWhiteSpace = element.value.replace(/\s+/g, "_");
+    //     arrOfIngredients.push(replaceWhiteSpace);
+    //   } else {
+    //     continue;
+    //   }
+    // }
+    // setSearchParams();
   },
   extraReducers: (builder) => {
     builder.addCase(fetchIngrediendsData.pending, (state) => {
@@ -73,6 +96,7 @@ export const {
   addIngredientField,
   removeIngredientField,
   changeSelectedField,
+  changeSearchParams
 } = ingredientsDataSlice.actions;
 
 export default ingredientsDataSlice.reducer;

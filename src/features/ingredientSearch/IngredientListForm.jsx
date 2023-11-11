@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import IngredientListElement from "./IngredientListElement";
-import { nanoid } from "@reduxjs/toolkit";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import { disableButton, enableButton } from "./ingredientsButtonsSlice";
@@ -8,6 +7,7 @@ import {
   addIngredientField,
   removeIngredientField,
   changeSelectedField,
+  changeSearchParams
 } from "./ingredientsDataSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchIngrediendsData } from "./ingredientsDataSlice";
@@ -20,6 +20,11 @@ const IngredientList = () => {
   );
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(changeSearchParams())
+    console.log(data.searchParams)
+  },[data.selectedIngredients, data.searchParams, dispatch])
 
   useEffect(() => {
     dispatch(fetchIngrediendsData());
@@ -44,19 +49,6 @@ const IngredientList = () => {
   const changeSelected = (id, value) => {
     dispatch(changeSelectedField({id, value}))
   };
-
-  useEffect(() => {
-    const arrOfIngredients = [];
-    for (let element of data.selectedIngredients) {
-      if (element.value !== "") {
-        const replaceWhiteSpace = element.value.replace(/\s+/g, "_");
-        arrOfIngredients.push(replaceWhiteSpace);
-      } else {
-        continue;
-      }
-    }
-    setSearchParams(arrOfIngredients.join(","));
-  }, [data.selectedIngredients]);
 
   useEffect(() => {
     let url = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=";
