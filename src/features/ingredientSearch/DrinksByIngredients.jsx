@@ -16,7 +16,7 @@ const DrinksByIngredients = () => {
       <div className="list-coctails">
         {listOfFavourite.length > 0 ? (
           <>
-            <h3>Favourite drinks:</h3>
+            <h3>DrinksByIngredients</h3>
             <div className="grid-coctails">
               <AnimatePresence>
                 {listOfFavourite.map((element) => {
