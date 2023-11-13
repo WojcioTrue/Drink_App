@@ -17,7 +17,6 @@ export const fetchDrinksByIngredient = createAsyncThunk(
       if (data.drinks === "None Found") {
         return [];
       } else {
-        console.log(data.drinks);
         return data.drinks;
       }
     } catch (error) {

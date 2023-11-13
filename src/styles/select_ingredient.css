@@ -125,10 +125,17 @@
     justify-content: center;
     align-items: center;
     outline: 1px solid #EAEAEA;
-    transition: all 0.1s ease-out;
+    transition: all 0.2s ease-out;
     -webkit-box-shadow: 1px 1px 8px -5px rgba(84, 63, 87, 1);
     -moz-box-shadow: 1px 1px 8px -5px rgba(84, 63, 87, 1);
     box-shadow: 1px 1px 8px -5px rgba(84, 63, 87, 1);
+    cursor: pointer;
+}
+
+.ingredient-prompt ul li div .remove-ingredient--disabled {
+    transition: all 0.2s;
+    background-color: rgb(124 124 124);
+    cursor: default;
 }
 
 .ingredient-prompt ul li div .remove-ingredient--icon {

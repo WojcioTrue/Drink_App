@@ -13,11 +13,10 @@ const IngredientListElement = ({
 }) => {
   const [removedDuplicates, setRemovedDuplicates] = useState([]);
   const id = listElement.id;
-  const { data } = useSelector(
-    (state) => state.ingredientsData
-  );
+  const { data } = useSelector((state) => state.ingredientsData);
+
   useEffect(() => {
-    const onList = data.selectedIngredients
+    const onList = data.selectedIngredients;
     let shallowCopy = [...data.ingredients];
     for (let element of onList) {
       // make selected element visible on list
@@ -33,32 +32,44 @@ const IngredientListElement = ({
   }, [onList, listElement, data.selectedIngredients, data.ingredients]);
 
   return (
-    <li>
-      <label>Ingredient {listNumber + 1} : </label>
-      <div>
-        <select
-          onChange={() => changeSelected(id, document.getElementById(id).value)}
-          name={id}
-          id={id}
-          value={listElement.value}
-        >
-          <option value="">-- Please choose an option --</option>
-          {removedDuplicates.map((element) => (
-            <option key={nanoid()} value={element}>
-              {element}
-            </option>
-          ))}
-        </select>
-        <div
-          className="remove-ingredient"
-          onClick={() => {
-            removeIngredient(id);
-          }}
-        >
-          <FontAwesomeIcon className="remove-ingredient--icon" icon={faTrash} />
+    <>
+      <li>
+        <label>Ingredient {listNumber + 1} : </label>
+        <div>
+          <select
+            onChange={() =>
+              changeSelected(id, document.getElementById(id).value)
+            }
+            name={id}
+            id={id}
+            value={listElement.value}
+          >
+            <option value="">-- Please choose an option --</option>
+            {removedDuplicates.map((element) => (
+              <option key={nanoid()} value={element}>
+                {element}
+              </option>
+            ))}
+          </select>
+          (
+          <div
+            className={
+              "remove-ingredient" + (data.selectedIngredients.length > 1 ?
+               "" : " remove-ingredient--disabled")
+            }
+            onClick={() =>
+              data.selectedIngredients.length > 1 ? removeIngredient(id) : null
+            }
+          >
+            <FontAwesomeIcon
+              className="remove-ingredient--icon"
+              icon={faTrash}
+            />
+          </div>
+          )
         </div>
-      </div>
-    </li>
+      </li>
+    </>
   );
 };
 
