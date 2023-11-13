@@ -7,6 +7,7 @@ import { noFavouriteDrinks } from "../../framerStyles/variants";
 
 const DrinksByIngredients = () => {
     const listOfFavourite = useSelector((state) => state.favouriteList);
+    const drinkList = useSelector((state) => state.ingredientsData)
     // check if CoctailListElement is inside favourite_list component,
     // if so return true
     const location = useLocation();
