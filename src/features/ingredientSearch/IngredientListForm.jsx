@@ -1,10 +1,7 @@
 import { useEffect } from "react";
 import IngredientListElement from "./IngredientListElement";
-import Button from "../../sharedComponents/Button";
-import { coctailButton } from "../../framerStyles/variants";
 import { disableButton, enableButton } from "./ingredientsButtonsSlice";
 import {
-  addIngredientField,
   removeIngredientField,
   changeSelectedField,
   changeSearchParams,
@@ -42,10 +39,6 @@ const IngredientList = () => {
     }
   }, [data.drinkList, dispatch]);
 
-  const addIngredient = () => {
-    dispatch(addIngredientField());
-  };
-
   const removeIngredient = (id) => {
     dispatch(removeIngredientField(id));
   };
@@ -65,20 +58,6 @@ const IngredientList = () => {
           changeSelected={changeSelected}
         />
       ))}
-
-      {data.selectedIngredients.length >= 4 ? (
-        <Button variant={"add-ingredient"} isDisabled={true}>
-          Add Ingredient
-        </Button>
-      ) : (
-        <Button
-          variant={"add-ingredient"}
-          animationVariant={coctailButton}
-          buttonFunction={() => addIngredient()}
-        >
-          Add Ingredient
-        </Button>
-      )}
     </ul>
   );
 };
