@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const IngredientListElement = ({
-  ingredientList,
   listNumber,
   listElement,
   removeIngredient,
@@ -31,7 +30,7 @@ const IngredientListElement = ({
       }
     }
     setRemovedDuplicates(shallowCopy);
-  }, [onList, ingredientList, listElement, data]);
+  }, [onList, listElement, data.selectedIngredients, data.ingredients]);
 
   return (
     <li>

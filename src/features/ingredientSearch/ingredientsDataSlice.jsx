@@ -112,8 +112,6 @@ const ingredientsDataSlice = createSlice({
       state.error = null;
     });
     builder.addCase(fetchDrinksByIngredient.fulfilled, (state, action) => {
-      const data = action.payload;
-      console.log("action payload ", data);
       state.data.drinkList = action.payload;
       state.loading = "idle";
       state.error = null;
