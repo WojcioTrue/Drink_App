@@ -3,6 +3,7 @@ import NotFound from "../sharedComponents/NotFound";
 import CoctailList from "../components/coctailListComponents/CoctailList";
 import FavListFullScreen from "../features/favouriteList/FavListFullScreen";
 import { Routes, Route, Navigate } from "react-router-dom";
+import DrinksByIngredients from "../features/ingredientSearch/DrinksByIngredients";
 
 const RouteComponent = () => {
   return (
@@ -17,6 +18,7 @@ const RouteComponent = () => {
         </Route>
         {/* favourite list route */}
         <Route path="/favourite_list" element={<FavListFullScreen />} />
+        <Route path="/ingredients" element={<DrinksByIngredients />} />
         {/* not found element */}
         <Route path="/error" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/error" />} />
