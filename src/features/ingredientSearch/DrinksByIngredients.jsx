@@ -6,7 +6,6 @@ import Message from "../../sharedComponents/Message";
 import { noFavouriteDrinks } from "../../framerStyles/variants";
 
 const DrinksByIngredients = () => {
-    const listOfFavourite = useSelector((state) => state.favouriteList);
     const { data, loading, error } = useSelector((state) => state.ingredientsData)
     // check if CoctailListElement is inside favourite_list component,
     // if so return true
@@ -14,12 +13,12 @@ const DrinksByIngredients = () => {
     const inFavourite = location.pathname === "/favourite_list";
     return (
       <div className="list-coctails">
-        {listOfFavourite.length > 0 ? (
+        {data.drinkList.length > 0 ? (
           <>
             <h3>Drinks by ingredients:</h3>
             <div className="grid-coctails">
               <AnimatePresence>
-                {listOfFavourite.map((element) => {
+                {data.drinkList.map((element) => {
                   return (
                     <CoctailListElement
                       key={element.idDrink}
