@@ -69,12 +69,18 @@
   padding: 0px 45px;
   background-color: #EAEAEA;
   outline: 1px solid #EAEAEA;
-  transition: outline 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  -webkit-box-shadow: 1px 1px 8px -5px rgba(84, 63, 87, 1);
+  -moz-box-shadow: 1px 1px 8px -5px rgba(84, 63, 87, 1);
+  box-shadow: 1px 1px 8px -5px rgba(84, 63, 87, 1);
 }
 
 .search-bar__textbox input[id=SearchDrink]:focus{ 
-  transition: outline 0.3s ease-out;
-  outline: 1px solid #808080;
+  transition: all 0.3s ease-out;
+  -webkit-box-shadow: 1px 1px 12px -3px rgba(84, 63, 87, 1);
+  -moz-box-shadow: 1px 1px 12px -3px rgba(84, 63, 87, 1);
+  box-shadow: 1px 1px 12px -3px rgba(84, 63, 87, 1);
+  transform: scale(1.01);
 }
 
 .search-bar__textbox input[id=SearchDrink]~.search-bar__suggestions {
