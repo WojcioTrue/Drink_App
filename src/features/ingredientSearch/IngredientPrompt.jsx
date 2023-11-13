@@ -9,7 +9,6 @@ import { addIngredientField } from "./ingredientsDataSlice";
 
 const IngredientPrompt = () => {
   const { display, disableButtonTest } = useSelector((state) => state.ingredientsButtons);
-
   const { data, loading, error } = useSelector(
     (state) => state.ingredientsData
   );
@@ -23,6 +22,10 @@ const IngredientPrompt = () => {
   const addIngredient = () => {
     dispatch(addIngredientField());
   };
+
+  const displayByIngredient = () => {
+    console.log(data.drinkList)
+  }
 
   return (
     <>
@@ -52,6 +55,7 @@ const IngredientPrompt = () => {
           variant="ingredient-button" 
           animationVariant={coctailButton}
           isDisabled={disableButtonTest.toDisable}
+          buttonFunction={() => displayByIngredient()}
           >Display drinks
           </Button>
         </div>

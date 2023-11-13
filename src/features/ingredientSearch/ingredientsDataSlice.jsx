@@ -10,7 +10,7 @@ export const fetchDrinksByIngredient = createAsyncThunk(
       if (searchParams !== "") {
         url += searchParams;
       } else {
-        return "";
+        return [];
       }
       const response = await fetch(url);
       const data = await response.json();
