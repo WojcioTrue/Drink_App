@@ -38,7 +38,9 @@
 }
 
 .add-ingredient {
-    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
     background-color: rgb(255, 91, 31);
 }
 
