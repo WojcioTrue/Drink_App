@@ -25,7 +25,7 @@ const DrinksByIngredients = () => {
             <h3>Drinks by ingredients:</h3>
             <div className="grid-coctails">
               <AnimatePresence>
-                {data.drinkList.map((element) => {
+                {drinksToDisplay.map((element) => {
                   return (
                     <CoctailListElement
                       key={element.idDrink}
