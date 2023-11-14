@@ -35,8 +35,8 @@ const DrinksByIngredients = () => {
         ) : (
           <Message
             animationVariant={noFavouriteDrinks}
-            header={"Your list is empty!"}
-            text={"Add something to your favourite list."}
+            header={"There is no drinks with such ingredient's!"}
+            text={"Change ingredients you chose."}
             secondText={"Drink responsibly!"}
             img={process.env.PUBLIC_URL + "./img/fav_icon.png"}
           />

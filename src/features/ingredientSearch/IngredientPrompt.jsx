@@ -26,7 +26,7 @@ const IngredientPrompt = () => {
   };
 
   const displayByIngredient = () => {
-    console.log(data.drinkList);
+    dispatch(hideElement())
   };
 
   return (
