@@ -38,7 +38,7 @@ const DrinksByIngredients = () => {
             header={"There is no drinks with such ingredient's!"}
             text={"Change ingredients you chose."}
             secondText={"Drink responsibly!"}
-            img={process.env.PUBLIC_URL + "./img/fav_icon.png"}
+            img={process.env.PUBLIC_URL + "../img/fav_icon.png"}
           />
         )}
       </div>

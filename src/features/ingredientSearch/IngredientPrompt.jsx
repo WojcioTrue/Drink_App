@@ -7,7 +7,7 @@ import { coctailButton } from "../../framerStyles/variants";
 import IngredientListForm from "./IngredientListForm";
 import { addIngredientField } from "./ingredientsDataSlice";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ingredientPrompt } from "../../framerStyles/variants"
 
@@ -18,10 +18,12 @@ const IngredientPrompt = () => {
   const { data, loading, error } = useSelector(
     (state) => state.ingredientsData
   );
+  const [ingredientsLink, setIngredientsLink] = useState('')
 
   useEffect(() => {
-    
-  }, [display]);
+    let inputString = data.searchParams;
+    setIngredientsLink(inputString.replace(/,/g, '_'));
+  }, [data.searchParams]);
 
   const dispatch = useDispatch();
   const hidePrompt = () => {
@@ -64,7 +66,7 @@ const IngredientPrompt = () => {
               Add Ingredient
             </Button>
           )}
-          <Link to="/ingredients">
+          <Link to={`ingredients/${ingredientsLink}`}>
             <Button
               variant="ingredient-button"
               animationVariant={coctailButton}

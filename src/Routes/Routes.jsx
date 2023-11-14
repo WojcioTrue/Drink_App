@@ -18,7 +18,9 @@ const RouteComponent = () => {
         </Route>
         {/* favourite list route */}
         <Route path="/favourite_list" element={<FavListFullScreen />} />
-        <Route path="/ingredients" element={<DrinksByIngredients />} />
+        <Route path="ingredients">
+          <Route path=":id" element={<DrinksByIngredients />}/>
+        </Route>
         {/* not found element */}
         <Route path="/error" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/error" />} />
