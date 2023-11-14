@@ -46,6 +46,7 @@ const initialState = {
     selectedIngredients: [{ id: nanoid(), value: "" }],
     searchParams: "",
     drinkList: [],
+    drinksListToDisplay: [],
   },
   loading: "idle",
   error: null,
@@ -86,6 +87,9 @@ const ingredientsDataSlice = createSlice({
       }
       state.data.searchParams = arrOfIngredients.join(",");
     },
+    drinkListTodisplay(state){
+      state.data.drinksListToDisplay = state.data.drinkList
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchIngrediendsData.pending, (state) => {
@@ -127,6 +131,7 @@ export const {
   removeIngredientField,
   changeSelectedField,
   changeSearchParams,
+  drinkListTodisplay,
 } = ingredientsDataSlice.actions;
 
 export default ingredientsDataSlice.reducer;

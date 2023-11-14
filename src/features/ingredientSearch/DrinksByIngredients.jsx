@@ -15,8 +15,8 @@ const DrinksByIngredients = () => {
     const inFavourite = location.pathname === "/favourite_list";
 
     useEffect(() => {
-      setDrinksToDisplay(data.drinkList)
-    },[])
+      setDrinksToDisplay(data.drinksListToDisplay)
+    },[data.drinksListToDisplay])
 
     return (
       <div className="list-coctails">

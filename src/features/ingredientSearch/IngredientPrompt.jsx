@@ -5,7 +5,7 @@ import { hideElement } from "./ingredientsButtonsSlice";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import IngredientListForm from "./IngredientListForm";
-import { addIngredientField } from "./ingredientsDataSlice";
+import { addIngredientField,drinkListTodisplay } from "./ingredientsDataSlice";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -36,6 +36,7 @@ const IngredientPrompt = () => {
 
   const displayByIngredient = () => {
     dispatch(hideElement());
+    dispatch(drinkListTodisplay())
   };
 
   return (
