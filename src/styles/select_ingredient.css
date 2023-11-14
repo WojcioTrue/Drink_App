@@ -11,7 +11,7 @@
 }
 
 .ingredient-prompt {
-    z-index: 5;
+    z-index: 120;
     position: fixed;
     top: 50%;
     left: 50%;

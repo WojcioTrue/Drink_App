@@ -7,6 +7,7 @@ import { coctailButton } from "../../framerStyles/variants";
 import IngredientListForm from "./IngredientListForm";
 import { addIngredientField } from "./ingredientsDataSlice";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const IngredientPrompt = () => {
   const { display, disableButtonTest } = useSelector(
@@ -15,6 +16,10 @@ const IngredientPrompt = () => {
   const { data, loading, error } = useSelector(
     (state) => state.ingredientsData
   );
+
+  useEffect(() => {
+    
+  }, [display]);
 
   const dispatch = useDispatch();
   const hidePrompt = () => {
@@ -26,7 +31,7 @@ const IngredientPrompt = () => {
   };
 
   const displayByIngredient = () => {
-    dispatch(hideElement())
+    dispatch(hideElement());
   };
 
   return (
