@@ -1,3 +1,13 @@
+export const appVariant = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 export const mainView = {
   hidden: { opacity: 0 },
   show: (i) => ({

@@ -7,16 +7,8 @@ import { motion } from "framer-motion";
 import FindByIngredients from "./features/ingredientSearch/FindByIngredients";
 import IngredientPrompt from "./features/ingredientSearch/IngredientPrompt";
 import GrayBackground from "./sharedComponents/GrayBackground";
+import { appVariant } from "./framerStyles/variants";
 
-const appVariant = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 0.3,
-    },
-  },
-};
 
 function App() {
   return (
