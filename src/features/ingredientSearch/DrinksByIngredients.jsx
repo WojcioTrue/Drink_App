@@ -4,16 +4,23 @@ import { useLocation } from "react-router-dom";
 import CoctailListElement from "../../components/coctailListComponents/CoctailListElement";
 import Message from "../../sharedComponents/Message";
 import { noFavouriteDrinks } from "../../framerStyles/variants";
+import { useEffect, useState } from "react";
 
 const DrinksByIngredients = () => {
     const { data, loading, error } = useSelector((state) => state.ingredientsData)
+    const [drinksToDisplay, setDrinksToDisplay]= useState([])
     // check if CoctailListElement is inside favourite_list component,
     // if so return true
     const location = useLocation();
     const inFavourite = location.pathname === "/favourite_list";
+
+    useEffect(() => {
+      setDrinksToDisplay(data.drinkList)
+    },[])
+
     return (
       <div className="list-coctails">
-        {data.drinkList.length > 0 ? (
+        {drinksToDisplay.length > 0 ? (
           <>
             <h3>Drinks by ingredients:</h3>
             <div className="grid-coctails">
