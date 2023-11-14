@@ -8,6 +8,8 @@ import IngredientListForm from "./IngredientListForm";
 import { addIngredientField } from "./ingredientsDataSlice";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { ingredientPrompt } from "../../framerStyles/variants"
 
 const IngredientPrompt = () => {
   const { display, disableButtonTest } = useSelector(
@@ -37,7 +39,11 @@ const IngredientPrompt = () => {
   return (
     <>
       {display && (
-        <div className="ingredient-prompt">
+        <motion.div
+        variants={ingredientPrompt}
+        initial="hidden"
+        animate="show" 
+        className="ingredient-prompt">
           <FontAwesomeIcon
             onClick={() => hidePrompt()}
             className="close-prompt"
@@ -68,7 +74,7 @@ const IngredientPrompt = () => {
               Display drinks
             </Button>
           </Link>
-        </div>
+        </motion.div>
       )}
     </>
   );
