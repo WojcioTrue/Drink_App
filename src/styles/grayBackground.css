@@ -6,7 +6,6 @@
     position: fixed;
     z-index: 100;
     display: block;
-    transition: display 0.1s;
 }
 
 .disabled {
