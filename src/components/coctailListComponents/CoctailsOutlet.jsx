@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 import NotFound from "../../sharedComponents/NotFound";
 
 const CoctailsOutlet = () => {
