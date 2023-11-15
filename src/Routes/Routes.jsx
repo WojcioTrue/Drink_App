@@ -10,7 +10,9 @@ const RouteComponent = () => {
   return (
     <Routes>
         {/* home/index route */}
-        <Route path="/" element={<CoctailList />} />
+        <Route path="" element={<CoctailsOutlet />} >
+          <Route path="/" element={<CoctailList/>}/>
+        </Route>
         {/* path for drink with id */}
         <Route path="/drink/:id" element={<DrinkInfo />} />
         {/* categories */}
