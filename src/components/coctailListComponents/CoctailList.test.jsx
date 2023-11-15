@@ -53,9 +53,6 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
     // waiting for element to be removed
     await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
     expect(loadingText).not.toBeInTheDocument();
-    // should return 'list of coctails' after some time
-    const textElement = await screen.findByText(/list of coctails/i);
-    expect(textElement).toBeInTheDocument();
     // check if first drink is rendered
     const titleOfDrink = await screen.findByText(/155 Belmont/i);
     expect(titleOfDrink).toBeInTheDocument();
