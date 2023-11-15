@@ -5,7 +5,7 @@ import { grayBackground } from "../framerStyles/variants";
 
 const GrayBackground = () => {
   const { display } = useSelector((state) => state.ingredientsButtons);
-  console.log(display);
+
   return (
     display && 
       <motion.div
