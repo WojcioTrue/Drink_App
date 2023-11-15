@@ -5,6 +5,7 @@ import FavListFullScreen from "../features/favouriteList/FavListFullScreen";
 import { Routes, Route, Navigate } from "react-router-dom";
 import DrinksByIngredients from "../features/ingredientSearch/DrinksByIngredients";
 import CoctailsOutlet from "../components/coctailListComponents/CoctailsOutlet";
+import DrinksOutlet from "../features/ingredientSearch/DrinksOutlet";
 
 const RouteComponent = () => {
   return (
@@ -21,7 +22,7 @@ const RouteComponent = () => {
         </Route>
         {/* favourite list route */}
         <Route path="/favourite_list" element={<FavListFullScreen />} />
-        <Route path="ingredients">
+        <Route path="/ingredients/" element={<DrinksOutlet/>}>
           <Route path=":id" element={<DrinksByIngredients />}/>
         </Route>
         {/* not found element */}
