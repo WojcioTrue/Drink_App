@@ -11,22 +11,21 @@ const DrinksByIngredients = () => {
   const { data, loading, error } = useSelector(
     (state) => state.ingredientsData
   );
-  const { display } = useSelector((state) => state.ingredientsButtons)
+  const { display } = useSelector((state) => state.ingredientsButtons);
   const [drinksToDisplay, setDrinksToDisplay] = useState([]);
-  const ingredientsParams = useParams()
-    const dispatch = useDispatch()
+  const ingredientsParams = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    let inputString = ingredientsParams.id.replace(/&/g, ',');
-    
-    if(inputString !== data.searchParams){
-      dispatch(fetchDrinksByIngredient(inputString))
-      console.log("once")
+    let inputString = ingredientsParams.id.replace(/&/g, ",");
+    if (inputString !== data.searchParams) {
+      dispatch(fetchDrinksByIngredient(inputString));
+      console.log("once");
     }
-  },[])
+  }, []);
 
   useEffect(() => {
-    if(!display && data.drinkList.length > 0){
+    if (!display && data.drinkList.length > 0) {
       setDrinksToDisplay(data.drinkList);
     }
   }, [data.drinkList, display]);
