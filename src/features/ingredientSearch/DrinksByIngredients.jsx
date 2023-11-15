@@ -11,9 +11,6 @@ const DrinksByIngredients = () => {
     const [drinksToDisplay, setDrinksToDisplay]= useState([])
     // check if CoctailListElement is inside favourite_list component,
     // if so return true
-    const location = useLocation();
-    const inFavourite = location.pathname === "/favourite_list";
-
     useEffect(() => {
       setDrinksToDisplay(data.drinksListToDisplay)
     },[data.drinksListToDisplay])
@@ -24,7 +21,7 @@ const DrinksByIngredients = () => {
           <>
             <h3>Drinks by ingredients:</h3>
             <div className="grid-coctails">
-              <AnimatePresence>
+
                 {drinksToDisplay.map((element) => {
                   return (
                     <CoctailListElement
@@ -32,17 +29,16 @@ const DrinksByIngredients = () => {
                       id={element.idDrink}
                       name={element.strDrink}
                       imgSrc={element.strDrinkThumb}
-                      useLayout={inFavourite}
                     />
                   );
                 })}
-              </AnimatePresence>
+
             </div>
           </>
         ) : (
           <Message
             animationVariant={noFavouriteDrinks}
-            header={"There is no drinks with such ingredient's!"}
+            header={"There are no drinks with such ingredient's!"}
             text={"Change ingredients you chose."}
             secondText={"Drink responsibly!"}
             img={process.env.PUBLIC_URL + "../img/fav_icon.png"}
