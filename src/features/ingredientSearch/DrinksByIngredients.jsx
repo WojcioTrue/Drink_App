@@ -1,6 +1,5 @@
 import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 import CoctailListElement from "../../components/coctailListComponents/CoctailListElement";
 import Message from "../../sharedComponents/Message";
 import { noFavouriteDrinks } from "../../framerStyles/variants";
