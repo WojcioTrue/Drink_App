@@ -21,7 +21,7 @@ const DrinksByIngredients = () => {
           <>
             <h3>Drinks by ingredients:</h3>
             <div className="grid-coctails">
-
+              <AnimatePresence>
                 {drinksToDisplay.map((element) => {
                   return (
                     <CoctailListElement
@@ -32,7 +32,7 @@ const DrinksByIngredients = () => {
                     />
                   );
                 })}
-
+              </AnimatePresence>
             </div>
           </>
         ) : (
