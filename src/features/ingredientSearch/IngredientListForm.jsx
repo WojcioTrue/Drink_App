@@ -19,10 +19,12 @@ const IngredientList = () => {
 
   const dispatch = useDispatch();
 
+  // list of all ingredients
     useEffect(() => {
       dispatch(fetchDrinksByIngredient(data.searchParams))
     }, [data.searchParams, dispatch])
 
+  // list of drinks by ingredient
   useEffect(() => {
     dispatch(changeSearchParams(data.searchParams));
   }, [dispatch, data.selectedIngredients, data.searchParams]);

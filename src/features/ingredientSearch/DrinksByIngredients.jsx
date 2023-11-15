@@ -1,20 +1,35 @@
 import { AnimatePresence } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CoctailListElement from "../../components/coctailListComponents/CoctailListElement";
 import Message from "../../sharedComponents/Message";
 import { noFavouriteDrinks } from "../../framerStyles/variants";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { fetchDrinksByIngredient } from "./ingredientsDataSlice";
 
 const DrinksByIngredients = () => {
   const { data, loading, error } = useSelector(
     (state) => state.ingredientsData
   );
+  const { display } = useSelector((state) => state.ingredientsButtons)
   const [drinksToDisplay, setDrinksToDisplay] = useState([]);
-  // check if CoctailListElement is inside favourite_list component,
-  // if so return true
+  const ingredientsParams = useParams()
+    const dispatch = useDispatch()
+
   useEffect(() => {
-    setDrinksToDisplay(data.drinksListToDisplay);
-  }, [data.drinksListToDisplay]);
+    let inputString = ingredientsParams.id.replace(/&/g, ',');
+    
+    if(inputString !== data.searchParams){
+      dispatch(fetchDrinksByIngredient(inputString))
+      console.log("once")
+    }
+  },[])
+
+  useEffect(() => {
+    if(!display && data.drinkList.length > 0){
+      setDrinksToDisplay(data.drinkList);
+    }
+  }, [data.drinkList, display]);
 
   return (
     <>

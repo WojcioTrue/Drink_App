@@ -5,7 +5,7 @@ import { hideElement } from "./ingredientsButtonsSlice";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import IngredientListForm from "./IngredientListForm";
-import { addIngredientField,drinkListTodisplay } from "./ingredientsDataSlice";
+import { addIngredientField } from "./ingredientsDataSlice";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -19,13 +19,13 @@ const IngredientPrompt = () => {
     (state) => state.ingredientsData
   );
   const [ingredientsLink, setIngredientsLink] = useState('')
-
+  const dispatch = useDispatch();
   useEffect(() => {
     let inputString = data.searchParams;
-    setIngredientsLink(inputString.replace(/,/g, '_'));
+    setIngredientsLink(inputString.replace(/,/g, '&'));
   }, [data.searchParams]);
 
-  const dispatch = useDispatch();
+  
   const hidePrompt = () => {
     dispatch(hideElement());
   };
@@ -36,7 +36,6 @@ const IngredientPrompt = () => {
 
   const displayByIngredient = () => {
     dispatch(hideElement());
-    dispatch(drinkListTodisplay())
   };
 
   return (
