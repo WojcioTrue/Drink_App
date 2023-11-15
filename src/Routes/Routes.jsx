@@ -4,6 +4,7 @@ import CoctailList from "../components/coctailListComponents/CoctailList";
 import FavListFullScreen from "../features/favouriteList/FavListFullScreen";
 import { Routes, Route, Navigate } from "react-router-dom";
 import DrinksByIngredients from "../features/ingredientSearch/DrinksByIngredients";
+import CoctailsOutlet from "../components/coctailListComponents/CoctailsOutlet";
 
 const RouteComponent = () => {
   return (
@@ -13,7 +14,7 @@ const RouteComponent = () => {
         {/* path for drink with id */}
         <Route path="/drink/:id" element={<DrinkInfo />} />
         {/* categories */}
-        <Route path="categories">
+        <Route path="/categories/" element={<CoctailsOutlet/>}>
           <Route path=":id" element={<CoctailList/>}/>
         </Route>
         {/* favourite list route */}

@@ -1,8 +1,6 @@
 import "../../styles/coctail_list.css";
 import CoctailElement from "./CoctailListElement";
 import { useEffect } from "react";
-import { motion } from "framer-motion";
-import { mainView } from "../../framerStyles/variants";
 import NotFound from "../../sharedComponents/NotFound";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,17 +16,10 @@ const CoctailList = () => {
   }, [dispatch, id]);
 
   return (
-    <motion.div
-      variants={mainView}
-      custom={0.4}
-      initial="hidden"
-      animate="show"
-      className="list-coctails"
-    >
+    <>
       {loading === "pending" && <LoadingScreen />}
-      {(loading === "idle" && error == null) && (
+      {loading === "idle" && error == null && (
         <>
-          <h3>List of coctails:</h3>
           <div className="grid-coctails">
             {data.map((element) => (
               <CoctailElement
@@ -42,7 +33,7 @@ const CoctailList = () => {
         </>
       )}
       {error && <NotFound />}
-    </motion.div>
+    </>
   );
 };
 
