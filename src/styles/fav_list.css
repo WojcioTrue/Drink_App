@@ -22,11 +22,18 @@
 }
 
 .coctails__counter__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 60px;
   height: 60px;
   background-color: rgb(234, 76, 137);
   ;
   border-radius: 10px;
+  overflow: hidden;
+  svg {
+    fill: red;
+  }
 }
 
 .coctails__counter__right {

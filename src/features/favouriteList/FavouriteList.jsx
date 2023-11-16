@@ -7,6 +7,7 @@ import { mainView } from "../../framerStyles/variants";
 import { favouriteButton } from "../../framerStyles/variants";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import FavListIcons from "./FavListIcons";
 
 const FavouriteList = () => {
   const listOfFavourite = useSelector((state) => state.favouriteList);
@@ -36,7 +37,9 @@ const FavouriteList = () => {
         className="coctails-favourite"
       >
         <div className="coctails__counter">
-          <div className="coctails__counter__left">1</div>
+          <div className="coctails__counter__left">
+            <FavListIcons/>
+          </div>
           <div className="coctails__counter__right">
             <p>Favourite Drinks:</p>
             <p>{`${listOfFavourite.length}`}</p>
