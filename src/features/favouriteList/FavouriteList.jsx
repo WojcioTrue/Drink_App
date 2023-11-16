@@ -39,13 +39,9 @@ const FavouriteList = () => {
           <div className="coctails__counter__left">1</div>
           <div className="coctails__counter__right">
             <p>Favourite Drinks</p>
-            <p>number of drinks: 1</p>
+            <p>Number of drinks: {`${listOfFavourite.length}`}</p>
           </div>
         </div>
-        {/* <h3>
-          You have <span>{`${listOfFavourite.length}`}</span> favourite
-          <br /> drink{listOfFavourite.length > 1 && "s"}
-        </h3> */}
         <ul>{afterSliceList}</ul>
         {listOfFavourite.length > 0 && (
           <Link to="/favourite_list">

@@ -13,7 +13,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   width: 100%;
-  margin: 20px 0px;
+  margin: 64px 0px 20px 0px;
   background-color: #FDFDFD;
   box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
   -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
@@ -22,17 +22,24 @@
 }
 
 .coctails__counter__left {
-  width: 25%;
-  height: 50px;
+  width: 90px;
+  height: 90px;
+  background-color: rgb(234, 76, 137);
+  ;
+  border-radius: 10px;
 }
 
 .coctails__counter__right {
-  width: 75%;
+  flex: 1;
 }
 
 .coctails__counter__right p {
   color: #808080;
   font-weight: 600;
+}
+
+.coctails__counter__right p::nth-child(1) {
+  margin-top: 0px;
 }
 
 .coctails-favourite ul {
