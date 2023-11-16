@@ -38,8 +38,8 @@ const FavouriteList = () => {
         <div className="coctails__counter">
           <div className="coctails__counter__left">1</div>
           <div className="coctails__counter__right">
-            <p>Favourite Drinks</p>
-            <p>Number of drinks: {`${listOfFavourite.length}`}</p>
+            <p>Favourite Drinks:</p>
+            <p>{`${listOfFavourite.length}`}</p>
           </div>
         </div>
         <ul>{afterSliceList}</ul>
