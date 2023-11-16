@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 const FavouriteList = () => {
   const listOfFavourite = useSelector((state) => state.favouriteList);
-  const [afterSliceList, setAfterSliceList] = useState([])
+  const [afterSliceList, setAfterSliceList] = useState([]);
 
   const returnFavourite = ({ strDrink, idDrink }) => {
     return (
@@ -18,14 +18,13 @@ const FavouriteList = () => {
     );
   };
 
-
   useEffect(() => {
     if (listOfFavourite.length >= 4) {
       setAfterSliceList(listOfFavourite.slice(0, 5).map(returnFavourite));
     } else {
-      setAfterSliceList(listOfFavourite.map(returnFavourite))
+      setAfterSliceList(listOfFavourite.map(returnFavourite));
     }
-  },[listOfFavourite])
+  }, [listOfFavourite]);
 
   return (
     <>
@@ -36,10 +35,17 @@ const FavouriteList = () => {
         animate="show"
         className="coctails-favourite"
       >
-        <h3>
-          {"Favourite drinks "}
-          {listOfFavourite.length > 0 && `(${listOfFavourite.length})`}:
-        </h3>
+        <div className="coctails__counter">
+          <div className="coctails__counter__left">1</div>
+          <div className="coctails__counter__right">
+            <p>Favourite Drinks</p>
+            <p>number of drinks: 1</p>
+          </div>
+        </div>
+        {/* <h3>
+          You have <span>{`${listOfFavourite.length}`}</span> favourite
+          <br /> drink{listOfFavourite.length > 1 && "s"}
+        </h3> */}
         <ul>{afterSliceList}</ul>
         {listOfFavourite.length > 0 && (
           <Link to="/favourite_list">

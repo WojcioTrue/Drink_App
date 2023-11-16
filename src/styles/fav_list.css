@@ -1,14 +1,45 @@
 .coctails-favourite {
   display: none;
 }
+
 .coctails-favourite h3 {
   font-size: 1.25rem;
   color: #1C0B19;
 }
+
+.coctails__counter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0px;
+  background-color: #FDFDFD;
+  box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+  -webkit-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+  -moz-box-shadow: 8px 10px 16px 0px rgba(201, 201, 201, 0.8705882353);
+  border-radius: 10px;
+}
+
+.coctails__counter__left {
+  width: 25%;
+  height: 50px;
+}
+
+.coctails__counter__right {
+  width: 75%;
+}
+
+.coctails__counter__right p {
+  color: #808080;
+  font-weight: 600;
+}
+
 .coctails-favourite ul {
   list-style: none;
   padding: 0px 10px;
 }
+
 .coctails-favourite ul li {
   margin-bottom: 20px;
   padding: 0px 20px;
@@ -38,14 +69,16 @@
   font-weight: 400;
   color: #808080;
 }
+
 .coctails-favourite ul .remove-favourite {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
+
 .coctails-favourite ul .remove-favourite path {
   fill: rgb(108, 55, 146);
-  
+
 }
 
 .coctails-favourite .coctails-favourite__button {
