@@ -45,7 +45,7 @@ const FavouriteList = () => {
             <p>{`${listOfFavourite.length}`}</p>
           </div>
         </div>
-        <ul>{afterSliceList}</ul>
+        <ul className="drink__list">{afterSliceList}</ul>
         {listOfFavourite.length > 0 && (
           <Link to="/favourite_list">
             <Button

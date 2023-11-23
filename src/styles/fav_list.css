@@ -27,13 +27,80 @@
   align-items: center;
   width: 60px;
   height: 60px;
-  background-color: rgb(234, 76, 137);
-  ;
+  background-color: rgba(255, 171, 203, 0.5);
   border-radius: 10px;
   overflow: hidden;
-  svg {
-    fill: red;
-  }
+}
+
+.coctails__counter__left .fav__heart__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coctails__counter__left .fav__heart__list .broken-heart {
+  height: 25px;
+}
+
+.coctails__counter__left .fav__heart__list .broken-heart path {
+  fill: rgb(108, 55, 146);
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-1 {
+  height: 25px;
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-1 path {
+  fill: rgb(255, 8, 50);
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-2 {
+  height: 30px;
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-2 path {
+  fill: rgb(255, 8, 50);
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-3 {
+  height: 35px;
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-3 path {
+  fill: rgb(255, 8, 50);
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-4 {
+  height: 40px;
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-4 path {
+  fill: rgb(255, 8, 50);
+}
+
+.coctails__counter__left .fav__heart__list .double-heart {
+  position: relative;
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-5 {
+  height: 40px;
+  position: absolute;
+  left: -18px;
+  top: -23px;
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-5 path {
+  fill: rgb(255, 8, 50);
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-5+.second {
+  height: 30px;
+  left: -20px;
+  top: -10px;
+}
+
+.coctails__counter__left .fav__heart__list .whole-heart-5+.second path {
+  fill: rgb(255, 102, 102)
 }
 
 .coctails__counter__right {
@@ -62,7 +129,7 @@
   padding: 0px 10px;
 }
 
-.coctails-favourite ul li {
+.coctails-favourite .drink__list li {
   margin-bottom: 20px;
   padding: 0px 20px;
   display: flex;
