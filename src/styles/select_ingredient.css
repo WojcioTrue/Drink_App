@@ -10,6 +10,10 @@
     margin-top: 15px;
 }
 
+.remove-ingredient {
+    position: absolute;
+}
+
 .ingredient-prompt {
     z-index: 120;
     position: fixed;
@@ -63,11 +67,6 @@
     font-weight: 600;
     font-size: 0.85rem;
     margin-bottom: 5px;
-}
-
-.remove-ingredient {
-    position: absolute;
-
 }
 
 .ingredient-prompt ul li div {
@@ -146,9 +145,6 @@
     display: none;
 }
 
-
-
-
 .ingredient-prompt ul li select:focus+.remove-ingredient {
     transition: all 0.1s ease-out;
     -webkit-box-shadow: 1px 1px 12px -3px rgba(84, 63, 87, 1);
@@ -178,6 +174,22 @@
 .ingredient-button:disabled {
     cursor: default;
     background-color: rgb(124 124 124);
+}
+
+.ingredient__counter {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.ingredient__counter label {
+    display: block;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.ingredient__counter div {
+    font-weight: 600;
 }
 
 @media only screen and (min-width: 768px) {

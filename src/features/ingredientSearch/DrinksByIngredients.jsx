@@ -20,7 +20,6 @@ const DrinksByIngredients = () => {
     let inputString = ingredientsParams.id.replace(/&/g, ",");
     if (inputString !== data.searchParams) {
       dispatch(fetchDrinksByIngredient(inputString));
-      console.log("once");
     }
   }, []);
 
