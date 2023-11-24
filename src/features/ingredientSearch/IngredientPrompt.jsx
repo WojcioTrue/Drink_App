@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ingredientPrompt } from "../../framerStyles/variants"
+import IngredientCounter from "./IngredientCounter";
 
 const IngredientPrompt = () => {
   const { display, disableButtonTest } = useSelector(
@@ -53,6 +54,7 @@ const IngredientPrompt = () => {
           />
           <h3>Select ingredients: </h3>
           <IngredientListForm />
+          <IngredientCounter/>
           {data.selectedIngredients.length >= 4 ? (
             <Button variant={"add-ingredient"} isDisabled={true}>
               Add Ingredient
