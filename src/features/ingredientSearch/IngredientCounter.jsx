@@ -3,7 +3,7 @@ import AnimatedNumbers from "react-animated-numbers";
 import { useSelector } from "react-redux";
 
 const IngredientCounter = () => {
-  const { data, loading, error } = useSelector(
+  const { data, error } = useSelector(
     (state) => state.ingredientsData
   );
   const [number, setNumber] = useState(0);
