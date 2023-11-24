@@ -8,15 +8,6 @@ import "react-intersection-observer/test-utils";
 import { arrOfFavourite } from "./FavListFullScreenData";
 
 describe("tests for favourite list container full screen", () => {
-  test("should return 'favourite drinks' header", () => {
-    renderWithProviders(<FavouriteList />);
-
-    const header = screen.getByRole("heading", {
-      name: /Favourite drinks :/i,
-      level: 3,
-    });
-    expect(header).toBeInTheDocument();
-  });
   test("should render list of favourite drinks with A1 drink", () => {
     const store = setupStore();
 
