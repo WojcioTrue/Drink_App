@@ -46,7 +46,6 @@ const initialState = {
     selectedIngredients: [{ id: nanoid(), value: "" }],
     searchParams: "",
     drinkList: [],
-    drinksListToDisplay: [],
   },
   loading: "idle",
   error: null,

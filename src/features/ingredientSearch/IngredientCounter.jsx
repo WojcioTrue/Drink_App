@@ -1,9 +1,21 @@
-import React from 'react'
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const IngredientCounter = () => {
-  return (
-    <h3>IngredientCounter</h3>
-  )
-}
+  const { data, loading, error } = useSelector(
+    (state) => state.ingredientsData
+  );
 
-export default IngredientCounter
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+  
+  return (
+    <>
+      <h3>ingredinets:</h3>
+      <h3>Found 5 drinks</h3>
+    </>
+  );
+};
+
+export default IngredientCounter;

@@ -9,7 +9,7 @@ import { addIngredientField } from "./ingredientsDataSlice";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ingredientPrompt } from "../../framerStyles/variants"
+import { ingredientPrompt } from "../../framerStyles/variants";
 import IngredientCounter from "./IngredientCounter";
 
 const IngredientPrompt = () => {
@@ -19,14 +19,15 @@ const IngredientPrompt = () => {
   const { data, loading, error } = useSelector(
     (state) => state.ingredientsData
   );
-  const [ingredientsLink, setIngredientsLink] = useState('')
+  const [ingredientsLink, setIngredientsLink] = useState("");
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     let inputString = data.searchParams;
-    setIngredientsLink(inputString.replace(/,/g, '&'));
+    setIngredientsLink(inputString.replace(/,/g, "&"));
   }, [data.searchParams]);
 
-  
   const hidePrompt = () => {
     dispatch(hideElement());
   };
@@ -43,10 +44,11 @@ const IngredientPrompt = () => {
     <>
       {display && (
         <motion.div
-        variants={ingredientPrompt}
-        initial="hidden"
-        animate="show" 
-        className="ingredient-prompt">
+          variants={ingredientPrompt}
+          initial="hidden"
+          animate="show"
+          className="ingredient-prompt"
+        >
           <FontAwesomeIcon
             onClick={() => hidePrompt()}
             className="close-prompt"
@@ -54,7 +56,7 @@ const IngredientPrompt = () => {
           />
           <h3>Select ingredients: </h3>
           <IngredientListForm />
-          <IngredientCounter/>
+          <IngredientCounter />
           {data.selectedIngredients.length >= 4 ? (
             <Button variant={"add-ingredient"} isDisabled={true}>
               Add Ingredient
