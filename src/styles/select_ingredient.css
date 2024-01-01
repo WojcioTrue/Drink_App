@@ -8,6 +8,13 @@
 
 .open-prompt {
     margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.open-prompt svg {
+    margin-right: 5px;
+    height: 1.15rem;
 }
 
 .remove-ingredient {

@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { displayElement } from "./ingredientsButtonsSlice";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLemon } from "@fortawesome/free-solid-svg-icons";
 
 const FindByIngredients = () => {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ const FindByIngredients = () => {
         animationVariant={coctailButton}
         variant={"open-prompt"}
       >
+        <FontAwesomeIcon icon={faLemon} />
         Find by ingredients
       </Button>
     </motion.div>
