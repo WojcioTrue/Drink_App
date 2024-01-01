@@ -16,7 +16,7 @@ const DrinksOutlet = () => {
           animate="show"
           className="list-coctails"
         >
-          <h3>Drinks By ingredients:</h3>
+          <h3>Drinks by ingredients:</h3>
           {location.pathname === "/ingredients/" ? <NotFound /> : <Outlet />}
         </motion.div>
       </>
