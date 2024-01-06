@@ -16,6 +16,5 @@ describe("test for FindByIngredients compoenent", () => {
     const button = screen.getByRole("button", { name: /find by ingredients/i });
     expect(button).toBeInTheDocument();
 
-    screen.debug();
   });
 });
