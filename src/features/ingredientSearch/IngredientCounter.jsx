@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import AnimatedNumbers from "react-animated-numbers";
 import { useSelector } from "react-redux";
 
@@ -6,11 +5,6 @@ const IngredientCounter = () => {
   const { data, error } = useSelector(
     (state) => state.ingredientsData
   );
-  const [number, setNumber] = useState(0);
-
-  useEffect(() => {
-    setNumber(data.drinkList.length);
-  }, [data.drinkList.length]);
 
   return (
     <>
@@ -22,7 +16,7 @@ const IngredientCounter = () => {
               type: "spring",
               duration: 0.2,
             })}
-            animateToNumber={number}
+            animateToNumber={data.drinkList.length}
           />
         ) : (
           <label>Some error occured...</label>
