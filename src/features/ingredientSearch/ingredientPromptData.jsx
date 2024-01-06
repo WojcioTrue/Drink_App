@@ -1,4 +1,4 @@
-export const ingredientsMockedData = {
+export const ingredientPromptData = {
   drinks: [
     { strIngredient1: "Light rum" },
     { strIngredient1: "Applejack" },

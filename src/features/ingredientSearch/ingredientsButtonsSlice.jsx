@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const displayIngredients = {
   display: false,
-  disableButtonTest: { toDisable: false, drinks: 0 },
+  disableButtonTest: { toDisable: false},
 };
 
 // reducers linked to buttons interactions
@@ -19,13 +19,13 @@ const ingredientsButtonsSlice = createSlice({
     disableButton(state) {
       state.disableButtonTest = {
         toDisable: true,
-        drinks: 0,
+
       };
     },
     enableButton(state, action) {
       state.disableButtonTest = {
         toDisable: false,
-        drinks: action.payload,
+
       };
     },
   },

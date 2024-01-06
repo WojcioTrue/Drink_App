@@ -37,7 +37,7 @@ const IngredientList = () => {
     if (data.drinkList.length === 0) {
       dispatch(disableButton());
     } else {
-      dispatch(enableButton(data.drinkList.length));
+      dispatch(enableButton());
     }
   }, [data.drinkList, dispatch]);
 
