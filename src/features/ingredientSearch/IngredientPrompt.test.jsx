@@ -1,4 +1,4 @@
-import { screen, waitFor, fireEvent } from "@testing-library/react";
+import { screen, waitFor, fireEvent, act } from "@testing-library/react";
 import React from "react";
 import "@testing-library/jest-dom";
 import IngredientPrompt from "./IngredientPrompt";
@@ -8,7 +8,7 @@ import { setupServer } from "msw/lib/node";
 import { rest } from "msw";
 import { setupStore } from "../../app/store";
 import { displayElement } from "./ingredientsButtonsSlice";
-
+import { changeSelectedField } from "./ingredientsDataSlice"
 
 const server = setupServer(
   rest.get(
@@ -292,5 +292,38 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
     });
     expect(displayDrinks).toBeInTheDocument();
     expect(displayDrinks).toBeDisabled();
+  });
+  test('should display "display drinks" button enabled', async () => {
+    const store = setupStore();
+    store.dispatch(displayElement());
+    renderWithProviders(<IngredientPrompt />, { store });
+
+    let displayDrinks;
+
+    await waitFor(async () => {
+      displayDrinks = await screen.findByRole("button", {
+        name: /display drinks/i,
+      });
+    });
+
+    // initially button is disabled
+    expect(displayDrinks).toBeInTheDocument();
+    expect(displayDrinks).toBeDisabled()
+    // await to load all ingredients
+    const tea = await screen.findByText(/tea/i)
+    expect(tea).toBeInTheDocument()
+
+    // change value in select element
+    const selectField = await screen.findByTestId(/selectField1/i)
+    
+    fireEvent.change(selectField, { target: { value: 'Tea' } })
+
+    // wait for DOM asynchronous updates
+    // button should be disabled
+    await waitFor(() => {
+      expect(displayDrinks).not.toBeDisabled()
+      
+    })
+
   });
 });
