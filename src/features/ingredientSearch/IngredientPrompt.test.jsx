@@ -8,7 +8,7 @@ import { setupServer } from "msw/lib/node";
 import { rest } from "msw";
 import { setupStore } from "../../app/store";
 import { displayElement } from "./ingredientsButtonsSlice";
-import { changeSelectedField } from "./ingredientsDataSlice"
+import { teaMockedData } from "./teaMockedData";
 
 const server = setupServer(
   rest.get(
@@ -17,6 +17,15 @@ const server = setupServer(
       const list = req.url.searchParams.get("i");
       if (list === "list") {
         return res(ctx.status(200), ctx.json(ingredientPromptData));
+      }
+    }
+  ),
+  rest.get(
+    `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php`,
+    (req, res, ctx) => {
+      const list = req.url.searchParams.get("i");
+      if (list === "Tea") {
+        return res(ctx.status(200), ctx.json(teaMockedData));
       }
     }
   ),
@@ -317,12 +326,11 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
     const selectField = await screen.findByTestId(/selectField1/i)
     
     fireEvent.change(selectField, { target: { value: 'Tea' } })
-
+    
     // wait for DOM asynchronous updates
     // button should be disabled
-    await waitFor(() => {
+    await waitFor( async() => {
       expect(displayDrinks).not.toBeDisabled()
-      
     })
 
   });
