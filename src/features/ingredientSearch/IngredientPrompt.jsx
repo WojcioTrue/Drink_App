@@ -52,6 +52,7 @@ const IngredientPrompt = () => {
           <FontAwesomeIcon
             onClick={() => hidePrompt()}
             className="close-prompt"
+            data-testid="close-prompt-test"
             icon={faXmark}
           />
           <h3>Select ingredients: </h3>

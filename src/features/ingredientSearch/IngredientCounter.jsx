@@ -2,14 +2,12 @@ import AnimatedNumbers from "react-animated-numbers";
 import { useSelector } from "react-redux";
 
 const IngredientCounter = () => {
-  const { data, error } = useSelector(
-    (state) => state.ingredientsData
-  );
+  const { data, error } = useSelector((state) => state.ingredientsData);
 
   return (
     <>
       <span className="ingredient__counter">
-        <label>Number of drinks:</label>
+        <label aria-label="LabelDrinksNumber">Number of drinks:</label>
         {error === null ? (
           <AnimatedNumbers
             transitions={() => ({

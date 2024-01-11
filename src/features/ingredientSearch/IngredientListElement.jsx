@@ -34,7 +34,7 @@ const IngredientListElement = ({
   return (
     <>
       <li>
-        <label>Ingredient {listNumber + 1} : </label>
+        <label aria-label={`IngredientLabel${listNumber + 1}`}>{`Ingredient ${listNumber + 1} :`}</label>
         <div>
           <select
             onChange={() =>
@@ -43,8 +43,9 @@ const IngredientListElement = ({
             name={id}
             id={id}
             value={listElement.value}
+            data-testid={`selectField${listNumber + 1}`}
           >
-            <option value="">-- Please choose an option --</option>
+            <option value="default">-- Please choose an option --</option>
             {removedDuplicates.map((element) => (
               <option key={nanoid()} value={element}>
                 {element}
@@ -53,6 +54,7 @@ const IngredientListElement = ({
           </select>
           (
           <div
+            data-testid={`removeField${listNumber + 1}`}
             className={
               "remove-ingredient" + (data.selectedIngredients.length > 1 ?
                "" : " remove-ingredient--disabled")
