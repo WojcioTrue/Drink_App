@@ -9,6 +9,7 @@ import { rest } from "msw";
 import { setupStore } from "../../app/store";
 import { displayElement } from "./ingredientsButtonsSlice";
 import { teaMockedData } from "./teaMockedData";
+import { teaAndRum } from "./teaAndRumMockedData";
 
 const server = setupServer(
   rest.get(
@@ -29,6 +30,15 @@ const server = setupServer(
       }
     }
   ),
+  rest.get(
+    `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php`,
+    (req, res, ctx) => {
+      const list = req.url.searchParams.get("i");
+      if (list === "Tea,Rum") {
+        return res(ctx.status(200), ctx.json(teaAndRum));
+      }
+    }
+  )
 );
 
 beforeAll(() => server.listen());
@@ -317,20 +327,84 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
 
     // initially button is disabled
     expect(displayDrinks).toBeInTheDocument();
-    expect(displayDrinks).toBeDisabled()
+    expect(displayDrinks).toBeDisabled();
     // await to load all ingredients
-    const tea = await screen.findByText(/tea/i)
-    expect(tea).toBeInTheDocument()
+    const tea = await screen.findByText(/tea/i);
+    expect(tea).toBeInTheDocument();
 
     // change value in select element
-    const selectField = await screen.findByTestId(/selectField1/i)
-    
-    fireEvent.change(selectField, { target: { value: 'Tea' } })
-    
+    const selectField = await screen.findByTestId(/selectField1/i);
+
+    fireEvent.change(selectField, { target: { value: "Tea" } });
+
     // wait for DOM asynchronous updates
     // button should be enabled
-    await waitFor( async() => {
-      expect(displayDrinks).not.toBeDisabled()
-    })
+    await waitFor(async () => {
+      expect(displayDrinks).not.toBeDisabled();
+    });
+  });
+  test("should return default 0 drinks from reducer", async () => {
+    const store = setupStore();
+    store.dispatch(displayElement());
+    renderWithProviders(<IngredientPrompt />, { store });
+
+    // await for complete all side effects
+    const tea = await screen.findByText(/tea/i);
+    expect(tea).toBeInTheDocument();
+
+    // should return default 0 ammount of drinks
+    await waitFor(async () => {
+      const drinkListStore = store.getState();
+      const numberOfDrinks = drinkListStore.ingredientsData.data.drinkList;
+      expect(numberOfDrinks.length).toEqual(0);
+    });
+  });
+  test("should return 6 drinks for tea", async () => {
+    const store = setupStore();
+    store.dispatch(displayElement());
+    renderWithProviders(<IngredientPrompt />, { store });
+
+    // load all ingredients
+    const tea = await screen.findByText(/tea/i);
+    expect(tea).toBeInTheDocument();
+
+    // change value of ingredient1 field
+    let selectField = await screen.findByTestId(/selectField1/i);
+    fireEvent.change(selectField, { target: { value: "Tea" } });
+
+    await waitFor(async () => {
+      const drinkListStore = store.getState();
+      const fetchedDrinks = drinkListStore.ingredientsData.data.drinkList;
+      expect(fetchedDrinks.length).toEqual(6);
+    });
+  });
+
+  test("should return 1 drink for tea and rum", async () => {
+    const store = setupStore();
+    store.dispatch(displayElement());
+    renderWithProviders(<IngredientPrompt />, { store });
+
+    // load all ingredients
+    const tea = await screen.findByText(/tea/i);
+    expect(tea).toBeInTheDocument();
+
+    // change value of ingredient1 field
+    let selectField1 = await screen.findByTestId(/selectField1/i);
+    fireEvent.change(selectField1, { target: { value: "Tea" } });
+
+    //add ingredient 2 field
+    const button = screen.getByRole("button", { name: /add ingredient/i });
+    fireEvent.click(button);
+
+    // change value of ingredient2 field
+    let selectField2 = await screen.findByTestId(/selectField2/i);
+    expect(selectField2).toBeInTheDocument();
+    fireEvent.change(selectField2, { target: { value: "Rum" } });
+
+    await waitFor(async () => {
+      const drinkListStore = store.getState();
+      const fetchedDrinks = drinkListStore.ingredientsData.data.drinkList;
+      expect(fetchedDrinks.length).toEqual(1);
+    });
   });
 });
