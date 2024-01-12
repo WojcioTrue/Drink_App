@@ -3,13 +3,13 @@ import React from "react";
 import "@testing-library/jest-dom";
 import IngredientPrompt from "./IngredientPrompt";
 import { renderWithProviders } from "../../utils/test-utils";
-import { ingredientPromptData } from "./ingredientPromptData";
+import { ingredientPromptData } from "./mockData/ingredientPromptData";
 import { setupServer } from "msw/lib/node";
 import { rest } from "msw";
 import { setupStore } from "../../app/store";
 import { displayElement } from "./ingredientsButtonsSlice";
-import { teaMockedData } from "./teaMockedData";
-import { teaAndRum } from "./teaAndRumMockedData";
+import { teaMockedData } from "./mockData/teaMockedData";
+import { teaAndRum } from "./mockData/teaAndRumMockedData";
 
 const server = setupServer(
   rest.get(

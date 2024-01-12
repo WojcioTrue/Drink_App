@@ -3,7 +3,7 @@ import React from "react";
 import "@testing-library/jest-dom";
 import DrinksByIngredients from "./DrinksByIngredients";
 import { renderWithProviders } from "../../utils/test-utils";
-import { DrinksOutletData } from "./ginData";
+import { DrinksOutletData } from "./mockData/ginData";
 import { setupServer } from "msw/lib/node";
 import { rest } from "msw";
 
