@@ -407,7 +407,7 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
       expect(fetchedDrinks.length).toEqual(1);
     });
   });
-  test("should return 0 drinks for tea,rum and light rum", async () => {
+  test("should return 0 drinks for tea,rum and light rum and 'display button' should be disabled", async () => {
     const store = setupStore();
     store.dispatch(displayElement());
     renderWithProviders(<IngredientPrompt />, { store });
@@ -440,5 +440,8 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
       const fetchedDrinks = drinkListStore.ingredientsData.data.drinkList;
       expect(fetchedDrinks.length).toEqual(0);
     });
+
+    const displayButton = await screen.findByRole('button', {name: /display drinks/i})
+    expect(displayButton).toBeDisabled()
   });
 });
