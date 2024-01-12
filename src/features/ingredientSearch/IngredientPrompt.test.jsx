@@ -328,10 +328,9 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
     fireEvent.change(selectField, { target: { value: 'Tea' } })
     
     // wait for DOM asynchronous updates
-    // button should be disabled
+    // button should be enabled
     await waitFor( async() => {
       expect(displayDrinks).not.toBeDisabled()
     })
-
   });
 });

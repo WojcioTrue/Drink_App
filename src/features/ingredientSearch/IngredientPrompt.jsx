@@ -58,7 +58,6 @@ const IngredientPrompt = () => {
           <h3>Select ingredients: </h3>
           <IngredientListForm />
           <IngredientCounter />
-          {process.env.NODE_ENV === 'test' && <p data-testid="drinks-by-ingredient">{data.drinkList.length}</p>}
           {data.selectedIngredients.length >= 4 ? (
             <Button variant={"add-ingredient"} isDisabled={true}>
               Add Ingredient

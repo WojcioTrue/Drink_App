@@ -9,13 +9,15 @@ const IngredientCounter = () => {
       <span className="ingredient__counter">
         <label aria-label="LabelDrinksNumber">Number of drinks:</label>
         {error === null ? (
-          <AnimatedNumbers
+          <label>
+            <AnimatedNumbers
             transitions={() => ({
               type: "spring",
               duration: 0.2,
             })}
             animateToNumber={data.drinkList.length}
           />
+            </label>
         ) : (
           <label>Some error occured...</label>
         )}
