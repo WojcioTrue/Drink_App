@@ -407,4 +407,38 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
       expect(fetchedDrinks.length).toEqual(1);
     });
   });
+  test("should return 0 drinks for tea,rum and light rum", async () => {
+    const store = setupStore();
+    store.dispatch(displayElement());
+    renderWithProviders(<IngredientPrompt />, { store });
+
+    // load all ingredients
+    const tea = await screen.findByText(/tea/i);
+    expect(tea).toBeInTheDocument();
+
+    // change value of ingredient1 field
+    let selectField1 = await screen.findByTestId(/selectField1/i);
+    fireEvent.change(selectField1, { target: { value: "Tea" } });
+
+    //add ingredient 2 and 3 field
+    const button = screen.getByRole("button", { name: /add ingredient/i });
+    fireEvent.click(button);
+    fireEvent.click(button);
+
+    // change value of ingredient2 field
+    let selectField2 = await screen.findByTestId(/selectField2/i);
+    expect(selectField2).toBeInTheDocument();
+    fireEvent.change(selectField2, { target: { value: "Rum" } });
+
+    // change value of ingredient3 field
+    let selectField3 = await screen.findByTestId(/selectField2/i);
+    expect(selectField3).toBeInTheDocument();
+    fireEvent.change(selectField3, { target: { value: "Light rum" } });
+
+    await waitFor(async () => {
+      const drinkListStore = store.getState();
+      const fetchedDrinks = drinkListStore.ingredientsData.data.drinkList;
+      expect(fetchedDrinks.length).toEqual(0);
+    });
+  });
 });
