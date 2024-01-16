@@ -57,7 +57,7 @@ describe("tests for IngredientListForm component", () => {
 
     // await for all ingredients to be mocked
     const tea = await screen.findByText(/tea/i);
-
+    expect(tea).toBeInTheDocument()
     const selectfield = screen.getByTestId(/selectfield1/i);
     expect(selectfield).toBeInTheDocument();
     expect(selectfield).not.toHaveLength(1);
