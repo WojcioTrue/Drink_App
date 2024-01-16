@@ -81,7 +81,6 @@ describe("test for displaying elements of IngredientPrompt", () => {
     store.dispatch(displayElement());
     renderWithProviders(<IngredientPrompt />, { store });
 
-    // for some reason 'findByLabelText' throw an error
     await waitFor(async () => {
       const promptLabel = await screen.findByLabelText(/ingredientlabel1/i);
       expect(promptLabel).toBeInTheDocument();
@@ -103,7 +102,6 @@ describe("test for displaying elements of IngredientPrompt", () => {
     store.dispatch(displayElement());
     renderWithProviders(<IngredientPrompt />, { store });
 
-    //after waitFor
     const lemonVodka = await screen.findByRole("option", {
       name: /lemon vodka/i,
     });
@@ -118,7 +116,7 @@ describe("test for displaying elements of IngredientPrompt", () => {
     expect(tea).toBeInTheDocument();
   });
 
-  test("should loop through all ingredients, check if they are rendered in right order and comared with the one inside mocked data", async () => {
+  test("should loop through all ingredients list and compared with list inside mocked data", async () => {
     const store = setupStore();
     store.dispatch(displayElement());
     renderWithProviders(<IngredientPrompt />, { store });
@@ -135,6 +133,7 @@ describe("test for displaying elements of IngredientPrompt", () => {
         break;
       }
       expect(ingredients[i]).toBeInTheDocument();
+      // ommit first element in list '-- please choose an option--'
       expect(ingredients[i + 1].value).toBe(
         ingredientPromptData.drinks[i].strIngredient1
       );
@@ -441,7 +440,9 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
       expect(fetchedDrinks.length).toEqual(0);
     });
 
-    const displayButton = await screen.findByRole('button', {name: /display drinks/i})
-    expect(displayButton).toBeDisabled()
+    const displayButton = await screen.findByRole("button", {
+      name: /display drinks/i,
+    });
+    expect(displayButton).toBeDisabled();
   });
 });
