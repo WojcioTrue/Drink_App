@@ -4,11 +4,11 @@ import "@testing-library/jest-dom";
 import IngredientListForm from "./IngredientListForm";
 import { renderWithProviders } from "../../utils/test-utils";
 import { addIngredientField } from "./ingredientsDataSlice";
-import { setupStore, store } from "../../app/store";
+import { setupStore } from "../../app/store";
 import { ingredientPromptData } from "./mockData/ingredientPromptData";
 import { setupServer } from "msw/lib/node";
 import { rest } from "msw";
-import { changeSelectedField } from "./ingredientsDataSlice";
+
 
 const server = setupServer(
   rest.get(
