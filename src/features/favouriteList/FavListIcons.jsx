@@ -24,111 +24,117 @@ const FavListIcons = () => {
   const [heart, setHeart] = useState(defaultHeart);
 
   useEffect(() => {
-    switch (listOfFavourite.length) {
-      case 0:
-        setHeart(
-          <motion.li
-            key="0"
-            initial={{ opacity: 0, x: -5 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 25 }}
-          >
-            <FontAwesomeIcon
-              className="broken-heart"
-              icon={faHeartBroken}
-              beatFade
-            ></FontAwesomeIcon>
-          </motion.li>
-        );
-        break;
-      case 1:
-        setHeart(
-          <motion.li
-            key="1"
-            initial={{ opacity: 0, x: -5 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 25 }}
-          >
-            <FontAwesomeIcon
-              className="whole-heart-1"
-              icon={faHeart}
-              beatFade
-            ></FontAwesomeIcon>
-          </motion.li>
-        );
-        break;
-      case 2:
-        setHeart(
-          <motion.li
-            key="2"
-            initial={{ opacity: 0, x: -5 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 25 }}
-          >
-            <FontAwesomeIcon
-              className="whole-heart-2"
-              icon={faHeart}
-              beatFade
-            ></FontAwesomeIcon>
-          </motion.li>
-        );
-        break;
-      case 3:
-        setHeart(
-          <motion.li
-            key="3"
-            initial={{ opacity: 0, x: -5 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 25 }}
-          >
-            <FontAwesomeIcon
-              className="whole-heart-3"
-              icon={faHeart}
-              beatFade
-            ></FontAwesomeIcon>
-          </motion.li>
-        );
-        break;
-      case 4:
-        setHeart(
-          <motion.li
-            key="4"
-            initial={{ opacity: 0, x: -5 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 25 }}
-          >
-            <FontAwesomeIcon
-              className="whole-heart-4"
-              icon={faHeart}
-              beatFade
-            ></FontAwesomeIcon>
-          </motion.li>
-        );
-        break;
-      default:
-        setHeart(
-          <motion.li
-            key="5"
-            initial={{ opacity: 0, x: -5 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 25 }}
-          >
-            <span className="double-heart">
+    //setTimeOut to update FavListIcons after delay 0.2s
+    const timeoutId = setTimeout(() => {
+      switch (listOfFavourite.length) {
+        case 0:
+          setHeart(
+            <motion.li
+              key="0"
+              initial={{ opacity: 0, x: -5 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 25 }}
+            >
               <FontAwesomeIcon
-                className="whole-heart-5"
+                className="broken-heart"
+                icon={faHeartBroken}
+                beatFade
+              ></FontAwesomeIcon>
+            </motion.li>
+          );
+          break;
+        case 1:
+          setHeart(
+            <motion.li
+              key="1"
+              initial={{ opacity: 0, x: -5 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 25 }}
+            >
+              <FontAwesomeIcon
+                className="whole-heart-1"
                 icon={faHeart}
                 beatFade
               ></FontAwesomeIcon>
+            </motion.li>
+          );
+          break;
+        case 2:
+          setHeart(
+            <motion.li
+              key="2"
+              initial={{ opacity: 0, x: -5 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 25 }}
+            >
               <FontAwesomeIcon
-                className="whole-heart-5 second"
+                className="whole-heart-2"
                 icon={faHeart}
                 beatFade
               ></FontAwesomeIcon>
-            </span>
-          </motion.li>
-        );
-        break;
-    }
+            </motion.li>
+          );
+          break;
+        case 3:
+          setHeart(
+            <motion.li
+              key="3"
+              initial={{ opacity: 0, x: -5 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 25 }}
+            >
+              <FontAwesomeIcon
+                className="whole-heart-3"
+                icon={faHeart}
+                beatFade
+              ></FontAwesomeIcon>
+            </motion.li>
+          );
+          break;
+        case 4:
+          setHeart(
+            <motion.li
+              key="4"
+              initial={{ opacity: 0, x: -5 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 25 }}
+            >
+              <FontAwesomeIcon
+                className="whole-heart-4"
+                icon={faHeart}
+                beatFade
+              ></FontAwesomeIcon>
+            </motion.li>
+          );
+          break;
+        default:
+          setHeart(
+            <motion.li
+              key="5"
+              initial={{ opacity: 0, x: -5 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 25 }}
+            >
+              <span className="double-heart">
+                <FontAwesomeIcon
+                  className="whole-heart-5"
+                  icon={faHeart}
+                  beatFade
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  className="whole-heart-5 second"
+                  icon={faHeart}
+                  beatFade
+                ></FontAwesomeIcon>
+              </span>
+            </motion.li>
+          );
+          break;
+      }
+    }, 200);
+
+    return () => clearTimeout(timeoutId);
+
   }, [listOfFavourite.length]);
 
   return (
