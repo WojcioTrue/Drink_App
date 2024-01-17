@@ -1,4 +1,4 @@
-import "../styles/coctail_list_skeleton.css";
+import "../../styles/coctail_list_skeleton.css";
 
 const CoctailListSkeleton = () => {
   return (
