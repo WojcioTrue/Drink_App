@@ -18,10 +18,10 @@ const CoctailList = () => {
 
   return (
     <>
-      {loading === "pending" && <LoadingScreen />}
+      {loading === "pending" && <CoctailListSkeleton/>}
       {loading === "idle" && error == null && (
         <>
-          {/* <div className="grid-coctails">
+          <div className="grid-coctails">
             {data.map((element) => (
               <CoctailElement
                 key={element.idDrink}
@@ -31,8 +31,8 @@ const CoctailList = () => {
               />
             ))}
             
-          </div> */}
-          <CoctailListSkeleton/>
+          </div>
+          
         </>
       )}
       {error && <NotFound />}

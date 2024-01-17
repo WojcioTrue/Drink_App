@@ -12,19 +12,44 @@ const CoctailListSkeleton = () => {
         </div>
       </section>
       <section className="skeleton-list">
-        <div></div>
+        <div>
+          <div className="skeleton-image"></div>
+          <div className="skeleton-title"></div>
+          <div className="skeleton-add-button"></div>
+          <div className="skeleton-details-button"></div>
+        </div>
       </section>
       <section className="skeleton-list">
-        <div></div>
+        <div>
+          <div className="skeleton-image"></div>
+          <div className="skeleton-title"></div>
+          <div className="skeleton-add-button"></div>
+          <div className="skeleton-details-button"></div>
+        </div>
       </section>
       <section className="skeleton-list">
-        <div></div>
+        <div>
+          <div className="skeleton-image"></div>
+          <div className="skeleton-title"></div>
+          <div className="skeleton-add-button"></div>
+          <div className="skeleton-details-button"></div>
+        </div>
       </section>
       <section className="skeleton-list">
-        <div></div>
+        <div>
+          <div className="skeleton-image"></div>
+          <div className="skeleton-title"></div>
+          <div className="skeleton-add-button"></div>
+          <div className="skeleton-details-button"></div>
+        </div>
       </section>
       <section className="skeleton-list">
-        <div></div>
+        <div>
+          <div className="skeleton-image"></div>
+          <div className="skeleton-title"></div>
+          <div className="skeleton-add-button"></div>
+          <div className="skeleton-details-button"></div>
+        </div>
       </section>
     </div>
   );
