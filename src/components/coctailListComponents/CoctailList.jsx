@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDrinks } from "../../features/categoryList/categoryListSlice";
 import LoadingScreen from "../../sharedComponents/LoadingScreen";
+import CoctailListSkeleton from "../../sharedComponents/CoctailListSkeleton";
 
 const CoctailList = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const CoctailList = () => {
       {loading === "pending" && <LoadingScreen />}
       {loading === "idle" && error == null && (
         <>
-          <div className="grid-coctails">
+          {/* <div className="grid-coctails">
             {data.map((element) => (
               <CoctailElement
                 key={element.idDrink}
@@ -29,7 +30,9 @@ const CoctailList = () => {
                 imgSrc={element.strDrinkThumb}
               />
             ))}
-          </div>
+            
+          </div> */}
+          <CoctailListSkeleton/>
         </>
       )}
       {error && <NotFound />}
