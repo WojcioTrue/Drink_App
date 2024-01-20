@@ -8,6 +8,7 @@ import LoadingScreen from "../../sharedComponents/LoadingScreen";
 import { useDispatch, useSelector } from "react-redux";
 import { getDrinkData } from "./drinkDataSlice";
 import NotFound from "../../sharedComponents/NotFound";
+import DrinkInfoSkeleton from "./DrinkInfoSkeleton";
 
 const DrinkInfo = () => {
   const dispatch = useDispatch();
@@ -48,9 +49,10 @@ const DrinkInfo = () => {
 
   return (
     <>
-      {loading === "pending" && <LoadingScreen />}
+      {loading === "pending" && <DrinkInfoSkeleton/>}
       {loading === "idle" && error === null && (
-        <motion.div
+        <>
+         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
@@ -117,6 +119,10 @@ const DrinkInfo = () => {
             </motion.span>
           </div>
         </motion.div>
+          
+        </>
+
+        
       )}
       {error !== null && <NotFound />}
     </>
