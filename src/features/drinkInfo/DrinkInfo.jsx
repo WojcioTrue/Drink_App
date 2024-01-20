@@ -4,7 +4,6 @@ import "../../styles/Drink_info.css";
 import AddRemButton from "../../sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
 import { drinkInfo } from "../../framerStyles/variants";
-import LoadingScreen from "../../sharedComponents/LoadingScreen";
 import { useDispatch, useSelector } from "react-redux";
 import { getDrinkData } from "./drinkDataSlice";
 import NotFound from "../../sharedComponents/NotFound";
