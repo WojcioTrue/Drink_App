@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# Drink_App
+>Creating React Single-Page App with react-router-dom and redux.<br/>
+> Live demo [_here_](https://glowing-seahorse-06bd04.netlify.app/?fbclid=IwAR0TzZNN-pJpbern-46PCNi9vPD2LWYVnJ4nc7A1e54flSGhGqVNNos588g).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+* [Screenshots](#screenshots)
+* [Setup](#setup)
+* [Usage](#usage)
+* [Project Status](#project-status)
+* [Room for Improvement](#room-for-improvement)
+* [Acknowledgements](#acknowledgements)
 
-## Available Scripts
 
-In the project directory, you can run:
+## General Information
+- Smooth animation for background particles .
+- Getting better understanding how particles can be generated, animated and modified.
+- Learning how `Window.requestAnimationFrame()` work.
+- modifying CSS properieties of particle using JavaScript.
+- working on HTMLCollection.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
+- JavaScript
+- HTML
+- CSS3
+- Gulp
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+There are some values for plugin that you can change. All these values (except data-el-color), are interpreted as pixel values.
+- **Setting left margin of particle (default value=50)**
 
-### `npm run build`
+If we don't specify a value, particle will be generated in the left side of window, with left margin set between 0 to 50px (value generated randomly).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+	data-left-margin-start="20"
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **setting maximum size of particle (default value=5)**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Maximum width and height of particle.
 
-### `npm run eject`
+	data-max-dimension="5"
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **setting minimum size of particle (default value=5)**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Minimum width and height of particle.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+	data-min-dimension="5"
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **setting color of particle**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If we don't specify a value, particle will have black color.
 
-### Code Splitting
+	data-el-color="gold"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **mobile friendly**
+- **RWD**
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Screenshot
+![alt text](/src/img/screen_shot.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Setup
+**How to install**<br/>
+Download folders from 'dist' folder.
+Copy them to your website project.
+Add css href in `</head>` element e.g.
 
-### Advanced Configuration
+    <link rel="stylesheet" href="dist/css/style.css">
+Add script before `</body>` tag and initiate e.g.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    <script src ="dist/js/particles.js"></script>
+    <script>practiceInit();</script>
 
-### Deployment
+## Usage
+After download and adding to your website, you need to choose which element should have this animated background.
+When you choosed element, just ad `id="animation"`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**e.g.**
 
-### `npm run build` fails to minify
+	<div id="animation"></div>
+**e.g. with changed default values**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Here particle will be generated with:
+- margin-left with value between 0px and 100px
+- minimal height of 4px
+- maximum height of 15px
+- color of element will be set to "gold"
+<br/>
+
+	<div id="animation" 
+		data-left-margin-start="100" 
+		data-min-dimension="4"       
+		data-max-dimension="15" 
+		data-el-color="gold">
+	</div>
+
+## Project Status
+Project is: _in progress_
+
+
+## Room for Improvement
+
+Room for improvement:
+- make particles float from different sides(top to bottom, left to right etc.)
+- change shape of particle
+- add feature to change z-index of particles
+
+
+## Acknowledgements
+
+- This project was inspired by select menu in game 'apex legends'
