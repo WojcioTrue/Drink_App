@@ -15,7 +15,13 @@
 
 
 ## General Information
-Main goal of making this is app was to Learn React, how hooks and state management work. After time application was growing bigger, so technologies like Redux, React-Router-Dom and axios come in handy. After that, there come time to write some tests (and re-write some code for better testing). There is a room for imporvement (list of comming changes in section (#room-for-improvement) )
+Main goal of making this is app was to Learn React, how hooks and state management work. 
+
+After time application grew bigger, so technologies like Redux, React-Router-Dom and axios come in handy. 
+
+After understanding and implementing this technologies, tests were written (and re-write some code for better testing ). 
+
+There is a room for imporvement (list of comming changes in section (#room-for-improvement) )
 
 
 ## Technologies Used
