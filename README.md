@@ -45,18 +45,18 @@ Drink_App was created for:
 - **Searching drink by name** <br/>
 	Searchbar input field that fetch list of drinks with typed characters, displaying list of first 7 array elements from fetched drinks or less if there is not enough drinks.
 
-- **Searching drink by category**
+- **Searching drink by category** <br/>
 	Displaying drinks by 6 main categories.
 
-- **Searching drink by ingredients**
+- **Searching drink by ingredients** <br/>
 	Searching drinks by ingredients selected in IngredientPrompt component. 
 	Minium ammount of ingredients is 1. 
 	Maximum ammount is 4.
 
-- **List of Favourite drinks**
+- **List of Favourite drinks** <br/>
 	After finding favourite drink, you can add it to your favourite list. In Mobile view you can display favourite drinks list by clicking button in right bottom position. In desktop view there is dedicated component visible with counter, displaying last 5 drinks added to list and button to display full list.
 
-- **Drink details**
+- **Drink details** <br/>
 	Displaying information like: Name of drink, list of ingredients, preparation, type of glass. You can also add/remove drink from your favourite list from drink details view.
 
 - **mobile friendly**
