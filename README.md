@@ -42,7 +42,7 @@ There is a room for imporvement (list of comming changes in section (#room-for-i
 
 Drink_App was created for:
 
-- **Searching drink by name**
+- **Searching drink by name** <br/>
 	Searchbar input field that fetch list of drinks with typed characters, displaying list of first 7 array elements from fetched drinks or less if there is not enough drinks.
 
 - **Searching drink by category**
