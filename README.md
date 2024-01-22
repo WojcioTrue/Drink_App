@@ -85,11 +85,13 @@ Project is: _in progress_
 ## Room for Improvement
 
 Room for improvement:
-- make particles float from different sides(top to bottom, left to right etc.)
-- change shape of particle
-- add feature to change z-index of particles
+- fixing responsive view on mobile devices.
+- changing FavButton component, adding some animation and making it more visible in mobile view.
+- Changing logo, now it's just placeholder.
+- make test more readable and use more 'clean code' when it's come to writing code.
+- add 'loading screen' after first opening app, so all states and data from local storage can be nicely loaded.
 
-
+<!-- 
 ## Acknowledgements
 
-- This project was inspired by select menu in game 'apex legends'
+- This project was inspired by select menu in game 'apex legends' -->
