@@ -8,7 +8,6 @@
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
-* [Usage](#usage)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
@@ -34,41 +33,34 @@ There is a room for imporvement (list of comming changes in section (#room-for-i
 - react testing library (RTL)
 - axios
 - mock service worker
+- TheCocktailDB API
 - font-awesome
 - framer-motion
 - react-animated-numbers
 
 ## Features
-There are some values for plugin that you can change. All these values (except data-el-color), are interpreted as pixel values.
-- **Setting left margin of particle (default value=50)**
 
-If we don't specify a value, particle will be generated in the left side of window, with left margin set between 0 to 50px (value generated randomly).
+Drink_App was created for:
 
-	data-left-margin-start="20"
+- **Searching drink by name**
+	Searchbar input field that fetch list of drinks with typed characters, displaying list of first 7 array elements from fetched drinks or less if there is not enough drinks.
 
-- **setting maximum size of particle (default value=5)**
+- **Searching drink by category**
+	Displaying drinks by 6 main categories.
 
-Maximum width and height of particle.
+- **Searching drink by ingredients**
+	Searching drinks by ingredients selected in IngredientPrompt component. 
+	Minium ammount of ingredients is 1. 
+	Maximum ammount is 4.
 
-	data-max-dimension="5"
+- **List of Favourite drinks**
+	After finding favourite drink, you can add it to your favourite list. In Mobile view you can display favourite drinks list by clicking button in right bottom position. In desktop view there is dedicated component visible with counter, displaying last 5 drinks added to list and button to display full list.
 
-
-- **setting minimum size of particle (default value=5)**
-
-Minimum width and height of particle.
-
-	data-min-dimension="5"
-
-
-- **setting color of particle**
-
-If we don't specify a value, particle will have black color.
-
-	data-el-color="gold"
+- **Drink details**
+	Displaying information like: Name of drink, list of ingredients, preparation, type of glass. You can also add/remove drink from your favourite list from drink details view.
 
 - **mobile friendly**
 - **RWD**
-
 
 
 ## Screenshot
@@ -85,29 +77,6 @@ Add script before `</body>` tag and initiate e.g.
 
     <script src ="dist/js/particles.js"></script>
     <script>practiceInit();</script>
-
-## Usage
-After download and adding to your website, you need to choose which element should have this animated background.
-When you choosed element, just ad `id="animation"`.
-
-**e.g.**
-
-	<div id="animation"></div>
-**e.g. with changed default values**
-
-Here particle will be generated with:
-- margin-left with value between 0px and 100px
-- minimal height of 4px
-- maximum height of 15px
-- color of element will be set to "gold"
-<br/>
-
-	<div id="animation" 
-		data-left-margin-start="100" 
-		data-min-dimension="4"       
-		data-max-dimension="15" 
-		data-el-color="gold">
-	</div>
 
 ## Project Status
 Project is: _in progress_
