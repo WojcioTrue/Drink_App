@@ -70,15 +70,12 @@ Drink_App was created for:
 ![Alt text](/public/screenshots/drink_info.png?raw=true "Optional Title")
 ## Setup
 **How to install**<br/>
-Download folders from 'dist' folder.
-Copy them to your website project.
-Add css href in `</head>` element e.g.
+Installation: npm install
 
-    <link rel="stylesheet" href="dist/css/style.css">
-Add script before `</body>` tag and initiate e.g.
+In the project directory, you can run: npm start
 
-    <script src ="dist/js/particles.js"></script>
-    <script>practiceInit();</script>
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser. The page will reload if you make edits.
 
 ## Project Status
 Project is: _in progress_
