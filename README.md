@@ -64,8 +64,10 @@ Drink_App was created for:
 
 
 ## Screenshot
-![alt text](/src/img/screen_shot.png)
-
+- **main page**
+![Alt text](/public/screenshots/main_page.png?raw=true "Optional Title")
+- **drink info**
+![Alt text](/public/screenshots/drink_info.png?raw=true "Optional Title")
 ## Setup
 **How to install**<br/>
 Download folders from 'dist' folder.
