@@ -26,14 +26,13 @@
 - CSS
 - Redux
 - react-router-dom
-- framer-motion
+- JEST
+- react testing library (RTL)
 - axios
 - mock service worker
 - font-awesome
-- JEST
-- react testing library (RTL)
+- framer-motion
 - react-animated-numbers
-
 
 ## Features
 There are some values for plugin that you can change. All these values (except data-el-color), are interpreted as pixel values.
