@@ -1,5 +1,5 @@
 # Drink_App
->Creating React Single-Page App with react-router-dom and redux.<br/>
+>Creating React Single-Page-Application with react-router-dom and redux.<br/>
 > Live demo [_here_](https://glowing-seahorse-06bd04.netlify.app/?fbclid=IwAR0TzZNN-pJpbern-46PCNi9vPD2LWYVnJ4nc7A1e54flSGhGqVNNos588g).
 
 ## Table of Contents
@@ -16,18 +16,23 @@
 
 ## General Information
 - Smooth animation for background particles .
-- Getting better understanding how particles can be generated, animated and modified.
-- Learning how `Window.requestAnimationFrame()` work.
-- modifying CSS properieties of particle using JavaScript.
-- working on HTMLCollection.
+- 
 
 
 
 ## Technologies Used
-- JavaScript
-- HTML
-- CSS3
-- Gulp
+- React
+- JSX
+- CSS
+- Redux
+- react-router-dom
+- framer-motion
+- axios
+- mock service worker
+- font-awesome
+- JEST
+- react testing library (RTL)
+- react-animated-numbers
 
 
 ## Features
