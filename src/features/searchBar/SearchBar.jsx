@@ -25,7 +25,7 @@ const Searchbar = () => {
             className="search-bar__logo"
             title="logo"
           />
-          FindMyDrink.
+          FindMyDrink.X
         </Link>
       </h2>
         <SearchBarInput/>
