@@ -1,6 +1,6 @@
 # Drink_App
 >Creating React Single-Page-Application with react-router-dom and redux.<br/>
-> Live demo [_here_](https://glowing-seahorse-06bd04.netlify.app/?fbclid=IwAR0TzZNN-pJpbern-46PCNi9vPD2LWYVnJ4nc7A1e54flSGhGqVNNos588g).
+> Live demo [_here_](https://drink-app-wojcio-true.netlify.app).
 
 ## Table of Contents
 * [General Info](#general-information)
