@@ -16,7 +16,7 @@ const IngredientPrompt = () => {
   const { display, disableButtonTest } = useSelector(
     (state) => state.ingredientsButtons
   );
-  const { data, loading, error } = useSelector(
+  const { data} = useSelector(
     (state) => state.ingredientsData
   );
   const [ingredientsLink, setIngredientsLink] = useState("");

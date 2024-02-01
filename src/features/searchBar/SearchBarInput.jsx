@@ -1,5 +1,5 @@
 import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import SearchBarSuggestions from "./SearchBarSuggestions";
 import { useDispatch, useSelector } from "react-redux";
 import { searchDrinks } from "./searchBarSlice";

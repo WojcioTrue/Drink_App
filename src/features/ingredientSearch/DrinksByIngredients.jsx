@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import { fetchDrinksByIngredient } from "./ingredientsDataSlice";
 
 const DrinksByIngredients = () => {
-  const { data, loading, error } = useSelector(
+  const { data } = useSelector(
     (state) => state.ingredientsData
   );
   const { display } = useSelector((state) => state.ingredientsButtons);
@@ -21,7 +21,7 @@ const DrinksByIngredients = () => {
     if (inputString !== data.searchParams) {
       dispatch(fetchDrinksByIngredient(inputString));
     }
-  }, []);
+  }, [dispatch, data.searchParams, ingredientsParams.id]);
 
   useEffect(() => {
     if (!display && data.drinkList.length > 0) {

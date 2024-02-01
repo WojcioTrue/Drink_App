@@ -13,7 +13,7 @@ import {
 } from "./ingredientsDataSlice";
 
 const IngredientList = () => {
-  const { data, loading, error } = useSelector(
+  const { data } = useSelector(
     (state) => state.ingredientsData
   );
 
