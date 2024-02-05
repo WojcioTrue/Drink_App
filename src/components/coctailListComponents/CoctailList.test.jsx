@@ -47,21 +47,13 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
   test("Mocking data with default 'Vodka' value inside redux-thunk", async () => {
     // rendering elements with redux provider wrapper
     renderWithProviders(<CoctailList />);
-    // no drinkList initialy, pending data
-    const loadingText = screen.getByText(/Loading.../i);
-    expect(loadingText).toBeInTheDocument();
-    // waiting for element to be removed
-    await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
-    expect(loadingText).not.toBeInTheDocument();
+
     // check if first drink is rendered
     const titleOfDrink = await screen.findByText(/155 Belmont/i);
     expect(titleOfDrink).toBeInTheDocument();
   });
   test("compare rendered images src with mocked data", async () => {
     renderWithProviders(<CoctailList />);
-
-    // waiting for pending data to be sucessful and "loading..." text to me removed
-    await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
 
     //loop through vodka drinks and check if img exist
     for (let i = 0; i < vodka.drinks.length; i++) {
@@ -75,13 +67,9 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
   });
   test("compare rendered names of drinks with the one from mocked data", async () => {
     renderWithProviders(<CoctailList />);
-
-    // waiting for pending data to be sucessful and "loading..." text to me removed
-    await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
-
     // loop through mocked data and compare it with rendered titles
     for (let i = 0; i < vodka.drinks.length; i++) {
-      const gridCoctailsHeaders = screen.getAllByRole("heading", {
+      const gridCoctailsHeaders = await screen.findAllByRole("heading", {
         level: 4,
       });
       expect(gridCoctailsHeaders[i]).toBeInTheDocument();
@@ -106,11 +94,9 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
         store.dispatch(getDrinks(arrOfCategories[i].categoryName));
         renderWithProviders(<CoctailList />, { store });
 
-        // wait for loadin... to fullfill
-        await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
 
         // get name of first drink from mocked data
-        const firstDrink = screen.getByText(
+        const firstDrink = await screen.findByText(
           `${arrOfCategories[i].mockData.drinks[0].strDrink}`
         );
         // check if mocked drink was rendered
@@ -126,10 +112,8 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
     store.dispatch(getDrinks("Gin_Vodka"));
     renderWithProviders(<CoctailList />, { store });
 
-    await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
-
     // error Img inside NotFound message
-    const errorPic = screen.getByRole("img");
+    const errorPic = await screen.findByRole("img");
     expect(errorPic.alt).toContain("Alt img for error prompt");
 
     // should return error text

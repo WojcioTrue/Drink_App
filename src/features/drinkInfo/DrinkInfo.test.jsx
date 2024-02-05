@@ -123,9 +123,7 @@ describe("test for single drink with provided route parameter", () => {
     require("react-router-dom").useParams.mockReturnValue({ id: "17105x" });
     renderWithProviders(<DrinkInfo />);
 
-    await waitForElementToBeRemoved(await screen.findByText(/Loading.../i));
-
-    const errorHeader = screen.getByText(/something went wrong!/i);
+    const errorHeader = await screen.findByText(/something went wrong!/i);
     expect(errorHeader).toBeInTheDocument();
     const firstErrorMessage = screen.getByText(
       /i don't see the page you looking for, or some error occured.../i
