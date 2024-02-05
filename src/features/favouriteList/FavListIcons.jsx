@@ -131,7 +131,7 @@ const FavListIcons = () => {
           );
           break;
       }
-    }, 200);
+    }, 300);
 
     return () => clearTimeout(timeoutId);
 
