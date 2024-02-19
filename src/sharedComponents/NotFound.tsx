@@ -1,11 +1,11 @@
 import Message from "./Message";
-import Button from "../sharedComponents/Button";
+import Button from "./Button";
 import { Link } from "react-router-dom";
 import '../styles/not_found.css'
 import { coctailButton } from '../framerStyles/variants'
 import { noFavouriteDrinks } from '../framerStyles/variants'
 
-const NotFound = () => {
+const NotFound: React.FC = () => {
   return (
     <div className="not-found">
       <Message
