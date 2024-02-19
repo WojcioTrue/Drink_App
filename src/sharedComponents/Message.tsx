@@ -1,7 +1,16 @@
 import "../styles/message.css";
-import { motion } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 
-const Message = ({ header, text, secondText, img, imgAltText, animationVariant }) => {
+type MessageProps = {
+  header: string,
+  text: string,
+  secondText: string,
+  img: string,
+  imgAltText: string,
+  animationVariant : Variants
+}
+
+const Message = ({ header, text, secondText, img, imgAltText, animationVariant } : MessageProps) => {
   return (
     <motion.div
       variants={animationVariant}
