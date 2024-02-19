@@ -1,8 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const displayIngredients = {
+
+export type DisplayIngredientsProps = {
+  display: boolean;
+  disableButtonTest: {
+    toDisable: boolean;
+  };
+}
+
+const displayIngredients: DisplayIngredientsProps = {
   display: false,
-  disableButtonTest: { toDisable: false},
+  disableButtonTest: { toDisable: false },
 };
 
 // reducers linked to buttons interactions
@@ -19,13 +27,11 @@ const ingredientsButtonsSlice = createSlice({
     disableButton(state) {
       state.disableButtonTest = {
         toDisable: true,
-
       };
     },
-    enableButton(state, action) {
+    enableButton(state) {
       state.disableButtonTest = {
         toDisable: false,
-
       };
     },
   },

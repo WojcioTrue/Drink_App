@@ -7,10 +7,6 @@ import ingredientsButtonsReducer from "../features/ingredientSearch/ingredientsB
 import ingredientsDataReducer from "../features/ingredientSearch/ingredientsDataSlice";
 import { PreloadedState, combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import { StateFromReducersMapObject } from "@reduxjs/toolkit";
-
-export type RootState = StateFromReducersMapObject<typeof rootReducer>
-
 
 const rootReducer = combineReducers({
   favouriteList: favouriteListReducer,
@@ -33,5 +29,5 @@ export function setupStore(preloadedState?: PreloadedState<RootState>) {
   });
 }
 
-type Store = ReturnType<typeof setupStore>
-export type AppDispatch = Store['dispatch']
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

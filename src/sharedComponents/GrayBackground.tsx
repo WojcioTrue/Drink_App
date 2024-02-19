@@ -1,10 +1,11 @@
 import "../styles/grayBackground.css";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import { useAppSelector } from '../app/storeHooks'
 import { grayBackground } from "../framerStyles/variants";
 
 const GrayBackground = () => {
-  const { display } = useSelector((state) => state.ingredientsButtons);
+  const display = useAppSelector((state) => state.ingredientsButtons.display);
 
   return (
     display && 
