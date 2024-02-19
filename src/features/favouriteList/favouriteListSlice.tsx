@@ -1,9 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit'
 // getting localstore for favourite Drinks
+
+interface DrinkInterface {
+  idDrink: string,
+  strDrink: string,
+  strDrinkThumb: string
+}
+
+interface ToRemove {
+  idDrink: string
+}
 
 const getLocalStorage = localStorage.getItem("favouriteList")
 
-const initialState = getLocalStorage ? JSON.parse(getLocalStorage)
+const initialState: DrinkInterface[] = getLocalStorage ? JSON.parse(getLocalStorage)
   : [];
 
 const favouriteListSlice = createSlice({
@@ -11,7 +22,7 @@ const favouriteListSlice = createSlice({
   initialState,
   reducers: {
     addToFavourite: {
-      reducer(state, action) {
+      reducer(state, action: PayloadAction<DrinkInterface>) {
         return (state = [action.payload, ...state]);
       },
       prepare(id, name, img) {
@@ -25,7 +36,7 @@ const favouriteListSlice = createSlice({
       },
     },
     removeFromFavourite: {
-      reducer(state, action) {
+      reducer(state, action: PayloadAction<ToRemove>) {
         return (state = state.filter(
           (element) => element.idDrink !== action.payload.idDrink
         ));

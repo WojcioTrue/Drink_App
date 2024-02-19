@@ -3,14 +3,27 @@ import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import "../styles/add_rem_button.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from '../app/storeHooks'
 import {
   addToFavourite,
   removeFromFavourite,
 } from "../features/favouriteList/favouriteListSlice";
 import { addNotification } from "../features/notificationList/notificationListSlice";
 
-const localStorageFavouriteList = (type, state, element) => {
+type AddRemButtonProps = {
+  name: string,
+  id: string,
+  img: string,
+  className: string,
+}
+
+type favouriteElement = {
+  idDrink: string,
+  strDrink: string,
+  strDrinkThumb: string,
+}
+
+const localStorageFavouriteList = (type: string, state: favouriteElement[], element: favouriteElement) => {
   switch (type) {
     case "add":
       localStorage.setItem(
@@ -33,11 +46,11 @@ const localStorageFavouriteList = (type, state, element) => {
   }
 };
 
-function AddRemButton({ name, id, img, className }) {
-  const isOnFavourite = useSelector((state) => state.favouriteList);
+function AddRemButton({ name, id, img, className }: AddRemButtonProps) {
+  const isOnFavourite = useAppSelector((state) => state.favouriteList);
   const [inFavourite, setInFavourite] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     function isOnList() {
       return isOnFavourite.some((drink) => drink.idDrink === id);
@@ -69,7 +82,7 @@ function AddRemButton({ name, id, img, className }) {
           title="addFavourite"
           onClick={() => {
             dispatch(
-              addToFavourite(id,name,img)
+              addToFavourite(id, name, img)
             );
             dispatch(addNotification(true));
             localStorageFavouriteList("add", isOnFavourite, {
