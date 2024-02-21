@@ -3,13 +3,20 @@ import CoctailElement from "./CoctailListElement";
 import { useEffect } from "react";
 import NotFound from "../../sharedComponents/NotFound";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { getDrinks } from "../../features/categoryList/categoryListSlice";
 import CoctailListSkeleton from "./CoctailListSkeleton";
+import { useAppDispatch, useAppSelector } from "../../app/storeHooks";
+
+type CoctailElementProps = {
+  idDrink: string,
+  strDrink: string,
+  strDrinkThumb: string,
+  useLayout?: boolean
+}
 
 const CoctailList = () => {
-  const dispatch = useDispatch();
-  const { data, loading, error } = useSelector((state) => state.categoryList);
+  const dispatch = useAppDispatch();
+  const { data, loading, error } = useAppSelector((state) => state.categoryList);
   const { id } = useParams();
   useEffect(() => {
     dispatch(getDrinks(id));
@@ -21,12 +28,12 @@ const CoctailList = () => {
       {loading === "idle" && error == null && (
         <>
           <div className="grid-coctails">
-            {data.map((element) => (
+            {data.map(({idDrink, strDrink, strDrinkThumb}:CoctailElementProps) => (
               <CoctailElement
-                key={element.idDrink}
-                id={element.idDrink}
-                name={element.strDrink}
-                imgSrc={element.strDrinkThumb}
+                key={idDrink}
+                id={idDrink}
+                name={strDrink}
+                imgSrc={strDrinkThumb}
               />
             ))}
             

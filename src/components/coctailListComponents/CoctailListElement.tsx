@@ -4,7 +4,14 @@ import AddRemButton from "../../sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
 import { coctailButton } from "../../framerStyles/variants"
 
-const CoctailElement = ({ id, name, imgSrc, useLayout }) => {
+type CoctailElementProps = {
+  id: string,
+  name: string,
+  imgSrc: string,
+  useLayout?: boolean
+}
+
+const CoctailElement = ({ id, name, imgSrc, useLayout }: CoctailElementProps) => {
 
   return (
     <motion.section

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getDrinks = createAsyncThunk(
   `categoryList/getDrinks`,
-  async (category = "Vodka", { rejectWithValue }) => {
+  async (category: string = "Vodka", { rejectWithValue }) => {
     try {
       const response = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${category}`
@@ -15,7 +15,13 @@ export const getDrinks = createAsyncThunk(
   }
 );
 
-const initialState = {
+type initialStateProps = {
+  data : [];
+  loading: string;
+  error : null | string;
+}
+
+const initialState: initialStateProps = {
   data: [],
   loading: "idle",
   error: null,
