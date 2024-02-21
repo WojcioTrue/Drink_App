@@ -1,5 +1,11 @@
+type arrayOfCategoriesProps = {
+  LinkTo: string;
+  state: {category: string};
+  img: string;
+  text: string;
+}
 
-export const arrayOfCategories = [
+export const arrayOfCategories : arrayOfCategoriesProps[] = [
     {
       LinkTo: "Whiskey",
       state: { category: "Whiskey" },

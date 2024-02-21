@@ -2,9 +2,12 @@ import "../../styles/categories_list.css";
 import { motion } from 'framer-motion';
 import { categoryGestures } from '../../framerStyles/variants'
 
+type CategoryListElementType = {
+  imgSrc: string;
+  text: string;
+}
 
-
-const CategoryListElement = ({ imgSrc, text }) => {
+const CategoryListElement = ({ imgSrc, text }:CategoryListElementType) => {
 
   return (
     <motion.li 
