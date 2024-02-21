@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+
 export const getDrinkData = createAsyncThunk(
   "drinkInfo/getDrinks",
-  async (id, { rejectWithValue }) => {
+  async (id: string | undefined, { rejectWithValue }) => {
     try {
       const data = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
@@ -15,8 +16,14 @@ export const getDrinkData = createAsyncThunk(
   }
 );
 
-const initialState = {
-  data: [],
+type InitialStateType = {
+  data : Record<string,null>;
+  loading: string,
+  error: null | string,
+}
+
+const initialState:InitialStateType = {
+  data: {},
   loading: "idle",
   error: null,
 };

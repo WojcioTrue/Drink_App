@@ -4,16 +4,18 @@ import "../../styles/Drink_info.css";
 import AddRemButton from "../../sharedComponents/AddRemButton";
 import { motion } from "framer-motion";
 import { drinkInfo } from "../../framerStyles/variants";
-import { useDispatch, useSelector } from "react-redux";
 import { getDrinkData } from "./drinkDataSlice";
 import NotFound from "../../sharedComponents/NotFound";
 import DrinkInfoSkeleton from "./DrinkInfoSkeleton";
+import { useAppDispatch, useAppSelector } from "../../app/storeHooks";
+
+
 
 const DrinkInfo = () => {
-  const dispatch = useDispatch();
-  const listOfFavourite = useSelector((state) => state.favouriteList);
-  const { data, loading, error } = useSelector((state) => state.drinkData);
-  const [ingredients, setIngredients] = useState([]);
+  const dispatch = useAppDispatch();
+  const listOfFavourite = useAppSelector((state) => state.favouriteList);
+  const { data, loading, error } = useAppSelector((state) => state.drinkData);
+  const [ingredients, setIngredients] = useState<any>([]);
   const [isFavourite, setIsFavourite] = useState(true);
   const { id } = useParams();
 
@@ -32,7 +34,7 @@ const DrinkInfo = () => {
 
   // initiate looping through ingredients when data is available
   useEffect(() => {
-    function checkIngredients() {
+    function checkIngredients(): void {
       let i = 1;
       const listOfIngredients = [];
       while (data[`strIngredient${i}`] !== null) {
@@ -64,7 +66,7 @@ const DrinkInfo = () => {
             custom={2}
             className="drink-info__img"
           >
-            <img alt="#" src={data.strDrinkThumb} />
+            <img alt="#" src={data.strDrinkThumb!} />
           </motion.div>
 
           <div className="drink-info__description">
@@ -77,9 +79,9 @@ const DrinkInfo = () => {
               <h2>{data.strDrink}</h2>
               <p className="favouriteButton">
                 <AddRemButton
-                  name={data.strDrink}
-                  id={id}
-                  img={data.strDrinkThumb}
+                  name={data.strDrink!}
+                  id={id!}
+                  img={data.strDrinkThumb!}
                   className="drink-info__addbutton"
                   // title={isFavourite ? "favourite" : "notFavourite"}
                 />
@@ -94,7 +96,7 @@ const DrinkInfo = () => {
               custom={2}
             >
               <h3>List of ingredients:</h3>
-              {ingredients.map((ingredient) => (
+              {ingredients.map((ingredient : string) => (
                 <li key={ingredient}>- {ingredient}</li>
               ))}
             </motion.ul>
