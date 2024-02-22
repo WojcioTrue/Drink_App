@@ -2,22 +2,33 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { nanoid } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/storeHooks";
+
+type IngredientListElementType = {
+  listNumber: number;
+  listElement: {
+    id: string;
+    value: string;
+  };
+  removeIngredient: (id: string) => void;
+  changeSelected: (id: string, valueById: string) => void;
+}
 
 const IngredientListElement = ({
   listNumber,
   listElement,
   removeIngredient,
   changeSelected,
-  onList,
-}) => {
-  const [removedDuplicates, setRemovedDuplicates] = useState([]);
+
+}: IngredientListElementType) => {
+  const [removedDuplicates, setRemovedDuplicates] = useState<string[]>([]);
   const id = listElement.id;
-  const { data } = useSelector((state) => state.ingredientsData);
+  const { data } = useAppSelector((state) => state.ingredientsData);
+  const valueById = document.getElementById(id) as HTMLSelectElement;
 
   useEffect(() => {
     const onList = data.selectedIngredients;
-    let shallowCopy = [...data.ingredients];
+    let shallowCopy: string[] = [...data.ingredients];
     for (let element of onList) {
       // make selected element visible on list
       if (element.value === listElement.value) {
@@ -29,7 +40,7 @@ const IngredientListElement = ({
       }
     }
     setRemovedDuplicates(shallowCopy);
-  }, [onList, listElement, data.selectedIngredients, data.ingredients]);
+  }, [listElement, data.selectedIngredients, data.ingredients]);
 
   return (
     <>
@@ -38,7 +49,7 @@ const IngredientListElement = ({
         <div>
           <select
             onChange={() =>
-              changeSelected(id, document.getElementById(id).value)
+              changeSelected(id, valueById.value)
             }
             name={id}
             id={id}
@@ -57,7 +68,7 @@ const IngredientListElement = ({
             data-testid={`removeField${listNumber + 1}`}
             className={
               "remove-ingredient" + (data.selectedIngredients.length > 1 ?
-               "" : " remove-ingredient--disabled")
+                "" : " remove-ingredient--disabled")
             }
             onClick={() =>
               data.selectedIngredients.length > 1 ? removeIngredient(id) : null

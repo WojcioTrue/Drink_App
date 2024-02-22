@@ -6,18 +6,18 @@ import {
   changeSelectedField,
   changeSearchParams,
 } from "./ingredientsDataSlice";
-import { useDispatch, useSelector } from "react-redux";
 import {
   fetchIngrediendsData,
   fetchDrinksByIngredient,
 } from "./ingredientsDataSlice";
+import { useAppDispatch, useAppSelector } from "../../app/storeHooks";
 
 const IngredientList = () => {
-  const { data } = useSelector(
+  const { data } = useAppSelector(
     (state) => state.ingredientsData
   );
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // list of all ingredients
   useEffect(() => {
@@ -26,7 +26,7 @@ const IngredientList = () => {
 
   // list of drinks by ingredient
   useEffect(() => {
-    dispatch(changeSearchParams(data.searchParams));
+    dispatch(changeSearchParams());
   }, [dispatch, data.selectedIngredients, data.searchParams]);
 
   useEffect(() => {
@@ -41,11 +41,11 @@ const IngredientList = () => {
     }
   }, [data.drinkList, dispatch]);
 
-  const removeIngredient = (id) => {
+  const removeIngredient = (id:string) => {
     dispatch(removeIngredientField(id));
   };
 
-  const changeSelected = (id, value) => {
+  const changeSelected = (id:string, value:string) => {
     dispatch(changeSelectedField({ id, value }));
   };
 

@@ -1,10 +1,10 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
 import type { DrinkType } from "./mockData/ginData";
 
 export const fetchDrinksByIngredient = createAsyncThunk(
   "categoryList/fetchDrinksByIngredient",
-  async (searchParams: string, { rejectWithValue }) => {
+  async (searchParams: string , { rejectWithValue }) => {
     try {
       let url =
         "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=";
@@ -49,9 +49,7 @@ type initialStateType = {
           value: string;
       }[];
       searchParams: string;
-      drinkList: {strDrink: string;
-        strDrinkThumb: string;
-        idDrink: string;}[];
+      drinkList: DrinkType[];
   };
   loading: string;
   error: null | string;
