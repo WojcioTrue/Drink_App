@@ -31,6 +31,7 @@ const IngredientPrompt = () => {
 
   const hidePrompt = () => {
     dispatch(hideElement());
+    dispatch(clearSelectedIngredients());
   };
 
   const addIngredient = () => {
@@ -54,7 +55,7 @@ const IngredientPrompt = () => {
           <FontAwesomeIcon
             onClick={() => {
               hidePrompt();
-              clearSelectedIngredients()}}
+              }}
             className="close-prompt"
             data-testid="close-prompt-test"
             icon={faXmark}
