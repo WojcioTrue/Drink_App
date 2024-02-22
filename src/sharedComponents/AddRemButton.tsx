@@ -13,7 +13,7 @@ import { addNotification } from "../features/notificationList/notificationListSl
 type AddRemButtonProps = {
   name: string,
   id: string,
-  img: string,
+  img?: string,
   className: string,
 }
 
@@ -71,7 +71,7 @@ function AddRemButton({ name, id, img, className }: AddRemButtonProps) {
             localStorageFavouriteList("remove", isOnFavourite, {
               idDrink: id,
               strDrink: name,
-              strDrinkThumb: img,
+              strDrinkThumb: img!,
             });
           }}
         />
@@ -88,7 +88,7 @@ function AddRemButton({ name, id, img, className }: AddRemButtonProps) {
             localStorageFavouriteList("add", isOnFavourite, {
               idDrink: id,
               strDrink: name,
-              strDrinkThumb: img,
+              strDrinkThumb: img!,
             });
           }}
         />

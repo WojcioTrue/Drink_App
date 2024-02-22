@@ -5,15 +5,20 @@ import Button from "../../sharedComponents/Button";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { favouriteButton } from "../../framerStyles/variants";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import FavListIcons from "./FavListIcons";
+import { useAppSelector } from "../../app/storeHooks";
+
+type FavouriteListElementProps = {
+  strDrink: string;
+  idDrink: string;
+}
 
 const FavouriteList = () => {
-  const listOfFavourite = useSelector((state) => state.favouriteList);
-  const [afterSliceList, setAfterSliceList] = useState([]);
+  const listOfFavourite = useAppSelector((state) => state.favouriteList);
+  const [afterSliceList, setAfterSliceList] = useState<ReactNode[]>([]);
 
-  const returnFavourite = ({ strDrink, idDrink }) => {
+  const returnFavourite = ({ strDrink, idDrink }: FavouriteListElementProps) => {
     return (
       <FavouriteListElement key={idDrink} strDrink={strDrink} id={idDrink} />
     );
@@ -38,7 +43,7 @@ const FavouriteList = () => {
       >
         <div className="coctails__counter">
           <div className="coctails__counter__left">
-            <FavListIcons/>
+            <FavListIcons />
           </div>
           <div className="coctails__counter__right">
             <p>Favourite Drinks:</p>

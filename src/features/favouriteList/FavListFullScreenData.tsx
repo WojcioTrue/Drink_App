@@ -1,4 +1,10 @@
-export const arrOfFavourite = [
+type arrOfFavouriteProps = {
+  idDrink: string;
+  strDrink :string;
+  strDrinkThumb: string;
+}
+
+export const arrOfFavourite:arrOfFavouriteProps[] = [
   {
     idDrink: "17222",
     strDrink: "A1",

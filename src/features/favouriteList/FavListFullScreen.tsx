@@ -4,10 +4,10 @@ import Message from "../../sharedComponents/Message";
 import { AnimatePresence } from "framer-motion";
 import { noFavouriteDrinks } from "../../framerStyles/variants";
 import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/storeHooks";
 
 const FavListFullScreen = () => {
-  const listOfFavourite = useSelector((state) => state.favouriteList);
+  const listOfFavourite = useAppSelector((state) => state.favouriteList);
   // check if CoctailListElement is inside favourite_list component,
   // if so return true
   const location = useLocation();
@@ -40,6 +40,7 @@ const FavListFullScreen = () => {
           text={"Add something to your favourite list."}
           secondText={"Drink responsibly!"}
           img={process.env.PUBLIC_URL + "./img/fav_icon.png"}
+          imgAltText="Empty list image"
         />
       )}
     </div>

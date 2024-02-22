@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useAppSelector } from "../../app/storeHooks";
 
 const defaultHeart = (
   <motion.li
@@ -20,7 +20,7 @@ const defaultHeart = (
 );
 
 const FavListIcons = () => {
-  const listOfFavourite = useSelector((state) => state.favouriteList);
+  const listOfFavourite = useAppSelector((state) => state.favouriteList);
   const [heart, setHeart] = useState(defaultHeart);
 
   useEffect(() => {
