@@ -30,8 +30,8 @@ const IngredientPrompt = () => {
   }, [data.searchParams]);
 
   const hidePrompt = () => {
-    dispatch(hideElement());
     dispatch(clearSelectedIngredients());
+    dispatch(hideElement());
   };
 
   const addIngredient = () => {
@@ -39,8 +39,8 @@ const IngredientPrompt = () => {
   };
 
   const displayByIngredient = () => {
-    dispatch(hideElement());
     dispatch(clearSelectedIngredients());
+    dispatch(hideElement());
   };
 
   return (

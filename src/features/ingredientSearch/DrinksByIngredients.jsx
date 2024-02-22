@@ -18,10 +18,11 @@ const DrinksByIngredients = () => {
 
   useEffect(() => {
     let inputString = ingredientsParams.id.replace(/&/g, ",");
-    if (inputString !== data.searchParams) {
+    if (inputString !== "") {
       dispatch(fetchDrinksByIngredient(inputString));
     }
-  }, [dispatch, data.searchParams, ingredientsParams.id]);
+    // only need to rerender when id is changed
+  }, [dispatch, ingredientsParams.id]);
 
   useEffect(() => {
     if (!display && data.drinkList.length > 0) {

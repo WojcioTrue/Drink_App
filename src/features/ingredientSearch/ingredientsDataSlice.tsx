@@ -49,7 +49,9 @@ type initialStateType = {
           value: string;
       }[];
       searchParams: string;
-      drinkList: DrinkType[];
+      drinkList: {strDrink: string;
+        strDrinkThumb: string;
+        idDrink: string;}[];
   };
   loading: string;
   error: null | string;
