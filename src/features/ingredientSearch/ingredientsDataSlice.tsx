@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
+import type { DrinkType } from "./mockData/ginData";
 
 export const fetchDrinksByIngredient = createAsyncThunk(
   "categoryList/fetchDrinksByIngredient",
-  async (searchParams, { rejectWithValue }) => {
+  async (searchParams: string, { rejectWithValue }) => {
     try {
       let url =
         "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=";
@@ -40,7 +41,21 @@ export const fetchIngrediendsData = createAsyncThunk(
   }
 );
 
-const initialState = {
+type initialStateType = {
+  data: {
+      ingredients: string[];
+      selectedIngredients: {
+          id: string;
+          value: string;
+      }[];
+      searchParams: string;
+      drinkList: DrinkType[];
+  };
+  loading: string;
+  error: null | string;
+}
+
+const initialState: initialStateType = {
   data: {
     ingredients: [],
     selectedIngredients: [{ id: nanoid(), value: "" }],
@@ -86,9 +101,6 @@ const ingredientsDataSlice = createSlice({
       }
       state.data.searchParams = arrOfIngredients.join(",");
     },
-    drinkListTodisplay(state){
-      state.data.drinksListToDisplay = state.data.drinkList
-    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchIngrediendsData.pending, (state) => {
@@ -98,7 +110,7 @@ const ingredientsDataSlice = createSlice({
     builder.addCase(fetchIngrediendsData.fulfilled, (state, action) => {
       const data = action.payload;
       state.data.ingredients = data.drinks.map(
-        (element) => element.strIngredient1
+        (element: {strIngredient1: string}) => element.strIngredient1
       );
       state.loading = "idle";
       state.error = null;
@@ -130,7 +142,6 @@ export const {
   removeIngredientField,
   changeSelectedField,
   changeSearchParams,
-  drinkListTodisplay,
 } = ingredientsDataSlice.actions;
 
 export default ingredientsDataSlice.reducer;

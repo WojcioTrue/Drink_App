@@ -1,4 +1,4 @@
-type MockedDrinkType = {
+export type DrinkType = {
   strDrink: string;
   strDrinkThumb: string;
   idDrink: string;
@@ -6,7 +6,7 @@ type MockedDrinkType = {
 
 
 export type MockedDrinkArrayType = {
-  drinks:MockedDrinkType[]
+  drinks:DrinkType[]
 }
 
 
