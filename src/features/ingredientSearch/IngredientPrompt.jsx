@@ -5,18 +5,19 @@ import { hideElement } from "./ingredientsButtonsSlice";
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import IngredientListForm from "./IngredientListForm";
-import { addIngredientField } from "./ingredientsDataSlice";
+import { addIngredientField, clearSelectedIngredients } from "./ingredientsDataSlice";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ingredientPrompt } from "../../framerStyles/variants";
 import IngredientCounter from "./IngredientCounter";
 
+
 const IngredientPrompt = () => {
   const { display, disableButtonTest } = useSelector(
     (state) => state.ingredientsButtons
   );
-  const { data} = useSelector(
+  const { data } = useSelector(
     (state) => state.ingredientsData
   );
   const [ingredientsLink, setIngredientsLink] = useState("");
@@ -38,6 +39,7 @@ const IngredientPrompt = () => {
 
   const displayByIngredient = () => {
     dispatch(hideElement());
+    dispatch(clearSelectedIngredients());
   };
 
   return (
@@ -50,7 +52,9 @@ const IngredientPrompt = () => {
           className="ingredient-prompt"
         >
           <FontAwesomeIcon
-            onClick={() => hidePrompt()}
+            onClick={() => {
+              hidePrompt();
+              clearSelectedIngredients()}}
             className="close-prompt"
             data-testid="close-prompt-test"
             icon={faXmark}

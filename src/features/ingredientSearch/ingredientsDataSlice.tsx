@@ -101,6 +101,14 @@ const ingredientsDataSlice = createSlice({
       }
       state.data.searchParams = arrOfIngredients.join(",");
     },
+    clearSelectedIngredients(state){
+      state.data = {
+        ingredients: [],
+        selectedIngredients: [{ id: nanoid(), value: "" }],
+        searchParams: "",
+        drinkList: [],
+      }
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchIngrediendsData.pending, (state) => {
@@ -142,6 +150,7 @@ export const {
   removeIngredientField,
   changeSelectedField,
   changeSearchParams,
+  clearSelectedIngredients
 } = ingredientsDataSlice.actions;
 
 export default ingredientsDataSlice.reducer;
