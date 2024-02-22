@@ -3,7 +3,7 @@ import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
 import {motion} from 'framer-motion'
 import { notificationPrompt } from "../../framerStyles/variants";
 
-const NotificationPrompt = ({ added }) => {
+const NotificationPrompt = ({ added }: {added: boolean}) => {
 
   return (
     <>

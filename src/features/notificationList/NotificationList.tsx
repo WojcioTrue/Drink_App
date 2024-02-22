@@ -1,9 +1,9 @@
 import NotificationPromptCheck from "./NotificationPromptCheck";
-import { useSelector } from "react-redux";
 import "../../styles/notification_prompt.css";
+import { useAppSelector } from "../../app/storeHooks";
 
 const NotificationList = () => {
-    const notificationList = useSelector(state => state.notificationList)
+    const notificationList = useAppSelector(state => state.notificationList)
 
     return (
       <div className="favourite-notification-list">

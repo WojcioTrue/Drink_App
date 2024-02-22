@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import NotificationPrompt from "./NotificationPrompt";
 import { AnimatePresence } from "framer-motion";
-import { useSelector, useDispatch } from "react-redux";
 import { clearNotification } from "./notificationListSlice" 
+import { useAppDispatch, useAppSelector } from "../../app/storeHooks";
 
-const NotificationPromptCheck = ({ element }) => {
+import type { initialStateType } from "./notificationListSlice";
+
+const NotificationPromptCheck = ({element}: {element: initialStateType} ) => {
   // state to display NotificationPrompt
   const [display, setDisplay] = useState(true);
-  const notificationList = useSelector(state => state.notificationList)
-  const dispatch = useDispatch();
+  const notificationList = useAppSelector(state => state.notificationList)
+  const dispatch = useAppDispatch();
   // unmount element after Timeout is out
   useEffect(() => {
     setTimeout(() => {

@@ -13,7 +13,7 @@ const IngredientCounter = () => {
             <AnimatedNumbers
               transitions={() => ({
                 type: "spring",
-                duration: 0.15,
+                duration: 0.5,
               })}
               animateToNumber={data.drinkList.length}
             />

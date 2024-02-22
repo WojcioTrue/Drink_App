@@ -1,16 +1,22 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = [];
+export type initialStateType = {
+  id: string;
+  isAdded: boolean;
+}
+
+const initialState: initialStateType[] | [] = [];
 
 const notificationListSlice = createSlice({
   name: "notificationList",
   initialState,
   reducers: {
     addNotification: {
-      reducer(state, action) {
-        return (state = [...state, action.payload]);
+      reducer(state, action: PayloadAction<initialStateType>) {
+        return state = [...state, action.payload];
       },
-      prepare(isAdded) {
+      prepare(isAdded: boolean) {
         return {
           payload: {
             id: nanoid(),
