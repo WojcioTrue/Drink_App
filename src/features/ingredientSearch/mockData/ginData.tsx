@@ -1,4 +1,16 @@
-export const DrinksOutletData = {
+type MockedDrinkType = {
+  strDrink: string;
+  strDrinkThumb: string;
+  idDrink: string;
+}
+
+
+export type MockedDrinkArrayType = {
+  drinks:MockedDrinkType[]
+}
+
+
+export const DrinksOutletData: MockedDrinkArrayType = {
   drinks: [
     {
       strDrink: "3-Mile Long Island Iced Tea",
