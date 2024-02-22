@@ -1,8 +1,8 @@
 import AnimatedNumbers from "react-animated-numbers";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/storeHooks";
 
 const IngredientCounter = () => {
-  const { data, error } = useSelector((state) => state.ingredientsData);
+  const { data, error } = useAppSelector((state) => state.ingredientsData);
 
   return (
     <>
@@ -11,13 +11,13 @@ const IngredientCounter = () => {
         {error === null ? (
           <label>
             <AnimatedNumbers
-            transitions={() => ({
-              type: "spring",
-              duration: 0.15,
-            })}
-            animateToNumber={data.drinkList.length}
-          />
-            </label>
+              transitions={() => ({
+                type: "spring",
+                duration: 0.15,
+              })}
+              animateToNumber={data.drinkList.length}
+            />
+          </label>
         ) : (
           <label>Some error occured...</label>
         )}

@@ -1,15 +1,15 @@
 import Button from "../../sharedComponents/Button";
 import { coctailButton } from "../../framerStyles/variants";
 import "../../styles/select_ingredient.css";
-import { useDispatch } from "react-redux";
 import { displayElement } from "./ingredientsButtonsSlice";
 import { motion } from "framer-motion";
 import { mainView } from "../../framerStyles/variants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLemon } from "@fortawesome/free-solid-svg-icons";
+import { useAppDispatch } from "../../app/storeHooks";
 
 const FindByIngredients = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const displayPrompt = () => {
     dispatch(displayElement());

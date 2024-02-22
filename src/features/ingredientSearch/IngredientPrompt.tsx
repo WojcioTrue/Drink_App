@@ -1,4 +1,3 @@
-import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { hideElement } from "./ingredientsButtonsSlice";
@@ -11,18 +10,18 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ingredientPrompt } from "../../framerStyles/variants";
 import IngredientCounter from "./IngredientCounter";
-
+import { useAppDispatch, useAppSelector } from "../../app/storeHooks";
 
 const IngredientPrompt = () => {
-  const { display, disableButtonTest } = useSelector(
+  const { display, disableButtonTest } = useAppSelector(
     (state) => state.ingredientsButtons
   );
-  const { data } = useSelector(
+  const { data } = useAppSelector(
     (state) => state.ingredientsData
   );
   const [ingredientsLink, setIngredientsLink] = useState("");
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     let inputString = data.searchParams;

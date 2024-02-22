@@ -5,7 +5,7 @@ import { Variants, motion } from "framer-motion";
 type ButtonProps = {
   children: React.ReactNode;
   variant: string,
-  animationVariant: Variants,
+  animationVariant?: Variants,
   buttonFunction?: () => void,
   isDisabled?: boolean,
 }

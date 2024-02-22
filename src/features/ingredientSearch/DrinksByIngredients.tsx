@@ -1,23 +1,24 @@
 import { AnimatePresence } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
 import CoctailListElement from "../../components/coctailListComponents/CoctailListElement";
 import Message from "../../sharedComponents/Message";
 import { noFavouriteDrinks } from "../../framerStyles/variants";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchDrinksByIngredient } from "./ingredientsDataSlice";
+import { useAppDispatch, useAppSelector } from "../../app/storeHooks";
+import type { DrinkType } from "./mockData/ginData";
 
 const DrinksByIngredients = () => {
-  const { data } = useSelector(
+  const { data } = useAppSelector(
     (state) => state.ingredientsData
   );
-  const { display } = useSelector((state) => state.ingredientsButtons);
-  const [drinksToDisplay, setDrinksToDisplay] = useState([]);
+  const { display } = useAppSelector((state) => state.ingredientsButtons);
+  const [drinksToDisplay, setDrinksToDisplay] = useState<DrinkType[]>([]);
   const ingredientsParams = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    let inputString = ingredientsParams.id.replace(/&/g, ",");
+    let inputString = ingredientsParams.id === undefined ? '' : ingredientsParams.id.replace(/&/g, ",");
     if (inputString !== "") {
       dispatch(fetchDrinksByIngredient(inputString));
     }
@@ -56,6 +57,7 @@ const DrinksByIngredients = () => {
           text={"Change ingredients you chose."}
           secondText={"Drink responsibly!"}
           img={process.env.PUBLIC_URL + "../img/fav_icon.png"}
+          imgAltText="No drinking. No image :)"
         />
       )}
     </>
