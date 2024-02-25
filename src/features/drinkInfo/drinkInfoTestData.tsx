@@ -1,6 +1,12 @@
+type Drink = {
+  [key: string]: string|null,
+}
 
+type DrinkType = {
+  drinks: Drink[]
+}
 
-export const testDrink = {
+export const testDrink:DrinkType = {
   drinks: [
     {
       idDrink: "17105",

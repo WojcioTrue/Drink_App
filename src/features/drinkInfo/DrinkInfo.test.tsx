@@ -39,7 +39,7 @@ describe("test for single drink with provided route parameter", () => {
     renderWithProviders(<DrinkInfo />);
     // await for response from rendered component
     const drinkName = await screen.findByRole("heading", {
-      name: testDrink.drinks[0]["strDrink"],
+      name: "501 Blue",
     });
     expect(drinkName).toBeInTheDocument();
   });
@@ -76,14 +76,19 @@ describe("test for single drink with provided route parameter", () => {
     });
     expect(ingredientsHeader).toBeInTheDocument();
 
-    const listOfIngredients = await screen.findAllByRole("listitem");
 
+    const listOfIngredients: HTMLElement[] = await screen.findAllByRole("listitem");
+    const mockedListToCompare = ["Blue Curacao",
+      "Blueberry schnapps",
+      "Vodka",
+      "Sour mix",
+      "7-Up"]
     // compare list of ingredients with test data
     function checkIngredients() {
       let i = 0;
       while (listOfIngredients[i] !== undefined) {
         expect(listOfIngredients[i]).toHaveTextContent(
-          testDrink.drinks[0][`strIngredient${i + 1}`]
+          mockedListToCompare[i]
         );
         i++;
       }
@@ -98,9 +103,7 @@ describe("test for single drink with provided route parameter", () => {
     const preparationHeader = await screen.findByText(/preparation/i);
     expect(preparationHeader).toBeInTheDocument();
 
-    const preparationDescription = await screen.findByText(
-      testDrink.drinks[0]["strInstructions"]
-    );
+    const preparationDescription = await screen.findByText(/Mix equal amounts into a glass with ice./i);
 
     expect(preparationDescription).toBeInTheDocument();
   });
@@ -111,9 +114,7 @@ describe("test for single drink with provided route parameter", () => {
     const preparationHeader = await screen.findByText(/type of glass/i);
     expect(preparationHeader).toBeInTheDocument();
 
-    const preparationDescription = await screen.findByText(
-      testDrink.drinks[0]["strGlass"]
-    );
+    const preparationDescription = await screen.findByText(/Collins Glass/i);
 
     expect(preparationDescription).toBeInTheDocument();
   });
@@ -130,7 +131,7 @@ describe("test for single drink with provided route parameter", () => {
     const secondErrorMessage = screen.getByText(/return to home page./i);
     expect(secondErrorMessage).toBeInTheDocument()
 
-    const returnButton = screen.getByRole('button', {name: /return home/i})
+    const returnButton = screen.getByRole('button', { name: /return home/i })
     expect(returnButton).toBeInTheDocument()
   });
 });

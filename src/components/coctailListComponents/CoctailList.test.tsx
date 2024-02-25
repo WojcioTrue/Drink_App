@@ -1,5 +1,5 @@
 import { setupServer } from "msw/node";
-import { screen, waitForElementToBeRemoved } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/test-utils";
 import CoctailList from "./CoctailList";
 import {
@@ -58,7 +58,7 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
     //loop through vodka drinks and check if img exist
     for (let i = 0; i < vodka.drinks.length; i++) {
       let element = vodka.drinks[i];
-      const drinkImage = await screen.findByRole("img", {
+      const drinkImage: HTMLImageElement = await screen.findByRole("img", {
         name: element.strDrink,
       });
       // src of img should be the same as mocked data
@@ -113,7 +113,7 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
     renderWithProviders(<CoctailList />, { store });
 
     // error Img inside NotFound message
-    const errorPic = await screen.findByRole("img");
+    const errorPic : HTMLImageElement = await screen.findByRole("img");
     expect(errorPic.alt).toContain("Alt img for error prompt");
 
     // should return error text
