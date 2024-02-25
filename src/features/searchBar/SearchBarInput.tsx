@@ -1,16 +1,17 @@
 import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import SearchBarSuggestions from "./SearchBarSuggestions";
-import { useDispatch, useSelector } from "react-redux";
 import { searchDrinks } from "./searchBarSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useAppDispatch, useAppSelector } from "../../app/storeHooks";
+
 const SearchBarInput = () => {
-  const [searchDrink, setSearchDrink] = useState("");
-  const dispatch = useDispatch();
-  const { searchDrinkData } = useSelector((state) => state.searchBar);
+  const [searchDrink, setSearchDrink] = useState<string>("");
+  const dispatch = useAppDispatch();
+  const { searchDrinkData } = useAppSelector((state) => state.searchBar);
   // const searchInput = useRef(false)
   const [searchInputFocus, setSearchInputFocus] = useState(true);
-  
+
   // check if element have focus
   const checkFocus = () => {
     const elementFocus = document.querySelector("#SearchDrink");
@@ -39,7 +40,7 @@ const SearchBarInput = () => {
   }, [dispatch, searchDrink]);
 
   // event listener for changed input value
-  const drinkToSearch = (e) => {
+  const drinkToSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchDrink(e.target.value);
   };
   // Clear search input button
@@ -77,7 +78,6 @@ const SearchBarInput = () => {
           <SearchBarSuggestions
             drinkList={searchDrinkData}
             setSearchDrink={setSearchDrink}
-            searchDrink={searchDrink}
           />
         )}
       </span>
