@@ -1,10 +1,8 @@
 import {
   fireEvent,
   screen,
-  waitForElementToBeRemoved,
 } from "@testing-library/react";
 import DrinkInfo from "./DrinkInfo";
-import "react-intersection-observer/test-utils";
 import { setupServer } from "msw/lib/node";
 import { rest } from "msw";
 import { testDrink } from "./drinkInfoTestData";
