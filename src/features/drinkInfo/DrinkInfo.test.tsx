@@ -76,19 +76,14 @@ describe("test for single drink with provided route parameter", () => {
     });
     expect(ingredientsHeader).toBeInTheDocument();
 
+    const listOfIngredients: HTMLLIElement[] = await screen.findAllByRole("listitem");
 
-    const listOfIngredients: HTMLElement[] = await screen.findAllByRole("listitem");
-    const mockedListToCompare = ["Blue Curacao",
-      "Blueberry schnapps",
-      "Vodka",
-      "Sour mix",
-      "7-Up"]
     // compare list of ingredients with test data
     function checkIngredients() {
       let i = 0;
       while (listOfIngredients[i] !== undefined) {
         expect(listOfIngredients[i]).toHaveTextContent(
-          mockedListToCompare[i]
+          `${testDrink.drinks[0][`strIngredient${i + 1}`]}`
         );
         i++;
       }
@@ -103,7 +98,7 @@ describe("test for single drink with provided route parameter", () => {
     const preparationHeader = await screen.findByText(/preparation/i);
     expect(preparationHeader).toBeInTheDocument();
 
-    const preparationDescription = await screen.findByText(/Mix equal amounts into a glass with ice./i);
+    const preparationDescription = await screen.findByText(`${testDrink.drinks[0][`strInstructions`]}`);
 
     expect(preparationDescription).toBeInTheDocument();
   });
@@ -114,7 +109,7 @@ describe("test for single drink with provided route parameter", () => {
     const preparationHeader = await screen.findByText(/type of glass/i);
     expect(preparationHeader).toBeInTheDocument();
 
-    const preparationDescription = await screen.findByText(/Collins Glass/i);
+    const preparationDescription = await screen.findByText(`${testDrink.drinks[0][`strGlass`]}`);
 
     expect(preparationDescription).toBeInTheDocument();
   });
