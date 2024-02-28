@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 export const getDrinks = createAsyncThunk(
   `categoryList/getDrinks`,
@@ -15,13 +15,7 @@ export const getDrinks = createAsyncThunk(
   }
 );
 
-type initialStateProps = {
-  data : [];
-  loading: string;
-  error : null | string;
-}
-
-const initialState: initialStateProps = {
+const initialState: InitialStateProps = {
   data: [],
   loading: "idle",
   error: null,
@@ -36,7 +30,7 @@ const categoryListSlice = createSlice({
       state.loading = "pending";
       state.error = null;
     });
-    builder.addCase(getDrinks.fulfilled, (state, action) => {
+    builder.addCase(getDrinks.fulfilled, (state, action: PayloadAction<CategoryDrinkType[]>) => {
       state.data = action.payload;
       state.loading = "idle";
       state.error = null;
