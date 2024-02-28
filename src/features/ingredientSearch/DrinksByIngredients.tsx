@@ -6,14 +6,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchDrinksByIngredient } from "./ingredientsDataSlice";
 import { useAppDispatch, useAppSelector } from "../../app/storeHooks";
-import type { DrinkType } from "./mockData/ginData";
+
 
 const DrinksByIngredients = () => {
   const { data } = useAppSelector(
     (state) => state.ingredientsData
   );
   const { display } = useAppSelector((state) => state.ingredientsButtons);
-  const [drinksToDisplay, setDrinksToDisplay] = useState<DrinkType[]>([]);
+  const [drinksToDisplay, setDrinksToDisplay] = useState<GlobalDrinkType[]>([]);
   const ingredientsParams = useParams();
   const dispatch = useAppDispatch();
 

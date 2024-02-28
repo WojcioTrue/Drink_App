@@ -1,8 +1,3 @@
-type IngredientPromptDataType = {
-  drinks: {
-      strIngredient1: string;
-  }[];
-}
 
 export const ingredientPromptData:IngredientPromptDataType = {
   drinks: [

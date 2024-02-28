@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 
 export const getDrinkData = createAsyncThunk(
@@ -16,13 +16,7 @@ export const getDrinkData = createAsyncThunk(
   }
 );
 
-type InitialStateType = {
-  data : Record<string,null>;
-  loading: string,
-  error: null | string,
-}
-
-const initialState:InitialStateType = {
+const initialState:InitialDrinkDataType = {
   data: {},
   loading: "idle",
   error: null,
@@ -37,12 +31,12 @@ const drinkDataSlice = createSlice({
       state.loading = "pending";
       state.error = null;
     });
-    builder.addCase(getDrinkData.fulfilled, (state, action) => {
+    builder.addCase(getDrinkData.fulfilled, (state, action: PayloadAction<Record<string, string | null>>) => {
       state.data = action.payload;
       state.loading = "idle";
       state.error = null;
     });
-    builder.addCase(getDrinkData.rejected, (state, action) => {
+    builder.addCase(getDrinkData.rejected, (state) => {
       state.loading = "idle";
       state.error = "Error occured";
     });

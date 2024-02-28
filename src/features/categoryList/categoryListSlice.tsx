@@ -30,7 +30,7 @@ const categoryListSlice = createSlice({
       state.loading = "pending";
       state.error = null;
     });
-    builder.addCase(getDrinks.fulfilled, (state, action: PayloadAction<CategoryDrinkType[]>) => {
+    builder.addCase(getDrinks.fulfilled, (state, action: PayloadAction<GlobalDrinkType[]>) => {
       state.data = action.payload;
       state.loading = "idle";
       state.error = null;

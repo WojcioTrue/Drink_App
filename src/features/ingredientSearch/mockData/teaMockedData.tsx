@@ -1,6 +1,4 @@
-import { MockedDrinkArrayType } from "./ginData";
-
-export const teaMockedData: MockedDrinkArrayType = {
+export const teaMockedData: GlobalMockedDrinksType = {
   drinks: [
     {
       strDrink: "Amaretto Tea",

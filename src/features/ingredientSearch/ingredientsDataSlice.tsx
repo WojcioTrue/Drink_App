@@ -1,10 +1,10 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
-import type { DrinkType } from "./mockData/ginData";
+
 
 export const fetchDrinksByIngredient = createAsyncThunk(
   "categoryList/fetchDrinksByIngredient",
-  async (searchParams: string , { rejectWithValue }) => {
+  async (searchParams: string, { rejectWithValue }) => {
     try {
       let url =
         "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=";
@@ -43,15 +43,15 @@ export const fetchIngrediendsData = createAsyncThunk(
 
 type initialStateType = {
   data: {
-      ingredients: string[];
-      selectedIngredients: {
-          id: string;
-          value: string;
-      }[];
-      searchParams: string;
-      drinkList: DrinkType[];
+    ingredients: string[];
+    selectedIngredients: {
+      id: string;
+      value: string;
+    }[];
+    searchParams: string;
+    drinkList: GlobalDrinkType[];
   };
-  loading: string;
+  loading: "pending" | "idle";
   error: null | string;
 }
 
@@ -76,12 +76,15 @@ const ingredientsDataSlice = createSlice({
         { id: nanoid(), value: "" },
       ];
     },
-    removeIngredientField(state, action) {
+    removeIngredientField(state, action: PayloadAction<string>) {
       state.data.selectedIngredients = state.data.selectedIngredients.filter(
         (ingredient) => ingredient.id !== action.payload
       );
     },
-    changeSelectedField(state, action) {
+    changeSelectedField(state, action: PayloadAction<{
+      id: string;
+      value: string;
+    }>) {
       state.data.selectedIngredients = state.data.selectedIngredients.map(
         (listElement) =>
           listElement.id === action.payload.id
@@ -101,7 +104,7 @@ const ingredientsDataSlice = createSlice({
       }
       state.data.searchParams = arrOfIngredients.join(",");
     },
-    clearSelectedIngredients(state){
+    clearSelectedIngredients(state) {
       state.data = {
         ingredients: [],
         selectedIngredients: [{ id: nanoid(), value: "" }],
@@ -115,15 +118,15 @@ const ingredientsDataSlice = createSlice({
       state.loading = "pending";
       state.error = null;
     });
-    builder.addCase(fetchIngrediendsData.fulfilled, (state, action) => {
+    builder.addCase(fetchIngrediendsData.fulfilled, (state, action: PayloadAction<IngredientPromptDataType>) => {
       const data = action.payload;
       state.data.ingredients = data.drinks.map(
-        (element: {strIngredient1: string}) => element.strIngredient1
+        (element: { strIngredient1: string }) => element.strIngredient1
       );
       state.loading = "idle";
       state.error = null;
     });
-    builder.addCase(fetchIngrediendsData.rejected, (state, action) => {
+    builder.addCase(fetchIngrediendsData.rejected, (state) => {
       state.loading = "idle";
       state.error = "Error occured";
     });
@@ -133,7 +136,7 @@ const ingredientsDataSlice = createSlice({
       state.loading = "pending";
       state.error = null;
     });
-    builder.addCase(fetchDrinksByIngredient.fulfilled, (state, action) => {
+    builder.addCase(fetchDrinksByIngredient.fulfilled, (state, action: PayloadAction<GlobalDrinkType[]>) => {
       state.data.drinkList = action.payload;
       state.loading = "idle";
       state.error = null;

@@ -1,16 +1,4 @@
-export type DrinkType = {
-  strDrink: string;
-  strDrinkThumb: string;
-  idDrink: string;
-}
-
-
-export type MockedDrinkArrayType = {
-  drinks:DrinkType[]
-}
-
-
-export const DrinksOutletData: MockedDrinkArrayType = {
+export const DrinksOutletData: GlobalMockedDrinksType = {
   drinks: [
     {
       strDrink: "3-Mile Long Island Iced Tea",
