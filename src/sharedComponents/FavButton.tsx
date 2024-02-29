@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { mainView } from "../framerStyles/variants";
 // import FavListIcons from "../features/favouriteList/FavListIcons";
 import { useAppSelector } from "../app/storeHooks";
-import FavouriteList from "../features/favouriteList/FavouriteList";
 import { useEffect } from "react";
 
 const FavButton = () => {
@@ -22,7 +21,10 @@ const FavButton = () => {
         animate="show"
         className="fav-button"
       >
-        {listOfFavourite.length}
+        
+        <div className="favListCounter">
+            <p>{listOfFavourite.length}</p>
+        </div>
       </motion.div>
     </Link>
   );

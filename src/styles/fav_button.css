@@ -1,5 +1,5 @@
 .fav-button {
-  background-color: rgb(100, 58, 131);
+  background-color: rgb(234 76 137);
   width: 70px;
   height: 70px;
   position: fixed;
@@ -8,12 +8,31 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
 .fav-button img {
   width: 40px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.favListCounter {
+  background-color: rgb(100, 58, 131);
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favListCounter p {
+  color: white;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 992px) {
