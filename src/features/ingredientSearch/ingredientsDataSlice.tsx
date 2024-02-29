@@ -51,8 +51,8 @@ type initialStateType = {
     searchParams: string;
     drinkList: GlobalDrinkType[];
   };
-  loading: "pending" | "idle";
-  error: null | string;
+  loading: globalLoadingType;
+  error: globalErrorType;
 }
 
 const initialState: initialStateType = {
@@ -141,7 +141,7 @@ const ingredientsDataSlice = createSlice({
       state.loading = "idle";
       state.error = null;
     });
-    builder.addCase(fetchDrinksByIngredient.rejected, (state, action) => {
+    builder.addCase(fetchDrinksByIngredient.rejected, (state) => {
       state.loading = "idle";
       state.error = "Error occured";
     });

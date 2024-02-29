@@ -1,6 +1,11 @@
 export { }
 
 declare global {
+
+    type globalLoadingType = "pending" | "idle"
+
+    type globalErrorType = null | "Error occured";
+
     type GlobalDrinkType = {
         strDrink: string;
         strDrinkThumb: string;
@@ -13,25 +18,25 @@ declare global {
 
     type InitialStateProps = {
         data: GlobalDrinkType[];
-        loading: "pending" | "idle";
-        error: null | string;
+        loading: globalLoadingType;
+        error: globalErrorType;
     }
 
     type InitialDrinkDataType = {
         data: Record<string, string | null>;
-        loading: "idle" | "pending",
-        error: null | "Error occured",
+        loading: globalLoadingType;
+        error: globalErrorType;
     }
 
     type IngredientPromptDataType = {
         drinks: {
             strIngredient1: string;
         }[];
-        }
+    }
 
     type SearchBarType = {
-        searchDrinkData:  {drinks: GlobalDrinkType[]} ,
-        loading: "idle" | "pending",
-        error: null | "Error occured",
-      }
+        searchDrinkData: { drinks: GlobalDrinkType[] } | undefined;
+        loading: globalLoadingType;
+        error: globalErrorType;
     }
+}
