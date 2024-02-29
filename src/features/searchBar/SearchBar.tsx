@@ -25,10 +25,11 @@ const Searchbar = () => {
             className="search-bar__logo"
             title="logo"
           />
-          FindMyDrink.
+          Find<span className="search-bar__color-name">MyDrink</span>
+          .
         </Link>
       </h2>
-        <SearchBarInput/>
+      <SearchBarInput />
     </motion.div>
   );
 };

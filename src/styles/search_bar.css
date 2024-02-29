@@ -14,11 +14,17 @@
 }
 
 .search-bar h2 a {
-  color: #1C0B19;
+  color: rgb(108, 55, 146);
+  letter-spacing: 1px;
+  font-weight: 500;
 }
 
 .search-bar__logo {
   padding-right: 5px;
+}
+
+.search-bar__color-name {
+  color: #EA4C89;
 }
 
 .search-bar__logo path {
