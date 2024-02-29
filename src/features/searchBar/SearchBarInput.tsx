@@ -12,6 +12,7 @@ const SearchBarInput = () => {
   // const searchInput = useRef(false)
   const [searchInputFocus, setSearchInputFocus] = useState(true);
 
+  //trying NOT TO USE USEREF HOOK (to test skills)
   // check if element have focus
   const checkFocus = () => {
     const elementFocus = document.querySelector("#SearchDrink");
@@ -76,7 +77,7 @@ const SearchBarInput = () => {
         {/* remove focus when you click outside searchbar, hide suggestions */}
         {searchInputFocus && Boolean(searchDrinkData) && (
           <SearchBarSuggestions
-            drinkList={searchDrinkData}
+            drinkList={searchDrinkData!}
             setSearchDrink={setSearchDrink}
           />
         )}

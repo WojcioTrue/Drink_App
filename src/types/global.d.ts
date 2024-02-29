@@ -28,4 +28,10 @@ declare global {
             strIngredient1: string;
         }[];
         }
+
+    type SearchBarType = {
+        searchDrinkData:  {drinks: GlobalDrinkType[]} ,
+        loading: "idle" | "pending",
+        error: null | "Error occured",
+      }
     }

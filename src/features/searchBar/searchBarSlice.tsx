@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const searchDrinks = createAsyncThunk(
@@ -13,19 +13,7 @@ export const searchDrinks = createAsyncThunk(
   }
 );
 
-type DrinkType = {
-  idDrink: string;
-  strDrink: string;
-  strDrinkThumb: string;
-}
-
-type InitialStateType = {
-  searchDrinkData: { drinks: DrinkType[] },
-  loading: string,
-  error: null | string,
-}
-
-const initialState: InitialStateType = {
+const initialState: SearchBarType = {
   searchDrinkData: { drinks: [] },
   loading: "idle",
   error: null,
@@ -36,17 +24,14 @@ const searchBarSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(searchDrinks.pending, (state, action) => {
-      if (state.loading === 'idle') {
-        state.loading = 'pending'
-      }
+    builder.addCase(searchDrinks.pending, (state) => {
+      state.loading = 'pending'
     })
-    builder.addCase(searchDrinks.fulfilled, (state, action) => {
-      if (state.loading === 'pending') {
-        state.searchDrinkData = action.payload
-        state.loading = 'idle'
-      }
-    });
+    builder.addCase(searchDrinks.fulfilled, (state, action: PayloadAction<{ drinks: GlobalDrinkType[]; }>) => {
+      state.searchDrinkData = action.payload
+      state.loading = 'idle'
+    }
+    );
   },
 });
 
