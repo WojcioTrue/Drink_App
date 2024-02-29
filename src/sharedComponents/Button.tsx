@@ -10,7 +10,7 @@ type ButtonProps = {
   isDisabled?: boolean,
 }
 
-const Button: React.FC<ButtonProps> = ({ children, variant, animationVariant, buttonFunction, isDisabled }: ButtonProps) => {
+const Button = ({ children, variant, animationVariant, buttonFunction, isDisabled }: ButtonProps) => {
   return (
     <motion.button
       variants={isDisabled ? undefined : animationVariant}

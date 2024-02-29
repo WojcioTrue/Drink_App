@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useAppSelector } from '../app/storeHooks'
 import { grayBackground } from "../framerStyles/variants";
 
-const GrayBackground: React.FC = () => {
+const GrayBackground = () => {
   const { display } = useAppSelector((state) => state.ingredientsButtons);
 
   return (

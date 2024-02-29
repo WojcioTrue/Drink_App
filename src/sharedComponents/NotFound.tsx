@@ -5,7 +5,7 @@ import '../styles/not_found.css'
 import { coctailButton } from '../framerStyles/variants'
 import { noFavouriteDrinks } from '../framerStyles/variants'
 
-const NotFound: React.FC = () => {
+const NotFound = () => {
   return (
     <div className="not-found">
       <Message

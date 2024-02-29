@@ -17,13 +17,7 @@ type AddRemButtonProps = {
   className: string,
 }
 
-type favouriteElement = {
-  idDrink: string,
-  strDrink: string,
-  strDrinkThumb: string,
-}
-
-const localStorageFavouriteList = (type: string, state: favouriteElement[], element: favouriteElement) => {
+const localStorageFavouriteList = (type: string, state: GlobalDrinkType[], element: GlobalDrinkType) => {
   switch (type) {
     case "add":
       localStorage.setItem(
