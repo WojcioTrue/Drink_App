@@ -20,16 +20,35 @@
 .favourite-notification p {
   color: #FDFDFD;
   display: inline-block;
-  font-size: 0.8rem;
   font-weight: 600;
   margin-right: 15px;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 
 .favourite-notification-list .remove {
   background-color: rgb(108, 55, 146);
 
 }
+
+.favourite-notification svg {
+  width: 15px;
+}
+
 .favourite-notification svg path {
   fill: #FDFDFD;
 }
+
+@media only screen and (min-width: 768px) {
+  .favourite-notification p {
+    color: #FDFDFD;
+    display: inline-block;
+    font-weight: 600;
+    margin-right: 15px;
+    font-size: 0.8rem;
+  }
+
+  .favourite-notification svg {
+    width: 30px;
+  }
+}
+
