@@ -5,7 +5,7 @@
   position: fixed;
   right: 20px;
   bottom: 20px;
-  border-radius: 100px;
+  border-radius: 10px;
   cursor: pointer;
 }
 .fav-button img {
