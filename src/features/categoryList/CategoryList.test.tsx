@@ -16,7 +16,6 @@ describe("Tests for category list elements", () => {
     renderWithProviders(<CategoryList />);
 
     const categoriesList = screen.getAllByRole("listitem");
-    // com
     categoriesList.forEach((listElement,i) =>
       expect(`${arrayOfCategories[i].text}`).toEqual(listElement.textContent)
     );
