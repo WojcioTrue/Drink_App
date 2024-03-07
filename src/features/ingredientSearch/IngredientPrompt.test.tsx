@@ -134,7 +134,7 @@ describe("test for displaying elements of IngredientPrompt", () => {
       }
       expect(ingredients[i]).toBeInTheDocument();
       // ommit first element in list '-- please choose an option--'
-      expect(ingredients[i + 1].value).toBe(
+      expect(ingredients[i + 1].textContent).toBe(
         ingredientPromptData.drinks[i].strIngredient1
       );
     }
@@ -203,7 +203,7 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
     store.dispatch(displayElement());
     renderWithProviders(<IngredientPrompt />, { store });
 
-    let button;
+    let button! : HTMLButtonElement;
 
     await waitFor(async () => {
       button = await screen.findByTestId(/close-prompt-test/i);
@@ -219,7 +219,7 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
     store.dispatch(displayElement());
     renderWithProviders(<IngredientPrompt />, { store });
 
-    let addIngredient;
+    let addIngredient! : HTMLButtonElement;
 
     await waitFor(async () => {
       addIngredient = await screen.findByRole("button", {
@@ -245,7 +245,7 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
     store.dispatch(displayElement());
     renderWithProviders(<IngredientPrompt />, { store });
 
-    let addIngredientButton;
+    let addIngredientButton! : HTMLButtonElement;
 
     await waitFor(async () => {
       addIngredientButton = await screen.findByRole("button", {
@@ -316,7 +316,7 @@ describe("Tests for interactions with Ingredient-prompt component", () => {
     store.dispatch(displayElement());
     renderWithProviders(<IngredientPrompt />, { store });
 
-    let displayDrinks;
+    let displayDrinks! :HTMLButtonElement;
 
     await waitFor(async () => {
       displayDrinks = await screen.findByRole("button", {

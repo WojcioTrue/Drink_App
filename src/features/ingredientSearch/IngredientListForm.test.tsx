@@ -41,7 +41,7 @@ describe("tests for IngredientListForm component", () => {
   test("should render 'selectField1' select field with 1 option '--please choose an option--'", async () => {
     renderWithProviders(<IngredientListForm />);
 
-    let selectfield;
+    let selectfield! : HTMLSelectElement;
 
     await waitFor(async () => {
       selectfield = await screen.findByTestId(/selectfield1/i);
