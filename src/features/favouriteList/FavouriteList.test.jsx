@@ -7,7 +7,7 @@ import { addToFavourite } from "./favouriteListSlice";
 import "react-intersection-observer/test-utils";
 import { arrOfFavourite } from "./FavListFullScreenData";
 
-describe("tests for favourite list container full screen", () => {
+describe("tests for 'favouriteList' when it's as list on desktop view", () => {
   test("should render list of favourite drinks with A1 drink", () => {
     const store = setupStore();
 
@@ -46,7 +46,7 @@ describe("tests for favourite list container full screen", () => {
     });
     expect(drinkName).toBeInTheDocument();
   });
-  test("should render list of favourite drinks with data from arrOfFavourite variable", () => {
+  test("should render list of favourite drinks with data from 'arrOfFavourite'", () => {
     const store = setupStore();
 
     for (let i = 0; i < arrOfFavourite.length; i++) {
@@ -66,7 +66,7 @@ describe("tests for favourite list container full screen", () => {
 
     }
   });
-  test("should remove drink from list after button click", () => {
+  test("should remove drink from list after clicking 'removeFavourite' button", () => {
     const store = setupStore();
 
     store.dispatch(
