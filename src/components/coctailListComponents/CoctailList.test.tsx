@@ -104,32 +104,52 @@ describe("Tests for CoctailList component that renders list of coctails", () => 
       });
     }
   });
+});
 
-  test("dispatching wrong category", async () => {
-    // setup initial store for redux wrapper
+
+describe('dispatching wrong category "Gin_Vodka" in Coctail List', () => {
+  test("should return error picture", async () => {
     const store = setupStore();
-    // dispatching invalid category to redux thunk
+
     store.dispatch(getDrinks("Gin_Vodka"));
     renderWithProviders(<CoctailList />, { store });
 
-    // error Img inside NotFound message
-    const errorPic : HTMLImageElement = await screen.findByRole("img");
+
+    const errorPic: HTMLImageElement = await screen.findByRole("img");
     expect(errorPic.alt).toContain("Alt img for error prompt");
+  })
 
-    // should return error text
-    const errorHeader = screen.getByText(/something went wrong!/i);
+  test("should return heading of error message", async () => {
+    const store = setupStore();
+    store.dispatch(getDrinks("Gin_Vodka"));
+    renderWithProviders(<CoctailList />, { store });
+
+    const errorHeader = await screen.findByText(/something went wrong!/i);
     expect(errorHeader).toBeInTheDocument();
+  });
 
-    // description of error
-    const descriptionError = screen.getByText(
+  test("should return description of error", async () => {
+    const store = setupStore();
+    store.dispatch(getDrinks("Gin_Vodka"));
+    renderWithProviders(<CoctailList />, { store });
+
+    const descriptionError = await screen.findByText(
       /I don't see the page you looking for, or some error occured.../i
     );
     expect(descriptionError).toHaveTextContent(
       "I don't see the page you looking for, or some error occured..."
     );
+  });
+
+
+  test("should return button 'return home'", async () => {
+    const store = setupStore();
+    store.dispatch(getDrinks("Gin_Vodka"));
+    renderWithProviders(<CoctailList />, { store });
 
     // button to return homepage
-    const homeButton = screen.getByRole("button", { name: /return home/i });
+    const homeButton = await screen.findByRole("button", { name: /return home/i });
     expect(homeButton).toBeInTheDocument();
   });
-});
+
+})
