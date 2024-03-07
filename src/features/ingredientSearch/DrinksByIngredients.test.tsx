@@ -1,5 +1,4 @@
 import { screen } from "@testing-library/react";
-import React from "react";
 import "@testing-library/jest-dom";
 import DrinksByIngredients from "./DrinksByIngredients";
 import { renderWithProviders } from "../../utils/test-utils";

@@ -1,5 +1,4 @@
 import { screen, waitFor, fireEvent } from "@testing-library/react";
-import React from "react";
 import "@testing-library/jest-dom";
 import IngredientListForm from "./IngredientListForm";
 import { renderWithProviders } from "../../utils/test-utils";
