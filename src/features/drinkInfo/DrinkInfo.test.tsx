@@ -32,7 +32,7 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-describe("test for single drink with provided route parameter", () => {
+describe("test for single drink with mocked id parameter in react-router-dom", () => {
   test("should render 501 Blue drinkName", async () => {
     require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
     // initiate render with dispatched drink id
@@ -66,7 +66,8 @@ describe("test for single drink with provided route parameter", () => {
     );
     expect(removeButtonDescription).toBeInTheDocument();
   });
-  test("should render list of ingredients", async () => {
+
+  test("Should return 'list of ingredients' header", async () => {
     require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
     renderWithProviders(<DrinkInfo />);
 
@@ -75,6 +76,11 @@ describe("test for single drink with provided route parameter", () => {
       name: /list of ingredients/i,
     });
     expect(ingredientsHeader).toBeInTheDocument();
+
+  })
+  test("should render list of ingredients", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
+    renderWithProviders(<DrinkInfo />);
 
     const listOfIngredients: HTMLLIElement[] = await screen.findAllByRole("listitem");
 
@@ -91,42 +97,68 @@ describe("test for single drink with provided route parameter", () => {
 
     checkIngredients();
   });
-  test("should return preparation info", async () => {
+
+  test("should return 'Preparation' header", async () => {
     require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
     renderWithProviders(<DrinkInfo />);
 
     const preparationHeader = await screen.findByText(/preparation/i);
     expect(preparationHeader).toBeInTheDocument();
+  })
+
+  test("should return preparation info", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
+    renderWithProviders(<DrinkInfo />);
 
     const preparationDescription = await screen.findByText(`${testDrink.drinks[0][`strInstructions`]}`);
 
     expect(preparationDescription).toBeInTheDocument();
   });
-  test("should return type of glass for drink", async () => {
+  test("should return 'type of glass' header", async () => {
     require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
     renderWithProviders(<DrinkInfo />);
 
     const preparationHeader = await screen.findByText(/type of glass/i);
     expect(preparationHeader).toBeInTheDocument();
+  })
+  test("should return type of glass description", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105" });
+    renderWithProviders(<DrinkInfo />);
 
     const preparationDescription = await screen.findByText(`${testDrink.drinks[0][`strGlass`]}`);
 
     expect(preparationDescription).toBeInTheDocument();
   });
-  test("mock react thunk with invalid drink id", async () => {
+});
+
+describe("Mocking react-router-dom with invalid data to cause error", () => {
+  test("Should return 'something went wront' header", async () => {
     require("react-router-dom").useParams.mockReturnValue({ id: "17105x" });
     renderWithProviders(<DrinkInfo />);
 
     const errorHeader = await screen.findByText(/something went wrong!/i);
     expect(errorHeader).toBeInTheDocument();
-    const firstErrorMessage = screen.getByText(
+  });
+  test("Should return first paragraph of error message", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105x" });
+    renderWithProviders(<DrinkInfo />);
+
+    const firstErrorMessage = await screen.findByText(
       /i don't see the page you looking for, or some error occured.../i
     );
     expect(firstErrorMessage).toBeInTheDocument()
-    const secondErrorMessage = screen.getByText(/return to home page./i);
+  })
+  test("Should return second paragraph of error message", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105x" });
+    renderWithProviders(<DrinkInfo />);
+    const secondErrorMessage = await screen.findByText(/return to home page./i);
     expect(secondErrorMessage).toBeInTheDocument()
+  })
 
-    const returnButton = screen.getByRole('button', { name: /return home/i })
+  test("Should return 'return home' button", async () => {
+    require("react-router-dom").useParams.mockReturnValue({ id: "17105x" });
+    renderWithProviders(<DrinkInfo />);
+    const returnButton = await screen.findByRole('button', { name: /return home/i })
     expect(returnButton).toBeInTheDocument()
-  });
-});
+  })
+})
