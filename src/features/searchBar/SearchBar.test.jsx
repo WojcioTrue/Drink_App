@@ -6,11 +6,11 @@ import { renderWithProviders } from "../../utils/test-utils";
 describe("tests for searchBar component", () => {
   test("should renturn app name", () => {
     renderWithProviders(<SearchBar />);
-
-    const logoRole = screen.getByTitle("logo");
-    expect(logoRole).toBeInTheDocument();
+    
+    const appName = screen.getByRole("heading", {name: /find mydrink ./i});
+    expect(appName).toBeInTheDocument()
   });
-  test("should renturn logo by title", () => {
+  test("should renturn logo by title 'logo'", () => {
     renderWithProviders(<SearchBar />);
 
     const logoRole = screen.getByTitle("logo");

@@ -18,17 +18,17 @@ const Searchbar = () => {
       animate="show"
       className="search-bar"
     >
-      <h2>
-        <Link to="/">
-          <FontAwesomeIcon
-            icon={faMartiniGlassCitrus}
-            className="search-bar__logo"
-            title="logo"
-          />
+      <Link to="/">
+        <FontAwesomeIcon
+          icon={faMartiniGlassCitrus}
+          className="search-bar__logo"
+          title="logo"
+        />
+        <h2>
           Find<span className="search-bar__color-name">MyDrink</span>
           .
-        </Link>
-      </h2>
+        </h2>
+      </Link>
       <SearchBarInput />
     </motion.div>
   );
