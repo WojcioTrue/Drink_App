@@ -7,13 +7,15 @@
 
 .search-bar a {
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .search-bar h2 {
   width: 100%;
 }
 
-.search-bar h2 a {
+.search-bar a h2  {
   color: rgb(108, 55, 146);
   letter-spacing: 1px;
   font-weight: 500;
