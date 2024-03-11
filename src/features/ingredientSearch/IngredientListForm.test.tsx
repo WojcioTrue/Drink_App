@@ -25,7 +25,7 @@ beforeAll(() => server.listen());
 afterAll(() => server.close());
 
 describe("tests for IngredientListForm component", () => {
-  test("should 'Ingredient 1' label", async () => {
+  test("should render 'Ingredient 1' label", async () => {
     renderWithProviders(<IngredientListForm />);
 
     let selectLabel;

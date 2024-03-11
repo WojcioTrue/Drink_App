@@ -44,7 +44,7 @@ beforeAll(() => server.listen());
 afterAll(() => server.close());
 
 describe("tests if ingredients prompt is displayed", () => {
-  test("should not display prompt, didn't dispatched action", () => {
+  test("should not display prompt, didn't dispatched action to display component", () => {
     renderWithProviders(<IngredientPrompt />);
 
     const promptLabel = screen.queryByText(/select ingredients:/i);
@@ -124,10 +124,10 @@ describe("test for displaying elements of IngredientPrompt", () => {
     const tea = await screen.findByRole("option", { name: /tea/i });
     expect(tea).toBeInTheDocument();
 
-    const ingredients = await screen.findAllByRole("option");
+    const ingredients = screen.getAllByRole("option");
 
     for (let i = 0; i < ingredients.length; i++) {
-      // ommit last element in array, because it's gonna be check thank's to ingredients[i + 1]
+      // ommit last element in array, because it's gonna be check thanks to ingredients[i + 1]
       if (i === ingredients.length - 1) {
         break;
       }
